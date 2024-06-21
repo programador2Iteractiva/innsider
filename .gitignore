@@ -1,0 +1,9 @@
+*.log
+.htaccess
+.idea
+wp-config.php
+.well-known
+error_log
+.wp-cli
+cgi-bin
+doc.default.php

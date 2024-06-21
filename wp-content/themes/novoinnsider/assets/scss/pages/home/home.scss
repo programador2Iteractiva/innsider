@@ -1,0 +1,83 @@
+/* Styles Banner Initial */
+
+.banner {
+    position: relative;
+    overflow-x: hidden;
+
+    * {
+        z-index: 1;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+
+        .swiper-wrapper {
+
+            .swiper-slide {
+                position: relative;
+                height: 175px;
+                align-items: flex-end !important;
+
+                @include center-horizontally;
+                @include center-vertically;
+
+                a {
+                    text-decoration: none;
+                }
+
+                @include media-breakpoint-up(md) {
+                    height: 300px;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    //padding: 4rem;
+                    //padding-bottom: 6rem;
+                    //justify-content: flex-end;
+                    align-items: flex-end;
+                }
+
+                @include media-breakpoint-up(xl) {
+                    height: 495px;
+                    //padding: 5rem;
+                    //padding-bottom: 3rem;
+                }
+
+                @include media-breakpoint-up(xxl) {
+                    height: 520px;
+                }
+
+                @include media-breakpoint-up(xxxl) {
+                    height: 650px;
+                    //padding: 6rem;
+                    //padding-bottom: 3rem;
+                }
+            }
+
+        }
+    }
+}
+
+.swiper-pagination {
+    &-bullet {
+        background-color: rgba(red, 1) !important;
+        margin: 0 4px !important;
+        width: 2.5rem !important;
+        height: 0.5rem !important;
+        border-radius: 0.1rem !important;
+    }
+
+    &-bullet-active {
+        background-color: red !important;
+        margin: 0 4px !important;
+        width: 2.5rem !important;
+        height: 0.5rem !important;
+        border-radius: 0.1rem !important;
+    }
+}
+
+.banner-image-all-speakers{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

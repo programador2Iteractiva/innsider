@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" style="margin: 0 !important;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php the_title(); ?></title>
+    <?php wp_head(); ?>
+</head>
+
+<body>
+
+    <?php if (!is_page('registro') && !is_page('login')) : ?>
+        <header>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg py-4">
+                    <div class="container-fluid">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="d-block">
+                                <?php if (has_custom_logo()) : ?>
+                                    <?php the_custom_logo(); ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#main-menu" aria-controls="main-menu">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="main-menu" aria-labelledby="main-menu-label">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="main-menu-label">Menu</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body d-lg-flex d-block justify-content-lg-center align-items-lg-center">
+                                <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'container' => false,
+                                    'menu_class' => 'navbar-nav',
+                                    'fallback_cb' => '__return_false',
+                                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    'depth' => 3,
+                                    'walker' => new bootstrap_5_wp_nav_menu_walker()
+                                ));
+                                ?>
+                                <ul class="d-block d-lg-none navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" id="userNameResponsive" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                                        <ul class="dropdown-menu logout">
+                                            <li><i class="fa-solid fa-power-off mx-3"></i> Cerrar Sesion</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <div class="d-none d-lg-block row m-0 p-0">
+                                    <div class="class-btns-register d-flex justify-content-center">
+                                        <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                            <a class="btn-login mx-1" id="btn-login">Ingresar</a>
+                                            <a class="btn-register mx-1" id="btn-register">Registrarse</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- <div class='d-none d-lg-block container-user-btn'>
+                            <div class='half'>
+                                <label for='profile2' class='profile-dropdown'>
+                                    <input type='checkbox' id='profile2'>
+                                    <span id="userName"> </span>
+                                    <i class="fa-regular fa-circle-user img-logo"></i>
+                                    <label for='profile2'><i class='bi bi-chevron-down'></i></label>
+                                    <ul class="">
+                                        <li class="d-flex justify-content-center align-items-center logout">
+                                            <i class="fa-solid fa-power-off mx-3"></i>
+                                            Cerrar Sesion
+                                        </li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </div> -->
+
+
+                        <div class="d-block d-lg-none col-12">
+                            <div class="col-12 mt-4 d-flex justify-content-center align-items-center">
+                                <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                    <a class="btn-login mx-1" id="btn-login">Ingresar</a>
+                                    <a class="btn-register mx-1" id="btn-register">Registrarse</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+    <?php endif; ?>

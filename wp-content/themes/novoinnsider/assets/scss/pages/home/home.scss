@@ -81,3 +81,188 @@
     height: 100%;
     object-fit: cover;
 }
+
+
+/* End Styles Banner Initial */
+
+/* Styles Body Home */
+
+.logo img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.auth-buttons .btn {
+    text-decoration: none;
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+.hero1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0056b3;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+
+    .hero-text h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+    
+    .hero-text p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    
+    .hero-image img {
+        height: 200px;
+    }
+    
+
+}
+
+
+.tools, .news, .newsletter {
+    margin: 20px 0;
+}
+
+.tools h2, .news h2, .newsletter h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.tools-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #e0f7fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tools-content img {
+    height: 100px;
+}
+
+.tools-buttons .btn, .tools-auth .btn {
+    text-decoration: none;
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.news-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.news-item {
+    width: 23%;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.news-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.news-item h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.news-item p {
+    font-size: 0.9em;
+}
+
+.news-item span {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.newsletter {
+    text-align: center;
+    background: #e0f7fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.newsletter .btn {
+    text-decoration: none;
+    background: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+footer {
+    background: #f0f0f0;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+
+/* End styles Body Home */

@@ -64,24 +64,6 @@
                             </div>
                         </div>
 
-                        <!-- <div class='d-none d-lg-block container-user-btn'>
-                            <div class='half'>
-                                <label for='profile2' class='profile-dropdown'>
-                                    <input type='checkbox' id='profile2'>
-                                    <span id="userName"> </span>
-                                    <i class="fa-regular fa-circle-user img-logo"></i>
-                                    <label for='profile2'><i class='bi bi-chevron-down'></i></label>
-                                    <ul class="">
-                                        <li class="d-flex justify-content-center align-items-center logout">
-                                            <i class="fa-solid fa-power-off mx-3"></i>
-                                            Cerrar Sesion
-                                        </li>
-                                    </ul>
-                                </label>
-                            </div>
-                        </div> -->
-
-
                         <div class="d-block d-lg-none col-12">
                             <div class="col-12 mt-4 d-flex justify-content-center align-items-center">
                                 <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">

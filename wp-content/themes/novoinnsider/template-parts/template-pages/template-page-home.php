@@ -5,8 +5,6 @@
  */
 ?>
 
-<?php /* Banner */ ?>
-
 <div class="banner position-relative">
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
@@ -43,4 +41,65 @@
     </div>
 </div>
 
-<?php /* Banner */ ?>
+<div>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>INNSIDER Novo Nordisk</h1>
+                <p>Una nueva visión para transformar la forma en que los profesionales del sector salud acceden y utilizan la información...</p>
+                <a href="#" class="btn">Ver más</a>
+            </div>
+            <div class="hero-image">
+                <img src="hero-image.png" alt="Hero Image">
+            </div>
+        </section>
+        <section class="tools">
+            <h2>Herramientas INNSIDER</h2>
+            <div class="tools-content">
+                <img src="tools-image.png" alt="Herramientas">
+                <p>Conozca más sobre herramientas que le permitirán tomar decisiones basadas en datos.</p>
+                <div class="tools-buttons">
+                    <a href="#" class="btn">Calculadoras de salud</a>
+                    <a href="#" class="btn">Simulador de modelo</a>
+                    <a href="#" class="btn">Simulador de cobertura</a>
+                </div>
+                <div class="tools-auth">
+                    <a href="#" class="btn">Registro</a>
+                    <a href="#" class="btn">Inicio</a>
+                </div>
+            </div>
+        </section>
+        <section class="news">
+            <h2>Actualidad en Salud</h2>
+            <div class="news-items">
+                <div class="news-item">
+                    <img src="news1.png" alt="Podcast">
+                    <h3>Banner Podcast Innsider</h3>
+                    <p>Paciente con dificultad en la marcha</p>
+                    <span>Video | 5 min</span>
+                </div>
+                <div class="news-item">
+                    <img src="news2.png" alt="Artículo">
+                    <h3>Lorem Ipsum 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <span>Video | 5 min</span>
+                </div>
+                <div class="news-item">
+                    <img src="news3.png" alt="Video">
+                    <h3>Lorem Ipsum 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <span>Video | 5 min</span>
+                </div>
+                <div class="news-item">
+                    <img src="news4.png" alt="Infografía">
+                    <h3>Lorem Ipsum 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <span>Video | 5 min</span>
+                </div>
+            </div>
+        </section>
+        <section class="newsletter">
+            <h2>Newsletter</h2>
+            <p>INNSIDER Novo Nordisk</p>
+            <a href="#" class="btn">Suscripción</a>
+        </section>
+    </div>

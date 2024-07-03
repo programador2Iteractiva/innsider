@@ -42,6 +42,33 @@
 </div>
 
 <div>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="title">HERRAMIENTAS INNSIDER</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 banner-category">
+                <div class="d-flex align-items-center justify-content-lg-end justify-content-center h-100">
+                    <div class="mx-5 px-5 text-center">
+                        <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.png';  ?>" alt="Herramientas" class="bg-banner-single-category">
+                        <h2>Conozca más sobre herramientas</h2>
+                        <p>que le permitirán tomar decisiones basadas en datos</p>
+                        <div class="button-group">
+                            <button class="btn btn-outline-primary">Calculadoras de salud</button>
+                            <button class="btn btn-outline-primary">Simulador de modelo</button>
+                            <button class="btn btn-outline-primary">Simulador de cobertura</button>
+                        </div>
+                        <div class="button-group mt-3">
+                            <button class="btn btn-primary">Registro</button>
+                            <button class="btn btn-secondary">Inicio</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="tools">
         <h2>Herramientas INNSIDER</h2>
         <div class="tools-content">

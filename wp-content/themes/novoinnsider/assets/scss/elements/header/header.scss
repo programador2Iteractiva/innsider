@@ -1,0 +1,34 @@
+header{
+    background: #ebebeb;
+
+    .offcanvas-body{
+        ul{
+            li{
+                a{
+                    color: #001965;
+                    font-family: 'NotoSans CondensedMedium';
+                    // font-size: 10.13px;
+                    // line-height: 16.46px;
+                }
+            }
+        }
+    }
+
+    .btn-login{
+        background: white;
+        text-decoration: none;
+        color: #001965;
+        border-radius: 2.5rem;
+        padding: 0.3rem 1.5rem;
+        cursor: pointer;
+    }
+
+    .btn-register{
+        background: white;
+        text-decoration: none;
+        color: #001965;
+        border-radius: 2.5rem;
+        padding: 0.3rem 1.5rem;
+        cursor: pointer;
+    }
+}

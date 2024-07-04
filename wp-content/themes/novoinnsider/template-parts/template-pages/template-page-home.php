@@ -48,11 +48,11 @@
                 <h1 class="title">HERRAMIENTAS INNSIDER</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 banner-category">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-12 col-11 banner-category">
                 <div class="d-flex align-items-center justify-content-lg-end justify-content-center h-100">
-                    <div class="mx-5 px-5 text-center">
-                        <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.png';  ?>" alt="Herramientas" class="bg-banner-single-category">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';  ?>" alt="Herramientas" class="bg-banner-single-category">
+                    <div class="mx-2 px-1 mx-lg-2 px-lg-2 mx-xl-5 px-xl-5 text-center test1">
                         <h2>Conozca más sobre herramientas</h2>
                         <p>que le permitirán tomar decisiones basadas en datos</p>
                         <div class="button-group">
@@ -65,6 +65,46 @@
                             <button class="btn btn-secondary">Inicio</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="container">
+        <h1>Actualidad en Salud</h1>
+        <div class="content">
+            <div class="card large d-flex flex-column">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <div class="card-info">
+                    <h2>Banner PodCast Innsider</h2>
+                    <p>Paciente con dificultad en la marcha</p>
+                    <p class="time">Video | 5 min</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <div class="card-info">
+                    <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: blue; color: white;"><i class="fa-solid fa-power-off mx-2"></i>Infografias</div>
+                    <h2>Lorem Ipsum 1</h2>
+                    <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <p class="time">Video | 5 min</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <div class="card-info">
+                    <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: blue; color: white;"><i class="fa-solid fa-power-off mx-2"></i>Infografias</div>
+                    <h2>Lorem Ipsum 2</h2>
+                    <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <p class="time">Video | 5 min</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <div class="card-info">
+                    <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: blue; color: white;"><i class="fa-solid fa-power-off mx-2"></i>Infografias</div>
+                    <h2>Lorem Ipsum 3</h2>
+                    <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    <p class="time">Video | 5 min</p>
                 </div>
             </div>
         </div>

@@ -36,7 +36,20 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.(woff|woff2|ttf|eot|svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/' // Directorio de salida para las fuentes
+                        }
+                    }
+                ]
             }
+
         ]
     },
     optimization: {

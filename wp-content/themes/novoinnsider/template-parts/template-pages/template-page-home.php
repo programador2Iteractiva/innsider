@@ -71,7 +71,7 @@
     </div>
         <div class="container">
         <h1>Actualidad en Salud</h1>
-        <div class="content">
+        <div class="content d-flex justify-content-center flex-lg-row flex-column">
             <div class="card large d-flex flex-column">
                 <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
                 <div class="card-info">

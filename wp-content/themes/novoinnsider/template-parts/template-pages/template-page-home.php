@@ -40,7 +40,6 @@
         <div class="swiper-pagination"></div>
     </div>
 </div>
-
 <div>
     <div class="container my-5">
         <div class="row">
@@ -51,7 +50,7 @@
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-12 col-11 banner-category">
                 <div class="d-flex align-items-center justify-content-lg-end justify-content-center h-100">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';  ?>" alt="Herramientas" class="bg-banner-single-category">
+                    <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';  ?>" alt="Herramientas" class="bg-banner-single-category">
                     <div class="mx-2 px-1 mx-lg-2 px-lg-2 mx-xl-5 px-xl-5 text-center test1">
                         <h2>Conozca más sobre herramientas</h2>
                         <p>que le permitirán tomar decisiones basadas en datos</p>
@@ -69,11 +68,11 @@
             </div>
         </div>
     </div>
-        <div class="container">
+    <div class="container">
         <h1>Actualidad en Salud</h1>
         <div class="content d-flex justify-content-center flex-lg-row flex-column">
             <div class="card large d-flex flex-column">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg'; ?>" alt="Podcast">
                 <div class="card-info">
                     <h2>Banner PodCast Innsider</h2>
                     <p>Paciente con dificultad en la marcha</p>
@@ -81,7 +80,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg'; ?>" alt="Podcast">
                 <div class="card-info">
                     <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: blue; color: white;"><i class="fa-solid fa-power-off mx-2"></i>Infografias</div>
                     <h2>Lorem Ipsum 1</h2>
@@ -90,7 +89,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg'; ?>" alt="Podcast">
                 <div class="card-info">
                     <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: blue; color: white;"><i class="fa-solid fa-power-off mx-2"></i>Infografias</div>
                     <h2>Lorem Ipsum 2</h2>
@@ -99,7 +98,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg'; ?>" alt="Podcast">
                 <div class="card-info">
                     <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: blue; color: white;"><i class="fa-solid fa-power-off mx-2"></i>Infografias</div>
                     <h2>Lorem Ipsum 3</h2>
@@ -112,7 +111,7 @@
     <section class="tools">
         <h2>Herramientas INNSIDER</h2>
         <div class="tools-content">
-        <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.png';  ?>" class="backimage" alt="Herramientas">
+            <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.png';  ?>" class="backimage" alt="Herramientas">
             <p>Conozca más sobre herramientas que le permitirán tomar decisiones basadas en datos.</p>
             <div class="tools-buttons">
                 <a href="#" class="btn">Calculadoras de salud</a>

@@ -112,9 +112,9 @@
 
 /* Estilo específico del botón anterior (prev) */
 .swiper-button-prev::after {
-    // font-family: "Font Awesome 6 Free Solid 900"; /* Asegúrate de usar el nombre correcto de la familia de fuentes */
+    font-family: "Font Awesome 6 Free"; /* Asegúrate de usar el nombre correcto de la familia de fuentes */
     font-weight: 900; /* Ajusta según la versión de Font Awesome */
-    content: '\f011'; /* Código Unicode del icono de Font Awesome */
+    content: '\e4aa'; /* Código Unicode del icono de Font Awesome */
 }
 
 /* Ajuste de posición específico para los botones */

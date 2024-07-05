@@ -51,24 +51,23 @@
                                         </ul>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
 
-                                <div class="d-none d-lg-block row m-0 p-0">
-                                    <div class="class-btns-register d-flex justify-content-center">
-                                        <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                            <a class="btn-login mx-1" id="btn-login">Ingresar</a>
-                                            <a class="btn-register mx-1" id="btn-register">Registrarse</a>
-                                        </div>
-                                    </div>
+                        <div class="d-none d-lg-block row m-0 p-0">
+                            <div class="class-btns-register d-flex justify-content-center">
+                                <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                    <a class="btn-login mx-3" id="btn-login">Inicio</a>
+                                    <a class="btn-register mx-1" id="btn-register">Registro</a>
                                 </div>
-
                             </div>
                         </div>
 
                         <div class="d-block d-lg-none col-12">
                             <div class="col-12 mt-4 d-flex justify-content-center align-items-center">
                                 <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                    <a class="btn-login mx-1" id="btn-login">Ingresar</a>
-                                    <a class="btn-register mx-1" id="btn-register">Registrarse</a>
+                                    <a class="btn-login mx-1" id="btn-login">Inicio</a>
+                                    <a class="btn-register mx-1" id="btn-register">Registro</a>
                                 </div>
                             </div>
                         </div>

@@ -6,9 +6,13 @@ header{
             li{
                 a{
                     color: #001965;
-                    font-family: 'NotoSans CondensedMedium';
+                    font-family: 'NotoSans Regular' !important;
                     // font-size: 10.13px;
                     // line-height: 16.46px;
+
+                    &:hover{
+                        font-weight: bold;
+                    }
                 }
             }
         }
@@ -21,6 +25,13 @@ header{
         border-radius: 2.5rem;
         padding: 0.3rem 1.5rem;
         cursor: pointer;
+        font-family: 'NotoSans Regular' !important;
+    }
+
+
+    .btn-login:active {
+        transform: scale(0.98);
+        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.1);
     }
 
     .btn-register{
@@ -30,5 +41,11 @@ header{
         border-radius: 2.5rem;
         padding: 0.3rem 1.5rem;
         cursor: pointer;
+        font-family: 'NotoSans Regular' !important;
+    }
+
+    .btn-register:active {
+        transform: scale(0.98);
+        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.1);
     }
 }

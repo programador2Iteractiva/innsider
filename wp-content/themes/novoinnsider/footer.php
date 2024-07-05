@@ -10,7 +10,11 @@
             <h3>Enlaces útiles</h3>
             <ul class="m-0 p-0">
                 <li><a href="#">Acerca de Novo Nordisk</a></li>
-                <li><a href="#">Términos y condiciones</a></li>
+                <?php $page = get_page_by_path('terminos-y-condiciones'); ?>
+                <?php if($page) : ?>
+                    <?php $permalink = get_permalink($page->ID); ?>
+                    <li><a href="<?php echo esc_url($permalink); ?>">Términos y condiciones</a></li>
+                <?php endif ?>                
             </ul>
         </div>
         <div class="footer-section">
@@ -28,7 +32,11 @@
         </div>
     </div>
     <div class="footer-bottom pt-5 pb-5 text-center">
-        <a href="#">Términos y condiciones</a>
+        <?php $page = get_page_by_path('terminos-y-condiciones'); ?>
+        <?php if($page) : ?>
+            <?php $permalink = get_permalink($page->ID); ?>
+            <a href="<?php echo esc_url($permalink); ?>">Términos y condiciones</a>
+        <?php endif ?>   
         <a href="#">Política de cookies</a>
         <a href="#">Política de privacidad</a>
         <a href="#">Cookie settings</a>

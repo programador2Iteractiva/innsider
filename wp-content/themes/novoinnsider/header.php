@@ -52,15 +52,17 @@
                                     </li>
                                 </ul>
 
-                                <div class="d-none d-lg-block row m-0 p-0">
-                                    <div class="class-btns-register d-flex justify-content-center">
-                                        <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                            <a class="btn-login mx-1" id="btn-login">Ingresar</a>
-                                            <a class="btn-register mx-1" id="btn-register">Registrarse</a>
-                                        </div>
-                                    </div>
-                                </div>
 
+
+                            </div>
+                        </div>
+
+                        <div class="d-none d-lg-block row m-0 p-0">
+                            <div class="class-btns-register d-flex justify-content-center">
+                                <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                    <a class="btn-login mx-1" id="btn-login">Ingresar</a>
+                                    <a class="btn-register mx-1" id="btn-register">Registrarse</a>
+                                </div>
                             </div>
                         </div>
 

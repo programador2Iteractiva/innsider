@@ -88,7 +88,7 @@
     height: 30px; /* Altura del botón */
     margin-top: 0; /* Opcional: ajustar margen superior si es necesario */
     z-index: 10; /* Asegura que esté por encima del contenido */
-    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo del botón */
+    // background-color: rgba(0, 0, 0, 0.5); /* Color de fondo del botón */
     color: #ffffff; /* Color del icono */
     border-radius: 50%; /* Botón redondeado */
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
@@ -96,25 +96,26 @@
 
 /* Estilos cuando se pasa el ratón sobre los botones */
 .swiper-button-next:hover, .swiper-button-prev:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo al pasar el ratón */
+    color: rgba(0, 0, 0, 0.7); /* Color de fondo al pasar el ratón */
 }
 
 /* Estilos del icono dentro del botón */
 .swiper-button-next::after, .swiper-button-prev::after {
-    font-family: "swiper-icons"; /* Familia de fuentes para los iconos */
-    font-size: 20px; /* Tamaño del icono */
+    font-size: 33px; /* Tamaño del icono */
 }
 
 /* Estilo específico del botón siguiente (next) */
 .swiper-button-next::after {
-    content: '\e2ca'; /* Icono para el botón siguiente (puedes cambiarlo) */
+    font-family: bootstrap-icons !important;
+    font-weight: 900;
+    content: "\F138";
 }
 
 /* Estilo específico del botón anterior (prev) */
 .swiper-button-prev::after {
-    font-family: "Font Awesome 6 Free"; /* Asegúrate de usar el nombre correcto de la familia de fuentes */
-    font-weight: 900; /* Ajusta según la versión de Font Awesome */
-    content: '\e4aa'; /* Código Unicode del icono de Font Awesome */
+    font-family: bootstrap-icons !important;
+    font-weight: 900;
+    content: "\F12F";
 }
 
 /* Ajuste de posición específico para los botones */
@@ -467,9 +468,6 @@ footer {
 
 
 
-
-
-
 .content {
     display: flex;
     gap: 35px;
@@ -478,11 +476,12 @@ footer {
 .card {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     flex: 1 1 calc(33% - 20px);
     display: flex;
     flex-direction: column;
+    border: none;
 }
 
 .card.large {
@@ -582,3 +581,62 @@ footer {
     margin-left: auto;
     margin-right: auto;
   }
+
+
+
+
+
+  .second-banner-category {
+    position: relative;
+    height: 150px;
+  
+    .test1 {
+      z-index: 3;
+    }
+  
+    .bg-banner-single-category {
+
+        object-position: left;            
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        border-radius: 1rem;
+
+        @include media-breakpoint-up(md) {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+            left: 0;
+            top: 0;
+            border-radius: 1rem;
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        height: 230px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+        height: 330px;
+    }
+  
+    @include media-breakpoint-up(xl) {
+        height: 400px;
+    }
+  
+    @include media-breakpoint-up(xxl) {
+        height: 440px;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 460px;
+    }
+  }
+/* Fin Styles Section - Herramientas Innsider */

@@ -2,12 +2,20 @@
 Typography
 */
 
+// bootstrap-icons
+@font-face {
+    font-display: block;
+    font-family: "bootstrap-icons";
+    src: url("../../../../../../../novo-innsider/wp-content/themes/novoinnsider/assets/node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"),
+    url("../../../../../../../novo-innsider/wp-content/themes/novoinnsider/assets/node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
+}
+
 // NotoSans Black
 @font-face {
     font-family: 'NotoSans Black';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Black'), url('../../fonts/NotoSans-Black.ttf') format('opentype');
+    src: local('NotoSans-Black'), url('assets/fonts/NotoSans-Black.ttf') format('opentype');
 }
 
 // NotoSans BlackItalic
@@ -15,7 +23,7 @@ Typography
     font-family: 'NotoSans BlackItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-BlackItalic'), url('../../fonts/NotoSans-BlackItalic.ttf') format('opentype');
+    src: local('NotoSans-BlackItalic'), url('assets/fonts/NotoSans-BlackItalic.ttf') format('opentype');
 }
 
 // NotoSans Bold
@@ -23,7 +31,7 @@ Typography
     font-family: 'NotoSans Bold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Bold'), url('../../fonts/NotoSans-Bold.ttf') format('opentype');
+    src: local('NotoSans-Bold'), url('assets/fonts/NotoSans-Bold.ttf') format('opentype');
 }
 
 // NotoSans BoldItalic
@@ -31,7 +39,7 @@ Typography
     font-family: 'NotoSans BoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-BoldItalic'), url('../../fonts/NotoSans-BoldItalic.ttf') format('opentype');
+    src: local('NotoSans-BoldItalic'), url('assets/fonts/NotoSans-BoldItalic.ttf') format('opentype');
 }
 
 
@@ -42,7 +50,7 @@ Typography
     font-family: 'NotoSans BoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-BoldItalic'), url('../../fonts/NotoSans-BoldItalic.ttf') format('opentype');
+    src: local('NotoSans-BoldItalic'), url('assets/fonts/NotoSans-BoldItalic.ttf') format('opentype');
 }
 
 // NotoSans Condensed
@@ -50,7 +58,7 @@ Typography
     font-family: 'NotoSans Condensed';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Condensed'), url('../../fonts/NotoSans-Condensed.ttf') format('opentype');
+    src: local('NotoSans-Condensed'), url('assets/fonts/NotoSans-Condensed.ttf') format('opentype');
 }
 
 // NotoSans CondensedBlack
@@ -58,7 +66,7 @@ Typography
     font-family: 'NotoSans CondensedBlack';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedBlack'), url('../../fonts/NotoSans-CondensedBlack.ttf') format('opentype');
+    src: local('NotoSans-CondensedBlack'), url('assets/fonts/NotoSans-CondensedBlack.ttf') format('opentype');
 }
 
 // NotoSans CondensedBlackItalic
@@ -66,7 +74,7 @@ Typography
     font-family: 'NotoSans CondensedBlackItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedBlackItalic'), url('../../fonts/NotoSans-CondensedBlackItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedBlackItalic'), url('assets/fonts/NotoSans-CondensedBlackItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedBold
@@ -74,7 +82,7 @@ Typography
     font-family: 'NotoSans CondensedBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedBold'), url('../../fonts/NotoSans-CondensedBold.ttf') format('opentype');
+    src: local('NotoSans-CondensedBold'), url('assets/fonts/NotoSans-CondensedBold.ttf') format('opentype');
 }
 
 // NotoSans CondensedBoldItalic
@@ -82,7 +90,7 @@ Typography
     font-family: 'NotoSans CondensedBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedBoldItalic'), url('../../fonts/NotoSans-CondensedBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedBoldItalic'), url('assets/fonts/NotoSans-CondensedBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedExtraBold
@@ -90,7 +98,7 @@ Typography
     font-family: 'NotoSans CondensedExtraBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedExtraBold'), url('../../fonts/NotoSans-CondensedExtraBold.ttf') format('opentype');
+    src: local('NotoSans-CondensedExtraBold'), url('assets/fonts/NotoSans-CondensedExtraBold.ttf') format('opentype');
 }
 
 // NotoSans CondensedExtraBoldItalic
@@ -98,7 +106,7 @@ Typography
     font-family: 'NotoSans CondensedExtraBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedExtraBoldItalic'), url('../../fonts/NotoSans-CondensedExtraBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedExtraBoldItalic'), url('assets/fonts/NotoSans-CondensedExtraBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedExtraLight
@@ -106,7 +114,7 @@ Typography
     font-family: 'NotoSans CondensedExtraLight';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedExtraLight'), url('../../fonts/NotoSans-CondensedExtraLight.ttf') format('opentype');
+    src: local('NotoSans-CondensedExtraLight'), url('assets/fonts/NotoSans-CondensedExtraLight.ttf') format('opentype');
 }
 
 // NotoSans CondensedExtraLightItalic
@@ -114,7 +122,7 @@ Typography
     font-family: 'NotoSans CondensedExtraLightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedExtraLightItalic'), url('../../fonts/NotoSans-CondensedExtraLightItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedExtraLightItalic'), url('assets/fonts/NotoSans-CondensedExtraLightItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedItalic
@@ -122,7 +130,7 @@ Typography
     font-family: 'NotoSans CondensedItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedItalic'), url('../../fonts/NotoSans-CondensedItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedItalic'), url('assets/fonts/NotoSans-CondensedItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedLight
@@ -130,7 +138,7 @@ Typography
     font-family: 'NotoSans CondensedLight';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedLight'), url('../../fonts/NotoSans-CondensedLight.ttf') format('opentype');
+    src: local('NotoSans-CondensedLight'), url('assets/fonts/NotoSans-CondensedLight.ttf') format('opentype');
 }
 
 // NotoSans CondensedLightItalic
@@ -138,7 +146,7 @@ Typography
     font-family: 'NotoSans CondensedLightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedLightItalic'), url('../../fonts/NotoSans-CondensedLightItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedLightItalic'), url('assets/fonts/NotoSans-CondensedLightItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedMedium
@@ -146,7 +154,7 @@ Typography
     font-family: 'NotoSans CondensedMedium';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedMedium'), url('../../fonts/NotoSans-CondensedMedium.ttf') format('opentype');
+    src: local('NotoSans-CondensedMedium'), url('assets/fonts/NotoSans-CondensedMedium.ttf') format('opentype');
 }
 
 // NotoSans CondensedMediumItalic
@@ -154,7 +162,7 @@ Typography
     font-family: 'NotoSans CondensedMediumItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedMediumItalic'), url('../../fonts/NotoSans-CondensedMediumItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedMediumItalic'), url('assets/fonts/NotoSans-CondensedMediumItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedSemiBold
@@ -162,7 +170,7 @@ Typography
     font-family: 'NotoSans CondensedSemiBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedSemiBold'), url('../../fonts/NotoSans-CondensedSemiBold.ttf') format('opentype');
+    src: local('NotoSans-CondensedSemiBold'), url('assets/fonts/NotoSans-CondensedSemiBold.ttf') format('opentype');
 }
 
 // NotoSans CondensedSemiBoldItalic
@@ -170,7 +178,7 @@ Typography
     font-family: 'NotoSans CondensedSemiBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedSemiBoldItalic'), url('../../fonts/NotoSans-CondensedSemiBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedSemiBoldItalic'), url('assets/fonts/NotoSans-CondensedSemiBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans CondensedThin
@@ -178,7 +186,7 @@ Typography
     font-family: 'NotoSans CondensedThin';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedThin'), url('../../fonts/NotoSans-CondensedThin.ttf') format('opentype');
+    src: local('NotoSans-CondensedThin'), url('assets/fonts/NotoSans-CondensedThin.ttf') format('opentype');
 }
 
 // NotoSans CondensedThinItalic
@@ -186,7 +194,7 @@ Typography
     font-family: 'NotoSans CondensedThinItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-CondensedThinItalic'), url('../../fonts/NotoSans-CondensedThinItalic.ttf') format('opentype');
+    src: local('NotoSans-CondensedThinItalic'), url('assets/fonts/NotoSans-CondensedThinItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraBold
@@ -194,7 +202,7 @@ Typography
     font-family: 'NotoSans ExtraBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraBold'), url('../../fonts/NotoSans-ExtraBold.ttf') format('opentype');
+    src: local('NotoSans-ExtraBold'), url('assets/fonts/NotoSans-ExtraBold.ttf') format('opentype');
 }
 
 // NotoSans ExtraBoldItalic
@@ -202,7 +210,7 @@ Typography
     font-family: 'NotoSans ExtraBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraBoldItalic'), url('../../fonts/NotoSans-ExtraBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraBoldItalic'), url('assets/fonts/NotoSans-ExtraBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensed
@@ -210,7 +218,7 @@ Typography
     font-family: 'NotoSans ExtraCondensed';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensed'), url('../../fonts/NotoSans-ExtraCondensed.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensed'), url('assets/fonts/NotoSans-ExtraCondensed.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedBlack
@@ -218,7 +226,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedBlack';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedBlack'), url('../../fonts/NotoSans-ExtraCondensedBlack.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedBlack'), url('assets/fonts/NotoSans-ExtraCondensedBlack.ttf') format('opentype');
 }
 
 // NotoSans-ExtraCondensedBlackItalic
@@ -226,7 +234,7 @@ Typography
     font-family: 'NotoSans-ExtraCondensedBlackItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedBlackItalic'), url('../../fonts/NotoSans-ExtraCondensedBlackItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedBlackItalic'), url('assets/fonts/NotoSans-ExtraCondensedBlackItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedBold
@@ -234,7 +242,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedBold'), url('../../fonts/NotoSans-ExtraCondensedBold.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedBold'), url('assets/fonts/NotoSans-ExtraCondensedBold.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedBoldItalic
@@ -242,7 +250,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedBoldItalic'), url('../../fonts/NotoSans-ExtraCondensedBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedBoldItalic'), url('assets/fonts/NotoSans-ExtraCondensedBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans BoldItalic
@@ -250,7 +258,7 @@ Typography
     font-family: 'NotoSans BoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-BoldItalic'), url('../../fonts/NotoSans-BoldItalic.ttf') format('opentype');
+    src: local('NotoSans-BoldItalic'), url('assets/fonts/NotoSans-BoldItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedExtraBold
@@ -258,7 +266,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedExtraBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedExtraBold'), url('../../fonts/NotoSans-ExtraCondensedExtraBold.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedExtraBold'), url('assets/fonts/NotoSans-ExtraCondensedExtraBold.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedExtraBoldItalic
@@ -266,7 +274,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedExtraBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedExtraBoldItalic'), url('../../fonts/NotoSans-ExtraCondensedExtraBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedExtraBoldItalic'), url('assets/fonts/NotoSans-ExtraCondensedExtraBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedExtraLight
@@ -274,7 +282,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedExtraLight';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedExtraLight'), url('../../fonts/NotoSans-ExtraCondensedExtraLight.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedExtraLight'), url('assets/fonts/NotoSans-ExtraCondensedExtraLight.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedExtraLightItalic
@@ -282,7 +290,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedExtraLightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedExtraLightItalic'), url('../../fonts/NotoSans-ExtraCondensedExtraLightItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedExtraLightItalic'), url('assets/fonts/NotoSans-ExtraCondensedExtraLightItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedItalic
@@ -290,7 +298,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedItalic'), url('../../fonts/NotoSans-ExtraCondensedItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedItalic'), url('assets/fonts/NotoSans-ExtraCondensedItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedLight
@@ -298,7 +306,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedLight';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedLight'), url('../../fonts/NotoSans-ExtraCondensedLight.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedLight'), url('assets/fonts/NotoSans-ExtraCondensedLight.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedLightItalic
@@ -306,7 +314,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedLightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedLightItalic'), url('../../fonts/NotoSans-ExtraCondensedLightItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedLightItalic'), url('assets/fonts/NotoSans-ExtraCondensedLightItalic.ttf') format('opentype');
 }
 
 // NotoSans BoldItalic
@@ -314,7 +322,7 @@ Typography
     font-family: 'NotoSans BoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-BoldItalic'), url('../../fonts/NotoSans-BoldItalic.ttf') format('opentype');
+    src: local('NotoSans-BoldItalic'), url('assets/fonts/NotoSans-BoldItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedMedium
@@ -322,7 +330,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedMedium';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedMedium'), url('../../fonts/NotoSans-ExtraCondensedMedium.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedMedium'), url('assets/fonts/NotoSans-ExtraCondensedMedium.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedMediumItalic
@@ -330,7 +338,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedMediumItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedMediumItalic'), url('../../fonts/NotoSans-ExtraCondensedMediumItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedMediumItalic'), url('assets/fonts/NotoSans-ExtraCondensedMediumItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedSemiBold
@@ -338,7 +346,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedSemiBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedSemiBold'), url('../../fonts/NotoSans-ExtraCondensedSemiBold.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedSemiBold'), url('assets/fonts/NotoSans-ExtraCondensedSemiBold.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedSemiBoldItalic
@@ -346,7 +354,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedSemiBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedSemiBoldItalic'), url('../../fonts/NotoSans-ExtraCondensedSemiBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedSemiBoldItalic'), url('assets/fonts/NotoSans-ExtraCondensedSemiBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans BoldItalic
@@ -354,7 +362,7 @@ Typography
     font-family: 'NotoSans BoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-BoldItalic'), url('../../fonts/NotoSans-BoldItalic.ttf') format('opentype');
+    src: local('NotoSans-BoldItalic'), url('assets/fonts/NotoSans-BoldItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedThin
@@ -362,7 +370,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedThin';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedThin'), url('../../fonts/NotoSans-ExtraCondensedThin.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedThin'), url('assets/fonts/NotoSans-ExtraCondensedThin.ttf') format('opentype');
 }
 
 // NotoSans ExtraCondensedThinItalic
@@ -370,7 +378,7 @@ Typography
     font-family: 'NotoSans ExtraCondensedThinItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraCondensedThinItalic'), url('../../fonts/NotoSans-ExtraCondensedThinItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraCondensedThinItalic'), url('assets/fonts/NotoSans-ExtraCondensedThinItalic.ttf') format('opentype');
 }
 
 // NotoSans ExtraLight
@@ -378,7 +386,7 @@ Typography
     font-family: 'NotoSans ExtraLight';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraLight'), url('../../fonts/NotoSans-ExtraLight.ttf') format('opentype');
+    src: local('NotoSans-ExtraLight'), url('assets/fonts/NotoSans-ExtraLight.ttf') format('opentype');
 }
 
 // NotoSans ExtraLightItalic
@@ -386,7 +394,7 @@ Typography
     font-family: 'NotoSans ExtraLightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-ExtraLightItalic'), url('../../fonts/NotoSans-ExtraLightItalic.ttf') format('opentype');
+    src: local('NotoSans-ExtraLightItalic'), url('assets/fonts/NotoSans-ExtraLightItalic.ttf') format('opentype');
 }
 
 
@@ -395,7 +403,7 @@ Typography
     font-family: 'NotoSans Italic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Italic'), url('../../fonts/NotoSans-Italic.ttf') format('opentype');
+    src: local('NotoSans-Italic'), url('assets/fonts/NotoSans-Italic.ttf') format('opentype');
 }
 
 // NotoSans Light
@@ -403,7 +411,7 @@ Typography
     font-family: 'NotoSans Light';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Light'), url('../../fonts/NotoSans-Light.ttf') format('opentype');
+    src: local('NotoSans-Light'), url('assets/fonts/NotoSans-Light.ttf') format('opentype');
 }
 
 // NotoSans LightItalic
@@ -411,7 +419,7 @@ Typography
     font-family: 'NotoSans LightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-LightItalic'), url('../../fonts/NotoSans-LightItalic.ttf') format('opentype');
+    src: local('NotoSans-LightItalic'), url('assets/fonts/NotoSans-LightItalic.ttf') format('opentype');
 }
 
 // NotoSans Medium
@@ -419,7 +427,7 @@ Typography
     font-family: 'NotoSans Medium';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Medium'), url('../../fonts/NotoSans-Medium.ttf') format('opentype');
+    src: local('NotoSans-Medium'), url('assets/fonts/NotoSans-Medium.ttf') format('opentype');
 }
 
 // NotoSans MediumItalic
@@ -427,7 +435,7 @@ Typography
     font-family: 'NotoSans MediumItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-MediumItalic'), url('../../fonts/NotoSans-MediumItalic.ttf') format('opentype');
+    src: local('NotoSans-MediumItalic'), url('assets/fonts/NotoSans-MediumItalic.ttf') format('opentype');
 }
 
 // NotoSans Regular
@@ -435,7 +443,7 @@ Typography
     font-family: 'NotoSans Regular';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Regular'), url('../../fonts/NotoSans-Regular.ttf') format('opentype');
+    src: local('NotoSans-Regular'), url('assets/fonts/NotoSans-Regular.ttf') format('opentype');
 }
 
 // NotoSans SemiBold
@@ -443,7 +451,7 @@ Typography
     font-family: 'NotoSans SemiBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiBold'), url('../../fonts/NotoSans-SemiBold.ttf') format('opentype');
+    src: local('NotoSans-SemiBold'), url('assets/fonts/NotoSans-SemiBold.ttf') format('opentype');
 }
 
 // NotoSans BoldItalic
@@ -451,7 +459,7 @@ Typography
     font-family: 'NotoSans BoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-BoldItalic'), url('../../fonts/NotoSans-BoldItalic.ttf') format('opentype');
+    src: local('NotoSans-BoldItalic'), url('assets/fonts/NotoSans-BoldItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiBoldItalic
@@ -459,7 +467,7 @@ Typography
     font-family: 'NotoSans SemiBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiBoldItalic'), url('../../fonts/NotoSans-SemiBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiBoldItalic'), url('assets/fonts/NotoSans-SemiBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensed
@@ -467,7 +475,7 @@ Typography
     font-family: 'NotoSans SemiCondensed';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensed'), url('../../fonts/NotoSans-SemiCondensed.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensed'), url('assets/fonts/NotoSans-SemiCondensed.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedBlack
@@ -475,7 +483,7 @@ Typography
     font-family: 'NotoSans SemiCondensedBlack';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedBlack'), url('../../fonts/NotoSans-SemiCondensedBlack.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedBlack'), url('assets/fonts/NotoSans-SemiCondensedBlack.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedBlackItalic
@@ -483,7 +491,7 @@ Typography
     font-family: 'NotoSans SemiCondensedBlackItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedBlackItalic'), url('../../fonts/NotoSans-SemiCondensedBlackItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedBlackItalic'), url('assets/fonts/NotoSans-SemiCondensedBlackItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedBold
@@ -491,7 +499,7 @@ Typography
     font-family: 'NotoSans SemiCondensedBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedBold'), url('../../fonts/NotoSans-SemiCondensedBold.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedBold'), url('assets/fonts/NotoSans-SemiCondensedBold.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedBoldItalic
@@ -499,7 +507,7 @@ Typography
     font-family: 'NotoSans SemiCondensedBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedBoldItalic'), url('../../fonts/NotoSans-SemiCondensedBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedBoldItalic'), url('assets/fonts/NotoSans-SemiCondensedBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedExtraBold
@@ -507,7 +515,7 @@ Typography
     font-family: 'NotoSans SemiCondensedExtraBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedExtraBold'), url('../../fonts/NotoSans-SemiCondensedExtraBold.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedExtraBold'), url('assets/fonts/NotoSans-SemiCondensedExtraBold.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedExtraBoldItalic
@@ -515,7 +523,7 @@ Typography
     font-family: 'NotoSans SemiCondensedExtraBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedExtraBoldItalic'), url('../../fonts/NotoSans-SemiCondensedExtraBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedExtraBoldItalic'), url('assets/fonts/NotoSans-SemiCondensedExtraBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedExtraLight
@@ -523,7 +531,7 @@ Typography
     font-family: 'NotoSans SemiCondensedExtraLight';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedExtraLight'), url('../../fonts/NotoSans-SemiCondensedExtraLight.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedExtraLight'), url('assets/fonts/NotoSans-SemiCondensedExtraLight.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedExtraLightItalic
@@ -531,7 +539,7 @@ Typography
     font-family: 'NotoSans SemiCondensedExtraLightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedExtraLightItalic'), url('../../fonts/NotoSans-SemiCondensedExtraLightItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedExtraLightItalic'), url('assets/fonts/NotoSans-SemiCondensedExtraLightItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedItalic
@@ -539,7 +547,7 @@ Typography
     font-family: 'NotoSans SemiCondensedItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedItalic'), url('../../fonts/NotoSans-SemiCondensedItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedItalic'), url('assets/fonts/NotoSans-SemiCondensedItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedLight
@@ -547,7 +555,7 @@ Typography
     font-family: 'NotoSans SemiCondensedLight';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedLight'), url('../../fonts/NotoSans-SemiCondensedLight.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedLight'), url('assets/fonts/NotoSans-SemiCondensedLight.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedLightItalic
@@ -555,7 +563,7 @@ Typography
     font-family: 'NotoSans SemiCondensedLightItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedLightItalic.ttf'), url('../../fonts/NotoSans-SemiCondensedLightItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedLightItalic.ttf'), url('assets/fonts/NotoSans-SemiCondensedLightItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedMedium
@@ -563,7 +571,7 @@ Typography
     font-family: 'NotoSans SemiCondensedMedium';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedMedium'), url('../../fonts/NotoSans-SemiCondensedMedium.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedMedium'), url('assets/fonts/NotoSans-SemiCondensedMedium.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedMediumItalic
@@ -571,7 +579,7 @@ Typography
     font-family: 'NotoSans SemiCondensedMediumItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedMediumItalic'), url('../../fonts/NotoSans-SemiCondensedMediumItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedMediumItalic'), url('assets/fonts/NotoSans-SemiCondensedMediumItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedSemiBold
@@ -579,7 +587,7 @@ Typography
     font-family: 'NotoSans SemiCondensedSemiBold';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedSemiBold'), url('../../fonts/NotoSans-SemiCondensedSemiBold.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedSemiBold'), url('assets/fonts/NotoSans-SemiCondensedSemiBold.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedSemiBoldItalic
@@ -587,7 +595,7 @@ Typography
     font-family: 'NotoSans SemiCondensedSemiBoldItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedSemiBoldItalic'), url('../../fonts/NotoSans-SemiCondensedSemiBoldItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedSemiBoldItalic'), url('assets/fonts/NotoSans-SemiCondensedSemiBoldItalic.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedThin
@@ -595,7 +603,7 @@ Typography
     font-family: 'NotoSans SemiCondensedThin';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedThin'), url('../../fonts/NotoSans-SemiCondensedThin.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedThin'), url('assets/fonts/NotoSans-SemiCondensedThin.ttf') format('opentype');
 }
 
 // NotoSans SemiCondensedThinItalic
@@ -603,7 +611,7 @@ Typography
     font-family: 'NotoSans SemiCondensedThinItalic';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-SemiCondensedThinItalic'), url('../../fonts/NotoSans-SemiCondensedThinItalic.ttf') format('opentype');
+    src: local('NotoSans-SemiCondensedThinItalic'), url('assets/fonts/NotoSans-SemiCondensedThinItalic.ttf') format('opentype');
 }
 
 // NotoSans Thin
@@ -611,6 +619,6 @@ Typography
     font-family: 'NotoSans Thin';
     font-style: normal;
     font-weight: normal;
-    src: local('NotoSans-Thin'), url('../../fonts/NotoSans-Thin.ttf') format('opentype');
+    src: local('NotoSans-Thin'), url('assets/fonts/NotoSans-Thin.ttf') format('opentype');
 }
 

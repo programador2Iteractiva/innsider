@@ -42,9 +42,12 @@
 </div>
 <div>
     <div class="container my-5">
-        <div class="row">
-            <div class="col-12">
+        <div class="row d-flex justify-content-center align-align-items-center mb-4">
+            <div class="col-12 d-flex flex-lg-row">
                 <h1 class="title">HERRAMIENTAS INNSIDER</h1>
+                <div class="col-9 mx-1" id="linea">
+                    <hr>
+                </div>
             </div>
         </div>
         <div class="row d-flex justify-content-center align-items-center">
@@ -69,7 +72,14 @@
         </div>
     </div>
     <div class="container">
-        <h1>Actualidad en Salud</h1>
+        <div class="row d-flex justify-content-center align-align-items-center mb-4">
+            <div class="col-12 d-flex flex-lg-row">
+                <h1 class="title">Actualidad en Salud</h1>
+                <div class="col-9 mx-1" id="linea">
+                    <hr>
+                </div>
+            </div>
+        </div>
         <div class="content d-flex justify-content-center flex-lg-row flex-column">
             <div class="card large d-flex flex-column">
                 <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg'; ?>" alt="Podcast">
@@ -109,9 +119,12 @@
         </div>
     </div>
     <div class="container my-5">
-        <div class="row">
-            <div class="col-12">
+        <div class="row d-flex justify-content-center align-align-items-center mb-4">
+            <div class="col-12 d-flex flex-lg-row">
                 <h1 class="title">HERRAMIENTAS INNSIDER</h1>
+                <div class="col-9 mx-1" id="linea">
+                    <hr>
+                </div>
             </div>
         </div>
         <div class="row d-flex justify-content-center align-items-center">

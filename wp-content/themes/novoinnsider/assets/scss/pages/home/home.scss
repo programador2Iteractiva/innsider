@@ -326,10 +326,9 @@ footer {
 
 /* styles section - Herramientas Innsider */
 .title {
-    border-left: 4px solid #007bff;
-    padding-left: 10px;
+    // padding-left: 10px;
     font-size: 24px;
-    font-weight: bold;
+    font-family: "NotoSans Bold" !important;
 }
 
 .content-box {
@@ -345,7 +344,7 @@ footer {
 
 .content-box .content-text h2 {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: "NotoSans Bold" !important;
 }
 
 .content-box .content-text p {
@@ -640,3 +639,14 @@ footer {
     }
   }
 /* Fin Styles Section - Herramientas Innsider */
+
+
+
+#linea hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 3px solid #007bff;
+    opacity: 1;
+    color: #61C3D9 !important;
+}

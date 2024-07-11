@@ -1,0 +1,200 @@
+/* Styles Banner Login */
+.banner-speakers {
+    position: relative;
+
+    * {
+        z-index: 1;
+    }
+
+    &::before {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0.37turn, rgba($blue-dark, 1), rgba($blue-dark, -0.7), rgba($blue-dark, 0.1));
+        content: "";
+        position: absolute;
+        top: 0;
+        z-index: 0;
+        left: 0;
+        border-radius: 4.5rem;
+
+        @include media-breakpoint-up(lg) {
+            background: linear-gradient(0.37turn, rgba($blue-dark, 1), rgba($blue-dark, -0.7), rgba($blue-dark, 0.1));
+        }
+    }
+
+    .bg-banner-speakers {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        object-position: center center;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        border-radius: 4.5rem;
+    }
+
+    .wrapper-banner-speakers {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        position: relative;
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+
+        .container-text-banner-speakers {
+            p {
+                font-family: "NotoSans Bold";
+                color: $white;
+                text-align: center;
+                font-size: 1.5rem;
+                margin-bottom: 0;
+                position: relative;
+
+                span {
+                    color: $new-blue-dark;
+                }
+
+                br {
+                    display: none;
+
+                    @include media-breakpoint-up(md) {
+                        display: block;
+                    }
+                }
+
+                @include media-breakpoint-up(md) {
+                    font-size: 2rem;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    text-align: start;
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                }
+
+                @include media-breakpoint-up(xl) {
+                    font-size: 2.5rem;
+                }
+
+                @include media-breakpoint-up(xxxl) {
+                    font-size: 4rem;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            padding: 3rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            padding: 3rem 5rem;
+            justify-content: start;
+            height: 500px;
+        }
+
+        @include media-breakpoint-up(xl) {
+            padding: 3rem 6rem;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            padding: 3rem 7rem;
+        }
+    }
+}
+
+/* End Styles Banner Login */
+
+.container-page-login {
+    min-height: 70.6vh;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // background: url(./assets/images/Fondo-Login.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    @include media-breakpoint-up(lg) {
+        min-height: 91.6vh;
+    }
+
+
+    .wrapper-page-login {
+        width: 100%;
+        padding: 2rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex: 1;
+        position: relative;
+
+        * {
+            z-index: 1;
+        }
+
+        &::before {
+            @include full-width-and-viewport-height;
+
+            background-color: rgba($white, 0.5);
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 0;
+        }
+
+        //   @import "intro";
+        //   //@import "logo";
+        //   @import "img";
+        //   @import "card";
+        //   @import "title";
+
+        #container-form-login {
+            display: none;
+        }
+
+        .form-login-style {
+            border-radius: 1rem;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .link-redirect-login {
+            font-family: "Apis Medium";
+        }
+
+        .btn-register-in-login {
+            padding: 0.5rem 2rem;
+            border: 2px solid #0059da;
+            border-radius: 0.5rem;
+            color: #001965;
+        }
+    }
+
+    // @import "footer";
+}
+
+.btn-login-two {
+    width: 100%;
+    border: 2px solid #001965;
+    border-radius: 2.5rem;
+}
+
+.form-control {
+    border: 0.5px solid #001965;
+}
+
+.form-label {
+    color: #001965;
+    font-family: 'NotoSans Medium';
+}

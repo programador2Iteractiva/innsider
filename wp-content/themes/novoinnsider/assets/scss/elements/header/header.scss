@@ -7,8 +7,9 @@ header{
                 a{
                     color: #001965;
                     font-family: 'NotoSans Regular' !important;
-                    // font-size: 10.13px;
-                    // line-height: 16.46px;
+                    font-size: 1.5rem;
+                    line-height: 16.46px;
+                    text-align: center;
 
                     &:hover{
                         font-weight: bold;
@@ -26,6 +27,7 @@ header{
         padding: 0.3rem 1.5rem;
         cursor: pointer;
         font-family: 'NotoSans Regular' !important;
+        font-size: 1.5rem;
     }
 
 
@@ -42,6 +44,7 @@ header{
         padding: 0.3rem 1.5rem;
         cursor: pointer;
         font-family: 'NotoSans Regular' !important;
+        font-size: 1.5rem;
     }
 
     .btn-register:active {

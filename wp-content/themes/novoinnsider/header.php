@@ -11,9 +11,9 @@
 <body>
 
     <header>
-        <div class="container">
-            <nav class="navbar navbar-expand-lg py-4">
-                <div class="container-fluid">
+        <div class="d-flex justify-content-center align-items-center">
+            <nav class="navbar navbar-expand-lg py-5 d-lg-flex justify-content-lg-center align-items-lg-center flex-column">
+                <div class="d-flex justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="d-block">
                             <?php if (has_custom_logo()) : ?>
@@ -56,8 +56,8 @@
                     <div class="d-none d-lg-block row m-0 p-0">
                         <div class="class-btns-register d-flex justify-content-center">
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                <a class="btn-login mx-3" id="btn-login">Inicio</a>
-                                <a class="btn-register mx-1" id="btn-register">Registro</a>
+                                <a class="btn-login mx-4" id="btn-login">Inicio</a>
+                                <a class="btn-register mx-4" id="btn-register">Registro</a>
                             </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@
 <div class="container">
     <div class="container-page-login">
         <div class="wrapper-page-login d-flex flex-column">
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-lg-7 d-flex justify-content-center align-items-center">
                 <div class="card mt-3 mb-3 px-3 form-login-style">
                     <div class="m-0 p-0 w-100">
 

@@ -90,7 +90,7 @@
         @include media-breakpoint-up(lg) {
             padding: 3rem 5rem;
             justify-content: start;
-            height: 500px;
+            height: 380px;
         }
 
         @include media-breakpoint-up(xl) {
@@ -106,7 +106,6 @@
 /* End Styles Banner Login */
 
 .container-page-login {
-    min-height: 70.6vh;
     width: 100%;
     position: relative;
 
@@ -123,7 +122,7 @@
     background-repeat: no-repeat;
 
     @include media-breakpoint-up(lg) {
-        min-height: 91.6vh;
+
     }
 
 

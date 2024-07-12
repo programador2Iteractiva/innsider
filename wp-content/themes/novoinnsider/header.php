@@ -56,8 +56,16 @@
                     <div class="d-none d-lg-block row m-0 p-0">
                         <div class="class-btns-register d-flex justify-content-center">
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                <a class="btn-login mx-4" id="btn-login">Inicio</a>
-                                <a class="btn-register mx-4" id="btn-register">Registro</a>
+                                <?php $pageLogin = get_page_by_path('login'); ?>
+                                <?php if($pageLogin) : ?>
+                                    <?php $permalink = get_permalink($pageLogin->ID); ?>
+                                    <a class="btn-login mx-4" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
+                                <?php endif ?>
+                                <?php $pageRegister = get_page_by_path('Registro'); ?>
+                                <?php if($pageRegister) : ?>
+                                    <?php $permalink = get_permalink($pageRegister->ID); ?>
+                                    <a class="btn-login mx-4" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
+                                <?php endif ?>   
                             </div>
                         </div>
                     </div>
@@ -65,7 +73,7 @@
                     <div class="d-block d-lg-none col-12">
                         <div class="col-12 mt-4 d-flex justify-content-center align-items-center">
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                <a class="btn-login mx-1" id="btn-login">Inicio</a>
+                                <a class="btn-login mx-1" id="btn-login">Ingresar</a>
                                 <a class="btn-register mx-1" id="btn-register">Registro</a>
                             </div>
                         </div>

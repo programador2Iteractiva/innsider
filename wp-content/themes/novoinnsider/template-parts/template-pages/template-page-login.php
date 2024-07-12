@@ -46,7 +46,11 @@
 
                         </form>
 
-                        <a href="http://localhost/novo-innsider/login/" class="link-redirect-login d-flex justify-content-center align-items-center flex-lg-row flex-column mt-2 mb-2" style="text-decoration: none; color: #001965; font-weight: bold">¿Aún no está registrado? </a>
+                        <?php $pageRegister = get_page_by_path('Registro'); ?>
+                        <?php if($pageRegister) : ?>
+                            <?php $permalink = get_permalink($pageRegister->ID); ?>
+                            <a href="<?php echo esc_url($permalink); ?>" class="link-redirect-login d-flex justify-content-center align-items-center flex-lg-row flex-column mt-2 mb-2" style="text-decoration: none; color: #001965; font-weight: bold">¿Aún no está registrado? </a>
+                        <?php endif ?>   
                         <a href="http://localhost/novo-innsider/login/" class="link-redirect-login d-flex justify-content-center align-items-center flex-lg-row flex-column mt-2 mb-2" style="text-decoration: none; color: #001965; font-weight: bold">¿Olvidaste tu contraseña? </a>
                     </div>
                 </div>

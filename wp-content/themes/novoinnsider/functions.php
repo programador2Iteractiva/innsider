@@ -50,6 +50,13 @@ function novo_inssider_support()
 
 add_action('after_setup_theme', 'novo_inssider_support');
 
+// Función para agregar una clase a la imagen del logotipo personalizado
+function custom_logo_class($html) {
+    $html = str_replace('custom-logo', 'custom-logo mx-4', $html);
+    return $html;
+}
+add_filter('get_custom_logo', 'custom_logo_class');
+
 /*
 * Register and Enqueue Styles.
 */

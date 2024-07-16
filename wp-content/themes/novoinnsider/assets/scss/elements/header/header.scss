@@ -7,9 +7,25 @@ header{
                 a{
                     color: #001965;
                     font-family: 'NotoSans Regular' !important;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
                     line-height: 16.46px;
                     text-align: center;
+
+                    @include media-breakpoint-up(md) {
+                        font-size: 1.1rem;
+                    }
+            
+                    @include media-breakpoint-up(lg) {
+                        font-size: 1.1rem;
+                    }
+            
+                    @include media-breakpoint-up(xl) {
+                        font-size: 1.3rem;
+                    }
+            
+                    @include media-breakpoint-up(xxl) {
+                        font-size: 1.5rem;
+                    }
 
                     &:hover{
                         font-weight: bold;
@@ -27,7 +43,25 @@ header{
         padding: 0.3rem 1.5rem;
         cursor: pointer;
         font-family: 'NotoSans Regular' !important;
-        font-size: 1.5rem;
+        font-size: 1rem;
+
+        @include media-breakpoint-up(md) {
+            font-size: 1.1rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 1.1rem;
+            padding: 0.3rem 0.5rem;
+            border-radius: 1.5rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            font-size: 1.3rem;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            font-size: 1.5rem;
+        }
     }
 
 
@@ -51,4 +85,10 @@ header{
         transform: scale(0.98);
         box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.1);
     }
+}
+
+#menu-menu-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -59,12 +59,12 @@
                                 <?php $pageLogin = get_page_by_path('login'); ?>
                                 <?php if($pageLogin) : ?>
                                     <?php $permalink = get_permalink($pageLogin->ID); ?>
-                                    <a class="btn-login mx-4" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
+                                    <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
                                 <?php endif ?>
                                 <?php $pageRegister = get_page_by_path('Registro'); ?>
                                 <?php if($pageRegister) : ?>
                                     <?php $permalink = get_permalink($pageRegister->ID); ?>
-                                    <a class="btn-login mx-4" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
+                                    <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
                                 <?php endif ?>   
                             </div>
                         </div>

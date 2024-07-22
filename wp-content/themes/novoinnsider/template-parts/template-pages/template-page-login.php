@@ -9,7 +9,7 @@
     <div class="wrapper-banner-speakers">
         <div class="container-text-banner-speakers">
             <p>
-                INICIO
+                INICIAR SESIÓN
             </p>
         </div>
         <div class="container-text-banner-speakers w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">

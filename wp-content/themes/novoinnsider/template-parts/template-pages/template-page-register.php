@@ -67,7 +67,7 @@
                         <div class="mb-3 px-4">
                             <label class="mb-2 label-left2 form-label" for="speciality">Especialidad*</label>
                             <select class="form-control form-select subs-email2" name="speciality" id="speciality" required>
-                                <?php $specialties;
+                                <?php $specialties = novo_inssider_get_specialities();
                                 if (!empty($specialties)) :
                                     foreach ($specialties as $specialty) : ?>
                                         <option value="<?= $specialty->name_speciality ?>"><?= $specialty->name_speciality ?></option>
@@ -79,7 +79,7 @@
                             </select>
                         </div>
                         <div class="mb-3 px-4">
-                            <?php $institutions; ?>
+                            <?php $institutions = novo_inssider_get_institutions(); ?>
                             <label class="mb-2 label-left2 form-label" for="institution">Institución*</label>
                             <select class="form-control form-select subs-email2" name="institution" id="institution" required>
 
@@ -107,7 +107,7 @@
                                 <div class="col col-12 col-md-6 px-2">
                                     <label class="mb-2 label-left2 form-label" for="speciality">País*</label>
                                     <select class="form-control form-select subs-email2" name="country" id="country" required>
-                                        <?php $countries;
+                                        <?php $countries = novo_inssider_get_countries();
                                         if (!empty($countries)) :
                                             foreach ($countries as $country) : ?>
                                                 <option value="<?= $country->code ?>"><?= $country->name_country ?></option>
@@ -127,18 +127,20 @@
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-center align-items-center mb-3 px-3">
-                            <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center" id="c1">Aceptar términos y condiciones*
-                                <input type="checkbox" id="check_terms" class="mx-2" required>
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
+                        <div>
+                            <div class="d-flex justify-content-center align-items-center mb-3 px-3">
+                                <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center flex-row-reverse" id="c1">He leído y acepto los terminos y condiciones*
+                                    <input type="checkbox" id="check_terms" class="mx-2" required>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
 
-                        <div class="d-flex justify-content-center align-items-center mb-3 px-3">
-                            <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center" id="c2">Aceptar términos y condiciones*
-                                <input type="checkbox" id="check_terms" class="mx-2" required>
-                                <span class="checkmark"></span>
-                            </label>
+                            <div class="d-flex justify-content-center align-items-center mb-3 px-3">
+                                <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center flex-row-reverse" id="c2">Acepto tratamiento de datos*
+                                    <input type="checkbox" id="dataTreatment" class="mx-2" required>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
                         </div>
 
                         <div class="d-flex justify-content-center">

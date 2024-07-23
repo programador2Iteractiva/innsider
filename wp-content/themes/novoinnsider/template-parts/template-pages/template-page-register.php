@@ -25,110 +25,129 @@
                 <div class="card mt-3 mb-3 px-3 form-login-style">
                     <div class="m-0 p-0 w-100">
 
-                        <form id="form-login" class="d-flex justify-content-center align-items-center flex-column w-100" name="form-login" action="<?php echo get_site_url() ?>/wp-login.php" method="post">
-                            <div class="m-0 p-0 w-100">
-                                <div class="form-group m-0 p-0 d-flex flex-row justify-content-around">
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="name">Nombres*</label>
-                                        <input class="form-control" id="name" name="name" type="text" placeholder="" required>
-                                    </div>
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="last_name">Apellidos*</label>
-                                        <input class="form-control" id="last_name" name="last_name" type="text"
-                                                placeholder="" required>
-                                    </div>
+                    <form action="#" id="form-register" autocomplete="off">
+                        <div class="mb-3 mt-4 px-3">
+                            <div class="row m-0">
+                                <div class="col col-12 col-md-6 px-2">
+                                    <label class="mb-2 label-left2 form-label" for="name">Nombres*</label>
+                                    <input class="form-control subs-email2" name="name" id="name" type="text" placeholder="" required>
+                                </div>
+                                <div class="col col-12 col-md-6 px-2">
+                                    <label class="mb-2 label-left2 form-label" for="last_name">Apellidos*</label>
+                                    <input class="form-control subs-email2" name="last_name" id="last_name" type="text" placeholder="" required>
                                 </div>
                             </div>
-                            <div class="m-0 p-0 w-100">
-                                <div class="form-group m-0 p-0 d-flex flex-row justify-content-around">
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="name">Cédula*</label>
-                                        <input class="form-control" id="name" name="name" type="text" placeholder="" required>
-                                    </div>
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="last_name">Confirmar Cédula*</label>
-                                        <input class="form-control" id="last_name" name="last_name" type="text"
-                                                placeholder="" required>
-                                    </div>
+                        </div>
+                        <div class="mb-3 px-3">
+                            <div class="row m-0">
+                                <div class="col col-12 col-md-6 px-2">
+                                    <label class="mb-2 label-left2 form-label" for="document">Documento de identidad*</label>
+                                    <input class="form-control subs-email2" name="document" id="document" type="text" placeholder="" required>
+                                </div>
+                                <div class="col col-12 col-md-6 px-2">
+                                    <label class="mb-2 label-left2 form-label" for="confirm-document">Confirmar documento de identidad*</label>
+                                    <input class="form-control subs-email2" name="confirm-document" id="confirm-document" type="text" placeholder="" required>
                                 </div>
                             </div>
-                            <div class="m-0 p-0 w-100">
-                                <div class="form-group m-0 p-0 d-flex flex-row justify-content-around">
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="name">E-mail*</label>
-                                        <input class="form-control" id="name" name="name" type="text" placeholder="" required>
-                                    </div>
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="last_name">Teléfono*</label>
-                                        <input class="form-control" id="last_name" name="last_name" type="text"
-                                                placeholder="" required>
-                                    </div>
+                        </div>
+                        <div class="mb-3 px-3">
+                            <div class="row m-0">
+                                <div class="col col-12 col-md-6 px-2">
+                                    <label class="mb-2 label-left2 form-label" for="email-r">E-mail*</label>
+                                    <input class="form-control subs-email2" name="email-r" id="email-r" type="email" placeholder="" required>
+                                </div>
+                                <div class="col col-12 col-md-6 px-2">
+                                    <label class="mb-2 label-left2 form-label" for="phone">Telefono*</label>
+                                    <input class="form-control subs-email2" name="phone" id="phone" type="text" placeholder="" required>
                                 </div>
                             </div>
-                            <div class="m-0 p-0 w-100">
-                                <div class="form-group m-0 p-0 d-flex flex-row justify-content-around">
-                                    <div class="col col-11 px-2 position-relative">
-                                        <label for="exampleInputEmail1" class="form-label">Especialidad*</label>
-                                        <input type="text" class="form-control input-password" id="password" name="pwd" required>
-                                    </div>
-                                </div>
-                                <div class="form-group m-0 p-0 d-flex flex-row justify-content-around">
-                                    <div class="col col-11 px-2 position-relative">
-                                        <label for="exampleInputEmail1" class="form-label">Institución*</label>
-                                        <input type="email" class="form-control input-password" id="password" name="pwd" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-0 p-0 w-100">
-                                <div class="form-group m-0 p-0 d-flex flex-row justify-content-around">
-                                    <div class="col col-11 px-2 position-relative">
-                                        <label for="exampleInputEmail1" class="form-label">Cargo en la institución*</label>
-                                        <input type="text" class="form-control input-password" id="password" name="pwd" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-0 p-0 w-100">
-                                <div class="form-group m-0 p-0 d-flex flex-row justify-content-around">
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="name">País*</label>
-                                        <input class="form-control" id="name" name="name" type="text" placeholder="" required>
-                                    </div>
-                                    <div class="col col-5 px-2 mb-2">
-                                        <label class="label-left2" for="last_name">Ciudad*</label>
-                                        <input class="form-control" id="last_name" name="last_name" type="text"
-                                                placeholder="" required>
-                                    </div>
+                        </div>
+
+
+                        <div class="mb-3 px-4">
+                            <label class="mb-2 label-left2 form-label" for="speciality">Especialidad*</label>
+                            <select class="form-control form-select subs-email2" name="speciality" id="speciality" required>
+                                <?php $specialties;
+                                if (!empty($specialties)) :
+                                    foreach ($specialties as $specialty) : ?>
+                                        <option value="<?= $specialty->name_speciality ?>"><?= $specialty->name_speciality ?></option>
+                                    <?php endforeach; ?>
+
+                                <?php else : ?>
+                                    <option value="">Vacio</option>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3 px-4">
+                            <?php $institutions; ?>
+                            <label class="mb-2 label-left2 form-label" for="institution">Institución*</label>
+                            <select class="form-control form-select subs-email2" name="institution" id="institution" required>
+
+                                <?php
+                                if (!empty($institutions)) :
+                                    foreach ($institutions as $institution) : ?>
+                                        <option value="<?= $institution->institution_name ?>"><?= $institution->institution_name ?></option>
+                                    <?php endforeach; ?>
+                                <?php else : ?>
+                                    <option>Vacio</option>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div class="mb-3 px-3">
+                            <div class="row m-0">
+                                <div class="">
+                                    <label class="mb-2 label-left2 form-label" for="position_institution">Cargo en la institución*</label>
+                                    <input class="form-control subs-email2" name="position_institution" id="position_institution" type="text" required>
                                 </div>
                             </div>
 
-                            <div class="d-flex justify-content-center align-items-center flex-lg-row flex-column mt-4">
+                        </div>
+                        <div class="mb-3 px-3">
+                            <div class="row m-0">
+                                <div class="col col-12 col-md-6 px-2">
+                                    <label class="mb-2 label-left2 form-label" for="speciality">País*</label>
+                                    <select class="form-control form-select subs-email2" name="country" id="country" required>
+                                        <?php $countries;
+                                        if (!empty($countries)) :
+                                            foreach ($countries as $country) : ?>
+                                                <option value="<?= $country->code ?>"><?= $country->name_country ?></option>
+                                            <?php endforeach; ?>
 
-                                <div class="d-flex justify-content-center align-items-center flex-row">
-                                    <input class="mx-2" type="checkbox" id="terms_condition" name="terms_condition" required>
-                                    <span class="checkmark"></span>
-                                    <label class="container-checkbox Commissioner-Light" id="c2">
-                                        He leído y acepto los terminos y condiciones*
-                                    </label>
+                                        <?php else : ?>
+                                            <option value="">Vacio</option>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                                <div class="col col-12 col-md-6 px-2" id="prueba">
+                                    <label class='mb-2 label-left2 form-label' for='city'>Ciudad*</label>
+                                    <select class='form-control form-select subs-email2' name='city' id='city' required>
+
+                                    </select>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="d-flex justify-content-center align-items-center flex-row">
-                                    <input class="mx-2" type="checkbox" id="terms_condition" name="terms_condition" required>
-                                    <span class="checkmark"></span>
-                                    <label class="container-checkbox Commissioner-Light" id="c2">
-                                        Acepto tratamiento de datos*
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="d-flex justify-content-center align-items-center mb-3 px-3">
+                            <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center" id="c1">Aceptar términos y condiciones*
+                                <input type="checkbox" id="check_terms" class="mx-2" required>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
 
-                            <div class="m-0 p-0 w-100 px-5 mt-4 mb-5">
-                                <button type="submit" onclick="enviarp()" class="btn-login-two p-2">Regístrese</button>
-                            </div>
+                        <div class="d-flex justify-content-center align-items-center mb-3 px-3">
+                            <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center" id="c2">Aceptar términos y condiciones*
+                                <input type="checkbox" id="check_terms" class="mx-2" required>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
 
-                        </form>
-                    </div>
+                        <div class="d-flex justify-content-center">
+                            <button class="btn-form-register subs-send" type="submit">Registrarse</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>

@@ -14,7 +14,7 @@ setlocale(LC_TIME, 'spanish');
  * 
  * Load Custom login register 
  */
-// require_once 'inc/custom-login-register/custom-login-register.php';
+require_once 'inc/custom-login-and-register/custom-login-and-register.php';
 
 /**
  * 

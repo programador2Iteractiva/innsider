@@ -109,6 +109,35 @@ add_action('init', 'novo_inssider_menus');
 
 
 /**
+ * Function name user
+*/
+function novo_innsider_name_user()
+{
+    $userData = wp_get_current_user();
+
+    $full_name = get_user_meta($userData->ID, 'first_name', true);
+    $emai_user =  $userData->user_email;
+    $document = get_user_meta($userData->ID, 'document_number', true);
+
+    $data = [
+        'name' => $full_name,
+        'email' => $emai_user,
+        'document' => $document
+    ];
+
+    return $data;
+}
+
+/**
+ * Function logout
+*/
+function novo_innsider_logout()
+{
+    return '<a class="" href="'. wp_logout_url(home_url()) .'">Cerrar sesión</a>';
+}
+
+
+/**
  * Adds support for menu link class (<a>) in wp_nav_menu.
  *
  * @param array $atts The HTML attributes applied to the menu item's <a> element.

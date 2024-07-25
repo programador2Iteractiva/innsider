@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="col col-12 col-md-6 px-2">
                                     <label class="mb-2 label-left2 form-label" for="phone">Telefono*</label>
-                                    <input class="form-control subs-email2" name="phone" id="phone" type="text" placeholder="" required>
+                                    <input class="form-control subs-email2" name="phone" id="phone" type="number" placeholder="" required>
                                 </div>
                             </div>
                         </div>

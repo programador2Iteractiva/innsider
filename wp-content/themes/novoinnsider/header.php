@@ -1,3 +1,12 @@
+<?php
+if (!is_user_logged_in() && (is_page('herramientas'))) {
+    auth_redirect();
+    exit;
+}elseif (is_user_logged_in() && (is_page('login')) || is_user_logged_in() && (is_page('registro')) ) { 
+    wp_safe_redirect(get_site_url());
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en" style="margin: 0 !important;">
 
@@ -56,6 +65,8 @@
                     <div class="d-none d-lg-block row m-0 p-0">
                         <div class="class-btns-register d-flex justify-content-center">
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                            <?php if (is_page('login') || is_page('registro') || !is_user_logged_in()) : ?>
+
                                 <?php $pageLogin = get_page_by_path('login'); ?>
                                 <?php if($pageLogin) : ?>
                                     <?php $permalink = get_permalink($pageLogin->ID); ?>
@@ -66,6 +77,21 @@
                                     <?php $permalink = get_permalink($pageRegister->ID); ?>
                                     <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
                                 <?php endif ?>   
+
+                            <?php else : ?>
+
+                                <?php $data = novo_innsider_name_user(); ?>
+
+                                <div class="d-flex justify-content-center align-items-center flex-column container-btn-login">
+                                    <div class="btn-user">
+                                        <?= $data["name"]; ?>
+                                    </div>
+                                    <div class="btn-logout d-flex justify-content-center">
+                                        <?= novo_innsider_logout(); ?>
+                                    </div>
+                                </div>
+                                
+                            <?php endif; ?>
                             </div>
                         </div>
                     </div>

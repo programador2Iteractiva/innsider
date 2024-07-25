@@ -52,8 +52,15 @@ add_action('after_setup_theme', 'novo_inssider_support');
 
 // Función para agregar una clase a la imagen del logotipo personalizado
 function custom_logo_class($html) {
-    $html = str_replace('custom-logo', 'custom-logo mx-2', $html);
-    return $html;
+
+    if(is_user_logged_in()){
+        $html = str_replace('custom-logo', 'custom-logo mx-5', $html);
+        return $html;
+    }else{
+        $html = str_replace('custom-logo', 'custom-logo mx-2', $html);
+        return $html;
+    }
+    
 }
 add_filter('get_custom_logo', 'custom_logo_class');
 
@@ -77,6 +84,9 @@ add_action('wp_enqueue_scripts', 'novo_inssider_styles');
  */
 function novo_inssider_scripts()
 {       
+    $userData = wp_get_current_user();
+    $full_name = get_user_meta($userData->ID, 'first_name', true);
+
     $version = rand(0, 1000);
     wp_enqueue_script('main-co', get_template_directory_uri() . '/main.js', array(), $version, false);
 
@@ -84,7 +94,8 @@ function novo_inssider_scripts()
         [
             'ajax_url' => admin_url('admin-ajax.php'),
             'ajax_nonce' => wp_create_nonce('ajax_check'),
-            'site_url' => get_site_url()
+            'site_url' => get_site_url(),
+            'full_name' => $full_name,
         ]
     );
 
@@ -136,6 +147,36 @@ function novo_innsider_logout()
     return '<a class="" href="'. wp_logout_url(home_url()) .'">Cerrar sesión</a>';
 }
 
+
+function novo_innsider_display_user_name() {
+
+    if ( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+        $link_logout = novo_innsider_logout();
+        $full_name = get_user_meta( $current_user->ID, 'first_name', true );
+
+        return "
+
+            <div class='container-user-btn'>
+                <div class='half'>
+                    <label for='profile2' class='profile-dropdown'>
+                        <input type='checkbox' id='profile2'>
+                        <i class='bi bi-person img-logo'></i>
+                        <span>{$full_name}</span>
+                        <label for='profile2'><i class='bi bi-chevron-down'></i></label>
+                        <ul>
+                            <li>{$link_logout}</li>
+                        </ul>
+                    </label>
+                </div>
+            </div> 
+        ";
+    }
+    else {
+        return false;
+    }
+
+}
 
 /**
  * Adds support for menu link class (<a>) in wp_nav_menu.
@@ -259,6 +300,5 @@ function novo_inssider_subcategory_template($template)
 }
 
 add_filter('category_template', 'novo_inssider_subcategory_template');
-
 
 ?>

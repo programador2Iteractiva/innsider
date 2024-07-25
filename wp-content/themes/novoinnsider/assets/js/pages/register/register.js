@@ -5,7 +5,78 @@ import Swal from "sweetalert2";
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    /* Code validate input document with input confirmDocument */
+    /* Call name user to object ajax */
+    var nameUser = ajax_object.full_name;
+
+    /* Call all Cookies */
+    // function getAllCookies() {
+    //     let cookies = document.cookie.split('; ');
+    //     let cookieObj = {};
+    //     cookies.forEach(cookie => {
+    //         let [key, value] = cookie.split('=');
+    //         cookieObj[key] = value;
+    //     });
+    //     return cookieObj;
+    // }
+
+    // let allCookies = getAllCookies();
+    // console.log('Todas las cookies:', allCookies);
+
+    /* validate the existence of the cookie */
+    function getCookie(name) {
+        let value = `; ${document.cookie}`;
+        let parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+
+    /* create the cookie */
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Time in milliseconds
+            expires = "; expires=" + date.toUTCString();
+        }
+        // Sets the cookie with the name, value and options (expiry and path)
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    /* delete the cookie */
+    function deleteCookie(name) {
+        // Sets the cookie with the expiration date in the past
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    }
+
+    let alertShown = getCookie('alertShown');
+
+    if(nameUser) {
+
+        if (alertShown === null || alertShown === "false") {
+            Swal.fire({
+                html: '<h1><span class="Apis-Bold" style="color: #001965;">Bienvenido ' + nameUser + ',</span></h1>'+
+                '<p>esto es lo último en Innsider para usted.</p>',
+                imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Novo_Nordisk_-_Logo.svg/1200px-Novo_Nordisk_-_Logo.svg.png', // URL de la imagen
+                imageWidth: 100,
+                imageHeight: 83,
+                imageAlt: 'Descripción de la imagen',
+                showCloseButton: true,
+                showConfirmButton: true,
+                showCancelButton: false,
+                customClass: {
+                    popup: "swal-style-login",
+                    confirmButton: 'swal-custom-button'
+                },
+                width: '595px',
+                confirmButtonText: "Continuar",
+                color: "#000000",
+            });
+    
+            setCookie("alertShown", "true");
+        }
+    }else{
+        deleteCookie('alertShown');
+    }
 
     var numberDocument = document.getElementById('document');
     var confirmDocument = document.getElementById('confirm-document');
@@ -223,11 +294,6 @@ document.addEventListener("DOMContentLoaded", function(){
             console.error('Error', error);
         })
         
-    })
-
-
-
-
-    
+    })    
 
 })

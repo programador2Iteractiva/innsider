@@ -24,24 +24,27 @@
                 <div class="card mt-3 mb-3 px-3 form-login-style">
                     <div class="m-0 p-0 w-100">
 
-                        <form id="form-login" class="d-flex justify-content-center align-items-center flex-column w-100" name="form-login" action="<?php echo get_site_url() ?>/wp-login.php" method="post">
+                        <form id="form-login" class="d-flex justify-content-center align-items-center flex-column w-100" action="<?php echo get_site_url() ?>/wp-login.php" method="post">
                             <div class="m-0 p-0 w-100">
                                 <div class="form-group mt-2 mb-3">
                                     <div class="col col-12 px-2 position-relative">
-                                        <label for="exampleInputEmail1" class="form-label">Cédula*</label>
-                                        <input type="text" class="form-control input-password" id="password" name="pwd" required>
+                                        <label for="exampleInputEmail1" class="form-label">E-Mail*</label>
+                                        <input type="email" class="form-control input-password" id="email"  name="log" required>
                                     </div>
                                 </div>
                                 <div class="form-group mt-2 mb-3">
                                     <div class="col col-12 px-2 position-relative">
-                                        <label for="exampleInputEmail1" class="form-label">E-Mail*</label>
-                                        <input type="email" class="form-control input-password" id="password" name="pwd" required>
+                                        <label for="exampleInputEmail1" class="form-label">Cédula*</label>
+                                        <input type="password" class="form-control input-password" id="password" name="pwd" required>
                                     </div>
                                 </div>
                             </div>
 
+                            <input type="hidden" name="redirect_to"
+                                       value="<?php echo esc_url(isset($_GET['redirect_to']) && !empty($_GET['redirect_to']) ? $_GET['redirect_to'] : get_site_url()); ?>"/>
+
                             <div class="m-0 p-0 w-100 px-5 mt-4 mb-5">
-                                <button type="submit" onclick="enviarp()" class="btn-login-two p-2">Login</button>
+                                <button type="submit" class="btn-login-two p-2">Login</button>
                             </div>
 
                         </form>
@@ -58,3 +61,22 @@
         </div>
     </div>
 </div>
+<?php if (isset($_GET['login'])): ?>
+    <?php if(isset($_GET['login']) && $_GET['login'] == 'success') : ?>
+    <?php else : ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Usuario o contraseña incorrectos.',
+                showConfirmButton: false,
+                showCancelButton: false,
+                customClass: {
+                    popup: "swal-styles"
+                },
+                confirmButtonText: "Acepto",
+                confirmButtonColor: "#3085d6",
+                color: "#000000",
+            });
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

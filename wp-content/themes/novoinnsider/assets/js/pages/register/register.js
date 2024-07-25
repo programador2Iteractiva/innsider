@@ -203,12 +203,11 @@ document.addEventListener("DOMContentLoaded", function(){
                     if (!response.ok) {
                         throw new Error('Network response was not ok');  
                     }
-                    return response.text(); // Convertir la respuesta a texto                    
+                    return response.json();
                 })
                 .then(function(dataRegister) {
         
-                    if ( dataRegister.status == 1 ) {
-                        console.log(dataRegister);
+                    if ( dataRegister.status === 1 ) {
                         location.reload();
                     }
 

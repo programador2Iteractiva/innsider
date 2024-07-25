@@ -7,6 +7,7 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en" style="margin: 0 !important;">
 
@@ -82,12 +83,12 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
 
                                 <?php $data = novo_innsider_name_user(); ?>
 
-                                <div class="d-flex justify-content-center align-items-center flex-column container-btn-login">
-                                    <div class="btn-user">
-                                        <?= $data["name"]; ?>
-                                    </div>
-                                    <div class="btn-logout d-flex justify-content-center">
+                                <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                    <div class="btn-login d-none">
                                         <?= novo_innsider_logout(); ?>
+                                    </div>
+                                    <div class="mx-5">
+                                        <?php echo novo_innsider_display_user_name(); ?>
                                     </div>
                                 </div>
                                 
@@ -115,7 +116,3 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
             </nav>
         </div>
     </header>
-
-    <?php if (!is_page('registro') && !is_page('login')) : ?>
-
-    <?php endif; ?>

@@ -257,6 +257,7 @@
     width: 100%;
     border: 2px solid #001965;
     border-radius: 2.5rem;
+    font-family: 'NotoSans Bold' !important;
 }
 
 .form-control {
@@ -410,12 +411,27 @@ $animation: pulse;
   span{
     display:inline-block;
     vertical-align: sub;
-    width: 90px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #001965;
     cursor: pointer;
-    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'NotoSans Bold' !important;
+
+    @include media-breakpoint-up(md) {
+        font-size: 1rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: 1.1rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        font-size: 1.3rem;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        font-size: 1.5rem;
+    }
   }
   
   ul{
@@ -432,15 +448,15 @@ $animation: pulse;
     border-radius: 0.5rem;
 
     li{
-        border: 4px solid #49000d;
+        border: 4px solid #001965;
         border-radius: 0.5rem;
       a{
         display:block;
         padding: 0.2rem;
         text-decoration: none;
-        color: #49000d;
+        color: #001965;
         font-size: 1rem;
-        font-family: "Roboto-Bold";
+        font-family: 'NotoSans Bold' !important;
         
         i{
           font-size: 1.3rem;

@@ -144,7 +144,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center">
-                            <button class="btn-form-register subs-send" type="submit">Registrarse</button>
+                            <button class="btn-login-two p-2 w-75" type="submit">Registrarse</button>
                         </div>
                     </form>
                 </div>

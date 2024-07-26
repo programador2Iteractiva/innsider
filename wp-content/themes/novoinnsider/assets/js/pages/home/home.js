@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Swiper from "swiper/bundle";
-import "bootstrap";
+import 'bootstrap/dist/js/bootstrap.min';
 
 document.addEventListener("DOMContentLoaded", function () {
 

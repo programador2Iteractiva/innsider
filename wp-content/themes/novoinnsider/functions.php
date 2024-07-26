@@ -300,4 +300,113 @@ function novo_inssider_subcategory_template($template)
 
 add_filter('category_template', 'novo_inssider_subcategory_template');
 
+
+/**
+ * Toma el post-type por default que tiene el nombre de entradas en español y se ajusta
+ * tambien los nombres en el administrador de las opciones y vistas internas segun las debamos asignar
+ */
+function cambiar_etiquetas_entrada() {
+    global $wp_post_types;
+
+    // Cambiar las etiquetas para el tipo de entrada "post"
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Academia';
+    $labels->singular_name = 'Academia';
+    $labels->add_new = 'Agregar Academia';
+    $labels->all_items = 'Todas las Academia';
+    $labels->add_new_item = 'Agregar Nueva Academia';
+    $labels->edit_item = 'Editar Academia';
+    $labels->new_item = 'Nueva Academia';
+    $labels->view_item = 'Ver Academia';
+    $labels->search_items = 'Buscar Academia';
+    $labels->not_found = 'No se encontraron Academias';
+    $labels->not_found_in_trash = 'No se encontraron Academia en la papelera';
+}
+add_action('init', 'cambiar_etiquetas_entrada');
+
+
+/**
+ * Toma el post-type por default que tiene el nombre de entradas en español y se ajusta
+ * al nombre que debamos asignar
+ */
+function cambiar_nombre_menu_entrada() {
+    global $menu;
+
+    // Encuentra la posición del menú "Entradas" en el array $menu
+    foreach ($menu as $key => $item) {
+        if ($item[0] == 'Entradas') {
+            // Cambia el nombre del menú
+            $menu[$key][0] = 'Academia';
+            break;
+        }
+    }
+}
+add_action('admin_menu', 'cambiar_nombre_menu_entrada');
+
+
+/**
+ * Desactivar comentarios en publicaciones y páginas
+ */
+function desactivar_comentarios() {
+    remove_post_type_support('post', 'comments');
+    remove_post_type_support('page', 'comments');
+}
+add_action('init', 'desactivar_comentarios');
+
+
+/**
+ * Desactivar menú de comentarios en el admin
+*/
+function eliminar_comentarios_admin_menu() {
+    remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'eliminar_comentarios_admin_menu');
+
+
+/**
+ * Redirigir cualquier intento de acceso a la página de comentarios al panel de control
+*/
+function redirigir_a_panel_control() {
+    global $pagenow;
+    if ($pagenow === 'edit-comments.php') {
+        wp_redirect(admin_url());
+        exit();
+    }
+}
+add_action('admin_init', 'redirigir_a_panel_control');
+
+
+/* Funcion que restringe el ingreso de usuarios con rol de Suscriptor al admin / Backend de Wordpress */
+function restrict_admin_area_by_rol() {
+    if ( ! current_user_can( 'manage_options' ) && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+      wp_redirect( site_url() );
+      exit;
+    }
+  }
+  add_action( 'admin_init', 'restrict_admin_area_by_rol', 1 );
+
+
+  
+// Ocultar el plugin "login-customizer" del menú izquierdo del administrador y de "Apariencia" -> "Personalizar"
+function ocultar_login_customizer_menu_personalizar() {
+    // Identificador único de la página de opciones del plugin
+    $plugin_page_id = 'login-customizer-settings';
+
+    // Verificar si el plugin está activo
+    if (is_plugin_active('login-customizer/login-customizer.php')) {
+        global $menu, $submenu;
+
+        // Ocultar en el menú izquierdo del administrador
+        foreach ($menu as $key => $item) {
+            if (isset($item[2]) && $item[2] === $plugin_page_id) {
+                unset($menu[$key]);
+                break;
+            }
+        }
+
+    }
+}
+
+add_action('admin_menu', 'ocultar_login_customizer_menu_personalizar');
+
 ?>

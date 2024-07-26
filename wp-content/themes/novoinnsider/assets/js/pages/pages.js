@@ -1,3 +1,4 @@
 /* Components */
 
 import './home/home'
+import './register/register'

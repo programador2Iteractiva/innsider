@@ -1,3 +1,13 @@
+<?php
+if (!is_user_logged_in() && (is_page('herramientas'))) {
+    auth_redirect();
+    exit;
+}elseif (is_user_logged_in() && (is_page('login')) || is_user_logged_in() && (is_page('registro')) ) { 
+    wp_safe_redirect(get_site_url());
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" style="margin: 0 !important;">
 
@@ -12,7 +22,7 @@
 
     <header>
         <div class="d-flex justify-content-center align-items-center">
-            <nav class="navbar navbar-expand-lg py-5 d-lg-flex justify-content-lg-center align-items-lg-center flex-column">
+            <nav class="navbar navbar-expand-lg py-lg-5 py-4 d-lg-flex justify-content-lg-center align-items-lg-center flex-column">
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="d-block">
@@ -56,6 +66,8 @@
                     <div class="d-none d-lg-block row m-0 p-0">
                         <div class="class-btns-register d-flex justify-content-center">
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                            <?php if (is_page('login') || is_page('registro') || !is_user_logged_in()) : ?>
+
                                 <?php $pageLogin = get_page_by_path('login'); ?>
                                 <?php if($pageLogin) : ?>
                                     <?php $permalink = get_permalink($pageLogin->ID); ?>
@@ -66,24 +78,41 @@
                                     <?php $permalink = get_permalink($pageRegister->ID); ?>
                                     <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
                                 <?php endif ?>   
+
+                            <?php else : ?>
+
+                                <?php $data = novo_innsider_name_user(); ?>
+
+                                <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                    <div class="btn-login d-none">
+                                        <?= novo_innsider_logout(); ?>
+                                    </div>
+                                    <div class="mx-3 d-flex justify-content-center align-items-center text-center">
+                                        <?php echo novo_innsider_display_user_name(); ?>
+                                    </div>
+                                </div>
+                                
+                            <?php endif; ?>
                             </div>
                         </div>
                     </div>
-
-                    <div class="d-block d-lg-none col-12">
-                        <div class="col-12 mt-4 d-flex justify-content-center align-items-center">
-                            <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                <a class="btn-login mx-1" id="btn-login">Ingresar</a>
-                                <a class="btn-register mx-1" id="btn-register">Registro</a>
-                            </div>
+                </div>
+                <div class="d-block d-lg-none col-12">
+                    <div class="class-btns-register d-flex justify-content-center mt-4">
+                        <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                            <?php $pageLogin = get_page_by_path('login'); ?>
+                            <?php if($pageLogin) : ?>
+                                <?php $permalink = get_permalink($pageLogin->ID); ?>
+                                <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
+                            <?php endif ?>
+                            <?php $pageRegister = get_page_by_path('Registro'); ?>
+                            <?php if($pageRegister) : ?>
+                                <?php $permalink = get_permalink($pageRegister->ID); ?>
+                                <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
+                            <?php endif ?>   
                         </div>
                     </div>
-
                 </div>
             </nav>
         </div>
     </header>
-
-    <?php if (!is_page('registro') && !is_page('login')) : ?>
-
-    <?php endif; ?>

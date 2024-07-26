@@ -87,7 +87,7 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
                                     <div class="btn-login d-none">
                                         <?= novo_innsider_logout(); ?>
                                     </div>
-                                    <div class="mx-5">
+                                    <div class="mx-3 d-flex justify-content-center align-items-center text-center">
                                         <?php echo novo_innsider_display_user_name(); ?>
                                     </div>
                                 </div>

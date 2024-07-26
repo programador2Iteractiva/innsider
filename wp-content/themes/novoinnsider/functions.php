@@ -161,8 +161,7 @@ function novo_innsider_display_user_name() {
                 <div class='half'>
                     <label for='profile2' class='profile-dropdown'>
                         <input type='checkbox' id='profile2'>
-                        <i class='bi bi-person img-logo'></i>
-                        <span>{$full_name}</span>
+                        <span>Hola, {$full_name}</span>
                         <label for='profile2'><i class='bi bi-chevron-down'></i></label>
                         <ul>
                             <li>{$link_logout}</li>

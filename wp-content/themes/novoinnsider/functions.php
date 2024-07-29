@@ -440,5 +440,39 @@ function novo_inssider_get_all_academies()
     return $list_academies;
 }
 
+function novo_inssider_get_all_academies_actives() {
+    global $wpdb;
+
+    $taxonomy = 'academia';
+    $meta_key = 'Status_Categories';
+    $meta_value = '1';
+
+    // Construir el nombre de la tabla termmeta
+    $table_termmeta = $wpdb->prefix . 'termmeta';
+
+    // Obtener los IDs de términos que cumplen con el meta valor
+    $term_ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT term_id 
+        FROM {$table_termmeta}
+        WHERE meta_key = %s
+        AND meta_value = %s",
+        $meta_key,
+        $meta_value
+    ));
+
+    if (empty($term_ids)) {
+        return array(); // Si no hay términos, devolver un arreglo vacío
+    }
+
+    // Obtener los términos que tienen los IDs obtenidos
+    $list_academies = get_terms(array(
+        'taxonomy' => $taxonomy,
+        'include' => $term_ids,
+        'hide_empty' => false,
+    ));
+
+    return $list_academies;
+}
+
 
 ?>

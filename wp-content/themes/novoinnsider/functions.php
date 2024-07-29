@@ -35,7 +35,11 @@ require_once 'inc/custom-class-nav/custom-class-nav.php';
  */
 require_once 'inc/post-types/post-types.php';
 
-
+/**
+ * 
+ * Load taxonomies
+ */
+require_once 'inc/taxonomies/taxonomies.php';
 
 function novo_inssider_support()
 {
@@ -292,7 +296,7 @@ function novo_inssider_subcategory_template($template)
 {
     $cat = get_queried_object();
     if (0 < $cat->category_parent) {
-        $template = locate_template('subcategory.php');
+        $template = locate_template('category.php');
     }
 
     return $template;
@@ -408,5 +412,33 @@ function ocultar_login_customizer_menu_personalizar() {
 }
 
 add_action('admin_menu', 'ocultar_login_customizer_menu_personalizar');
+
+
+/**
+ * Funcion que deshabilita categorias y tags del post Nuestras Historias
+*/
+function deshabilitar_categorias_y_etiquetas() {
+    unregister_taxonomy_for_object_type('category', 'post');
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+
+add_action('init', 'deshabilitar_categorias_y_etiquetas');
+
+
+/**
+ * Function get all academies
+ */
+function novo_inssider_get_all_academies()
+{
+    $list_academies = get_terms(
+        array(
+            'taxonomy' => 'academia',
+            'hide_empty' => false,
+        )
+    );
+
+    return $list_academies;
+}
+
 
 ?>

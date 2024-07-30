@@ -558,4 +558,48 @@ function custom_breadcrumbs() {
     echo '</nav>';
 }
 
+
+function obtenerMiniaturaVimeo($videoUrl)
+{
+    $parsedUrl = parse_url($videoUrl);
+    if (isset($parsedUrl['fragment'])) {
+        $videoId = substr($parsedUrl['fragment'], 1);
+    } else {
+        $videoId = ltrim($parsedUrl['path'], '/');
+    }
+    
+    // URL base de la API de Vimeo
+    $base_url = "https://vimeo.com/api/oembed.json?url=https://vimeo.com/";
+    
+    // Construye la URL completa con el ID del video
+    $url = $base_url . $videoId;
+    
+    // Realiza una solicitud GET a la API de Vimeo usando wp_remote_get
+    $response = wp_remote_get($url);
+    
+    // Verifica si la solicitud fue exitosa
+    if (is_wp_error($response)) {
+        // Maneja el error aquí, por ejemplo, registrando el error o mostrando un mensaje al usuario
+        $error_message = $response->get_error_message();
+        error_log("Error al obtener el contenido de Vimeo: " . $error_message);
+        return null;
+    }
+
+    // Obtiene el cuerpo de la respuesta
+    $body = wp_remote_retrieve_body($response);
+    
+    // Decodifica el JSON obtenido en un array asociativo
+    $data = json_decode($body, true);
+    
+    // Extrae la URL de la miniatura del array
+    $thumbnail_url = isset($data['thumbnail_url']) ? $data['thumbnail_url'] : null;
+
+    if ($thumbnail_url) {
+        $thumbnail_url = str_replace('_295x166', '_1280x720', $thumbnail_url);
+    }
+    
+    return $thumbnail_url;
+}
+
+
 ?>

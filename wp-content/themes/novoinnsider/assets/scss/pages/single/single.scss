@@ -33,7 +33,7 @@
         position: relative;
         padding: 2rem 1.5rem;
         flex-direction: column;
-        height: 110px;
+        height: 165px;
 
         .container-text-banner-single {
             p {
@@ -83,28 +83,28 @@
 
         @include media-breakpoint-up(md) {
             padding: 3rem;
-            height: 225px;
+            height: 320px;
         }
 
         @include media-breakpoint-up(lg) {
             padding: 3rem 5rem;
             justify-content: start;
-            height: 300px;
+            height: 400px;
         }
 
         @include media-breakpoint-up(xl) {
             padding: 3rem 6rem;
-            height: 360px;
+            height: 450px;
         }
 
         @include media-breakpoint-up(xxl) {
             padding: 3rem 7rem;
-            height: 400px;
+            height: 550px;
         }
 
         @include media-breakpoint-up(xxxl) {
             padding: 3rem 7rem;
-            height: 410px;
+            height: 500px;
         }
 
         .bg-banner-single{
@@ -195,18 +195,16 @@
 
 
 .icon-play-video {
-    color: rgba( $white, 0.7 );
-    font-size: 2rem;
-
-    @include media-breakpoint-up(md) {
-        font-size: 2.5rem;
-    }
-
-    @include media-breakpoint-up(xl) {
-        font-size: 3rem;
-    }
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 38px;
+    height: 31px;
+    background: #2C5CA7;
+    padding: 1rem;
 }
-
 
 .player-video {
     position: relative;

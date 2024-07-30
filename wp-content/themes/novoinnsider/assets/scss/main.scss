@@ -11,6 +11,8 @@ Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, 
 @import "./initialcss/initial.scss";
 @import "./elements/elements.scss";
 @import "./pages/pages.scss";
+@import "./taxonomy/taxonomy.scss";
+
 
 body, html {
     @include full-width-and-viewport-height;
@@ -55,10 +57,23 @@ body, html {
     font-family: "NotoSans Regular" !important;
 }
 
+.NotoSans-SemiBold{
+    font-family: "NotoSans SemiBold" !important;
+}
+
 .title-color{
-    color: #001965;
+    color: #001965 !important;
 }
 
 .description-color{
-    color: #001965;
+    color: #001965 !important;
 }
+
+.line-height-2{
+    line-height: 2rem !important;
+}
+
+.text-align-justify{
+    text-align: justify !important;
+}
+    

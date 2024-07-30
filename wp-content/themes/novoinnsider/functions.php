@@ -35,7 +35,11 @@ require_once 'inc/custom-class-nav/custom-class-nav.php';
  */
 require_once 'inc/post-types/post-types.php';
 
-
+/**
+ * 
+ * Load taxonomies
+ */
+require_once 'inc/taxonomies/taxonomies.php';
 
 function novo_inssider_support()
 {
@@ -292,12 +296,266 @@ function novo_inssider_subcategory_template($template)
 {
     $cat = get_queried_object();
     if (0 < $cat->category_parent) {
-        $template = locate_template('subcategory.php');
+        $template = locate_template('category.php');
     }
 
     return $template;
 }
 
 add_filter('category_template', 'novo_inssider_subcategory_template');
+
+
+/**
+ * Toma el post-type por default que tiene el nombre de entradas en español y se ajusta
+ * tambien los nombres en el administrador de las opciones y vistas internas segun las debamos asignar
+ */
+function cambiar_etiquetas_entrada() {
+    global $wp_post_types;
+
+    // Cambiar las etiquetas para el tipo de entrada "post"
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Academia';
+    $labels->singular_name = 'Academia';
+    $labels->add_new = 'Agregar Academia';
+    $labels->all_items = 'Todas las Academia';
+    $labels->add_new_item = 'Agregar Nueva Academia';
+    $labels->edit_item = 'Editar Academia';
+    $labels->new_item = 'Nueva Academia';
+    $labels->view_item = 'Ver Academia';
+    $labels->search_items = 'Buscar Academia';
+    $labels->not_found = 'No se encontraron Academias';
+    $labels->not_found_in_trash = 'No se encontraron Academia en la papelera';
+}
+add_action('init', 'cambiar_etiquetas_entrada');
+
+
+/**
+ * Toma el post-type por default que tiene el nombre de entradas en español y se ajusta
+ * al nombre que debamos asignar
+ */
+function cambiar_nombre_menu_entrada() {
+    global $menu;
+
+    // Encuentra la posición del menú "Entradas" en el array $menu
+    foreach ($menu as $key => $item) {
+        if ($item[0] == 'Entradas') {
+            // Cambia el nombre del menú
+            $menu[$key][0] = 'Academia';
+            break;
+        }
+    }
+}
+add_action('admin_menu', 'cambiar_nombre_menu_entrada');
+
+
+/**
+ * Desactivar comentarios en publicaciones y páginas
+ */
+function desactivar_comentarios() {
+    remove_post_type_support('post', 'comments');
+    remove_post_type_support('page', 'comments');
+}
+add_action('init', 'desactivar_comentarios');
+
+
+/**
+ * Desactivar menú de comentarios en el admin
+*/
+function eliminar_comentarios_admin_menu() {
+    remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'eliminar_comentarios_admin_menu');
+
+
+/**
+ * Redirigir cualquier intento de acceso a la página de comentarios al panel de control
+*/
+function redirigir_a_panel_control() {
+    global $pagenow;
+    if ($pagenow === 'edit-comments.php') {
+        wp_redirect(admin_url());
+        exit();
+    }
+}
+add_action('admin_init', 'redirigir_a_panel_control');
+
+
+/* Funcion que restringe el ingreso de usuarios con rol de Suscriptor al admin / Backend de Wordpress */
+function restrict_admin_area_by_rol() {
+    if ( ! current_user_can( 'manage_options' ) && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+      wp_redirect( site_url() );
+      exit;
+    }
+  }
+  add_action( 'admin_init', 'restrict_admin_area_by_rol', 1 );
+
+
+  
+// Ocultar el plugin "login-customizer" del menú izquierdo del administrador y de "Apariencia" -> "Personalizar"
+function ocultar_login_customizer_menu_personalizar() {
+    // Identificador único de la página de opciones del plugin
+    $plugin_page_id = 'login-customizer-settings';
+
+    // Verificar si el plugin está activo
+    if (is_plugin_active('login-customizer/login-customizer.php')) {
+        global $menu, $submenu;
+
+        // Ocultar en el menú izquierdo del administrador
+        foreach ($menu as $key => $item) {
+            if (isset($item[2]) && $item[2] === $plugin_page_id) {
+                unset($menu[$key]);
+                break;
+            }
+        }
+
+    }
+}
+
+add_action('admin_menu', 'ocultar_login_customizer_menu_personalizar');
+
+
+/**
+ * Funcion que deshabilita categorias y tags del post Nuestras Historias
+*/
+function deshabilitar_categorias_y_etiquetas() {
+    unregister_taxonomy_for_object_type('category', 'post');
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+
+add_action('init', 'deshabilitar_categorias_y_etiquetas');
+
+
+/**
+ * Function get all academies
+ */
+function novo_inssider_get_all_academies()
+{
+    $list_academies = get_terms(
+        array(
+            'taxonomy' => 'academia',
+            'hide_empty' => false,
+        )
+    );
+
+    return $list_academies;
+}
+
+function novo_inssider_get_all_academies_actives() {
+    global $wpdb;
+
+    $taxonomy = 'academia';
+    $meta_key = 'Status_Categories';
+    $meta_value = '1';
+
+    // Construir el nombre de la tabla termmeta
+    $table_termmeta = $wpdb->prefix . 'termmeta';
+
+    // Obtener los IDs de términos que cumplen con el meta valor
+    $term_ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT term_id 
+        FROM {$table_termmeta}
+        WHERE meta_key = %s
+        AND meta_value = %s",
+        $meta_key,
+        $meta_value
+    ));
+
+    if (empty($term_ids)) {
+        return array(); // Si no hay términos, devolver un arreglo vacío
+    }
+
+    // Obtener los términos que tienen los IDs obtenidos
+    $list_academies = get_terms(array(
+        'taxonomy' => $taxonomy,
+        'include' => $term_ids,
+        'hide_empty' => false,
+    ));
+
+    return $list_academies;
+}
+
+/* breadcrumb */
+function custom_breadcrumbs() {
+    // Obtén el nombre del sitio
+    $home = 'Inicio'; // Cambia este texto si lo deseas
+
+    // Obtén el objeto global de la consulta
+    global $post;
+
+    // Si estamos en la página de inicio, no mostrar breadcrumbs
+    if (is_front_page()) {
+        return;
+    }
+
+    // Inicializa el breadcrumb
+    echo '<nav class="breadcrumbs">';
+    echo '<a href="' . esc_url(home_url()) . '">' . esc_html($home) . '</a> / ';
+    $page = get_page_by_title('Academia');
+    $page_id = $page->ID;
+    $page_url = get_permalink($page_id);
+
+    // Breadcrumbs para páginas
+    if (is_page() && !is_page($page_id)) {
+        echo '<span>' . esc_html(get_the_title()) . '</span>';
+    }
+    
+    elseif (is_page() && is_page($page_id)) {
+        echo '<span>' . wp_redirect($page_url) . '</span>';
+    }
+
+    // Breadcrumbs para posts individuales
+    elseif (is_single()) {
+        // Obtiene las taxonomías personalizadas asociadas con el post
+        $taxonomies = get_object_taxonomies(get_post_type(), 'objects');
+
+        foreach ($taxonomies as $taxonomy) {
+            // Obtiene términos de la taxonomía personalizada
+            $terms = get_the_terms(get_the_ID(), $taxonomy->name);
+
+            if ($terms && !is_wp_error($terms)) {
+                // Asume que el primer término es el relevante para la visualización
+                $term = $terms[0];
+                $term_link = esc_url(get_term_link($term));
+
+                echo '<a href="' . $term_link . '">' . esc_html($term->name) . '</a> / ';
+            }
+        }
+
+        // Muestra el título del post
+        echo '<span>' . esc_html(get_the_title()) . '</span>';
+    }
+
+    // Breadcrumbs para categorías
+    elseif (is_category()) {
+        echo '<span>' . esc_html(single_cat_title('', false)) . '</span>';
+    }
+    
+    // Breadcrumbs para taxonomías personalizadas
+    elseif (is_tax('academia')) {
+        // Obtén el término de la taxonomía actual
+        $term = get_queried_object();
+        if ($term && !is_wp_error($term)) {
+            $taxonomy_link = esc_url(get_term_link($term->term_id, 'academia'));
+            if (!is_wp_error($taxonomy_link)) {
+                echo '<a href="' . $page_url . '">Academia</a> / ';        
+                echo '<span>' . esc_html($term->name) . '</span>';
+            } else {
+                echo '<span>' . esc_html($term->name) . '</span>';
+            }
+        }
+    }
+    
+    // Breadcrumbs para páginas de archivos
+    elseif (is_archive()) {
+        echo '<span>' . esc_html(get_the_archive_title()) . '</span>';
+    }
+    
+    // Breadcrumbs para búsqueda
+    elseif (is_search()) {
+        echo '<span>Resultados de búsqueda para: ' . esc_html(get_search_query()) . '</span>';
+    }
+
+    echo '</nav>';
+}
 
 ?>

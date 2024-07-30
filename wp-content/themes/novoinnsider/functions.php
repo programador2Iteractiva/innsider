@@ -474,5 +474,88 @@ function novo_inssider_get_all_academies_actives() {
     return $list_academies;
 }
 
+/* breadcrumb */
+function custom_breadcrumbs() {
+    // Obtén el nombre del sitio
+    $home = 'Inicio'; // Cambia este texto si lo deseas
+
+    // Obtén el objeto global de la consulta
+    global $post;
+
+    // Si estamos en la página de inicio, no mostrar breadcrumbs
+    if (is_front_page()) {
+        return;
+    }
+
+    // Inicializa el breadcrumb
+    echo '<nav class="breadcrumbs">';
+    echo '<a href="' . esc_url(home_url()) . '">' . esc_html($home) . '</a> / ';
+    $page = get_page_by_title('Academia');
+    $page_id = $page->ID;
+    $page_url = get_permalink($page_id);
+
+    // Breadcrumbs para páginas
+    if (is_page() && !is_page($page_id)) {
+        echo '<span>' . esc_html(get_the_title()) . '</span>';
+    }
+    
+    elseif (is_page() && is_page($page_id)) {
+        echo '<span>' . wp_redirect($page_url) . '</span>';
+    }
+
+    // Breadcrumbs para posts individuales
+    elseif (is_single()) {
+        // Obtiene las taxonomías personalizadas asociadas con el post
+        $taxonomies = get_object_taxonomies(get_post_type(), 'objects');
+
+        foreach ($taxonomies as $taxonomy) {
+            // Obtiene términos de la taxonomía personalizada
+            $terms = get_the_terms(get_the_ID(), $taxonomy->name);
+
+            if ($terms && !is_wp_error($terms)) {
+                // Asume que el primer término es el relevante para la visualización
+                $term = $terms[0];
+                $term_link = esc_url(get_term_link($term));
+
+                echo '<a href="' . $term_link . '">' . esc_html($term->name) . '</a> / ';
+            }
+        }
+
+        // Muestra el título del post
+        echo '<span>' . esc_html(get_the_title()) . '</span>';
+    }
+
+    // Breadcrumbs para categorías
+    elseif (is_category()) {
+        echo '<span>' . esc_html(single_cat_title('', false)) . '</span>';
+    }
+    
+    // Breadcrumbs para taxonomías personalizadas
+    elseif (is_tax('academia')) {
+        // Obtén el término de la taxonomía actual
+        $term = get_queried_object();
+        if ($term && !is_wp_error($term)) {
+            $taxonomy_link = esc_url(get_term_link($term->term_id, 'academia'));
+            if (!is_wp_error($taxonomy_link)) {
+                echo '<a href="' . $page_url . '">Academia</a> / ';        
+                echo '<span>' . esc_html($term->name) . '</span>';
+            } else {
+                echo '<span>' . esc_html($term->name) . '</span>';
+            }
+        }
+    }
+    
+    // Breadcrumbs para páginas de archivos
+    elseif (is_archive()) {
+        echo '<span>' . esc_html(get_the_archive_title()) . '</span>';
+    }
+    
+    // Breadcrumbs para búsqueda
+    elseif (is_search()) {
+        echo '<span>Resultados de búsqueda para: ' . esc_html(get_search_query()) . '</span>';
+    }
+
+    echo '</nav>';
+}
 
 ?>

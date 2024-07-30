@@ -507,6 +507,38 @@ footer {
     border-radius: 0.5rem;
 }
 
+.card .img-card-event {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    height: 200px;
+    object-position: center;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-up(md) {
+        object-position: left;
+        height: 220px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+        height: 215px;
+    }
+  
+    @include media-breakpoint-up(xl) {
+        height: 260px;
+    }
+  
+    @include media-breakpoint-up(xxl) {
+        height: 260px;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 290px;
+    }
+}
+
+
+
 .card-info {
     padding: 15px;
 }
@@ -514,6 +546,12 @@ footer {
 .card-info h2 {
     margin: 0;
     font-size: 1.25em;
+    color: #003366;
+}
+
+.card-info h5 {
+    margin: 0;
+    font-size: 1.1em;
     color: #003366;
 }
 
@@ -666,4 +704,9 @@ footer {
 
 .font-weight-bold{
     font-weight: bold;
+    background-color: transparent;
+}
+
+.bg-transparent{
+    background-color: transparent !important;
 }

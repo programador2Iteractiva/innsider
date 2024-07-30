@@ -80,24 +80,33 @@ $contentId = isset($_GET['content_id']) ? intval($_GET['content_id']) : 0;
                                 <?php $DescriptionContentModule = $specificModule['Description_Content_Module']; ?>
                                 <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
 
-                                <?php if (isset($titleModuleAcademy) && !empty($titleModuleAcademy)) : ?>
-                                    <h3 class="NotoSans-Bold title-color"><?= esc_html($titleModuleAcademy); ?></h3>
-                                <?php endif; ?>
+                                <div class="container background-single-init pt-2 px-5">
+                                    <div class="mt-4">
+                                        <?php if (isset($titleModuleAcademy) && !empty($titleModuleAcademy)) : ?>
+                                            <h3 class="NotoSans-Bold title-color"><?= esc_html($titleModuleAcademy); ?></h3>
+                                        <?php endif; ?>
 
-                                <?php if (isset($descriptionModuleAcademy) && !empty($descriptionModuleAcademy)) : ?>
-                                    <p class="NotoSans-Regular description-color"><?= esc_html($descriptionModuleAcademy); ?></p>
-                                <?php endif; ?> 
+                                        <?php if (isset($descriptionModuleAcademy) && !empty($descriptionModuleAcademy)) : ?>
+                                            <p class="NotoSans-Regular description-color mt-3"><?= esc_html($descriptionModuleAcademy); ?></p>
+                                        <?php endif; ?> 
+                                    </div>  
+                                </div>
 
                                 <div class="container background-taxonomy mt-lg-5 mt-4 px-5">
-                                    <div class="container banner-single">
+                                    <div class="container banner-single preview-video" 
+                                        onclick="playVideo(<?= $moduleId ?>, '<?= $urlModuleAcademy ?>', event, 'preview-video')">
                                         <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)) : ?>  
                                             <img src="<?= esc_url($thumbnailUrl); ?>" alt="Herramientas" class="bg-single">  
                                         <?php elseif (isset($bannerContentModule) && !empty($bannerContentModule)) : ?>
                                             <img src="<?= esc_url(wp_get_attachment_url($bannerContentModule)); ?>" alt="Herramientas" class="bg-single"> 
-                                        <?php endif; ?>   
+                                        <?php endif; ?>
+                                        
+                                        <i class="fas fa-play icon-play-video"></i>
 
                                         <div class="wrapper-single"></div>
                                     </div>
+                                    
+                                    <div class="player-video banner-single " id="player"></div>
                                     <div class="container mt-4">
                                         <div class="row m-0 p-0">
                                             <?php if (isset($titleVideoContentMod) && !empty($titleVideoContentMod)) : ?>

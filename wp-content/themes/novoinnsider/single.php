@@ -108,53 +108,58 @@ $contentId = isset($_GET['content_id']) ? intval($_GET['content_id']) : 0;
                                             <?php endif; ?>
                                         </div>
                                     </div>
+
+                                    <div class="col-12 mx-1" id="linea">
+                                        <hr>
+                                    </div>
                                 </div> 
 
                             <?php endif; ?>
 
-                            <div class="col-12 mx-1" id="linea">
-                                <hr>
-                            </div>
+                                <div class="container background-single pt-2 px-5">
+                                    <div class="container mt-4">
+                                        
+                                        <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 col-xxxl-4 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
 
-                            <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 mt-3 mb-3">
+                                            <?php foreach ($otherModules as $index => $listContentModule) : ?>
+                                                
+                                                <?php $imageModuleAcademy = $listContentModule['Img_Video_Mod']; ?>
+                                                <?php $titleModuleAcademy = $listContentModule['Title_Video_Mod']; ?>
+                                                <?php $speakerModuleAcademy = $listContentModule['Name_Speaker_Mod']; ?>
+                                                <?php $descriptionModuleAcademy = $listContentModule['Description_Module']; ?>
+                                                <?php $urlModuleAcademy = $listContentModule['URL_Video_Module']; ?>
+                                                <?php $bannerContentModule = $listContentModule['Banner_Content_Module']; ?>
+                                                <?php $titleVideoContentMod = $listContentModule['Title_Video_Content_Mod']; ?>
+                                                <?php $DescriptionContentModule = $listContentModule['Description_Content_Module']; ?>
+                                                <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
 
-                                <?php foreach ($otherModules as $index => $listContentModule) : ?>
-                                    
-                                    <?php $imageModuleAcademy = $listContentModule['Img_Video_Mod']; ?>
-                                    <?php $titleModuleAcademy = $listContentModule['Title_Video_Mod']; ?>
-                                    <?php $speakerModuleAcademy = $listContentModule['Name_Speaker_Mod']; ?>
-                                    <?php $descriptionModuleAcademy = $listContentModule['Description_Module']; ?>
-                                    <?php $urlModuleAcademy = $listContentModule['URL_Video_Module']; ?>
-                                    <?php $bannerContentModule = $listContentModule['Banner_Content_Module']; ?>
-                                    <?php $titleVideoContentMod = $listContentModule['Title_Video_Content_Mod']; ?>
-                                    <?php $DescriptionContentModule = $listContentModule['Description_Content_Module']; ?>
-                                    <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
-
-                                    <div class="col-11 d-flex justify-content-center align-items-center">
-                                        <a href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" style="text-decoration: none;">
-                                            <div class="card bg-transparent" style="border: none !important">
-                                                <?php if ($imageModuleAcademy) : ?>
-                                                    <img class="img-card-event" src="<?= esc_url(wp_get_attachment_url($imageModuleAcademy)); ?>" alt="Podcast">
-                                                <?php endif; ?>
-                                                <div class="card-info mt-lg-4 mt-3 p-0">
-                                                    <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;">
-                                                        <i class="fa-regular fa-circle-play mx-2"></i>Ver ahora
-                                                    </div>
-                                                    <?php if ($titleModuleAcademy) : ?>
-                                                        <h5 class="NotoSans-Bold title-color"><?= esc_html($titleModuleAcademy); ?></h5>
-                                                    <?php endif; ?>
-                                                    <?php if ($speakerModuleAcademy) : ?>
-                                                        <p class="NotoSans-Regular description-color"><?= esc_html($speakerModuleAcademy); ?></p>
-                                                    <?php endif; ?>
+                                                <div class="col-11 d-flex justify-content-center align-items-center">
+                                                    <a href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" style="text-decoration: none;">
+                                                        <div class="card bg-transparent" style="border: none !important">
+                                                            <?php if ($imageModuleAcademy) : ?>
+                                                                <img class="img-card-event" src="<?= esc_url(wp_get_attachment_url($imageModuleAcademy)); ?>" alt="Podcast">
+                                                            <?php endif; ?>
+                                                            <div class="card-info mt-lg-4 mt-3 p-0">
+                                                                <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;">
+                                                                    <i class="fa-regular fa-circle-play mx-2"></i>Ver ahora
+                                                                </div>
+                                                                <?php if ($titleModuleAcademy) : ?>
+                                                                    <h5 class="NotoSans-Bold title-color"><?= esc_html($titleModuleAcademy); ?></h5>
+                                                                <?php endif; ?>
+                                                                <?php if ($speakerModuleAcademy) : ?>
+                                                                    <p class="NotoSans-Regular description-color"><?= esc_html($speakerModuleAcademy); ?></p>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                            </div>
-                                        </a>
+
+                                                <?php $counter++; ?>
+                                            <?php endforeach; ?>
+
+                                        </div>
                                     </div>
-
-                                    <?php $counter++; ?>
-                                <?php endforeach; ?>
-
-                            </div>
+                                </div> 
 
                         <?php endif; ?>  
 

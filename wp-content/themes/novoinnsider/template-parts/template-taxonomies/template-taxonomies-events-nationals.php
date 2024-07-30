@@ -14,15 +14,27 @@ $taxonomy = get_queried_object();
     </div>
 </div>
 
+
+<?php $descriptioonCategory = $taxonomy->description; ?>
+<?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
+<?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
+
+
 <div class="container background-taxonomy mt-lg-3 mt-3 px-5">
     <div class="container banner-taxonomy-academy">
-        <img src="<?= get_template_directory_uri() . '/assets/images/BannerHome.jpg';  ?>" alt="Herramientas" class="bg-taxonomy-academy">
+        <?php if(isset($bannerCategory) && !empty($bannerCategory)) : ?>
+            <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy"> 
+        <?php endif; ?>    
         <div class="wrapper-taxonomy-academy"></div>
     </div>
     <div class="container mt-4">
         <div class="row m-0 p-0">
-            <h1 class="NotoSans-Bold title-color mb-3 text-uppercase">más de 280 líderes del sector salud se dieron cita en barranquilla</h1>
-            <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2">Por cuarto año consecutivo, los actores clave del sector salud en Colombia participaron en un espacio de conocimiento y apropiación de su situación actual. El evento abordó una aproximación de corto, mediano y largo plazo a la adaptabilidad de las organizaciones en tiempos de crisis para tener una visión de un mejor sistema de salud.</h5>
+            <?php if(isset($descriptioonCategory) && !empty($descriptioonCategory)) : ?>
+                <h1 class="NotoSans-Bold title-color mb-3 text-uppercase"><?= $descriptioonCategory; ?></h1>
+            <?php endif ?>
+            <?php if(isset($subtitleCategory) && !empty($subtitleCategory)) : ?>
+                <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= $subtitleCategory; ?></h5>
+            <?php endif ?>
         </div>
     </div>
 </div>

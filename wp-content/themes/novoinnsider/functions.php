@@ -505,19 +505,54 @@ function custom_breadcrumbs() {
 
     // Breadcrumbs para posts individuales
     elseif (is_single()) {
-        // Obtiene las taxonomías personalizadas asociadas con el post
-        $taxonomies = get_object_taxonomies(get_post_type(), 'objects');
+        // Obtén los términos de la taxonomía 'tendencias'
+        $terms = get_terms(array(
+            'taxonomy'   => 'tendencias', // Nombre de la taxonomía
+            'hide_empty' => false,        // Mostrar términos incluso si no están asociados a ningún post
+        ));
 
-        foreach ($taxonomies as $taxonomy) {
-            // Obtiene términos de la taxonomía personalizada
-            $terms = get_the_terms(get_the_ID(), $taxonomy->name);
+        // Variable para verificar si el post está asociado a algún término de 'tendencias'
+        $is_associated_with_tendencias = false;
 
-            if ($terms && !is_wp_error($terms)) {
-                // Asume que el primer término es el relevante para la visualización
-                $term = $terms[0];
-                $term_link = esc_url(get_term_link($term));
+        if (!is_wp_error($terms) && !empty($terms)) {
+            foreach ($terms as $term) {
+                // Obtén los términos del post actual en la taxonomía 'tendencias'
+                $post_terms = get_the_terms(get_the_ID(), 'tendencias');
+                
+                // Verifica si el post está asociado con el término actual
+                if ($post_terms && !is_wp_error($post_terms)) {
+                    foreach ($post_terms as $post_term) {
+                        if ($post_term->term_id === $term->term_id) {
+                            $is_associated_with_tendencias = true;
+                            break 2; // Salir de ambos bucles
+                        }
+                    }
+                }
+            }
+        }
 
-                echo '<a href="' . $term_link . '">' . esc_html($term->name) . '</a> / ';
+        if ($is_associated_with_tendencias) {
+            // Enlace a la página 'tendencia'
+            $tendencia_page = get_page_by_path('tendencia');
+            $tendencia_page_link = esc_url(get_permalink($tendencia_page));
+
+            // Muestra el enlace a la página 'tendencia'
+            echo '<a href="' . $tendencia_page_link . '">Tendencias</a> / ';
+        } else {
+            // Obtiene las taxonomías personalizadas asociadas con el post
+            $taxonomies = get_object_taxonomies(get_post_type(), 'objects');
+
+            foreach ($taxonomies as $taxonomy) {
+                // Obtiene términos de la taxonomía personalizada
+                $terms = get_the_terms(get_the_ID(), $taxonomy->name);
+
+                if ($terms && !is_wp_error($terms)) {
+                    // Asume que el primer término es el relevante para la visualización
+                    $term = $terms[0];
+                    $term_link = esc_url(get_term_link($term));
+
+                    echo '<a href="' . $term_link . '">' . esc_html($term->name) . '</a> / ';
+                }
             }
         }
 
@@ -535,8 +570,8 @@ function custom_breadcrumbs() {
         // Obtén el término de la taxonomía actual
         $term = get_queried_object();
         if ($term && !is_wp_error($term)) {
-            $taxonomy_link = esc_url(get_term_link($term->term_id, 'academia'));
-            if (!is_wp_error($taxonomy_link)) {
+            $taxonomyLinkAcademy = esc_url(get_term_link($term->term_id, 'academia'));
+            if (!is_wp_error($taxonomyLinkAcademy)) {
                 echo '<a href="' . $page_url . '">Academia</a> / ';        
                 echo '<span>' . esc_html($term->name) . '</span>';
             } else {
@@ -544,7 +579,7 @@ function custom_breadcrumbs() {
             }
         }
     }
-    
+
     // Breadcrumbs para páginas de archivos
     elseif (is_archive()) {
         echo '<span>' . esc_html(get_the_archive_title()) . '</span>';
@@ -557,5 +592,49 @@ function custom_breadcrumbs() {
 
     echo '</nav>';
 }
+
+
+function obtenerMiniaturaVimeo($videoUrl)
+{
+    $parsedUrl = parse_url($videoUrl);
+    if (isset($parsedUrl['fragment'])) {
+        $videoId = substr($parsedUrl['fragment'], 1);
+    } else {
+        $videoId = ltrim($parsedUrl['path'], '/');
+    }
+    
+    // URL base de la API de Vimeo
+    $base_url = "https://vimeo.com/api/oembed.json?url=https://vimeo.com/";
+    
+    // Construye la URL completa con el ID del video
+    $url = $base_url . $videoId;
+    
+    // Realiza una solicitud GET a la API de Vimeo usando wp_remote_get
+    $response = wp_remote_get($url);
+    
+    // Verifica si la solicitud fue exitosa
+    if (is_wp_error($response)) {
+        // Maneja el error aquí, por ejemplo, registrando el error o mostrando un mensaje al usuario
+        $error_message = $response->get_error_message();
+        error_log("Error al obtener el contenido de Vimeo: " . $error_message);
+        return null;
+    }
+
+    // Obtiene el cuerpo de la respuesta
+    $body = wp_remote_retrieve_body($response);
+    
+    // Decodifica el JSON obtenido en un array asociativo
+    $data = json_decode($body, true);
+    
+    // Extrae la URL de la miniatura del array
+    $thumbnail_url = isset($data['thumbnail_url']) ? $data['thumbnail_url'] : null;
+
+    if ($thumbnail_url) {
+        $thumbnail_url = str_replace('_295x166', '_1280x720', $thumbnail_url);
+    }
+    
+    return $thumbnail_url;
+}
+
 
 ?>

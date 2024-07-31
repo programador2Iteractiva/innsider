@@ -6,11 +6,11 @@
 
 get_header();
 
-
+$post = get_queried_object();
 $taxId = isset($_GET['tax']) ? intval($_GET['tax']) : 0;
 $moduleId = isset($_GET['module_id']) ? intval($_GET['module_id']) : 0;
 $contentId = isset($_GET['content_id']) ? intval($_GET['content_id']) : 0;
-
+$currentPostId = get_the_ID();
 ?>
 
 <div class="container mx-5 mx-lg-auto px-0">
@@ -22,6 +22,8 @@ $contentId = isset($_GET['content_id']) ? intval($_GET['content_id']) : 0;
 <div class="container mx-auto px-0">
     <div class="mt-4 mx-lg-0 mx-2 px-0 pb-4">
         <div class="row m-0 p-0"></div>
+
+            <?php /* Post display for Academia taxonomies */ ?>
 
             <?php
                 $listPostAcademy = new WP_Query
@@ -175,6 +177,192 @@ $contentId = isset($_GET['content_id']) ? intval($_GET['content_id']) : 0;
                     <?php endwhile; ?>
                 <?php endif; ?>
             <?php endif; ?> 
+
+
+            <?php /* End Post display for Academia taxonomies */ ?>
+
+
+            <?php /* Post display for Tendencias taxonomies */ ?>
+
+            <?php $listPostTrends = new WP_Query
+                (
+                    [
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'tendencias',
+                                'field' => 'id',
+                                'terms' => $taxId,
+                            )
+                        ),
+                        'orderby' => 'post_date',
+                        'order' => 'ASC',
+                        'posts_per_page' => -1,
+                        'post_status' => 'publish'
+                    ]
+                );
+            ?>
+
+            <?php $taxonomy = 'tendencias'; ?>
+
+            <?php $term = get_term($taxId, $taxonomy); ?>
+
+            <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+            <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
+            <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
+            <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
+            <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
+            <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
+            <?php $postsIds = wp_list_pluck($listPostTrends->posts, 'ID') ?>
+            <?php $thumbnailUrlPostTrend = obtenerMiniaturaVimeo($uRLPostTrend);  ?>
+
+            <?php if(is_single() && in_array($currentPostId, $postsIds)) : ?> 
+                
+                <div class="container my-2 mb-0">
+                    <div class="row d-flex justify-content-center align-align-items-center mb-4">
+                        <div class="col-12 d-flex flex-lg-row">
+                            <h2 class="NotoSans-Bold text-transform-uppercase"><?= esc_html($term->name); ?></h2>
+                            <div class="col-9 mx-1" id="linea">
+                                <hr class="mx-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container banner-academy">
+                    <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($imgPostTrend, 'full', ''); ?>" alt="Podcast">
+                    <div class="wrapper-banner-academy">
+                        <div class="container-text-banner-academy"></div>
+                        <h4 class="text-white mt-3"><?php the_content(); ?></h4>
+                        <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
+                            <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
+                        </div>
+                    </div>
+                </div>
+
+                <?php if(isset($ifPostTrendVideo) && !empty($ifPostTrendVideo)) : ?>
+                    <?php if(isset($uRLPostTrend) && !empty($uRLPostTrend)) : ?>
+                        
+
+                        <div class="container background-taxonomy mt-lg-5 mt-4 px-5">
+                            <div class="container banner-single preview-video" 
+                                onclick="playVideo(<?= $moduleId ?>, '<?= $uRLPostTrend; ?>', event, 'preview-video')">
+                                <?php if (isset($thumbnailUrlPostTrend) && !empty($thumbnailUrlPostTrend)) : ?>  
+                                    <img src="<?= esc_url($thumbnailUrlPostTrend); ?>" alt="Herramientas" class="bg-single">  
+                                <?php elseif (isset($bannerPostTrend) && !empty($bannerPostTrend)) : ?>
+                                    <img src="<?= esc_url(wp_get_attachment_url($bannerPostTrend)); ?>" alt="Herramientas" class="bg-single"> 
+                                <?php endif; ?>
+                                
+                                <i class="fas fa-play icon-play-video"></i>
+
+                                <div class="wrapper-single"></div>
+                            </div>
+                            
+                            <div class="player-video banner-single " id="player"></div>
+
+                            <div class="container mt-4">
+                                <div class="row m-0 p-0">
+                                    <div class="container p-lg-5 p-1">
+                                        <div class="container background-single p-2">
+                                            <div class="p-1">
+
+                                                <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+
+                                                <?php if ( have_rows( 'Content_Post_Trend') ) : ?>
+
+                                                    <?php while (have_rows('Content_Post_Trend')) : the_row() ?>
+
+                                                        <div class="col-lg-12">
+
+                                                            <?php $titleContentPostTrend = get_sub_field('Title_Content_Post_Trend') ?>
+                                                            <?php if ( isset($titleContentPostTrend) && !empty($titleContentPostTrend)) : ?>
+                                                                <div class="col-12">
+                                                                    <h2 class="NotoSans-Bold title-color mb-3"><?php echo $titleContentPostTrend ?></h2>
+                                                                </div>
+                                                            <?php endif; ?>
+
+                                                            <?php $descriptionContentPostTrend = get_sub_field('Description_Content_Post_Trend') ?>
+                                                            <?php if (isset($descriptionContentPostTrend) && !empty($descriptionContentPostTrend))  : ?>
+                                                                <div class="col-12">
+                                                                    <p class="NotoSans-Regular description-color"><?= strip_tags($descriptionContentPostTrend); ?></p>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                        </div>
+
+                                                    <?php endwhile; ?>
+
+                                                <?php endif; ?>
+
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                    <?php endif; ?>
+                <?php else : ?>    
+                    <div class="container p-lg-5 p-1">
+                        <div class="container background-single p-2">
+                            <div class="p-5">
+
+                                <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+
+                                <?php if ( have_rows( 'Content_Post_Trend') ) : ?>
+
+                                    <?php while (have_rows('Content_Post_Trend')) : the_row() ?>
+
+                                        <div class="col-lg-12">
+
+                                            <?php $titleContentPostTrend = get_sub_field('Title_Content_Post_Trend') ?>
+                                            <?php if ( isset($titleContentPostTrend) && !empty($titleContentPostTrend)) : ?>
+                                                <div class="col-12">
+                                                    <h2 class="NotoSans-Bold title-color mb-3"><?php echo $titleContentPostTrend ?></h2>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php $descriptionContentPostTrend = get_sub_field('Description_Content_Post_Trend') ?>
+                                            <?php if (isset($descriptionContentPostTrend) && !empty($descriptionContentPostTrend))  : ?>
+                                                <div class="col-12">
+                                                    <p class="NotoSans-Regular description-color"><?= strip_tags($descriptionContentPostTrend); ?></p>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+
+                                    <?php endwhile; ?>
+
+                                <?php endif; ?>
+
+                            </div> 
+                        </div>
+                    </div>
+                <?php endif; ?>
+
+            <?php else : ?> 
+                
+                <h1>Hola</h1>
+
+                <?php if($listPostTrends->have_posts()) : ?>
+                    <?php while($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
+
+                        <div class="container background-single pt-2 px-5">
+                            <div class="container mt-4">
+                                
+                                <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 col-xxxl-4 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
+
+                                    <div class="col-11 d-flex justify-content-center align-items-center">
+                                        <h1><?= the_title(); ?></h1>  
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <?php endwhile; ?>
+                <?php endif; ?>   
+                
+            <?php endif; ?> 
+                                   
+            <?php /* End Post display for Academia taxonomies */ ?>
 
         </div>  
     </div>

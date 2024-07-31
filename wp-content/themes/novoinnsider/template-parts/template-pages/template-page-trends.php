@@ -116,11 +116,18 @@ $content = get_the_content();
 
                                             <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category pb-5" style="border-radius: 2rem">
                                                 <div class="col-12">
-                                                    <a href="<?php the_permalink(); ?>" style="text-decoration: none;">
+                                                    
+                                                    <?php $thePermalink = get_the_permalink(); ?>
+                                                    <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+                                                    <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
+                                                    <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
+                                                    <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
+                                                    <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
+                                                    <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
+
+                                                    <a href="<?= $thePermalink . '?tax=' . $listCategoryTrends->term_id; ?>" style="text-decoration: none;">
                                                         <div class="figure" style="border-radius: 2rem">
-                                                            <?php $imageCategoryAcademy = get_field('Category_Image', $listCategoryTrends); ?>
-                                                            <!-- <img src="<?php echo wp_get_attachment_image_url($imageCategoryAcademy); ?>" alt="Podcast"> -->
-                                                            <img src="<?php echo the_post_thumbnail_url(''); ?>" alt="Podcast">
+                                                            <img src="<?php echo wp_get_attachment_image_url($imgPostTrend, 'full', ''); ?>" alt="Podcast">
                                                             <h3 class="position-absolute title-slide-system class-title-card-system"><?= esc_html(the_title()) ?></h3>
                                                         </div>
                                                         <div class="info_description d-flex align-items-center mt-3">

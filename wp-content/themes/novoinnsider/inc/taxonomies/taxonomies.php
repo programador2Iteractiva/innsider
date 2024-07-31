@@ -30,6 +30,25 @@ function novo_inssider_taxonomies() {
             'show_in_rest' => true, // Asegúrate de que aparezca en el editor de bloques de Gutenberg
         )
     );
+
+    /**
+    *  taxonomia Noticias en texto
+    */
+    register_taxonomy(
+        'tendencias', // Nombre de la taxonomía
+        'tendencia', // Nombre del post type que se le asignará
+        array(
+            'label' => __( 'Tendencia' ),
+            'rewrite' => array( 'slug' => 'tendencia' ),
+            'hierarchical' => true,
+            'show_ui' => true, // Muestra en el panel de administración
+            'show_admin_column' => true, // Muestra en la columna de la lista de publicaciones
+            'query_var' => true, // Permite usar en consultas
+            'show_in_nav_menus' => true, // Muestra en menús de navegación
+            'show_in_rest' => true, // Asegúrate de que aparezca en el editor de bloques de Gutenberg
+        )
+    );
+
 }
 
 add_action( 'init', 'novo_inssider_taxonomies' );

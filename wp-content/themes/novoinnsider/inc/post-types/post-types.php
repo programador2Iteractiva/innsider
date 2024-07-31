@@ -4,7 +4,7 @@
  * Include a new post-type Banner for New_MasterClass
  */
 
-function Masterclass_post_type() {
+function novo_inssider_post_type() {
 
     /**
      * Post Type Banner
@@ -41,7 +41,7 @@ function Masterclass_post_type() {
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => true,
-        'menu_position'      => null,
+        'menu_position'      => 5,
         'show_in_rest'       => true,
         'supports'           => array( 'title', 'editor', 'thumbnail' ),
     );
@@ -51,8 +51,55 @@ function Masterclass_post_type() {
     /**
      * -- End Post Type Banner
      */
+
+
+    /**
+     * Post Type Tendencias
+    */
+
+    $labels = array(
+        'name'               => _x( 'Tendencias', 'post type general name' ),
+        'singular_name'      => _x( 'Tendencia', 'post type singular name' ),
+        'menu_name'          => _x( 'Tendencias', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Tendencia', 'add new on admin bar' ),
+        'add_new'            => _x( 'Agregar tendencia', 'Slide' ),
+        'add_new_item'       => __( 'Agregar nueva tendencia' ),
+        'new_item'           => __( 'Nueva tendencia' ),
+        'edit_item'          => __( 'Editar tendencia' ),
+        'view_item'          => __( 'Ver tendencia' ),
+        'all_items'          => __( 'Todas las tendencias' ),
+        'featured_image'     => __( 'Imagen destacada' ),
+        'search_items'       => __( 'Buscar tendencia' ),
+        'parent_item_colon'  => __( 'Tendencia padre:' ),
+        'not_found'          => __( 'No se han encontrado tendencias.' ),
+        'not_found_in_trash' => __( 'No se han encontrado tendencias en la papelera.' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'menu_icon'          => 'dashicons-cover-image',
+        'description'        => __( 'Descripción de Tendencias.' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'tendencias' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 6,
+        'show_in_rest'       => true,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'tendencia', $args );
+
+    /**
+     * -- End Post Type Tendencias
+    */
 }
 
-add_action( 'init', 'Masterclass_post_type' );
+add_action( 'init', 'novo_inssider_post_type' );
 
 

@@ -211,6 +211,8 @@ $currentPostId = get_the_ID();
             <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
             <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
             <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
+            <?php $ifPostTrendPdf = get_field('If_Post_Trend_Pdf'); ?>
+            <?php $pdfPostTrend = get_field('Pdf_Post_Trend'); ?>
             <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
             <?php $postsIds = wp_list_pluck($listPostTrends->posts, 'ID') ?>
             <?php $thumbnailUrlPostTrend = obtenerMiniaturaVimeo($uRLPostTrend);  ?>
@@ -301,40 +303,71 @@ $currentPostId = get_the_ID();
 
                     <?php endif; ?>
                 <?php else : ?>    
-                    <div class="container p-lg-5 p-1">
-                        <div class="container background-single p-2">
-                            <div class="p-5">
 
-                                <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+                    <?php if(isset($ifPostTrendPdf) && !empty($ifPostTrendPdf)) : ?>
+                        <?php if(isset($pdfPostTrend) && !empty($pdfPostTrend)) : ?>
+                            
 
-                                <?php if ( have_rows( 'Content_Post_Trend') ) : ?>
+                            <div class="container p-lg-5 p-1">
+                                <div class="container background-single p-2">
+                                    <div class="p-5">
 
-                                    <?php while (have_rows('Content_Post_Trend')) : the_row() ?>
+                                        <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
 
                                         <div class="col-lg-12">
-
-                                            <?php $titleContentPostTrend = get_sub_field('Title_Content_Post_Trend') ?>
-                                            <?php if ( isset($titleContentPostTrend) && !empty($titleContentPostTrend)) : ?>
-                                                <div class="col-12">
-                                                    <h2 class="NotoSans-Bold title-color mb-3"><?php echo $titleContentPostTrend ?></h2>
+                                            <div class="row justify-content-center">
+                                                <div class="col-12 d-flex justify-content-center mt-5 mb-5">
+                                                    <embed src="<?= $pdfPostTrend ?>" type="application/pdf" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
                                                 </div>
-                                            <?php endif; ?>
-
-                                            <?php $descriptionContentPostTrend = get_sub_field('Description_Content_Post_Trend') ?>
-                                            <?php if (isset($descriptionContentPostTrend) && !empty($descriptionContentPostTrend))  : ?>
-                                                <div class="col-12">
-                                                    <span class="NotoSans-Regular description-color"><?php echo wp_kses_post($descriptionContentPostTrend); ?></span>
-                                                </div>
-                                            <?php endif; ?>
+                                            </div>
+                                            
                                         </div>
 
-                                    <?php endwhile; ?>
+                                    </div> 
+                                </div>
+                            </div>
 
-                                <?php endif; ?>
+                        <?php endif; ?>
 
-                            </div> 
+                    <?php else : ?>    
+
+                        <div class="container p-lg-5 p-1">
+                            <div class="container background-single p-2">
+                                <div class="p-5">
+
+                                    <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+
+                                    <?php if ( have_rows( 'Content_Post_Trend') ) : ?>
+
+                                        <?php while (have_rows('Content_Post_Trend')) : the_row() ?>
+
+                                            <div class="col-lg-12">
+
+                                                <?php $titleContentPostTrend = get_sub_field('Title_Content_Post_Trend') ?>
+                                                <?php if ( isset($titleContentPostTrend) && !empty($titleContentPostTrend)) : ?>
+                                                    <div class="col-12">
+                                                        <h2 class="NotoSans-Bold title-color mb-3"><?php echo $titleContentPostTrend ?></h2>
+                                                    </div>
+                                                <?php endif; ?>
+
+                                                <?php $descriptionContentPostTrend = get_sub_field('Description_Content_Post_Trend') ?>
+                                                <?php if (isset($descriptionContentPostTrend) && !empty($descriptionContentPostTrend))  : ?>
+                                                    <div class="col-12">
+                                                        <span class="NotoSans-Regular description-color"><?php echo wp_kses_post($descriptionContentPostTrend); ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+
+                                        <?php endwhile; ?>
+
+                                    <?php endif; ?>
+
+                                </div> 
+                            </div>
                         </div>
-                    </div>
+
+                    <?php endif; ?>
+
                 <?php endif; ?>
 
                 <?php $currentPostTrends = array($currentPostId); ?>

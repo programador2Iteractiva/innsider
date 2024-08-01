@@ -48,17 +48,17 @@ $content = get_the_content();
 
     $allCategoriesWithStatusActive = $wpdb->get_results($wpdb->prepare($allData));
 
-    $taxonomyAcademy = novo_inssider_get_all_academies_actives();
+    $taxonomyTrends = novo_inssider_get_all_trends_actives();
     ?>
 
-    <?php if(count($taxonomyAcademy) == 1) : ?>
+    <?php if(count($taxonomyTrends) == 1) : ?>
 
         <div class="container align-items-center mt-5 pt-1">
             <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
 
     <?php else : ?> 
 
-        <div class="container d-flex justify-content-center align-items-center mt-5 pt-1">
+        <div class="container align-items-center mt-5 pt-1">
             <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
 
     <?php endif; ?>
@@ -134,7 +134,7 @@ $content = get_the_content();
                                                             <div class="d-flex flex-lg-row flex-column position-relative col-11">
                                                                 <div class="col-12 col-lg-8">
                                                                     <h3 class="NotoSans-Bold title-color"><?= the_title(); ?></h3>
-                                                                    <p class="description-color NotoSans-Regular"><?= $listCategoryTrends->description; ?></p>
+                                                                    <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
                                                                 </div>
                                                                 <div class="col-12 col-lg-4">
                                                                     <div class="w-100 p-1 mb-2 btn-view-more">Ver más</div>

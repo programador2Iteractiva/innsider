@@ -81,7 +81,6 @@
                         <div class="mb-3 px-4">
                             <label class="mb-2 label-left2 form-label" for="institution">Institución*</label>
                             <input class="form-control subs-email2" name="institution" id="institution" type="text" required>
-                            <!-- <?php $institutions = novo_inssider_get_institutions(); ?> -->
                         </div>
                         <div class="mb-3 px-3">
                             <div class="row m-0">

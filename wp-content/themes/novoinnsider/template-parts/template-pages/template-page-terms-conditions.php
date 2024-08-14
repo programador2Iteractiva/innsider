@@ -21,7 +21,7 @@
                 </p>
                 <br>
                 <p class="mx-5 px-3 descriptionterms">
-                En virtud de los artículos 9º y 12º de la Ley 1581 de 2012, autorizo en forma permanente al Ministerio de Salud y Protección Social, para que publique la información que sea reportada a mi nombre por parte de Novo, al Registro de Transferencias de Valor del Sector Salud establecido por el Ministerio de Salud y Protección Social. Soy consciente de que la mencionada publicación de información se realiza en aras de garantizar la transparencia de las relaciones entre actores del sector salud y la industria farmacéutica y de tecnologías en salud. Además, declaro que tengo conocimiento de los derechos que me asisten en mi calidad de Titular de datos personales, consagrados en el artículo 8º de la Ley 1581 de 2012.
+                    En virtud de los artículos 9º y 12º de la Ley 1581 de 2012, autorizo en forma permanente al Ministerio de Salud y Protección Social, para que publique la información que sea reportada a mi nombre por parte de Novo, al Registro de Transferencias de Valor del Sector Salud establecido por el Ministerio de Salud y Protección Social. Soy consciente de que la mencionada publicación de información se realiza en aras de garantizar la transparencia de las relaciones entre actores del sector salud y la industria farmacéutica y de tecnologías en salud. Además, declaro que tengo conocimiento de los derechos que me asisten en mi calidad de Titular de datos personales, consagrados en el artículo 8º de la Ley 1581 de 2012.
                 </p>
             </div>
         </div>

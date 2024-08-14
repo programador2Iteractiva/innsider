@@ -197,6 +197,42 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 
 
+    /* Code to realice process institutions */
+
+    var inputElement = document.querySelector('input[name="institution"]');
+
+    inputElement.addEventListener('keyup', function(){
+        var institution = inputElement.value;
+
+        console.log(institution);
+
+        var dataInstitutionsFetch = new FormData();
+
+        dataInstitutionsFetch.append('action', 'get_institutions');
+        dataInstitutionsFetch.append('institution', institution);
+        dataInstitutionsFetch.append('nonce', ajax_object.ajax_nonce);
+
+        fetch(ajax_object.ajax_url, {
+            method: 'POST',
+            body: dataInstitutionsFetch
+        })
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // Convertir la respuesta a texto
+        })
+        .then(function(response) {
+
+            const res = response.slice(0, -1);
+            document.getElementById('city').innerHTML = res;
+        })
+        .catch(function(error) {
+            console.error('Error en la solicitud fetch:', error);
+        });
+    })
+
+
     /* Code to capture registration form information and create the registration */
 
     var form = document.getElementById('form-register');

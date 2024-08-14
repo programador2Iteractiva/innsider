@@ -4,18 +4,19 @@
  * Template for page Academy
  */
 $category = get_queried_object();
+$content = get_the_content();
 ?>
 
 <div>
     <div class="container my-5 mb-0">
         <div class="row d-flex justify-content-center align-align-items-center mb-4">
             <div class="col-12 d-flex flex-lg-row">
-                <h1 class="NotoSans-Bold">ACADEMIA</h1>
+                <h1 class="NotoSans-Bold"><?= strip_tags(the_title()); ?></h1>
                 <div class="col-11 mx-1" id="linea">
                     <hr class="mx-5 px-4">
                 </div>
             </div>
-            <P>Encuentre información educativa y nuestros eventos nacionales.</P>
+            <p><?= strip_tags($content); ?></p>
         </div>
     </div>
     <div class="container banner-academy">
@@ -23,10 +24,10 @@ $category = get_queried_object();
         <div class="wrapper-banner-academy">
             <div class="container-text-banner-academy">
                 <p>
-                    ACADEMIA
+                    <?php the_title(); ?>
                 </p>
             </div>
-            <h4 class="text-white mt-3">Encuentre información educativa y <br>nuestros eventos nacionales.</h4>
+            <h4 class="text-white mt-3"><?php the_content(); ?></h4>
             <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
                 <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
             </div>

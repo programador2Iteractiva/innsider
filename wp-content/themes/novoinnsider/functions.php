@@ -474,6 +474,41 @@ function novo_inssider_get_all_academies_actives() {
     return $list_academies;
 }
 
+
+function novo_inssider_get_all_trends_actives() {
+    global $wpdb;
+
+    $taxonomy = 'tendencias';
+    $meta_key = 'Status_Categories';
+    $meta_value = '1';
+
+    // Construir el nombre de la tabla termmeta
+    $table_termmeta = $wpdb->prefix . 'termmeta';
+
+    // Obtener los IDs de términos que cumplen con el meta valor
+    $term_ids = $wpdb->get_col($wpdb->prepare(
+        "SELECT term_id 
+        FROM {$table_termmeta}
+        WHERE meta_key = %s
+        AND meta_value = %s",
+        $meta_key,
+        $meta_value
+    ));
+
+    if (empty($term_ids)) {
+        return array(); // Si no hay términos, devolver un arreglo vacío
+    }
+
+    // Obtener los términos que tienen los IDs obtenidos
+    $list_trends = get_terms(array(
+        'taxonomy' => $taxonomy,
+        'include' => $term_ids,
+        'hide_empty' => false,
+    ));
+
+    return $list_trends;
+}
+
 /* breadcrumb */
 function custom_breadcrumbs() {
     // Obtén el nombre del sitio
@@ -636,5 +671,62 @@ function obtenerMiniaturaVimeo($videoUrl)
     return $thumbnail_url;
 }
 
+
+
+
+// Filtro para agregar contenido a una página de WordPress
+add_filter('the_content', 'dcms_add_custom_content');
+
+// Agregamos contenido sólo a la página con el título "Contenido Vinos"
+function dcms_add_custom_content($content){
+
+	if ( ! is_page('contenido-vinos') ) return $content;
+
+	$html = get_data_api();
+	return $content.$html;
+}
+
+// Función que se encarga de recuperar los datos de la API externa
+function get_data_api(){
+	$url = 'https://api.sampleapis.com/wines/reds';
+	$response = wp_remote_get($url);
+
+	if (is_wp_error($response)) {
+		error_log("Error: ". $response->get_error_message());
+		return false;
+	}
+
+	$body = wp_remote_retrieve_body($response);
+
+	$data = json_decode($body);
+
+	$template = '<table class="table-data">
+					<tr>
+						<th></th>
+						<th>Bodega</th>
+						<th>Vino</th>
+						<th>Calificacion</th>
+						<th>País</th>
+					</tr>
+					{data}
+				</table>';
+
+	if ( $data ){
+		$str = '';
+		foreach ($data as $wine) {
+			$str .= "<tr>";
+			$str .= "<td><img src='{$wine->image}' width='20'/></td>";
+			$str .= "<td>{$wine->winery}</td>";
+			$str .= "<td>{$wine->wine}</td>";
+			$str .= "<td>{$wine->rating->average}</td>";
+			$str .= "<td>{$wine->location}</td>";
+			$str .= "</tr>";
+		}
+	}
+
+	$html = str_replace('{data}', $str, $template);
+
+	return $html;
+}
 
 ?>

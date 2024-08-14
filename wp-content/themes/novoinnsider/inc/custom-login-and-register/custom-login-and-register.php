@@ -261,12 +261,28 @@ function novo_inssider_get_specialities()
  */
 function novo_inssider_get_institutions()
 {
+
+    check_ajax_referer('ajax_check', 'nonce');
+
     global $wpdb;
 
     $institutions = $wpdb->get_results('select institution_name from wp_institutions where uses < quantity order by institution_name ASC');
 
-    return $institutions;
+    if(isset($institutions) && !empty($institutions)){
+
+        $html = "<input type='text' class='form-control form-select subs-email2' name='institution' id='institution' required>";
+        foreach ($institutions as $institution) {
+    
+            $html = $html . "<option value='$institution->institution_name'>$institution->institution_name</option>";
+        }
+    
+        echo $html . "</input>";
+    }
+    
 }
+
+add_action('wp_ajax_nopriv_get_institutions', 'novo_inssider_get_institutions');
+add_action('wp_ajax_get_institutions', 'novo_inssider_get_institutions');
 
 /**
  * Function get list countries

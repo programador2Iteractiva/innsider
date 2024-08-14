@@ -79,19 +79,9 @@
                             </select>
                         </div>
                         <div class="mb-3 px-4">
-                            <?php $institutions = novo_inssider_get_institutions(); ?>
                             <label class="mb-2 label-left2 form-label" for="institution">Institución*</label>
-                            <select class="form-control form-select subs-email2" name="institution" id="institution" required>
-
-                                <?php
-                                if (!empty($institutions)) :
-                                    foreach ($institutions as $institution) : ?>
-                                        <option value="<?= $institution->institution_name ?>"><?= $institution->institution_name ?></option>
-                                    <?php endforeach; ?>
-                                <?php else : ?>
-                                    <option>Vacio</option>
-                                <?php endif; ?>
-                            </select>
+                            <input class="form-control subs-email2" name="institution" id="institution" type="text" required>
+                            <!-- <?php $institutions = novo_inssider_get_institutions(); ?> -->
                         </div>
                         <div class="mb-3 px-3">
                             <div class="row m-0">

@@ -184,23 +184,23 @@ $currentPostId = get_the_ID();
 
             <?php /* Post display for Tendencias taxonomies */ ?>
 
-            <?php $listPostTrends = new WP_Query
-                (
-                    [
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'tendencias',
-                                'field' => 'id',
-                                'terms' => $taxId,
-                            )
-                        ),
-                        'orderby' => 'post_date',
-                        'order' => 'ASC',
-                        'posts_per_page' => -1,
-                        'post_status' => 'publish'
-                    ]
-                );
-            ?>
+                <?php $listPostTrends = new WP_Query
+                    (
+                        [
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'tendencias',
+                                    'field' => 'id',
+                                    'terms' => $taxId,
+                                )
+                            ),
+                            'orderby' => 'post_date',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1,
+                            'post_status' => 'publish'
+                        ]
+                    );
+                ?>
 
             <?php $taxonomy = 'tendencias'; ?>
 
@@ -211,6 +211,8 @@ $currentPostId = get_the_ID();
             <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
             <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
             <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
+            <?php $ifPostTrendPdf = get_field('If_Post_Trend_Pdf'); ?>
+            <?php $pdfPostTrend = get_field('Pdf_Post_Trend'); ?>
             <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
             <?php $postsIds = wp_list_pluck($listPostTrends->posts, 'ID') ?>
             <?php $thumbnailUrlPostTrend = obtenerMiniaturaVimeo($uRLPostTrend);  ?>
@@ -229,7 +231,7 @@ $currentPostId = get_the_ID();
                 </div>
 
                 <div class="container banner-academy">
-                    <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($imgPostTrend, 'full', ''); ?>" alt="Podcast">
+                    <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
                     <div class="wrapper-banner-academy">
                         <div class="container-text-banner-academy"></div>
                         <h4 class="text-white mt-3"><?php the_content(); ?></h4>
@@ -301,64 +303,140 @@ $currentPostId = get_the_ID();
 
                     <?php endif; ?>
                 <?php else : ?>    
-                    <div class="container p-lg-5 p-1">
-                        <div class="container background-single p-2">
-                            <div class="p-5">
 
-                                <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+                    <?php if(isset($ifPostTrendPdf) && !empty($ifPostTrendPdf)) : ?>
+                        <?php if(isset($pdfPostTrend) && !empty($pdfPostTrend)) : ?>
+                            
 
-                                <?php if ( have_rows( 'Content_Post_Trend') ) : ?>
+                            <div class="container p-lg-5 p-1">
+                                <div class="container background-single p-2">
+                                    <div class="p-5">
 
-                                    <?php while (have_rows('Content_Post_Trend')) : the_row() ?>
+                                        <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
 
                                         <div class="col-lg-12">
-
-                                            <?php $titleContentPostTrend = get_sub_field('Title_Content_Post_Trend') ?>
-                                            <?php if ( isset($titleContentPostTrend) && !empty($titleContentPostTrend)) : ?>
-                                                <div class="col-12">
-                                                    <h2 class="NotoSans-Bold title-color mb-3"><?php echo $titleContentPostTrend ?></h2>
+                                            <div class="row justify-content-center">
+                                                <div class="col-12 d-flex justify-content-center mt-5 mb-5">
+                                                    <embed src="<?= $pdfPostTrend ?>" type="application/pdf" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
                                                 </div>
-                                            <?php endif; ?>
-
-                                            <?php $descriptionContentPostTrend = get_sub_field('Description_Content_Post_Trend') ?>
-                                            <?php if (isset($descriptionContentPostTrend) && !empty($descriptionContentPostTrend))  : ?>
-                                                <div class="col-12">
-                                                    <p class="NotoSans-Regular description-color"><?= strip_tags($descriptionContentPostTrend); ?></p>
-                                                </div>
-                                            <?php endif; ?>
+                                            </div>
+                                            
                                         </div>
 
-                                    <?php endwhile; ?>
+                                    </div> 
+                                </div>
+                            </div>
 
-                                <?php endif; ?>
+                        <?php endif; ?>
 
-                            </div> 
+                    <?php else : ?>    
+
+                        <div class="container p-lg-5 p-1">
+                            <div class="container background-single p-2">
+                                <div class="p-5">
+
+                                    <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+
+                                    <?php if ( have_rows( 'Content_Post_Trend') ) : ?>
+
+                                        <?php while (have_rows('Content_Post_Trend')) : the_row() ?>
+
+                                            <div class="col-lg-12">
+
+                                                <?php $titleContentPostTrend = get_sub_field('Title_Content_Post_Trend') ?>
+                                                <?php if ( isset($titleContentPostTrend) && !empty($titleContentPostTrend)) : ?>
+                                                    <div class="col-12">
+                                                        <h2 class="NotoSans-Bold title-color mb-3"><?php echo $titleContentPostTrend ?></h2>
+                                                    </div>
+                                                <?php endif; ?>
+
+                                                <?php $descriptionContentPostTrend = get_sub_field('Description_Content_Post_Trend') ?>
+                                                <?php if (isset($descriptionContentPostTrend) && !empty($descriptionContentPostTrend))  : ?>
+                                                    <div class="col-12">
+                                                        <span class="NotoSans-Regular description-color"><?php echo wp_kses_post($descriptionContentPostTrend); ?></span>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+
+                                        <?php endwhile; ?>
+
+                                    <?php endif; ?>
+
+                                </div> 
+                            </div>
                         </div>
-                    </div>
+
+                    <?php endif; ?>
+
                 <?php endif; ?>
 
-            <?php else : ?> 
-                
-                <h1>Hola</h1>
+                <?php $currentPostTrends = array($currentPostId); ?>
 
-                <?php if($listPostTrends->have_posts()) : ?>
-                    <?php while($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
+                <?php $filteredPosts = array_diff($postsIds, $currentPostTrends); ?>
 
-                        <div class="container background-single pt-2 px-5">
-                            <div class="container mt-4">
-                                
-                                <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 col-xxxl-4 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
+                <?php if(!empty($filteredPosts)) : ?>
 
-                                    <div class="col-11 d-flex justify-content-center align-items-center">
-                                        <h1><?= the_title(); ?></h1>  
+                    <?php
+                        $newArgs = array(
+                            'post__in' => $filteredPosts,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'tendencias',
+                                    'field' => 'id',
+                                    'terms' => $taxId, // Asegúrate de que $taxId está definido
+                                )
+                            ),
+                            'orderby' => 'post_date',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1,
+                            'post_status' => 'publish'
+                        );
+                    ?>
+
+                    <?php $filteredPostsQuery = new WP_Query($newArgs); ?>
+
+                    <?php if($filteredPostsQuery->have_posts()) : ?>
+
+                        <div class="container p-lg-5 pt-lg-1 p-1">
+                            <div class="container background-single-init p-2">
+                                <div class="p-3">
+
+                                    <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 col-xxxl-4 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
+                                        <?php while($filteredPostsQuery->have_posts()) : $filteredPostsQuery->the_post() ?>
+
+                                            <?php $thePermalink = get_the_permalink(); ?>
+                                            <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+                                            <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
+
+                                            <div class="col-11 d-flex justify-content-center align-items-center">
+                                                <a href="<?= $thePermalink . '?tax=' . $taxId; ?>" style="text-decoration: none;">
+                                                    <div class="card bg-transparent" style="border: none !important">
+                                                        <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>
+                                                            <img class="img-card-event" src="<?= esc_url(wp_get_attachment_url($imgPostTrend)); ?>" alt="Podcast">
+                                                        <?php endif; ?>
+                                                        <div class="card-info mt-lg-4 mt-3 p-0">
+                                                            <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;">
+                                                                <i class="fa-regular fa-circle-play mx-2"></i>Ver ahora
+                                                            </div>
+                                                            <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                            <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
+                                                                <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                        <?php endwhile; ?>
+                                        <?php wp_reset_postdata(); ?>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-                        
-                    <?php endwhile; ?>
-                <?php endif; ?>   
+
+                    <?php endif; ?> 
+
+                <?php endif ?>
                 
             <?php endif; ?> 
                                    

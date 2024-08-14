@@ -147,8 +147,8 @@ document.addEventListener("DOMContentLoaded", function(){
     checkTerms.addEventListener('click', function(){
         let titleCheckTerms = 'Términos y condiciones';
         let firstTextCheckTerms = 'Autorización para el tratamiento de datos personales a Novo Nordisk Colombia S.A.S.';
-        let secondTextCheckTerms = 'Autorizo de manera voluntaria, previa, explicita, informada e inequívoca a Novo Nordisk Colombia S.A.S. (en adelante `Novo`), identificada con NIT No. 900.557.875-3, al tratamiento de mis datos personales, que incluye los derechos que a los titulares les asisten y la manera de ejercerlos, y cuya política puede ser consultada en www.novonordisk.com.co Acepto y entiendo que Novo, terceros contratistas o mandatarios encargados para tal fin actuarán como Responsables del Tratamiento de datos personales de los cuales soy Titular. ';
-        let urlTerms = 'https://suacademiamedica.novonordisk.com.co/terminos-y-condiciones.html';
+        let secondTextCheckTerms = 'Autorizo de manera voluntaria, previa, explicita, informada e inequívoca a Novo Nordisk Colombia S.A.S. (en adelante ‘Novo’), identificada con NIT No. 900.557.875-3, al tratamiento de mis datos personales, que incluye los derechos que a los titulares les asisten y la manera de ejercerlos, y cuya política puede ser consultada en www.novonordisk.com.co';
+        let urlTerms = 'https://innsider.interactiva.net.co/terminos-y-condiciones';
 
         Swal.fire({
             title: titleCheckTerms,
@@ -173,8 +173,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     dataTreatment.addEventListener('click', function(){
         let titleDataTreatment = 'Aviso de Privacidad';
-        let firstTextDataTreatment = 'El sitio web de la Academia Novo Nordisk (www.suacademiamedica.novonordisk.com.co) está diseñado para proporcionar información sobre nuestra empresa, productos y servicios. Este aviso legal se aplica únicamente a este sitio web y describe cómo y por qué recopilamos información sobre usted como usuario del sitio web. Este aviso de privacidad describe el modo en el que Novo Nordisk recopila, almacena y utiliza la información sobre las personas que visitan este sitio web.';
-        let urlDataTreatment = 'https://suacademiamedica.novonordisk.com.co/Politica-de-privacidad.html';
+        let firstTextDataTreatment = 'El sitio web de iNNsider dentro de su política de privacidad Recopila información que puede ayudarnos a mejorar nuestro sitio web. Le pedimos su consentimiento para recopilar esta información cuando entra en el sitio web. Toda la información recopilada automáticamente en su consentimiento se almacena en forma agregada y no se puede utilizar para identificarlo como un individuo específico.';
+        let urlDataTreatment = 'https://innsider.interactiva.net.co/politica-de-privacidad';
 
         Swal.fire({
             title: titleDataTreatment,

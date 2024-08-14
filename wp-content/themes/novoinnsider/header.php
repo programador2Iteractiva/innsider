@@ -21,11 +21,11 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
 <body>
 
     <header>
-        <div class="d-flex justify-content-center align-items-center">
-            <nav class="navbar navbar-expand-lg py-lg-5 py-4 d-lg-flex justify-content-lg-center align-items-lg-center flex-column">
-                <div class="d-flex justify-content-center align-items-center">
+        <div class="">
+            <div class="">
+                <nav class="navbar navbar-expand-lg py-lg-5 py-4 d-lg-flex justify-content-between align-items-lg-center flex-lg-row flex-column">
                     <div class="d-flex justify-content-center align-items-center">
-                        <div class="d-block">
+                        <div class="d-block mx-lg-5">
                             <?php if (has_custom_logo()) : ?>
                                 <?php the_custom_logo(); ?>
                             <?php endif; ?>
@@ -96,23 +96,24 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="d-block d-lg-none col-12">
-                    <div class="class-btns-register d-flex justify-content-center mt-4">
-                        <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                            <?php $pageLogin = get_page_by_path('login'); ?>
-                            <?php if($pageLogin) : ?>
-                                <?php $permalink = get_permalink($pageLogin->ID); ?>
-                                <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
-                            <?php endif ?>
-                            <?php $pageRegister = get_page_by_path('Registro'); ?>
-                            <?php if($pageRegister) : ?>
-                                <?php $permalink = get_permalink($pageRegister->ID); ?>
-                                <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
-                            <?php endif ?>   
+
+                    <div class="d-block d-lg-none col-12">
+                        <div class="class-btns-register d-flex justify-content-center mt-4">
+                            <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                <?php $pageLogin = get_page_by_path('login'); ?>
+                                <?php if($pageLogin) : ?>
+                                    <?php $permalink = get_permalink($pageLogin->ID); ?>
+                                    <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
+                                <?php endif ?>
+                                <?php $pageRegister = get_page_by_path('Registro'); ?>
+                                <?php if($pageRegister) : ?>
+                                    <?php $permalink = get_permalink($pageRegister->ID); ?>
+                                    <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
+                                <?php endif ?>   
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     </header>

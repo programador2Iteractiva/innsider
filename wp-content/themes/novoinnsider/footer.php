@@ -36,9 +36,17 @@
         <?php if($page) : ?>
             <?php $permalink = get_permalink($page->ID); ?>
             <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Términos y condiciones</a>
-        <?php endif ?>   
-        <a href="#" class="secondtitleFooter">Política cookies</a>
-        <a href="#" class="secondtitleFooter">Política de privacidad</a>
+        <?php endif ?>
+        <?php $page = get_page_by_path('politica-de-cookies'); ?>
+        <?php if($page) : ?>
+            <?php $permalink = get_permalink($page->ID); ?>
+            <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política cookies</a>
+        <?php endif ?> 
+        <?php $page = get_page_by_path('politica-de-privacidad'); ?>
+        <?php if($page) : ?>
+            <?php $permalink = get_permalink($page->ID); ?>
+            <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política de privacidad</a>
+        <?php endif ?>     
         <a href="#" class="secondtitleFooter">Cookie settings</a>
     </div>
     <div class="footer-bottom pt-5 pb-5 d-flex justify-content-center justify-content-center">

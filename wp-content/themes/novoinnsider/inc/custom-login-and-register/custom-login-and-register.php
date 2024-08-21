@@ -266,18 +266,26 @@ function novo_inssider_get_institutions()
 
     global $wpdb;
 
-    $institutions = $wpdb->get_results('select institution_name from wp_institutions where uses < quantity order by institution_name ASC');
+    $inputInstitution = isset($_POST['institution']) ? sanitize_text_field($_POST['institution']) : '';
 
-    if(isset($institutions) && !empty($institutions)){
+    $institutions = $wpdb->prepare(
+        "SELECT institution_name FROM wp_institutions WHERE institution_name LIKE %s ORDER BY institution_name ASC LIMIT 10",
+        $inputInstitution . '%'
+    );
 
-        $html = "<input type='text' class='form-control form-select subs-email2' name='institution' id='institution' required>";
-        foreach ($institutions as $institution) {
-    
-            $html = $html . "<option value='$institution->institution_name'>$institution->institution_name</option>";
+    $results = $wpdb->get_results($institutions, ARRAY_A);
+
+    // Generar el HTML de respuesta
+    $html = "";
+    if (!empty($results)) {
+        foreach ($results as $row) {
+            $html .= "<li onclick=\"saveClickImput('" . esc_js($row["institution_name"]) . "')\">" . esc_html($row["institution_name"]) . "</li>";
         }
-    
-        echo $html . "</input>";
     }
+
+    echo json_encode($html, JSON_UNESCAPED_UNICODE);
+    // Finalizar el script
+    wp_die();
     
 }
 

@@ -3,6 +3,51 @@ import Swiper from "swiper/bundle";
 import "bootstrap";
 import Swal from "sweetalert2";
 
+
+export function saveClickImput(institutionName) {
+    // Asignar el valor del li al input
+    document.getElementById("institution").value = institutionName;
+
+    // Ocultar la lista
+    let list = document.getElementById("lista");
+    list.style.display = 'none';
+
+
+    let selectInstitution = document.getElementById("institution").value;
+
+    if(selectInstitution.trim() === ''){
+        const updateOtherInstitution = document.getElementById('input13');
+
+        updateOtherInstitution.classList.add("d-none");
+
+        const idOtherInstitution = document.getElementById('other_institution');
+
+        idOtherInstitution.removeAttribute("required");
+    }
+
+    if(selectInstitution == 'Otro'){
+        const updateOtherInstitution = document.getElementById('input13');
+
+        updateOtherInstitution.classList.remove("d-none");
+        updateOtherInstitution.classList.add("d-block");
+
+        const idOtherInstitution = document.getElementById('other_institution');
+
+        idOtherInstitution.setAttribute("required", "required");
+
+    }else{
+
+        const updateOtherInstitution = document.getElementById('input13');
+
+        updateOtherInstitution.classList.add("d-none");
+
+        const idOtherInstitution = document.getElementById('other_institution');
+
+        idOtherInstitution.removeAttribute("required");
+    }
+
+}
+
 document.addEventListener("DOMContentLoaded", function(){
 
     /* Call name user to object ajax */
@@ -199,38 +244,85 @@ document.addEventListener("DOMContentLoaded", function(){
 
     /* Code to realice process institutions */
 
-    var inputElement = document.querySelector('input[name="institution"]');
+    document.getElementById("institution").addEventListener("keyup", getListInstitutions)
 
-    inputElement.addEventListener('keyup', function(){
-        var institution = inputElement.value;
+    function getListInstitutions() {
 
-        console.log(institution);
+        let inputInstitution = document.getElementById("institution").value
+        let list = document.getElementById("lista")
 
-        var dataInstitutionsFetch = new FormData();
+        console.log(inputInstitution);
 
-        dataInstitutionsFetch.append('action', 'get_institutions');
-        dataInstitutionsFetch.append('institution', institution);
-        dataInstitutionsFetch.append('nonce', ajax_object.ajax_nonce);
+        if(inputInstitution.trim() === ''){
+    
+            const updateOtherInstitution = document.getElementById('input13');
+    
+            updateOtherInstitution.classList.add("d-none");
 
-        fetch(ajax_object.ajax_url, {
-            method: 'POST',
-            body: dataInstitutionsFetch
-        })
-        .then(function(response) {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.text(); // Convertir la respuesta a texto
-        })
-        .then(function(response) {
+            const idOtherInstitution = document.getElementById('other_institution');
+    
+            idOtherInstitution.removeAttribute("required");
 
-            const res = response.slice(0, -1);
-            document.getElementById('city').innerHTML = res;
-        })
-        .catch(function(error) {
-            console.error('Error en la solicitud fetch:', error);
-        });
-    })
+            list.style.display = 'none'
+
+        }
+    
+        if (inputInstitution.length > 0) {
+
+            var dataInstitutionsFetch = new FormData();
+
+            dataInstitutionsFetch.append('action', 'get_institutions');
+            dataInstitutionsFetch.append('institution', inputInstitution);
+            dataInstitutionsFetch.append('nonce', ajax_object.ajax_nonce);
+    
+            fetch(ajax_object.ajax_url, {
+                method: 'POST',
+                body: dataInstitutionsFetch
+            }).then(response => response.json())
+            .then(data => {
+                list.style.display = 'block'
+                list.innerHTML = data
+            })
+            .catch(err => console.log('Fetch error:', err));
+        } else {
+            list.style.display = 'none'
+        }
+
+    }
+    
+
+    // var inputElement = document.querySelector('input[name="institution"]');
+
+    // inputElement.addEventListener('keyup', function(){
+    //     var institution = inputElement.value;
+
+    //     console.log(institution);
+
+    //     var dataInstitutionsFetch = new FormData();
+
+    //     dataInstitutionsFetch.append('action', 'get_institutions');
+    //     dataInstitutionsFetch.append('institution', institution);
+    //     dataInstitutionsFetch.append('nonce', ajax_object.ajax_nonce);
+
+    //     fetch(ajax_object.ajax_url, {
+    //         method: 'POST',
+    //         body: dataInstitutionsFetch
+    //     })
+    //     .then(function(response) {
+    //         if (!response.ok) {
+    //             throw new Error('Network response was not ok');
+    //         }
+    //         return response.text(); // Convertir la respuesta a texto
+    //     })
+    //     .then(function(response) {
+
+    //         const res = response.slice(0, -1);
+    //         document.getElementById('city').innerHTML = res;
+    //     })
+    //     .catch(function(error) {
+    //         console.error('Error en la solicitud fetch:', error);
+    //     });
+    // })
 
 
     /* Code to capture registration form information and create the registration */

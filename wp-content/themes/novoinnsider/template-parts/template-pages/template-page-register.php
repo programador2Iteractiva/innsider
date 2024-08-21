@@ -78,9 +78,17 @@
                                 <?php endif; ?>
                             </select>
                         </div>
-                        <div class="mb-3 px-4">
+                        <div class="mb-3 px-4 position-relative">
                             <label class="mb-2 label-left2 form-label" for="institution">Institución*</label>
                             <input class="form-control subs-email2" name="institution" id="institution" type="text" required>
+
+                            <div class="position-relative">
+                                <ul id="lista" class="custom-select-list"></ul>
+                            </div>           
+                        </div>
+                        <div class="mb-3 px-4 d-none" id="input13">
+                            <label class="mb-2 label-left2 form-label" for="other_institution">Otra Institución*</label>
+                            <input class="form-control subs-email2" name="other_institution" id="other_institution" type="text" placeholder="Nombre de la Institución">
                         </div>
                         <div class="mb-3 px-3">
                             <div class="row m-0">

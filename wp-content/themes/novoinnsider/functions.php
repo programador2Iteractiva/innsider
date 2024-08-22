@@ -1448,4 +1448,5 @@ function importSpecialities() {
 
 // Llamar a la función para importar instituciones
 add_action('init', 'importSpecialities');
+
 ?>

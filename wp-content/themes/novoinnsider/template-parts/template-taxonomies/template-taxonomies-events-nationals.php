@@ -60,6 +60,14 @@ $taxonomy = get_queried_object();
             </div>
         </div>
 
+        <div class="container mt-lg-5 mt-3 p-0">
+            <div id="linea">
+                <hr>
+            </div>
+        </div>
+
+
+
         <div class="container">                        
             <div class="row p-3 m-3 d-flex justify-content-center align-items-start">
 
@@ -81,7 +89,7 @@ $taxonomy = get_queried_object();
                                 <div class="col-12 h-100">
                                     <div class="col-12 h-100">
                                         <div class="d-flex justify-content-start align-items-start flex-column">
-                                            <h3 class="NotoSans-Bold title-color"><?= $subcategory->name; ?></h3>
+                                            <h4 class="NotoSans-Bold title-color"><?= $subcategory->name; ?></h4>
                                             <p class="description-color NotoSans-Regular"><?= $subcategory->description; ?></p>
                                         </div>
                                     </div>
@@ -101,12 +109,15 @@ $taxonomy = get_queried_object();
             </div>
         </div>
 
+        <?php $codePromomats = get_field('description_complementary', $taxonomy) ?>
 
-        <div class="container mx-5 mx-lg-auto px-0">
-            <h5 class="NotoSans-Bold title-color">CO24UMA00061</h5>
+        <div class="container m-lg-5 mx-lg-auto m-3 px-0">
+            <?php if(isset($codePromomats) && !empty($codePromomats)) : ?>
+                <h5 class="NotoSans-Bold title-color"><?= $codePromomats; ?></h5>
+            <?php endif ?>
         </div>
 
-        <div class="col-12 border p-5 background-section-logo-innsider">
+        <div class="col-12 border p-5 mb-5 background-section-logo-innsider">
             <div class="col-12 d-flex justify-content-center align-items-center p-4">
                 <?php if (has_custom_logo()) : ?>
                     <?php the_custom_logo(); ?>

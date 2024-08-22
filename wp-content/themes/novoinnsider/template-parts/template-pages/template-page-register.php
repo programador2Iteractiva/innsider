@@ -117,9 +117,11 @@
                                 </div>
                                 <div class="col col-12 col-md-6 px-2" id="prueba">
                                     <label class='mb-2 label-left2 form-label' for='city'>Ciudad*</label>
-                                    <select class='form-control form-select subs-email2' name='city' id='city' required>
+                                    <input class="form-control subs-email2" name="city" id="city" type="text" required>
 
-                                    </select>
+                                    <div class="position-relative">
+                                        <ul id="listCity" class="custom-select-list"></ul>
+                                    </div>   
                                 </div>
                             </div>
                         </div>

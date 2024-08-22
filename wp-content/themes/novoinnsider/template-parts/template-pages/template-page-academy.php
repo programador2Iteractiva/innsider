@@ -52,6 +52,8 @@ $content = get_the_content();
     $taxonomyAcademy = novo_inssider_get_all_academies_actives();
     ?>
 
+
+
     <?php if(count($taxonomyAcademy) == 1) : ?>
 
         <div class="container align-items-center mt-5 pt-1">
@@ -74,14 +76,15 @@ $content = get_the_content();
                             array(
                                 'taxonomy' => 'academia',
                                 'hide_empty' => false,
-                                'order' => 'DESC'
+                                'order' => 'DESC',
+                                'hierarchical' => true
                             )
                         )
                         ?>
 
                         <?php if (isset($listCategoriesAcademy) && !empty($listCategoriesAcademy)) : ?>
                             <?php foreach ($listCategoriesAcademy as $listCategoryAcademy) : ?>
-                                <?php if ($listCategoryAcademy->term_id == $idCategoriesWithStatusActive) : ?>
+                                <?php if ($listCategoryAcademy->term_id == $idCategoriesWithStatusActive && $listCategoryAcademy->parent == 0) : ?>
 
                                     <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category pb-5" style="border-radius: 2rem">
                                         <div class="col-12 d-flex justify-content-center align-items-center">

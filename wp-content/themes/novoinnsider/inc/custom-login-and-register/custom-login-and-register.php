@@ -313,22 +313,50 @@ function novo_inssider_get_countries()
 function novo_innsider_get_cities()
 {
 
+    // check_ajax_referer('ajax_check', 'nonce');
+
+    // global $wpdb;
+
+    // $code_country = $_POST['codeCountry'];
+
+
+    // $cities = $wpdb->get_results("select name_city from wp_city where code_country = '{$code_country}' order by name_city asc");
+
+    // $html = "<select class='form-select' name='city' id='city' required>";
+    // foreach ($cities as $city) {
+
+    //     $html = $html . "<option value='$city->name_city'>$city->name_city</option>";
+    // }
+
+    // echo $html . "</select>";
+
+
     check_ajax_referer('ajax_check', 'nonce');
 
     global $wpdb;
 
-    $code_country = $_POST['codeCountry'];
+    $codeCities = isset($_POST['cities']) ? sanitize_text_field($_POST['cities']) : '';
+    $codeCountry = isset($_POST['countryValue']) ? sanitize_text_field($_POST['countryValue']) : '';
 
+    $cities = $wpdb->prepare(
+        "SELECT name_city FROM wp_city WHERE code_country = %s AND name_city LIKE %s ORDER BY name_city ASC LIMIT 5",
+        $codeCountry, 
+        $codeCities . '%'
+    );
 
-    $cities = $wpdb->get_results("select name_city from wp_city where code_country = '{$code_country}' order by name_city asc");
+    $results = $wpdb->get_results($cities, ARRAY_A);
 
-    $html = "<select class='form-select' name='city' id='city' required>";
-    foreach ($cities as $city) {
-
-        $html = $html . "<option value='$city->name_city'>$city->name_city</option>";
+    // Generar el HTML de respuesta
+    $html = "";
+    if (!empty($results)) {
+        foreach ($results as $city) {
+            $html .= "<li onclick=\"saveClickCities('" . esc_js($city["name_city"]) . "')\">" . esc_html($city["name_city"]) . "</li>";
+        }
     }
 
-    echo $html . "</select>";
+    echo json_encode($html, JSON_UNESCAPED_UNICODE);
+    // Finalizar el script
+    wp_die();
 
 }
 

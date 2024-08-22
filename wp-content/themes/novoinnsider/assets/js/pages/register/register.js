@@ -25,7 +25,7 @@ export function saveClickImput(institutionName) {
         idOtherInstitution.removeAttribute("required");
     }
 
-    if(selectInstitution == 'Otro'){
+    if(selectInstitution == 'OTRO'){
         const updateOtherInstitution = document.getElementById('input13');
 
         updateOtherInstitution.classList.remove("d-none");

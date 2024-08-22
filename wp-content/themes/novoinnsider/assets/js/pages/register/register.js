@@ -48,6 +48,25 @@ export function saveClickImput(institutionName) {
 
 }
 
+
+export function saveClickCities(citiesName) {
+    // Asignar el valor del li al input
+    document.getElementById("city").value = citiesName;
+
+    // Ocultar la lista
+    let listCity = document.getElementById("listCity");
+    listCity.style.display = 'none';
+
+    let selectCities = document.getElementById("city").value;
+
+    if(selectCities.trim() === ''){
+
+        listCity.style.display = 'none';
+
+    }
+
+}
+
 document.addEventListener("DOMContentLoaded", function(){
 
     /* Call name user to object ajax */
@@ -142,45 +161,48 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 
-    /* Code that identifies the value of country */
+    /* Code that identifies the value of cities to country */
 
-    var countrySelect = document.getElementById('country');
+    document.getElementById("city").addEventListener("keyup", handleCountryValue)
 
     function handleCountryValue()
     {
-        if (countrySelect.value) {
+
+        let citySelect = document.getElementById("city").value;
+        let countrySelect = document.getElementById("country").value;
+        let listCity = document.getElementById("listCity");
+
+        console.log(citySelect);
+
+        if(citySelect.trim() === ''){
+
+            listCity.style.display = 'none'
+
+        }
+
+
+        if (citySelect.length > 0) {
+
             var dataFetch = new FormData();
+
             dataFetch.append('action', 'get_cities');
-            dataFetch.append('codeCountry', countrySelect.value);
+            dataFetch.append('cities', citySelect);
+            dataFetch.append('countryValue', countrySelect);
             dataFetch.append('nonce', ajax_object.ajax_nonce);
     
             fetch(ajax_object.ajax_url, {
                 method: 'POST',
                 body: dataFetch
+            }).then(response => response.json())
+            .then(data => {
+                listCity.style.display = 'block'
+                listCity.innerHTML = data
             })
-            .then(function(response) {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text(); // Convertir la respuesta a texto
-            })
-            .then(function(response) {
-    
-                const res = response.slice(0, -1);
-                document.getElementById('city').innerHTML = res;
-            })
-            .catch(function(error) {
-                console.error('Error en la solicitud fetch:', error);
-            });
+            .catch(err => console.log('Fetch error:', err));
+        } else {
+            listCity.style.display = 'none'
         }
     }
-
-    // Agregar un evento de escucha para verificar cuando countrySelect tiene un valor
-    countrySelect.addEventListener('change', handleCountryValue);
-
-    // Llamar a handleCountryValue directamente para comprobar el valor inicial, si es necesario
-    handleCountryValue();
-
 
 
     /* Code open PopUp with content to terms and conditions and data treatment */

@@ -23,14 +23,14 @@ $content = get_the_content();
         <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
         <div class="wrapper-banner-academy">
             <div class="container-text-banner-academy">
-                <p>
+                <!-- <p>
                     <?php the_title(); ?>
-                </p>
+                </p> -->
             </div>
             <h4 class="text-white mt-3"><?php the_content(); ?></h4>
-            <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
+            <!-- <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
                 <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
-            </div>
+            </div> -->
         </div>
     </div>
 

@@ -42,7 +42,7 @@
 </div>
 <div>
     <div class="container my-5">
-        <div class="row d-flex justify-content-center align-align-items-center mb-4">
+        <!-- <div class="row d-flex justify-content-center align-align-items-center mb-4">
             <div class="col-12 d-flex flex-lg-row">
                 <h1 class="title">HERRAMIENTAS INNSIDER</h1>
                 <div class="col-9 mx-1" id="linea">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="container">
         <div class="row d-flex justify-content-center align-align-items-center mb-4">

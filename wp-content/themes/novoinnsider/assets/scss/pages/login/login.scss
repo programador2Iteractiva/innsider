@@ -207,15 +207,15 @@
         //     z-index: 1;
         // }
 
-        &::before {
-            @include full-width-and-viewport-height;
+        // &::before {
+        //     @include full-width-and-viewport-height;
 
-            background-color: rgba($white, 0.5);
-            content: "";
-            position: absolute;
-            z-index: -1;
-            left: 0;
-        }
+        //     background-color: rgba($white, 0.5);
+        //     content: "";
+        //     position: absolute;
+        //     // z-index: -1;
+        //     left: 0;
+        // }
 
         //   @import "intro";
         //   //@import "logo";
@@ -598,7 +598,7 @@ p.subtitle{
 }
 
 .custom-select-list li {
-    padding: 10px;
+    padding: 4px 10px;
     cursor: pointer;
 }
 

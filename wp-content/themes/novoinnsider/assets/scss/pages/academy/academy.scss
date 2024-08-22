@@ -275,10 +275,152 @@
     background: #001965;
     color: white;
     text-align: center;
-
-    &:hover{
-        background: #fff;
-        color: #001965;
-        border: 2px solid #001965;
-    }
   }
+
+.container-card-category-impact a{
+    text-decoration: none;
+    
+    &:hover{
+        .title-color{
+            color: #008dd4 !important;
+        }
+        .description-color {
+            color: #008dd4 !important;
+        }
+        img{
+            transform: scale(1.1);   
+            transition: all 400ms ease-out;
+            will-change: transform;
+        }
+        .btn-view-more{       
+            background: #fff;
+            color: #008dd4;
+            border: 2px solid #008dd4;
+        }
+    }
+}
+
+
+.container-card-category-impact .figure {
+    position: relative;
+    height: 320px;
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2rem;
+    filter: brightness(0.9);
+    transition: all 400ms ease-out;
+
+    @include media-breakpoint-up(md) {
+        height: 219px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 330px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xl) {
+        height: 350px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        height: 260px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 270px;
+        width: 100%;
+    }
+}
+
+.container-card-category-impact .figure img {
+    width: 100%;
+    height: 100%;
+    // transition: all 400ms ease-out;
+    // will-change: transform;
+    border-radius: 2rem;
+}
+
+.container-card-category-impact .figure .capa {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 25, 101, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+}
+
+.container-card-category-impact .figure:hover>.capa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container-card-category-impact .figure:hover {
+
+    .title-slide-system {
+        visibility: visible;
+    }
+}
+
+.container-card-category-impact .figure:hover>img {
+    // transform: scale(1.3);
+}
+
+.container-card-category-impact .figure .capa h3 {
+    color: $black;
+    font-weight: 400;
+    margin-bottom: 100px;
+    transition: all 400ms ease-out;
+    margin-top: 30px;
+}
+
+.container-card-category-impact .figure .capa p {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 220px;
+    margin: auto;
+}
+
+
+.container-card-category-impact .info_description {
+
+    height: 150px;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+        height: 168px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 330px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xl) {
+        height: 350px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        height: 330px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 140px;
+        width: 100%;
+    }
+}
+
+.background-section-logo-innsider{
+    background-color: #EBEBEB !important;
+}

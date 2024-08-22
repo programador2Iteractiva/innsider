@@ -100,6 +100,52 @@ function novo_inssider_post_type() {
     */
 
     /**
+     * Post Type Vision iNNsider
+    */
+
+    $labels = array(
+        'name'               => _x( 'Vision iNNsiders', 'post type general name' ),
+        'singular_name'      => _x( 'Vision iNNsider', 'post type singular name' ),
+        'menu_name'          => _x( 'Vision iNNsiders', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Vision iNNsider', 'add new on admin bar' ),
+        'add_new'            => _x( 'Agregar Vision iNNsider', 'Slide' ),
+        'add_new_item'       => __( 'Agregar nuevo Vision iNNsiders' ),
+        'new_item'           => __( 'Nueva Vision iNNsider' ),
+        'edit_item'          => __( 'Editar Vision iNNsider' ),
+        'view_item'          => __( 'Ver Vision iNNsider' ),
+        'all_items'          => __( 'Todas las Vision iNNsiders' ),
+        'featured_image'     => __( 'Imagen Vision iNNsider' ),
+        'search_items'       => __( 'Buscar Vision iNNsider' ),
+        'parent_item_colon'  => __( 'Vision iNNsider padre:' ),
+        'not_found'          => __( 'No se han encontrado Vision iNNsider.' ),
+        'not_found_in_trash' => __( 'No se han encontrado Vision iNNsider en la papelera.' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'menu_icon'          => 'dashicons-cover-image',
+        'description'        => __( 'Descripción de Vision iNNsiders.' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'vision-innsiders' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 6,
+        'show_in_rest'       => true,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'vision-innsiders', $args );
+
+    /**
+     * -- End Post Type Vision iNNsider
+    */
+
+    /**
     * Post Type Experiencias
     */
 

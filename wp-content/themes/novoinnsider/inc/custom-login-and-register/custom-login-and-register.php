@@ -266,18 +266,26 @@ function novo_inssider_get_institutions()
 
     global $wpdb;
 
-    $institutions = $wpdb->get_results('select institution_name from wp_institutions where uses < quantity order by institution_name ASC');
+    $inputInstitution = isset($_POST['institution']) ? sanitize_text_field($_POST['institution']) : '';
 
-    if(isset($institutions) && !empty($institutions)){
+    $institutions = $wpdb->prepare(
+        "SELECT institution_name FROM wp_institutions WHERE institution_name LIKE %s ORDER BY institution_name ASC LIMIT 10",
+        $inputInstitution . '%'
+    );
 
-        $html = "<input type='text' class='form-control form-select subs-email2' name='institution' id='institution' required>";
-        foreach ($institutions as $institution) {
-    
-            $html = $html . "<option value='$institution->institution_name'>$institution->institution_name</option>";
+    $results = $wpdb->get_results($institutions, ARRAY_A);
+
+    // Generar el HTML de respuesta
+    $html = "";
+    if (!empty($results)) {
+        foreach ($results as $row) {
+            $html .= "<li onclick=\"saveClickImput('" . esc_js($row["institution_name"]) . "')\">" . esc_html($row["institution_name"]) . "</li>";
         }
-    
-        echo $html . "</input>";
     }
+
+    echo json_encode($html, JSON_UNESCAPED_UNICODE);
+    // Finalizar el script
+    wp_die();
     
 }
 
@@ -305,22 +313,50 @@ function novo_inssider_get_countries()
 function novo_innsider_get_cities()
 {
 
+    // check_ajax_referer('ajax_check', 'nonce');
+
+    // global $wpdb;
+
+    // $code_country = $_POST['codeCountry'];
+
+
+    // $cities = $wpdb->get_results("select name_city from wp_city where code_country = '{$code_country}' order by name_city asc");
+
+    // $html = "<select class='form-select' name='city' id='city' required>";
+    // foreach ($cities as $city) {
+
+    //     $html = $html . "<option value='$city->name_city'>$city->name_city</option>";
+    // }
+
+    // echo $html . "</select>";
+
+
     check_ajax_referer('ajax_check', 'nonce');
 
     global $wpdb;
 
-    $code_country = $_POST['codeCountry'];
+    $codeCities = isset($_POST['cities']) ? sanitize_text_field($_POST['cities']) : '';
+    $codeCountry = isset($_POST['countryValue']) ? sanitize_text_field($_POST['countryValue']) : '';
 
+    $cities = $wpdb->prepare(
+        "SELECT name_city FROM wp_city WHERE code_country = %s AND name_city LIKE %s ORDER BY name_city ASC LIMIT 5",
+        $codeCountry, 
+        $codeCities . '%'
+    );
 
-    $cities = $wpdb->get_results("select name_city from wp_city where code_country = '{$code_country}' order by name_city asc");
+    $results = $wpdb->get_results($cities, ARRAY_A);
 
-    $html = "<select class='form-select' name='city' id='city' required>";
-    foreach ($cities as $city) {
-
-        $html = $html . "<option value='$city->name_city'>$city->name_city</option>";
+    // Generar el HTML de respuesta
+    $html = "";
+    if (!empty($results)) {
+        foreach ($results as $city) {
+            $html .= "<li onclick=\"saveClickCities('" . esc_js($city["name_city"]) . "')\">" . esc_html($city["name_city"]) . "</li>";
+        }
     }
 
-    echo $html . "</select>";
+    echo json_encode($html, JSON_UNESCAPED_UNICODE);
+    // Finalizar el script
+    wp_die();
 
 }
 

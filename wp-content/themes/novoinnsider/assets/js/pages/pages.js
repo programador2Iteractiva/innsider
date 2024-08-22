@@ -1,4 +1,7 @@
 /* Components */
 
 import './home/home'
-import './register/register'
+import {saveClickImput, saveClickCities} from './register/register'
+
+window.saveClickImput = saveClickImput;
+window.saveClickCities = saveClickCities;

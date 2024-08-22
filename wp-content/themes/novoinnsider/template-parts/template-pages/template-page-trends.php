@@ -15,21 +15,21 @@ $content = get_the_content();
                     <hr class="mx-5 px-4">
                 </div>
             </div>
-            <P><?= strip_tags($content); ?></P>
+            <!-- <P><?= strip_tags($content); ?></P> -->
         </div>
     </div>
     <div class="container banner-academy">
         <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
         <div class="wrapper-banner-academy">
-            <div class="container-text-banner-academy">
+            <!-- <div class="container-text-banner-academy">
                 <p class="text-transform-uppercase">
                     <?php the_title(); ?>
                 </p>
-            </div>
-            <h4 class="text-white mt-3"><?php the_content(); ?></h4>
-            <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
+            </div> -->
+            <!-- <h4 class="text-white mt-3"><?php the_content(); ?></h4> -->
+            <!-- <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
                 <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
-            </div>
+            </div> -->
         </div>
     </div>
 

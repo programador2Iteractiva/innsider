@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Swiper from "swiper/bundle";
 import 'bootstrap/dist/js/bootstrap.min';
+import AOS from 'aos';
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -18,6 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+  });
+
+  AOS.init({
+    duration: 1200, // Duración de las animaciones en milisegundos
   });
 
 });

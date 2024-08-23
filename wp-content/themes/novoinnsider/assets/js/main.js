@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 import Swiper from 'swiper/bundle';
 import 'bootstrap/dist/js/bootstrap.min';
 import '@fortawesome/fontawesome-free/js/all';
-import AOS from 'aos';
 
 
 window.Swal = Swal;

@@ -340,43 +340,15 @@
 .container-card-category-impact .figure img {
     width: 100%;
     height: 100%;
-    // transition: all 400ms ease-out;
-    // will-change: transform;
     border-radius: 2rem;
 }
 
-.container-card-category-impact .figure .capa {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 25, 101, 0.7);
-    opacity: 0;
-    visibility: hidden;
-    text-align: center;
-}
 
-.container-card-category-impact .figure:hover>.capa {
-    opacity: 1;
-    visibility: visible;
-}
-
-.container-card-category-impact .figure:hover {
-
-    .title-slide-system {
-        visibility: visible;
-    }
-}
-
-.container-card-category-impact .figure:hover>img {
-    // transform: scale(1.3);
-}
 
 .container-card-category-impact .figure .capa h3 {
     color: $black;
     font-weight: 400;
     margin-bottom: 100px;
-    transition: all 400ms ease-out;
     margin-top: 30px;
 }
 
@@ -424,3 +396,20 @@
 .background-section-logo-innsider{
     background-color: #EBEBEB !important;
 }
+
+[data-aos="new-animation"] {
+    opacity: 1;
+    transition-property: transform, opacity;
+  
+    &.aos-animate {
+      opacity: 1;
+    }
+  
+    @media screen and (min-width: 768px) {
+      transform: translateX(100px);
+  
+      &.aos-animate {
+        transform: translateX(0);
+      }
+    }
+  }

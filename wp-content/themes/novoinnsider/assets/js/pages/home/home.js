@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   AOS.init({
-    duration: 1200, // Duración de las animaciones en milisegundos
+    duration: 1000,
+    once: true,
   });
 
 });

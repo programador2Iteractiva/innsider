@@ -19,7 +19,7 @@ $content = get_the_content();
             <p><?= strip_tags($content); ?></p>
         </div>
     </div>
-    <div class="container banner-academy">
+    <div class="container banner-academy" data-aos="zoom-in">
         <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
         <div class="wrapper-banner-academy">
             <div class="container-text-banner-academy">
@@ -87,7 +87,7 @@ $content = get_the_content();
                                 <?php foreach ($listCategoriesAcademy as $listCategoryAcademy) : ?>
                                     <?php if ($listCategoryAcademy->term_id == $idCategoriesWithStatusActive && $listCategoryAcademy->parent == 0) : ?>
 
-                                        <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category-impact m-0 p-0 mt-3 mb-5 pb-4 ">
+                                        <div data-aos="<?= ($counter % 2 === 0) ? 'fade-right' : 'fade-left'; ?>" class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category-impact m-0 p-0 mt-3 mb-5 pb-4 ">
 
                                             <a href="<?= get_term_link($listCategoryAcademy->term_id); ?>" class="w-100">
                                                 <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-end align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-start align-items-center flex-column'; ?>">

@@ -22,22 +22,26 @@ $currentTermId = $taxonomy->parent;
 
     $tableTermmeta = $wpdb->prefix . 'termmeta';
 
-    $metaKey = 'View_With_National_Events';
-    $otherMetaKey = 'View_With_Training_Course';
-    $visionMetaKey = 'View_With_Vision_Innsider';
+    $viewcategoryEvents = 'View_With_National_Events';
+    $viewcategoryCourse = 'View_With_Training_Course';
+    $viewContentResourcesInterest = 'View_With_Resources_Interest';
+
     $metaValue = '1';
 
-    $allData = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$metaKey}' AND `meta_VALUE` = '{$metaValue}'");
-
+    $allData = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewcategoryEvents}' AND `meta_VALUE` = '{$metaValue}'");
     $allCategoriesWithNationalEvents = $wpdb->get_results($wpdb->prepare($allData));
 
-    $otherAllData = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$otherMetaKey}' AND `meta_VALUE` = '{$metaValue}'");
 
+    $otherAllData = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewcategoryCourse}' AND `meta_VALUE` = '{$metaValue}'");
     $allCategoriesViewWithTrainingCourse = $wpdb->get_results($wpdb->prepare($otherAllData));
 
-    $otherAllDataVision = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$visionMetaKey}' AND `meta_VALUE` = '{$metaValue}'");
 
-    $allCategoriesViewWithVision = $wpdb->get_results($wpdb->prepare($otherAllDataVision));
+    $AllResourcesInterest = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewContentResourcesInterest}' AND `meta_VALUE` = '{$metaValue}'");
+    $allCategoriesContentResourcesInterest = $wpdb->get_results($wpdb->prepare($AllResourcesInterest));
+
+    
+    // $otherAllDataVision = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewContentResourcesInterest}' AND `meta_VALUE` = '{$metaValue}'");
+    // $allCategoriesViewWithVision = $wpdb->get_results($wpdb->prepare($otherAllDataVision));
 ?>
 
 
@@ -75,8 +79,24 @@ $currentTermId = $taxonomy->parent;
 <?php endif; ?>
 
 
+<?php  if ( ! is_wp_error( $allCategoriesContentResourcesInterest) && ! empty( $allCategoriesContentResourcesInterest ) ) : ?>
 
-<?php  if ( ! is_wp_error( $allCategoriesViewWithVision) && ! empty( $allCategoriesViewWithVision) ) : ?>
+    <?php /* En este foreach se recorre el arreglo $all_categories_with_status_active
+    para hacer uso de $categories_with_status->term_id */ ?>
+    <?php foreach($allCategoriesContentResourcesInterest as $CategoriesContentResourcesInterest) :  ?>
+
+        <?php $listIdWithResourcesInterest = $CategoriesContentResourcesInterest->term_id; ?>
+
+        <?php if($taxonomy->term_id == $listIdWithResourcesInterest) : ?>
+            <?php get_template_part('template-parts/template-taxonomies/template-taxonomies-resources-Interest'); ?>
+        <?php endif ?>
+
+    <?php endforeach ?>
+
+<?php endif; ?>
+
+
+<!-- <?php  if ( ! is_wp_error( $allCategoriesViewWithVision) && ! empty( $allCategoriesViewWithVision) ) : ?>
 
     <?php /* En este foreach se recorre el arreglo $all_categories_with_status_active
     para hacer uso de $categories_with_status->term_id */ ?>
@@ -90,11 +110,10 @@ $currentTermId = $taxonomy->parent;
 
     <?php endforeach ?>
 
-<?php endif; ?>
+<?php endif; ?> -->
 
 
 <?php /* Código que asigna una template a las subcategorias de la taxonomia academia */ ?>
-
 
 
 <?php if(isset($currentTermId) && !empty($currentTermId) && !0) : ?>

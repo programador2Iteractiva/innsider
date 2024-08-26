@@ -81,3 +81,30 @@ body, html {
 .text-transform-uppercase{
     text-transform: uppercase;
 }
+
+.breadcrumbs{
+    a{
+        color: #727272;
+        font-family: 'NotoSans Regular' !important;
+        font-size: 1rem;
+        line-height: 16.46px;
+        text-align: center;
+        padding: 2rem 0.5rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    span{
+
+        color: #727272;
+        font-family: 'NotoSans Regular' !important;
+        font-size: 1rem;
+        line-height: 16.46px;
+        text-align: center;
+        padding: 2rem 0.5rem;
+        text-transform: uppercase;
+        text-decoration: none;
+
+    }
+}

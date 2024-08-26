@@ -558,7 +558,7 @@ function custom_breadcrumbs() {
 
     // Inicializa el breadcrumb
     echo '<nav class="breadcrumbs">';
-    echo '<a href="' . esc_url(home_url()) . '">' . esc_html($home) . '</a> / ';
+    echo '<a class="" style="text-decoration:none !important" href="' . esc_url(home_url()) . '">' . esc_html($home) . '</a> / ';
     $page = get_page_by_title('Academia');
     $page_id = $page->ID;
     $page_url = get_permalink($page_id);

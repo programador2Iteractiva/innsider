@@ -23,9 +23,9 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
     <header>
         <div class="">
             <div class="">
-                <nav class="navbar navbar-expand-lg py-lg-5 py-4 d-lg-flex justify-content-between align-items-lg-center flex-lg-row flex-column">
+                <nav class="navbar navbar-expand-lg py-lg-5 py-4 d-lg-flex justify-content-between align-items-lg-center flex-row mx-4 mx-lg-0">
                     <div class="d-flex justify-content-center align-items-center">
-                        <div class="d-block mx-lg-5">
+                        <div class="d-block mx-lg-5 custom-logo-container d-flex justify-content-center align-items-center">
                             <?php if (has_custom_logo()) : ?>
                                 <?php the_custom_logo(); ?>
                             <?php endif; ?>
@@ -52,47 +52,39 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
                                 'walker' => new bootstrap_5_wp_nav_menu_walker()
                             ));
                             ?>
-                            <ul class="d-block d-lg-none navbar-nav justify-content-end flex-grow-1 pe-3">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="userNameResponsive" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-                                    <ul class="dropdown-menu logout">
-                                        <li><i class="fa-solid fa-power-off mx-3"></i> Cerrar Sesion</li>
-                                    </ul>
-                                </li>
-                            </ul>
                         </div>
                     </div>
 
                     <div class="d-none d-lg-block row m-0 p-0">
                         <div class="class-btns-register d-flex justify-content-center">
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                            <?php if (is_page('login') || is_page('registro') || !is_user_logged_in()) : ?>
+                                <?php if (is_page('login') || is_page('registro') || !is_user_logged_in()) : ?>
 
-                                <?php $pageLogin = get_page_by_path('login'); ?>
-                                <?php if($pageLogin) : ?>
-                                    <?php $permalink = get_permalink($pageLogin->ID); ?>
-                                    <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
-                                <?php endif ?>
-                                <?php $pageRegister = get_page_by_path('Registro'); ?>
-                                <?php if($pageRegister) : ?>
-                                    <?php $permalink = get_permalink($pageRegister->ID); ?>
-                                    <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
-                                <?php endif ?>   
+                                    <?php $pageLogin = get_page_by_path('login'); ?>
+                                    <?php if($pageLogin) : ?>
+                                        <?php $permalink = get_permalink($pageLogin->ID); ?>
+                                        <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
+                                    <?php endif ?>
+                                    <?php $pageRegister = get_page_by_path('Registro'); ?>
+                                    <?php if($pageRegister) : ?>
+                                        <?php $permalink = get_permalink($pageRegister->ID); ?>
+                                        <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
+                                    <?php endif ?>   
 
-                            <?php else : ?>
+                                <?php else : ?>
 
-                                <?php $data = novo_innsider_name_user(); ?>
+                                    <?php $data = novo_innsider_name_user(); ?>
 
-                                <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                    <div class="btn-login d-none">
-                                        <?= novo_innsider_logout(); ?>
+                                    <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
+                                        <div class="btn-login d-none">
+                                            <?= novo_innsider_logout(); ?>
+                                        </div>
+                                        <div class="mx-3 d-flex justify-content-center align-items-center text-center">
+                                            <?php echo novo_innsider_display_user_name(); ?>
+                                        </div>
                                     </div>
-                                    <div class="mx-3 d-flex justify-content-center align-items-center text-center">
-                                        <?php echo novo_innsider_display_user_name(); ?>
-                                    </div>
-                                </div>
-                                
-                            <?php endif; ?>
+                                    
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -100,15 +92,28 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
                     <div class="d-block d-lg-none col-12">
                         <div class="class-btns-register d-flex justify-content-center mt-4">
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
-                                <?php $pageLogin = get_page_by_path('login'); ?>
-                                <?php if($pageLogin) : ?>
-                                    <?php $permalink = get_permalink($pageLogin->ID); ?>
-                                    <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
-                                <?php endif ?>
-                                <?php $pageRegister = get_page_by_path('Registro'); ?>
-                                <?php if($pageRegister) : ?>
-                                    <?php $permalink = get_permalink($pageRegister->ID); ?>
-                                    <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
+                                <?php if (is_page('login') || is_page('registro') || !is_user_logged_in()) : ?>
+                                    <?php $pageLogin = get_page_by_path('login'); ?>
+                                    <?php if($pageLogin) : ?>
+                                        <?php $permalink = get_permalink($pageLogin->ID); ?>
+                                        <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
+                                    <?php endif ?>
+                                    <?php $pageRegister = get_page_by_path('Registro'); ?>
+                                    <?php if($pageRegister) : ?>
+                                        <?php $permalink = get_permalink($pageRegister->ID); ?>
+                                        <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
+                                    <?php endif ?>
+                                <?php else : ?>
+                                    <?php $data = novo_innsider_name_user(); ?>
+
+                                    <div class="d-flex justify-content-center align-items-center flex-lg-row flex-column container-btn-login">
+                                        <div class="mx-3 d-flex justify-content-center align-items-center text-center">
+                                            <?php echo novo_innsider_display_user_name(); ?>
+                                        </div>
+                                        <div class="btn-login mt-2">
+                                            <?= novo_innsider_logout(); ?><i class="mx-2 fas fa-power-off"></i>
+                                        </div>
+                                    </div>
                                 <?php endif ?>   
                             </div>
                         </div>

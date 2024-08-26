@@ -19,7 +19,7 @@ $content = get_the_content();
             <p><?= strip_tags($content); ?></p>
         </div>
     </div>
-    <div class="container banner-academy">
+    <div class="container banner-academy" data-aos="zoom-in">
         <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
         <div class="wrapper-banner-academy">
             <div class="container-text-banner-academy">
@@ -52,68 +52,85 @@ $content = get_the_content();
     $taxonomyAcademy = novo_inssider_get_all_academies_actives();
     ?>
 
-    <?php if(count($taxonomyAcademy) == 1) : ?>
+
+
+    <?php if (count($taxonomyAcademy) == 1) : ?>
 
         <div class="container align-items-center mt-5 pt-1">
-            <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
+            <div class="row d-flex justify-content-start align-items-center m-0 mt-4 p-0">
 
-    <?php else : ?> 
+            <?php else : ?>
 
-        <div class="container d-flex justify-content-center align-items-center mt-5 pt-1">
-            <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
+                <div class="container mt-5 pt-1">
+                    <div class="row d-flex justify-content-between align-items-start m-0 p-0">
 
-    <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
+                    <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
 
-                    <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
+                        <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
 
-                        <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
+                            <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
 
-                        <?php $listCategoriesAcademy = get_terms(
-                            array(
-                                'taxonomy' => 'academia',
-                                'hide_empty' => false,
-                                'order' => 'DESC'
+                            <?php $listCategoriesAcademy = get_terms(
+                                array(
+                                    'taxonomy' => 'academia',
+                                    'hide_empty' => false,
+                                    'orderby' => 'id',
+                                    'order' => 'ASC',
+                                    'hierarchical' => true
+                                )
                             )
-                        )
-                        ?>
+                            ?>
 
-                        <?php if (isset($listCategoriesAcademy) && !empty($listCategoriesAcademy)) : ?>
-                            <?php foreach ($listCategoriesAcademy as $listCategoryAcademy) : ?>
-                                <?php if ($listCategoryAcademy->term_id == $idCategoriesWithStatusActive) : ?>
+                            <?php if (isset($listCategoriesAcademy) && !empty($listCategoriesAcademy)) : ?>
+                                <?php $counter = 0; ?>
+                                <?php foreach ($listCategoriesAcademy as $listCategoryAcademy) : ?>
 
-                                    <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category pb-5" style="border-radius: 2rem">
-                                        <div class="col-12 d-flex justify-content-center align-items-center">
-                                            <a href="<?= get_term_link($listCategoryAcademy->term_id)  ?>" style="text-decoration: none;">
-                                                <div class="figure" style="border-radius: 2rem">
-                                                    <?php $imageCategoryAcademy = get_field('Category_Image', $listCategoryAcademy); ?>
-                                                    <img src="<?php echo wp_get_attachment_image_url($imageCategoryAcademy); ?>" alt="Podcast">
-                                                    <h3 class="position-absolute title-slide-system class-title-card-system"><?= esc_html(the_title()) ?></h3>
-                                                </div>
-                                                <div class="info_description d-flex align-items-center mt-3">
-                                                    <div class="d-flex flex-lg-row flex-column position-relative col-11">
-                                                        <div class="col-12 col-lg-8">
-                                                            <h3 class="NotoSans-Bold title-color"><?= $listCategoryAcademy->name; ?></h3>
-                                                            <p class="description-color NotoSans-Regular"><?= $listCategoryAcademy->description; ?></p>
+                                    <?php if ($listCategoryAcademy->term_id == $idCategoriesWithStatusActive && $listCategoryAcademy->parent == 0) : ?>
+
+                                        <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
+
+                                            <a href="<?= get_term_link($listCategoryAcademy->term_id); ?>" class="w-100">
+                                                <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
+                                                    <div class="col-10 col-lg-11">
+                                                        <div class="mb-4 figure">
+                                                            <?php $imageCategoryAcademy = get_field('Category_Image', $listCategoryAcademy); ?>
+
+                                                            <?php if ($imageCategoryAcademy) :  ?>
+                                                                <?php echo wp_get_attachment_image($imageCategoryAcademy, 'full', '', ['style' => 'object-fit: cover']); ?>
+                                                            <?php endif ?>
                                                         </div>
-                                                        <div class="col-12 col-lg-4">
-                                                            <div class="w-100 p-1 mb-2 btn-view-more">Ver más</div>
+                                                        <div class="col-12 d-flex w-100">
+                                                            <div class="col-12 d-flex">
+                                                                <div class="col h-100">
+                                                                    <div class="d-flex justify-content-start align-items-start flex-column">
+                                                                        <h4 class="NotoSans-Bold title-color"><?= $listCategoryAcademy->name; ?></h4>
+                                                                        <p class="description-color NotoSans-Regular"><?= $listCategoryAcademy->description; ?></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col d-flex justify-content-center align-items-start">
+                                                                    <div class="w-75">
+                                                                        <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
-                                    </div>
-                                <?php endif; ?>
-                            <?php endforeach ?>
-                        <?php endif ?>
+                                    <?php endif; ?>
 
-                    <?php endforeach; ?>
+                                    <?php $counter++; ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
 
-                <?php endif ?>
+                        <?php endforeach; ?>
+
+                    <?php endif ?>
+
+                    </div>
+                </div>
 
             </div>
-        </div>
-
-</div>

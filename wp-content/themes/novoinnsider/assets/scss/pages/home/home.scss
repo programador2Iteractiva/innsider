@@ -31,12 +31,12 @@
                 }
 
                 @include media-breakpoint-up(lg) {
-                    height: 355px;
+                    height: 357px;
                     align-items: flex-end;
                 }
 
                 @include media-breakpoint-up(xl) {
-                    height: 435px;
+                    height: 430px;
                 }
 
                 @include media-breakpoint-up(xxl) {
@@ -44,7 +44,7 @@
                 }
 
                 @include media-breakpoint-up(xxxl) {
-                    height: 624px;
+                    height: 550px;
                 }
             }
 

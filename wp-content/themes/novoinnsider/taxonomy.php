@@ -6,10 +6,12 @@
 get_header(); 
 $taxonomy = get_queried_object();
 $current_category = get_query_var('cat');
+$cuttentTaxonomyId = $taxonomy->term_taxonomy_id;
+$currentTermId = $taxonomy->parent;
 ?>
 
 
-<!-- Codigo prueba que asigna la plantilla a todas validando el view_with_Thematic_Axis en 1 -->
+<!-- Codigo que asigna la plantilla de las taxonomias y subcategorias provenientes de los distintos post-types del proyecto -->
 
 
 <?php
@@ -91,6 +93,36 @@ $current_category = get_query_var('cat');
 <?php endif; ?>
 
 
+<?php /* Código que asigna una template a las subcategorias de la taxonomia academia */ ?>
+
+
+
+<?php if(isset($currentTermId) && !empty($currentTermId) && !0) : ?>
+    <?php 
+
+        $subcategoriesAcademy = get_terms(
+            array(
+                'taxonomy' => 'academia',
+                'hide_empty' => false,
+                'parent' => $currentTermId,
+                'order' => 'ASC',
+            )
+        );
+
+    ?>
+<?php endif; ?>
+
+
+<?php if(!empty($subcategoriesAcademy) && !is_wp_error($subcategoriesAcademy)) : ?>
+    <?php foreach($subcategoriesAcademy as $subcategoryAcademy) : ?>
+        <?php $subcategoryAcademyId = $subcategoryAcademy->term_id; ?>
+            <?php if($cuttentTaxonomyId == $subcategoryAcademyId) : ?>
+                <?php get_template_part('template-parts/template-taxonomies/template-subcategories-taxonomies/template-taxonomies-subcategories-events'); ?>
+            <?php endif ?>
+    <?php endforeach; ?>
+<?php endif ?>
+
+<?php /* Fin del código que asigna una template a las subcategorias de la taxonomia academia */ ?>
 
 <!-- Fin de codigo -->
 

@@ -10,21 +10,26 @@ header{
                     font-size: 1rem;
                     line-height: 16.46px;
                     text-align: center;
+                    padding: 2rem 0.5rem;
 
                     @include media-breakpoint-up(md) {
                         font-size: 1rem;
+                        padding: 2rem 0.5rem;
                     }
             
                     @include media-breakpoint-up(lg) {
                         font-size: 1.1rem;
+                        padding: 0;
                     }
             
                     @include media-breakpoint-up(xl) {
                         font-size: 1.3rem;
+                        padding: 0;
                     }
             
                     @include media-breakpoint-up(xxl) {
                         font-size: 1.5rem;
+                        padding: 0;
                     }
 
                     &:hover{
@@ -63,6 +68,12 @@ header{
         @include media-breakpoint-up(xxl) {
             font-size: 1.5rem;
         }
+
+        a{
+            text-decoration: none;
+            color: #001965;
+            font-family: 'NotoSans Bold' !important;
+        }
     }
 
 
@@ -94,28 +105,57 @@ header{
     align-items: center;
 }
 
+.custom-logo-container{
+    position: relative;
+    height: 36px;
+    cursor: pointer;
+    width: 100%;
+    
+    @include media-breakpoint-up(md){
+        height: 35px;
+        width: 100%;
+    }
+    
+    @include media-breakpoint-up(lg) {
+        height: 30px;
+        width: 100%;
+    }
+    
+    @include media-breakpoint-up(xl) {
+        height: 30px;
+        width: 100%;
+    }
+    
+    @include media-breakpoint-up(xxl) {
+        height: 36px;
+        width: 100%;
+    }
+    
+    @include media-breakpoint-up(xxxl){
+        height: 40px;
+        width: 100%;
+    }
 
-.custom-logo {
+    .custom-logo-link {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .custom-logo {
+            width: 100%;
+            height: 100%;
+            transition: all 400ms ease-out;
+            will-change: transform;
+            object-fit: contain;
+            overflow: hidden;
+            object-position: center;
+        }
+    }
+    
+}
 
-	img {
-		width: 200px;
-		height: 100%;
-
-		@include media-breakpoint-up(md) {
-			display: block !important;
-			width: 200px;
-		}
-
-		@include media-breakpoint-up(lg) {
-			width: 110px;
-		}
-
-		@include media-breakpoint-up(xl) {
-			width: 140px;
-		}
-
-		@include media-breakpoint-up(xxl) {
-			width: 170px;
-		}
-	}
+.text-justify{
+    text-align: justify !important;
 }

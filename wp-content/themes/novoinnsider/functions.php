@@ -55,18 +55,18 @@ function novo_inssider_support()
 add_action('after_setup_theme', 'novo_inssider_support');
 
 // Función para agregar una clase a la imagen del logotipo personalizado
-function custom_logo_class($html) {
+// function custom_logo_class($html) {
 
-    if(is_user_logged_in()){
-        $html = str_replace('custom-logo', 'custom-logo mx-5', $html);
-        return $html;
-    }else{
-        $html = str_replace('custom-logo', 'custom-logo mx-2', $html);
-        return $html;
-    }
+//     if(is_user_logged_in()){
+//         $html = str_replace('custom-logo', 'custom-logo mx-2', $html);
+//         return $html;
+//     }else{
+//         $html = str_replace('custom-logo', 'custom-logo mx-2', $html);
+//         return $html;
+//     }
     
-}
-add_filter('get_custom_logo', 'custom_logo_class');
+// }
+// add_filter('get_custom_logo', 'custom_logo_class');
 
 /*
 * Register and Enqueue Styles.

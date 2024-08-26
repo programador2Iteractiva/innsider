@@ -71,7 +71,7 @@
         position: relative;
         padding: 2rem 1.5rem;
         flex-direction: column;
-        height: 150px;
+        height: 147px;
 
         .container-text-banner-academy {
             p {
@@ -127,22 +127,22 @@
         @include media-breakpoint-up(lg) {
             padding: 3rem 5rem;
             justify-content: start;
-            height: 300px;
+            height: 340px;
         }
 
         @include media-breakpoint-up(xl) {
             padding: 3rem 6rem;
-            height: 315px;
+            height: 400px;
         }
 
         @include media-breakpoint-up(xxl) {
             padding: 3rem 7rem;
-            height: 320px;
+            height: 453px;
         }
 
         @include media-breakpoint-up(xxxl) {
             padding: 3rem 7rem;
-            height: 410px;
+            height: 466px;
         }
 
         .bg-banner-single-category{

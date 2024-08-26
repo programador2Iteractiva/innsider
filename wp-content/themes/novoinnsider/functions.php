@@ -1483,4 +1483,148 @@ function importSpecialities() {
 // Llamar a la función para importar instituciones
 add_action('init', 'importSpecialities');
 
+
+function novo_innsider_check_menu_items_with_class() {
+    ob_start(); 
+
+    function check_menu_items_with_class($items) {
+        // Crear un array para almacenar los elementos con clase 'd-none'
+        $hidden_items = [];
+
+        // Itera sobre los elementos del menú
+        foreach ($items as $item) {
+            // Verifica si el elemento tiene la clase 'd-none'
+            if (in_array('d-none', $item->classes)) {
+                $hidden_items[] = $item;
+            }
+        }
+
+        // Mostrar los elementos con clase 'd-none'
+        if (!empty($hidden_items)) {
+            foreach ($hidden_items as $item) {?>
+                <?php if($item->title == 'Herramientas') : ?>
+                <?php else : ?>
+                    <div class="row d-flex justify-content-center align-align-items-center mb-4">
+                        <div class="col-12 d-flex flex-lg-row">
+                            <h1 class="title">HERRAMIENTAS INNSIDER</h1>
+                            <div class="col-9 mx-1" id="linea">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <div class="col-lg-12 col-11 banner-category">
+                            <div class="d-flex align-items-center justify-content-lg-end justify-content-center h-100">
+                                <img src="<?= get_template_directory_uri() . '/assets/images/Fondo1.svg';  ?>" alt="Herramientas" class="bg-banner-single-category">
+                                <div class="mx-2 px-1 mx-lg-2 px-lg-2 mx-xl-5 px-xl-5 text-center test1">
+                                    <h1 class="text-white">Conozca más sobre <br> herramientas</h1>
+                                    <h5 class="text-white mb-5">que le permitirán tomar decisiones <br> basadas en datos</h5>
+                                    <div class="button-group">
+                                        <button class="btn btn-outline-light mx-1 px-3 btn-class">Calculadoras de salud</button>
+                                        <button class="btn btn-outline-light mx-1 px-3 btn-class">Simulador de modelo</button>
+                                        <button class="btn btn-outline-light mx-1 px-3 btn-class">Simulador de cobertura</button>
+                                    </div>
+                                    <div class="button-group mt-3">
+
+                                        <?php if (is_page('login') || is_page('registro') || is_user_logged_in()) : ?>
+                                        <?php else : ?>
+                                            <?php $pageLogin = get_page_by_path('login'); ?>
+
+                                            <?php if($pageLogin) : ?>
+                                                <?php $permalink = get_permalink($pageLogin->ID); ?>
+                                                <button class="btn btn-light mx-2 btn-class px-5">
+                                                    <a class="btn-login mx-2" id="btn-login" style="text-decoration: none;" href="<?php echo esc_url($permalink); ?>">
+                                                        Ingresar
+                                                    </a>
+                                                </button>
+                                            <?php endif ?>
+
+                                            <?php $pageRegister = get_page_by_path('Registro'); ?>
+
+                                            <?php if($pageRegister) : ?>
+                                                <?php $permalink = get_permalink($pageRegister->ID); ?>
+                                                <button class="btn btn-light mx-2 btn-class px-5">
+                                                    <a class="btn-login mx-2" id="btn-register" style="text-decoration: none;" href="<?php echo esc_url($permalink); ?>">
+                                                        Registro
+                                                    </a>
+                                                </button>
+                                            <?php endif ?>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php
+                break;
+            }
+        }
+    }
+
+    // Filtro para añadir clases a los elementos del menú y luego verificar
+    add_filter('wp_nav_menu_objects', 'check_menu_items_with_class');
+
+    // Genera el menú
+    wp_nav_menu(array(
+        'theme_location' => 'primary',
+        'container' => false,
+        'menu_class' => 'navbar-nav',
+        'fallback_cb' => '__return_false',
+        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth' => 3
+    ));
+
+    return ob_get_clean();
+}
+
+
+
+
+function novo_innsider_check_menu_items() {
+    ob_start(); 
+
+    function check_menu_items($items) {
+        // Crear un array para almacenar los elementos con clase 'd-none'
+        $hidden_items = [];
+
+        // Itera sobre los elementos del menú
+        foreach ($items as $item) {
+            // Verifica si el elemento tiene la clase 'd-none'
+            if (in_array('d-none', $item->classes)) {
+                $hidden_items[] = $item;
+            }
+        }
+
+        // Mostrar los elementos con clase 'd-none'
+        if (!empty($hidden_items)) {
+            foreach ($hidden_items as $item) {?>
+                <?php if($item->title == 'Herramientas') : ?>
+                <?php else : ?>
+                    <h1 class="title">HERRAMIENTAS INNSIDER</h1>
+                    <div class="col-9 mx-1" id="linea">
+                        <hr>
+                    </div>
+                <?php endif; ?>
+            <?php
+                break;
+            }
+        }
+    }
+
+    // Filtro para añadir clases a los elementos del menú y luego verificar
+    add_filter('wp_nav_menu_objects', 'check_menu_items');
+
+    // Genera el menú
+    wp_nav_menu(array(
+        'theme_location' => 'primary',
+        'container' => false,
+        'menu_class' => 'navbar-nav',
+        'fallback_cb' => '__return_false',
+        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth' => 3
+    ));
+
+    return ob_get_clean();
+}
 ?>

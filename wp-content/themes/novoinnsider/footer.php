@@ -1,5 +1,5 @@
 <footer class="container">
-    <div class="footer-content d-flex justify-content-lg-between justify-content-center flex-lg-row flex-column">
+    <div class="footer-content d-flex justify-content-lg-between justify-content-center align-items-center align-items-lg-start flex-lg-row flex-column">
         <div class="footer-section">
             <h3 class="mb-5 titlesFooter">NOVO NORDISK COLOMBIA SAS</h3>
             <p>Contáctenos</p>
@@ -7,7 +7,7 @@
             <p>Phone: +57 60 1 3149999</p>
         </div>
         <div class="footer-section">
-            <h3 class="mb-5 titlesFooter">ENLACES ÚTILES</h3>
+            <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">ENLACES ÚTILES</h3>
             <ul class="m-0 p-0">
                 <li><a href="#">Acerca de Novo Nordisk</a></li>
                 <?php $page = get_page_by_path('terminos-y-condiciones'); ?>
@@ -18,7 +18,7 @@
             </ul>
         </div>
         <div class="footer-section">
-            <h3 class="mb-5 titlesFooter">SÍGANOS</h3>
+            <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">SÍGANOS</h3>
             <ul class="m-0 p-0">
                 <li><a href="#">LinkedIn</a></li>
                 <li><a href="#">Facebook</a></li>
@@ -27,7 +27,7 @@
             </ul>
         </div>
         <div class="footer-section">
-            <h3 class="mb-5 titlesFooter">SOPORTE</h3>
+            <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">SOPORTE</h3>
             <a href="#">Ayuda y soporte</a>
         </div>
     </div>
@@ -50,11 +50,11 @@
         <a href="#" class="secondtitleFooter">Cookie settings</a>
     </div>
     <div class="footer-bottom pt-5 pb-5 d-flex justify-content-center justify-content-center">
-        <p class="text-center">En caso de reporte de eventos adversos relacionados con nuestros productos, contactarse con: colombia-safety@novonordisk.com</p>
+        <p class="text-center mx-2 mx-lg-0">En caso de reporte de eventos adversos relacionados con nuestros productos, contactarse con: colombia-safety@novonordisk.com</p>
     </div>
-    <p>&copy; Copyright 2024 - Novo Nordisk</p>
+    <p class="text-center mx-3 mx-lg-0">&copy; Copyright 2024 - Novo Nordisk</p>
     <div class="footer-section">
-        <p>
+        <p class="text-justify mx-3 mx-lg-0">
             La información contenida en esta plataforma es segmentada de acuerdo con el perfil profesional del usuario. Su distribución u otros usos se encuentran estrictamente prohibidos. Material revisado y aprobado por la Dirección Médica de Asuntos Regulatorios de Novo Nordisk Colombia S.A.S. NIT: 900.557.75-3. Derechos reservados 2024. CO24UMA00023
         </p>
     </div>

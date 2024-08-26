@@ -9,7 +9,7 @@
  ?>
  
  
- <?php if (isset($taxonomy->term_id) && !empty($taxonomy->term_id)) : ?>
+<?php if (isset($taxonomy->term_id) && !empty($taxonomy->term_id)) : ?>
  
      <?php $currentTermId = $taxonomy->term_id; ?>
  

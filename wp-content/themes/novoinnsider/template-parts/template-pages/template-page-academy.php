@@ -57,7 +57,7 @@ $content = get_the_content();
     <?php if (count($taxonomyAcademy) == 1) : ?>
 
         <div class="container align-items-center mt-5 pt-1">
-            <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
+            <div class="row d-flex justify-content-start align-items-center m-0 mt-4 p-0">
 
             <?php else : ?>
 
@@ -76,6 +76,7 @@ $content = get_the_content();
                                 array(
                                     'taxonomy' => 'academia',
                                     'hide_empty' => false,
+                                    'orderby' => 'id',
                                     'order' => 'ASC',
                                     'hierarchical' => true
                                 )
@@ -85,12 +86,13 @@ $content = get_the_content();
                             <?php if (isset($listCategoriesAcademy) && !empty($listCategoriesAcademy)) : ?>
                                 <?php $counter = 0; ?>
                                 <?php foreach ($listCategoriesAcademy as $listCategoryAcademy) : ?>
+
                                     <?php if ($listCategoryAcademy->term_id == $idCategoriesWithStatusActive && $listCategoryAcademy->parent == 0) : ?>
 
-                                        <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category-impact m-0 p-0 mt-3 mb-5 pb-4 ">
+                                        <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
 
                                             <a href="<?= get_term_link($listCategoryAcademy->term_id); ?>" class="w-100">
-                                                <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-end align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-start align-items-center flex-column'; ?>">
+                                                <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
                                                     <div class="col-10 col-lg-11">
                                                         <div class="mb-4 figure">
                                                             <?php $imageCategoryAcademy = get_field('Category_Image', $listCategoryAcademy); ?>
@@ -118,9 +120,8 @@ $content = get_the_content();
                                                 </div>
                                             </a>
                                         </div>
-
-
                                     <?php endif; ?>
+
                                     <?php $counter++; ?>
                                 <?php endforeach ?>
                             <?php endif ?>

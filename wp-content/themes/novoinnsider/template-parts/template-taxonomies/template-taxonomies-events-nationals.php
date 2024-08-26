@@ -42,7 +42,7 @@ $taxonomy = get_queried_object();
 
 
         <div class="container background-taxonomy mt-lg-3 mt-3 px-5">
-            <div class="container banner-taxonomy-academy">
+            <div class="container banner-taxonomy-academy" data-aos="zoom-in">
                 <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
                     <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
                 <?php endif; ?>
@@ -72,8 +72,6 @@ $taxonomy = get_queried_object();
             <div class="row p-3 m-3 d-flex justify-content-center align-items-start">
 
                 <?php foreach ($subcategories as $subcategory) :  ?>
-
-                    <?php $listIdWithNationalEvents = $CategoriesWithNationalEvents->term_id; ?>
 
                     <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center container-card-category-impact m-0 p-0 mt-3 mb-5 pb-4 mx-4">
 

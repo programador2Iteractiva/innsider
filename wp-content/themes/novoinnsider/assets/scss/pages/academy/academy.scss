@@ -772,3 +772,212 @@
       }
     
 }
+
+
+
+.card-subcategory-content-academy a{
+    text-decoration: none;
+    
+    &:hover{
+        .title-color{
+            color: #008dd4 !important;
+        }
+        .description-color {
+            color: #008dd4 !important;
+        }
+        img{
+            transform: scale(1.1);   
+            transition: all 400ms ease-out;
+            will-change: transform;
+        }
+        .btn-view-more{       
+            background: #fff;
+            color: #008dd4;
+            border: 2px solid #008dd4;
+        }
+        .container-title-speaker-content-outstanding{
+            color: #008dd4 !important;
+        }
+    }
+}
+
+
+.card-subcategory-content-academy .figure {
+    position: relative;
+    height: 150px;
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.2rem;
+    transition: all 400ms ease-out;
+
+    @include media-breakpoint-up(md) {
+        height: 165px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 170px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xl) {
+        height: 190px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        height: 190px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 200px;
+        width: 100%;
+    }
+}
+
+.card-subcategory-content-academy .figure img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.1rem;
+}
+
+
+
+.card-subcategory-content-academy .figure .capa h3 {
+    color: $black;
+    font-weight: 400;
+    margin-bottom: 100px;
+    margin-top: 30px;
+}
+
+.card-subcategory-content-academy .figure .capa p {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 220px;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+.card-subcategory-academy-events a{
+    text-decoration: none;
+    
+    &:hover{
+        .title-color{
+            color: #008dd4 !important;
+        }
+        .description-color {
+            color: #008dd4 !important;
+        }
+        img{
+            transform: scale(1.1);   
+            transition: all 400ms ease-out;
+            will-change: transform;
+        }
+        .btn-view-more{       
+            background: #fff;
+            color: #008dd4;
+            border: 2px solid #008dd4;
+        }
+    }
+}
+
+
+.card-subcategory-academy-events .figure {
+    position: relative;
+    height: 250px;
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    transition: all 400ms ease-out;
+    border-radius: 1.6rem;
+
+    @include media-breakpoint-up(md) {
+        height: 225px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 230px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xl) {
+        height: 280px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        height: 310px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 310px;
+        width: 100%;
+    }
+}
+
+.card-subcategory-academy-events .figure img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+}
+
+
+
+.card-subcategory-academy-events .figure .capa h3 {
+    color: $black;
+    font-weight: 400;
+    margin-bottom: 100px;
+    margin-top: 30px;
+}
+
+.card-subcategory-academy-events .figure .capa p {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 220px;
+    margin: auto;
+}
+
+.card-subcategory-academy-events .info_description {
+
+    height: 150px;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+        height: 145px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 160px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xl) {
+        height: 150px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        height: 140px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 140px;
+        width: 100%;
+    }
+}

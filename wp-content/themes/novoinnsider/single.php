@@ -15,7 +15,7 @@ $currentPostId = get_the_ID();
 $titlePostId = get_the_title();
 ?>
 
-<div class="container mx-5 mx-lg-auto px-0">
+<div class="container mx-2 mx-lg-auto px-0">
     <div class="mt-4 mx-0 px-0 pb-4">
         <?php custom_breadcrumbs(); ?>
     </div>
@@ -181,7 +181,7 @@ $titlePostId = get_the_title();
                                 </div>
                             </div>
 
-                            <div class="container background-taxonomy mt-lg-5 mt-4 px-5">
+                            <div class="container third-background-taxonomy mt-lg-5 mt-4 p-5">
                                 <div class="container banner-single preview-video"
                                     onclick="playVideo(<?= $moduleId ?>, '<?= $urlModuleAcademy ?>', event, 'preview-video')">
                                     <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)) : ?>
@@ -214,7 +214,7 @@ $titlePostId = get_the_title();
 
                         <?php endif; ?>
 
-                        <div class="container background-single pt-2 px-5">
+                        <div class="container third-background-taxonomy pt-2 px-5">
                             <div class="container mt-4">
 
                                 <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 col-xxxl-4 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">

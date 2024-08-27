@@ -14,7 +14,7 @@ $taxonomy = get_queried_object();
 
     <?php $currentTermId = $taxonomy->term_id; ?>
 
-    <div class="container mx-5 mx-lg-auto px-0">
+    <div class="container mx-2 mx-lg-auto px-0">
         <div class="container mt-4 mx-0 px-0 pb-4">
             <?php custom_breadcrumbs(); ?>
         </div>
@@ -53,13 +53,12 @@ $taxonomy = get_queried_object();
 
     <div class="container mx-auto px-0">
         <div class="container mt-4 mx-lg-0 mx-2 px-0 pb-4">
-            <div class="row m-0 p-0">
+            <div class="row m-0 mt-5 mb-4 p-0 d-flex justify-content-center align-items-start">
 
                 <!-- Contenido de prueba -->
                 <?php $idCategoriesWithStatusActive = $taxonomy->term_id; ?>
 
-                <?php $listPostTrends = new WP_Query
-                    (
+                <?php $listPostTrends = new WP_Query(
                         [
                             'tax_query' => array(
                                 array(
@@ -76,33 +75,52 @@ $taxonomy = get_queried_object();
                     );
                 ?>
 
-                <?php if($listPostTrends->have_posts()) : ?>
-                    <?php while($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
+                <?php if ($listPostTrends->have_posts()) : ?>
+                    <?php $counter = 0; ?>
+                    <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
-                        <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category pb-5" style="border-radius: 2rem">
-                            <div class="col-12">
-                                
-                                <?php $thePermalink = get_the_permalink(); ?>
+                        <div class="container mt-5 mb-4">
+                            <div class="row">
+                                <div class="col-12 card-subcategory-academy-course background-taxonomy-card-subcategory-academy-course">
+                                    <?php $thePermalink = get_the_permalink(); ?>
+                                    <?php $postActivityId = get_the_ID(); ?>
 
-                                <a href="<?= $thePermalink; ?>" style="text-decoration: none;">
-                                    <div class="figure" style="border-radius: 2rem">
-                                        <h3 class="position-absolute title-slide-system class-title-card-system"><?= esc_html(the_title()) ?></h3>
-                                    </div>
-                                    <div class="info_description d-flex align-items-center mt-3">
-                                        <div class="d-flex flex-lg-row flex-column position-relative col-11">
-                                            <div class="col-12 col-lg-8">
-                                                <h3 class="NotoSans-Bold title-color"><?= the_title(); ?></h3>
+                                    <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>">
+                                        <div class="d-flex flex-md-row flex-column position-relative justify-content-center align-items-center">
+                                            <div class="col-md-4 col-lg-4" style="border-radius: 1rem;">
+                                                <div class="figure">
+                                                    <?php $imageSubcategoryAcademy = get_field('Img_Post_Content'); ?>
+
+                                                    <?php if ($imageSubcategoryAcademy) :  ?>
+                                                        <?php echo wp_get_attachment_image($imageSubcategoryAcademy, 'full', '', ['class' => 'img-featured-content']); ?>
+                                                    <?php endif ?>
+                                                </div>
                                             </div>
-                                            <div class="col-12 col-lg-4">
-                                                <div class="w-100 p-1 mb-2 btn-view-more">Ver más</div>
+                                            <div class="col-md-8 col-lg-8 d-flex justify-content-center align-items-center">
+                                                <div class="col-11 col-md-12 col-lg-12 p-0 m-0 pt-4 pb-4 background-text-subcategory-academy-course">
+                                                    <div class="container-title-speaker-content-out mx-lg-5 ms-3">
+                                                        <div class="container-content-outstanding">
+                                                            <h4 class="container-title-speaker-content-outstanding">
+                                                                <?= the_title(); ?>
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-11 col-lg-6 d-flex justify-content-start align-items-center mx-lg-5 ms-3">
+                                                            <div class="w-50">
+                                                                <div class="w-100 p-lg-2 mt-lg-3 mb-lg-2 btn-view-more">Ver más</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-
-                    <?php endwhile; ?>   
+                    <?php $counter++; ?>
+                    <?php endwhile; ?>
                 <?php endif ?>
                 <!-- Fin contenido de prueba -->
 
@@ -113,7 +131,7 @@ $taxonomy = get_queried_object();
     <?php $codePromomats = get_field('description_complementary', $taxonomy) ?>
 
     <div class="container m-lg-5 mx-lg-auto m-3 px-0">
-        <?php if(isset($codePromomats) && !empty($codePromomats)) : ?>
+        <?php if (isset($codePromomats) && !empty($codePromomats)) : ?>
             <h5 class="NotoSans-Bold title-color"><?= $codePromomats; ?></h5>
         <?php endif ?>
     </div>

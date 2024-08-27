@@ -651,7 +651,27 @@ function custom_breadcrumbs() {
 
     // Breadcrumbs para páginas de archivos
     elseif (is_archive()) {
-        echo '<span>' . esc_html(get_the_archive_title()) . '</span>';
+        // Determina el tipo de archivo y construye la jerarquía adecuada
+        if (is_post_type_archive()) {
+            echo '<span>' . esc_html(post_type_archive_title('', false)) . '</span>';
+        } elseif (is_tax()) {
+            $term = get_queried_object();
+            if ($term && !is_wp_error($term)) {
+                $taxonomy = $term->taxonomy;
+                $taxonomy_obj = get_taxonomy($taxonomy);
+
+                $page = get_page_by_title('Visión iNNsider');
+                $page_id = $page->ID;
+                $page_url = get_permalink($page_id);
+                $taxonomy_link = $page_url;
+                
+                // Enlace a la página de taxonomía principal
+                echo '<a href="' . $taxonomy_link . '">' . esc_html($taxonomy_obj->labels->singular_name) . '</a> / ';
+                echo '<span>' . esc_html($term->name) . '</span>';
+            }
+        } else {
+            echo '<span>' . esc_html(get_the_archive_title()) . '</span>';
+        }
     }
     
     // Breadcrumbs para búsqueda

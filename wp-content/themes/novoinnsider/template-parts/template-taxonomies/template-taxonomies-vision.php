@@ -11,7 +11,7 @@ $taxonomy = get_queried_object();
 
 
 
-<div class="container mx-5 mx-lg-auto px-0">
+<div class="container mx-2 mx-lg-auto px-0">
     <div class="container mt-4 mx-0 px-0 pb-4">
         <?php custom_breadcrumbs(); ?>
     </div>
@@ -22,37 +22,33 @@ $taxonomy = get_queried_object();
 <?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
 <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
 
+<div class="container px-5 mx-auto">
 
-<div class="container background-taxonomy mt-lg-3 mt-3 px-5">
-    <div class="container banner-taxonomy-academy" data-aos="zoom-in">
-        <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
-            <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
-        <?php endif; ?>
-        <div class="wrapper-taxonomy-academy"></div>
-    </div>
-    <div class="container mt-4">
-        <div class="row m-0 p-0">
-            <?php if (isset($descriptioonCategory) && !empty($descriptioonCategory)) : ?>
-                <h1 class="NotoSans-Bold title-color mb-3 text-uppercase"><?= $descriptioonCategory; ?></h1>
-            <?php endif ?>
-            <?php if (isset($subtitleCategory) && !empty($subtitleCategory)) : ?>
-                <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= $subtitleCategory; ?></h5>
-            <?php endif ?>
+    <div class="container second-background-taxonomy mt-lg-3 mt-3 p-5">
+        <div class="container banner-taxonomy-academy" data-aos="zoom-in">
+            <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
+                <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
+            <?php endif; ?>
+            <div class="wrapper-taxonomy-academy"></div>
+        </div>
+        <div class="container mt-4">
+            <div class="row m-0 p-0">
+                <?php if (isset($descriptioonCategory) && !empty($descriptioonCategory)) : ?>
+                    <h2 class="NotoSans-Bold title-color text-uppercase d-none d-lg-block mx-0 p-0"><?= $descriptioonCategory; ?></h2>
+                    <h5 class="NotoSans-Bold title-color text-uppercase d-block d-lg-none mx-0 p-0"><?= $descriptioonCategory; ?></h5>
+                <?php endif ?>
+                <?php if (isset($subtitleCategory) && !empty($subtitleCategory)) : ?>
+                    <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= $subtitleCategory; ?></h5>
+                <?php endif ?>
+            </div>
         </div>
     </div>
+
 </div>
-
-<div class="container mt-lg-5 mt-3 p-0">
-    <div id="linea">
-        <hr>
-    </div>
-</div>
-
-
 
 <div class="container mx-auto px-0">
-    <div class="container mt-4 mx-lg-0 mx-2 px-0 pb-4">
-        <div class="row m-0 mt-5 mb-4 p-0 d-flex justify-content-center align-items-start">
+    <div class="container mt-4 mx-lg-0 mx-2 px-0 second-background-taxonomy">
+        <div class="row m-0 px-5 d-flex justify-content-center align-items-start">
 
             <!-- Contenido de prueba -->
             <?php $idCategoriesWithStatusActive = $taxonomy->term_id; ?>
@@ -75,18 +71,18 @@ $taxonomy = get_queried_object();
             ?>
 
             <?php if ($listPostVisionFirstTemp->have_posts()) : ?>
-                <?php $counter = 0; ?>
+                <?php $counter = 1; ?>
                 <?php while ($listPostVisionFirstTemp->have_posts()) : $listPostVisionFirstTemp->the_post() ?>
 
-                    <div class="container mt-5 mb-4">
+                    <div class="container mt-5 mb-5">
                         <div class="row">
-                            <div class="col-12 card-subcategory-academy-course background-taxonomy-card-subcategory-academy-course">
+                            <div class="col-12 card-subcategory-content-academy">
                                 <?php $thePermalink = get_the_permalink(); ?>
                                 <?php $postActivityId = get_the_ID(); ?>
 
                                 <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>">
-                                    <div class="d-flex flex-md-row flex-column position-relative justify-content-center align-items-center border">
-                                        <div class="col-md-5 col-lg-5" style="border-radius: 1rem;">
+                                    <div class="d-flex flex-md-row flex-column position-relative justify-content-start align-items-start">
+                                        <div class="col-md-6 col-lg-5">
                                             <div class="figure">
                                                 <?php $imageSubcategoryAcademy = get_field('Img_Post_Content'); ?>
 
@@ -95,19 +91,29 @@ $taxonomy = get_queried_object();
                                                 <?php endif ?>
                                             </div>
                                         </div>
-                                        <div class="col-md-7 col-lg-7 d-flex justify-content-center align-items-center">
-                                            <div class="col-11 col-md-12 col-lg-12 p-0 m-0 pt-4 pb-4">
-                                                <div class="container-title-speaker-content-out mx-lg-5 ms-3">
-                                                    <div class="container-content-outstanding">
+                                        <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center">
+                                            <div class="col-11 col-md-12 col-lg-12 p-0 m-0 pt-lg-4 pb-4">
+                                                <div class="container-title-speaker-content-out mx-lg-5 ms-auto ms-md-4 ms-lg-5">
+                                                    <div class="container-content-outstanding mb-3">
+                                                        <p class="container-title-speaker-content-outstanding m-0 p-0">
+                                                            Episodio <?= $counter; ?>
+                                                        </p>
+                                                    </div>
+                                                    <div class="container-content-outstanding w-75 mb-3">
                                                         <h4 class="container-title-speaker-content-outstanding">
                                                             <?= the_title(); ?>
                                                         </h4>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-11 col-lg-6 d-flex justify-content-start align-items-center mx-lg-5 ms-3">
-                                                        <div class="w-50">
-                                                            <div class="w-100 p-lg-2 mt-lg-3 mb-lg-2 btn-view-more">Ver más</div>
+                                                    <div class="container-content-outstanding mb-3">
+                                                        <p class="container-title-speaker-content-outstanding m-0 p-0">
+                                                            <?= the_content(); ?>
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-7 col-md-6 col-lg-5 d-flex justify-content-start align-items-center">
+                                                            <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;">
+                                                                <i class="fa-regular fa-circle-play mx-2"></i>Reproducir
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -126,6 +132,7 @@ $taxonomy = get_queried_object();
         </div>
     </div>
 </div>
+
 <?php $codePromomats = get_field('description_complementary', $taxonomy) ?>
 
 <div class="container m-lg-5 mx-lg-auto m-3 px-0">

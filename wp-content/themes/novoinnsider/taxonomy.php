@@ -25,6 +25,8 @@ $currentTermId = $taxonomy->parent;
     $viewcategoryEvents = 'View_With_National_Events';
     $viewcategoryCourse = 'View_With_Training_Course';
     $viewContentResourcesInterest = 'View_With_Resources_Interest';
+    $viewContentFirstTempVisionInnsider = 'View_With_First_Temp_Vision_Innsider';
+    $viewContentSecondTempVisionInnsider = 'View_With_Second_Temp_Vision_Innsider';
 
     $metaValue = '1';
 
@@ -40,8 +42,12 @@ $currentTermId = $taxonomy->parent;
     $allCategoriesContentResourcesInterest = $wpdb->get_results($wpdb->prepare($AllResourcesInterest));
 
     
-    // $otherAllDataVision = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewContentResourcesInterest}' AND `meta_VALUE` = '{$metaValue}'");
-    // $allCategoriesViewWithVision = $wpdb->get_results($wpdb->prepare($otherAllDataVision));
+    $otherAllDataVisionFirstTemp = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewContentFirstTempVisionInnsider}' AND `meta_VALUE` = '{$metaValue}'");
+    $allCategoriesViewWithVisionFirstTemp = $wpdb->get_results($wpdb->prepare($otherAllDataVisionFirstTemp));
+
+
+    $otherAllDataVisionSecondTemp = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewContentSecondTempVisionInnsider}' AND `meta_VALUE` = '{$metaValue}'");
+    $allCategoriesViewWithVisionSecondTemp = $wpdb->get_results($wpdb->prepare($otherAllDataVisionSecondTemp));
 ?>
 
 
@@ -96,21 +102,21 @@ $currentTermId = $taxonomy->parent;
 <?php endif; ?>
 
 
-<!-- <?php  if ( ! is_wp_error( $allCategoriesViewWithVision) && ! empty( $allCategoriesViewWithVision) ) : ?>
+<?php  if ( ! is_wp_error( $allCategoriesViewWithVisionFirstTemp) && ! empty( $allCategoriesViewWithVisionFirstTemp) ) : ?>
 
     <?php /* En este foreach se recorre el arreglo $all_categories_with_status_active
     para hacer uso de $categories_with_status->term_id */ ?>
-    <?php foreach($allCategoriesViewWithVision as $CategoriesViewWithVision) :  ?>
+    <?php foreach($allCategoriesViewWithVisionFirstTemp as $CategoriesViewWithVisionFirstTemp) :  ?>
 
-        <?php $listIdViewWithVision = $CategoriesViewWithVision->term_id; ?>
+        <?php $listIdViewWithVisionFirstTemp = $CategoriesViewWithVisionFirstTemp->term_id; ?>
 
-        <?php if($taxonomy->term_id == $listIdViewWithVision) : ?>
+        <?php if($taxonomy->term_id == $listIdViewWithVisionFirstTemp) : ?>
             <?php get_template_part('template-parts/template-taxonomies/template-taxonomies-vision'); ?>
         <?php endif ?>
 
     <?php endforeach ?>
 
-<?php endif; ?> -->
+<?php endif; ?>
 
 
 <?php /* Código que asigna una template a las subcategorias de la taxonomia academia */ ?>

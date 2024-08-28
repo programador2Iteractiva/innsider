@@ -15,7 +15,7 @@ $taxonomy = get_queried_object();
     <?php $currentTermId = $taxonomy->term_id; ?>
 
     <div class="container mx-2 mx-lg-auto px-0">
-        <div class="container mt-4 mx-0 px-0 pb-4">
+        <div class="container mt-lg-5 mb-lg-5 mt-4 mb-4 mx-0 px-0">
             <?php custom_breadcrumbs(); ?>
         </div>
     </div>
@@ -26,7 +26,7 @@ $taxonomy = get_queried_object();
     <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
 
 
-    <div class="container background-taxonomy mt-lg-3 mt-3 px-5">
+    <div class="container third-background-taxonomy mt-lg-3 mt-3 p-5">
         <div class="container banner-taxonomy-academy" data-aos="zoom-in">
             <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
                 <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">

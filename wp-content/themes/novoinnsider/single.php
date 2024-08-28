@@ -110,7 +110,7 @@ $titlePostId = get_the_title();
 
 <?php $ifVideoPostVisionInnsider = get_field('If_Post_Content_Module_Video_vision_innsider', $currentPostId) ?>
 <?php $videoPostVisionInnsider = get_field('URL_Post_Content_Module_Video_vision_innsider', $currentPostId) ?>
-<?php $thumbnailUrl = obtenerMiniaturaVimeo($videoPostEvent);  ?>
+<?php $thumbnailUrlVisionInnsider = obtenerMiniaturaVimeo($videoPostVisionInnsider);  ?>
 
 <?php if (isset($ifVideoPostVisionInnsider) && !empty($ifVideoPostVisionInnsider)) : ?>
     <?php if (isset($videoPostVisionInnsider) && !empty($videoPostVisionInnsider)) : ?>
@@ -126,8 +126,8 @@ $titlePostId = get_the_title();
                             <div class="col-12 d-flex justify-content-center mt-5 mb-5 flex-column">
                                 <div class="container banner-single preview-video"
                                     onclick="playVideo(<?= $moduleId ?>, '<?= $videoPostVisionInnsider ?>', event, 'preview-video')">
-                                    <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)) : ?>
-                                        <img src="<?= esc_url($thumbnailUrl); ?>" alt="Herramientas" class="bg-single">
+                                    <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
+                                        <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single">
                                     <?php elseif (isset($bannerContentModule) && !empty($bannerContentModule)) : ?>
                                         <img src="<?= esc_url(wp_get_attachment_url($bannerContentModule)); ?>" alt="Herramientas" class="bg-single">
                                     <?php endif; ?>

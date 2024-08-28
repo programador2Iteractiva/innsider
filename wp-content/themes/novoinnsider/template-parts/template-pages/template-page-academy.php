@@ -5,10 +5,15 @@
  */
 $category = get_queried_object();
 $content = get_the_content();
+$page_id = get_queried_object_id();
+$page_url = get_permalink($page_id);
+$page_title = 'Home';
+$home_id = get_option('page_on_front');
+$pageHome = get_permalink($home_id);
 ?>
 
 <div>
-    <div class="container my-5 mb-0">
+    <!-- <div class="container my-5 mb-0">
         <div class="row d-flex justify-content-center align-align-items-center mb-4">
             <div class="col-12 d-flex flex-lg-row">
                 <h1 class="NotoSans-Bold"><?= strip_tags(the_title()); ?></h1>
@@ -18,7 +23,22 @@ $content = get_the_content();
             </div>
             <p><?= strip_tags($content); ?></p>
         </div>
+    </div> -->
+
+    <div class="container mx-2 mx-lg-auto px-0 ">
+        <div class="container mt-lg-5 mb-lg-5 mt-4 mb-4 mx-0 px-0">
+            <nav class="breadcrumbs">
+                <a style="text-decoration:none !important" href="<?php echo $pageHome; ?>">
+                    Inicio
+                </a>
+                    / 
+                <a style="text-decoration:none !important" href="<?php echo $page_url; ?>">
+                    <?php the_title(); ?>
+                </a>
+            </nav>
+        </div>
     </div>
+
     <div class="container banner-academy" data-aos="zoom-in">
         <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
         <div class="wrapper-banner-academy">
@@ -98,7 +118,7 @@ $content = get_the_content();
                                                             <?php $imageCategoryAcademy = get_field('Category_Image', $listCategoryAcademy); ?>
 
                                                             <?php if ($imageCategoryAcademy) :  ?>
-                                                                <?php echo wp_get_attachment_image($imageCategoryAcademy, 'full', '', ['style' => 'object-fit: cover']); ?>
+                                                                <?php echo wp_get_attachment_image($imageCategoryAcademy, 'full', '', ['style' => 'object-fit: fill']); ?>
                                                             <?php endif ?>
                                                         </div>
                                                         <div class="col-12 d-flex w-100">

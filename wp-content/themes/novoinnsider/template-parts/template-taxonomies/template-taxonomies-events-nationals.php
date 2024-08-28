@@ -29,7 +29,7 @@ $taxonomy = get_queried_object();
     <?php if (!empty($subcategories) && !is_wp_error($subcategories)) : ?>
 
         <div class="container mx-2 mx-lg-auto px-0">
-            <div class="container mt-4 mx-0 px-0 pb-4">
+            <div class="container mt-lg-5 mb-lg-5 mt-4 mb-4 mx-0 px-0">
                 <?php custom_breadcrumbs(); ?>
             </div>
         </div>

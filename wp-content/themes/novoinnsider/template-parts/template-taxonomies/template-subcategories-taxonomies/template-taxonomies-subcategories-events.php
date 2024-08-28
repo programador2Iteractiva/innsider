@@ -20,11 +20,12 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 <?php $descriptioonCategory = $taxonomy->description; ?>
 <?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
 <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
+<?php $subDescriptioonCategory = get_field('subdescription_complementary', $taxonomy); ?>
 
 <?php /* template con el contenido de las subcategoria de la categoria princiapl "Eventos Nacionales" term_id 6 */  ?>
 <?php if (!empty($cuttentTaxonomyParentId) && $cuttentTaxonomyParentId == 6) : ?>
     <div class="container third-background-taxonomy mt-lg-3 mt-3 p-5">
-        <div class="container banner-taxonomy-academy">
+        <div class="container banner-taxonomy-academy" data-aos="zoom-in">
             <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
                 <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
             <?php endif; ?>
@@ -32,13 +33,13 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
         </div>
         <div class="container mt-4">
             <div class="row m-0 p-0">
-                <?php if (isset($descriptioonCategory) && !empty($descriptioonCategory)) : ?>
-                    <h2 class="NotoSans-Bold title-color text-uppercase d-none d-lg-block mx-0 p-0"><?= $descriptioonCategory; ?></h2>
-                    <h5 class="NotoSans-Bold title-color text-uppercase d-block d-lg-none mx-0 p-0"><?= $descriptioonCategory; ?></h5>
-                <?php endif ?>
                 <?php if (isset($subtitleCategory) && !empty($subtitleCategory)) : ?>
-                    <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-none d-lg-block mx-0 p-0"><?= $subtitleCategory; ?></h5>
-                    <p class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-block d-lg-none mx-0 p-0"><?= $subtitleCategory; ?></p>
+                    <h2 class="NotoSans-Bold title-color text-uppercase d-none d-lg-block mx-0 p-0"><?= $subtitleCategory; ?></h2>
+                    <h5 class="NotoSans-Bold title-color text-uppercase d-block d-lg-none mx-0 p-0"><?= $subtitleCategory; ?></h5>
+                <?php endif ?>
+                <?php if (isset($subDescriptioonCategory) && !empty($subDescriptioonCategory)) : ?>
+                    <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-none d-lg-block mx-0 p-0"><?= $subDescriptioonCategory; ?></h5>
+                    <p class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-block d-lg-none mx-0 p-0"><?= $subDescriptioonCategory; ?></p>
                 <?php endif ?>
             </div>
         </div>

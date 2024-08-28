@@ -28,11 +28,11 @@
  
      <?php if (!empty($subcategories) && !is_wp_error($subcategories)) : ?>
  
-         <div class="container mx-5 mx-lg-auto px-0">
-             <div class="container mt-4 mx-0 px-0 pb-4">
-                 <?php custom_breadcrumbs(); ?>
-             </div>
-         </div>
+        <div class="container mx-2 mx-lg-auto px-0">
+            <div class="container mt-lg-5 mb-lg-5 mt-4 mb-4 mx-0 px-0">
+                <?php custom_breadcrumbs(); ?>
+            </div>
+        </div>
  
  
          <?php $descriptioonCategory = $taxonomy->description; ?>
@@ -40,7 +40,7 @@
          <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
  
  
-         <div class="container background-taxonomy mt-lg-3 mt-3 px-5">
+         <div class="container third-background-taxonomy mt-lg-3 mt-3 p-5">
              <div class="container banner-taxonomy-academy" data-aos="zoom-in">
                  <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
                      <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
@@ -88,7 +88,7 @@
                                             </div>   
                                         </div>
                                         <div class="col-md-8 col-lg-8 d-flex justify-content-center align-items-center">
-                                            <div class="col-12 p-0 m-0 pt-4 pb-4 background-text-subcategory-academy-course">
+                                            <div class="col-11 col-md-12 col-lg-12 p-0 m-0 pt-4 pb-4 background-text-subcategory-academy-course">
                                                 <div class="container-title-speaker-content-out mx-lg-5 ms-3">
                                                     <div class="container-content-outstanding">
                                                         <h4 class="container-title-speaker-content-outstanding">

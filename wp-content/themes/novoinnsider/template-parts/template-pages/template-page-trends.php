@@ -7,7 +7,7 @@ $content = get_the_content();
 ?>
 
 <div>
-    <div class="container my-5 mb-0">
+    <!-- <div class="container my-5 mb-0">
         <div class="row d-flex justify-content-center align-align-items-center mb-4">
             <div class="col-12 d-flex flex-lg-row">
                 <h1 class="NotoSans-Bold text-transform-uppercase"><?= strip_tags(the_title()); ?></h1>
@@ -15,10 +15,23 @@ $content = get_the_content();
                     <hr class="mx-5 px-4">
                 </div>
             </div>
-            <!-- <P><?= strip_tags($content); ?></P> -->
+            <P><?= strip_tags($content); ?></P>
+        </div>
+    </div> -->
+    <div class="container mx-2 mx-lg-auto px-0 ">
+        <div class="container mt-lg-5 mb-lg-5 mt-4 mb-4 mx-0 px-0">
+            <nav class="breadcrumbs">
+                <a style="text-decoration:none !important" href="<?php echo $pageHome; ?>">
+                    Inicio
+                </a>
+                    / 
+                <a style="text-decoration:none !important" href="<?php echo $page_url; ?>">
+                    <?php the_title(); ?>
+                </a>
+            </nav>
         </div>
     </div>
-    <div class="container banner-academy">
+    <div class="container banner-academy" data-aos="zoom-in">
         <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
         <div class="wrapper-banner-academy">
             <!-- <div class="container-text-banner-academy">
@@ -59,7 +72,7 @@ $content = get_the_content();
     <?php else : ?> 
 
         <div class="container align-items-center mt-5 pt-1">
-            <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
+            <div class="row d-flex justify-content-center align-items-start m-0 mt-4 p-0">
 
     <?php endif; ?>
 
@@ -127,7 +140,7 @@ $content = get_the_content();
 
                                                     <a href="<?= $thePermalink . '?tax=' . $listCategoryTrends->term_id; ?>" style="text-decoration: none;">
                                                         <div class="figure" style="border-radius: 2rem">
-                                                            <img src="<?php echo wp_get_attachment_image_url($imgPostTrend, 'full', ''); ?>" alt="Podcast">
+                                                            <img src="<?php echo wp_get_attachment_image_url($imgPostTrend, 'full', ''); ?>" alt="Podcast" style="object-fit: fill;">
                                                             <h3 class="position-absolute title-slide-system class-title-card-system"><?= esc_html(the_title()) ?></h3>
                                                         </div>
                                                         <div class="info_description d-flex align-items-center mt-3">

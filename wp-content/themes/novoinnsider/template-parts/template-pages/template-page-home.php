@@ -67,38 +67,34 @@
         </div>
         <div class="content d-flex justify-content-center flex-lg-row flex-column">
             <div class="card large d-flex flex-column">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Component5.png'; ?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/vision_innsider.png'; ?>" alt="Podcast">
                 <div class="card-info mt-3">
                     <h2 class="font-weight-bold">Visión Innsider</h2>
-                    <p>Podcast</p>
+                    <p>El Podcast</p>
                     <p class="time">Video | 5 min</p>
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/NOTICIA-01.png'; ?>" alt="Podcast">
-                <div class="card-info mt-3">
-                    <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i></i>Infografias</div>
-                    <h2 class="font-weight-bold">Tendencias</h2>
-                    <p>Circular 19: Regulación de precios</p>
-                    <p class="time">Video | 5 min</p>
+                <img src="<?= get_template_directory_uri() . '/assets/images/image1.png'; ?>" alt="Podcast">
+                <div class="card-info mt-3 p-0">
+                    <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i></i>Tendencias</div>
+                    <h2 class="font-weight-bold">Circular 19: Regulación de precios</h2>
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/NOTICIA-02.png'; ?>" alt="Podcast">
-                <div class="card-info mt-3">
-                    <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-regular fa-circle-play mx-2"></i></i>Artículos</div>
-                    <h2 class="font-weight-bold">Cursos de formación</h2>
-                    <p>Curso multidisciplinario en gestión de la atención en hemofilia</p>
-                    <p class="time">Video | 5 min</p>
+                <img src="<?= get_template_directory_uri() . '/assets/images/image2.png'; ?>" alt="Podcast">
+                <div class="card-info mt-3 p-0">
+                    <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i></i>Cursos de formación</div>
+                    <h2 class="font-weight-bold">Curso multidisciplinario</h2>
+                    <p>en gestión de la atención en hemofilia</p>
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/NOTICIA-03.png'; ?>" alt="Podcast">
-                <div class="card-info mt-3">
-                    <div class="w-75 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i>Videos</div>
-                    <h2 class="font-weight-bold">Recursos de interés</h2>
-                    <p>Webinar sobre el impacto socieconómico de las enfermedades en América Latina</p>
-                    <p class="time">Video | 5 min</p>
+                <img src="<?= get_template_directory_uri() . '/assets/images/image3.png'; ?>" alt="Podcast">
+                <div class="card-info mt-3 p-0">
+                    <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i>Recursos de interés</div>
+                    <h2 class="font-weight-bold">Webinar</h2>
+                    <p>sobre el impacto socieconómico de las enfermedades en América Latina</p>
                 </div>
             </div>
         </div>

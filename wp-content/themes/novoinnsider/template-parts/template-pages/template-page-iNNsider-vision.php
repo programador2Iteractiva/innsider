@@ -14,7 +14,7 @@ $content = get_the_content();
 </div>
 
 <div>
-    <div class="container banner-academy">
+    <div class="container banner-academy" data-aos="zoom-in">
         <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
         <div class="wrapper-banner-academy">
             <div class="container-text-banner-academy">
@@ -88,7 +88,7 @@ $content = get_the_content();
                                                         <?php $imageCategoryVision = get_field('Category_Image', $listCategoryVision); ?>
 
                                                         <?php if ($imageCategoryVision) :  ?>
-                                                            <?php echo wp_get_attachment_image($imageCategoryVision, 'full', '', ['style' => 'object-fit: cover']); ?>
+                                                            <?php echo wp_get_attachment_image($imageCategoryVision, 'full', '', ['style' => 'object-fit: fill']); ?>
                                                         <?php endif ?>
                                                     </div>
                                                     <div class="col-12 d-flex w-100">

@@ -686,11 +686,13 @@ function custom_breadcrumbs() {
 function obtenerMiniaturaVimeo($videoUrl)
 {
     $parsedUrl = parse_url($videoUrl);
-    if (isset($parsedUrl['fragment'])) {
-        $videoId = substr($parsedUrl['fragment'], 1);
-    } else {
-        $videoId = ltrim($parsedUrl['path'], '/');
-    }
+
+    // Construye la parte que te interesa (path + query)
+    $videoPath = isset($parsedUrl['path']) ? ltrim($parsedUrl['path'], '/') : '';
+    $videoQuery = isset($parsedUrl['query']) ? $parsedUrl['query'] : '';
+
+    // Combina la ruta y la consulta
+    $videoId = $videoPath . ($videoQuery ? '?' . $videoQuery : '');
     
     // URL base de la API de Vimeo
     $base_url = "https://vimeo.com/api/oembed.json?url=https://vimeo.com/";

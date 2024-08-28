@@ -107,6 +107,63 @@ $titlePostId = get_the_title();
     <?php endif; ?>
 <?php endif; ?>
 
+
+<?php $ifVideoPostVisionInnsider = get_field('If_Post_Content_Module_Video_vision_innsider', $currentPostId) ?>
+<?php $videoPostVisionInnsider = get_field('URL_Post_Content_Module_Video_vision_innsider', $currentPostId) ?>
+<?php $thumbnailUrl = obtenerMiniaturaVimeo($videoPostEvent);  ?>
+
+<?php if (isset($ifVideoPostVisionInnsider) && !empty($ifVideoPostVisionInnsider)) : ?>
+    <?php if (isset($videoPostVisionInnsider) && !empty($videoPostVisionInnsider)) : ?>
+
+        <div class="container p-lg-5 p-1">
+            <div class="container background-vision_single p-2">
+                <div class="p-5">
+
+                    <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+
+                    <div class="col-lg-12">
+                        <div class="row justify-content-center">
+                            <div class="col-12 d-flex justify-content-center mt-5 mb-5 flex-column">
+                                <div class="container banner-single preview-video"
+                                    onclick="playVideo(<?= $moduleId ?>, '<?= $videoPostVisionInnsider ?>', event, 'preview-video')">
+                                    <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)) : ?>
+                                        <img src="<?= esc_url($thumbnailUrl); ?>" alt="Herramientas" class="bg-single">
+                                    <?php elseif (isset($bannerContentModule) && !empty($bannerContentModule)) : ?>
+                                        <img src="<?= esc_url(wp_get_attachment_url($bannerContentModule)); ?>" alt="Herramientas" class="bg-single">
+                                    <?php endif; ?>
+
+                                    <i class="fas fa-play icon-play-video"></i>
+
+                                    <div class="wrapper-single"></div>
+                                </div>
+
+                                <div class="player-video banner-single " id="player"></div>
+                                <div class="container mt-4">
+                                    <div class="row m-0 p-0">
+                                        <?php if (isset($titleVideoContentMod) && !empty($titleVideoContentMod)) : ?>
+                                            <h1 class="NotoSans-Bold title-color mb-3 text-uppercase"><?= esc_html($titleVideoContentMod); ?></h1>
+                                        <?php endif; ?>
+                                        <?php if (isset($DescriptionContentModule) && !empty($DescriptionContentModule)) : ?>
+                                            <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= esc_html($DescriptionContentModule); ?></h5>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-12 mx-1" id="linea">
+                                <hr>
+                            </div> 
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    <?php endif; ?>
+<?php endif; ?>
+
 <div class="container mx-auto px-0">
     <div class="mt-4 mx-lg-0 mx-2 px-0 pb-4">
         <div class="row m-0 p-0"></div>
@@ -316,7 +373,7 @@ $titlePostId = get_the_title();
                 </div>
             </div>
 
-            <div class="container banner-academy">
+            <div class="container banner-academy" data-aos="zoom-in">
                 <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
                 <div class="wrapper-banner-academy">
                     <div class="container-text-banner-academy"></div>

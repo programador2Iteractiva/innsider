@@ -180,33 +180,40 @@ $titlePostId = get_the_title();
                 <?php if (isset($listPostAcademy) && !empty($listPostAcademy)) : ?>
                     <?php if ($listPostAcademy->have_posts()) : ?>
 
-                        <?php while ($listPostAcademy->have_posts()) : $listPostAcademy->the_post() ?>
+                        <div class="container third-background-taxonomy pt-2 px-5">
+                            <div class="container mt-4">
 
-                        <?php $postActivityId = get_the_ID(); ?>
-                        <?php $imageModuleVision = get_field('Img_Video_Mod', $currentPostId) ?>
+                                <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
 
-                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
-                            <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&tax=' . $taxId); ?>" style="text-decoration: none;">
-                                <div class="mb-4 figure">
-                                    <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
-                                        <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
-                                    <?php endif ?>
+                                    <?php while ($listPostAcademy->have_posts()) : $listPostAcademy->the_post() ?>
+
+                                        <?php $postActivityId = get_the_ID(); ?>
+                                        <?php $imageModuleVision = get_field('Img_Video_Mod', $currentPostId) ?>
+
+                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
+                                            <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&tax=' . $taxId); ?>" style="text-decoration: none;">
+                                                <div class="mb-4 figure">
+                                                    <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
+                                                        <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
+                                                    <?php endif ?>
+                                                </div>
+                                                <div class="mt-1 p-0">
+                                                    <div class="w-75 p-2 mb-4 btn-view-now">
+                                                        <i class="fa-regular fa-circle-play mx-2"></i>
+                                                        Ver ahora
+                                                    </div>
+                                                        <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                    <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
+                                                        <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                    <?php endwhile; ?>
+                                    <?php wp_reset_postdata(); ?>
                                 </div>
-                                <div class="mt-1 p-0">
-                                    <div class="w-75 p-2 mb-4 btn-view-now">
-                                        <i class="fa-regular fa-circle-play mx-2"></i>
-                                        Ver ahora
-                                    </div>
-                                        <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
-                                    <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
-                                        <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
-                                    <?php endif; ?>
-                                </div>
-                            </a>
-                        </div>
-
-                    <?php endwhile; ?>
-                    <?php wp_reset_postdata(); ?>
+                            </div>
                     <?php endif; ?>
                 <?php endif; ?>
 

@@ -94,7 +94,17 @@
                             <div class="row m-0">
                                 <div class="">
                                     <label class="mb-2 label-left2 form-label" for="position_institution">Cargo en la institución*</label>
-                                    <input class="form-control subs-email2" name="position_institution" id="position_institution" type="text" required>
+                                    <select class="form-control form-select subs-email2" name="position_institution" id="position_institution" required>
+                                        <?php $positionInstitution = novo_inssider_get_position_institution();
+                                        if (!empty($positionInstitution)) :
+                                            foreach ($positionInstitution as $positionInst) : ?>
+                                                <option value="<?= $positionInst->name_pos_institution ?>"><?= $positionInst->name_pos_institution ?></option>
+                                            <?php endforeach; ?>
+
+                                        <?php else : ?>
+                                            <option value="">Vacio</option>
+                                        <?php endif; ?>
+                                    </select>
                                 </div>
                             </div>
 

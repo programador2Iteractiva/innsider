@@ -75,14 +75,14 @@
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/image1.png'; ?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Image1.png'; ?>" alt="Podcast">
                 <div class="card-info mt-3 p-0">
                     <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i></i>Tendencias</div>
                     <h2 class="font-weight-bold">Circular 19: Regulación de precios</h2>
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/image2.png'; ?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Image2.png'; ?>" alt="Podcast">
                 <div class="card-info mt-3 p-0">
                     <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i></i>Cursos de formación</div>
                     <h2 class="font-weight-bold">Curso multidisciplinario</h2>
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/image3.png'; ?>" alt="Podcast">
+                <img src="<?= get_template_directory_uri() . '/assets/images/Image3.png'; ?>" alt="Podcast">
                 <div class="card-info mt-3 p-0">
                     <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i>Recursos de interés</div>
                     <h2 class="font-weight-bold">Webinar</h2>

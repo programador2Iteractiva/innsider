@@ -190,6 +190,9 @@ $titlePostId = get_the_title();
                                             <?php $postActivityId = get_the_ID(); ?>
                                             <?php $imageModuleVision = get_field('Img_Video_Mod', $currentPostId) ?>
 
+                                            <?php $videoPostVisionInnsider = get_field('URL_Post_Content_Module_Video_vision_innsider', $postActivityId) ?>
+                                            <?php $thumbnailUrlVisionInnsider = obtenerMiniaturaVimeo($videoPostVisionInnsider);  ?>
+
                                             <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                                 <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&tax=' . $taxId); ?>" style="text-decoration: none;">
                                                     <div class="mb-4 figure">

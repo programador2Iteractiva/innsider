@@ -432,10 +432,10 @@ $titlePostId = get_the_title();
                 <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
                 <div class="wrapper-banner-academy">
                     <div class="container-text-banner-academy"></div>
-                    <h4 class="text-white mt-3"><?php the_content(); ?></h4>
+                    <!-- <h4 class="text-white mt-3"><?php the_content(); ?></h4>
                     <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
                         <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

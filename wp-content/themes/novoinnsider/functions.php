@@ -1506,6 +1506,89 @@ function importSpecialities() {
 add_action('init', 'importSpecialities');
 
 
+
+
+
+
+
+
+function importPosInstitution () {
+    global $wpdb;
+
+    
+    $positionInstitution = [
+        'Auxiliar de enfermeria',
+        'Auditor',
+        'Director científico',
+        'Coordinador médico',
+        'Coordinador IPS',
+        'Gerente médico',
+        'Coordinador nacional',
+        'Coordinador regional',
+        'Coordinador administrativo',
+        'Coordinador/Líder PYP',
+        'Líder/Jefe de programas',
+        'Gerente',
+        'Químico Farmacéutico',
+        'Dirección de calidad',
+        'Gerente de medicamentos',
+        'Gerente regional',
+        'Gerente nacional',
+        'Líder de medicamentos',
+        'Auxiliar administrativo',
+        'Analista de datos',
+        'Nutricionista',
+        'Enfermeria',
+        'Psicólogo',
+        'Otro',
+    ];
+
+    // Nombre de la tabla
+    $tablepositionInstitution = $wpdb->prefix . 'position_institution';
+
+    // Verificar si la función se debe ejecutar
+    $makeImport = false;
+
+    // Comprobar si la tabla está vacía
+    $count = $wpdb->get_var("SELECT COUNT(*) FROM $tablepositionInstitution");
+    if ($count == 0) {
+        $makeImport = true;
+    } else {
+        // Comprobar si alguna de las instituciones ya existe
+        foreach ($positionInstitution as $positionIns) {
+            $exists = $wpdb->get_var($wpdb->prepare(
+                "SELECT COUNT(*) FROM $tablepositionInstitution WHERE name_pos_institution = %s",
+                $positionIns
+            ));
+            if ($exists == 0) {
+                $makeImport = true;
+                break;
+            }
+        }
+    }
+
+    // Insertar datos si es necesario
+    if ($makeImport) {
+        foreach ($positionInstitution as $positionInsi) {
+            $wpdb->insert(
+                $tablepositionInstitution,
+                [
+                    'name_pos_institution' => sanitize_text_field($positionInsi),
+                    'created' => current_time('mysql')
+                ],
+                [
+                    '%s',
+                    '%s' 
+                ]
+            );
+        }
+    }
+}
+
+// Llamar a la función para importar instituciones
+add_action('init', 'importPosInstitution');
+
+
 function novo_innsider_check_menu_items_with_class() {
     ob_start(); 
 

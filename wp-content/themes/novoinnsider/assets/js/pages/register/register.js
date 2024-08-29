@@ -365,6 +365,7 @@ document.addEventListener("DOMContentLoaded", function(){
         data.append('phone', document.getElementById('phone').value);
         data.append('speciality', document.getElementById('speciality').value);
         data.append('institution', document.getElementById('institution').value);
+        data.append('other_institution', document.getElementById('other_institution').value);
         data.append('positionInstitution', document.getElementById('position_institution').value);
         data.append('country', document.getElementById('country').value);
         data.append('city', document.getElementById('city').value);

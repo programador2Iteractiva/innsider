@@ -47,6 +47,11 @@ function novo_inssider_create_user()
 
     $institution = sanitize_text_field($_POST['institution']);
     add_user_meta($dataUser, 'institution', $institution);
+
+    $otherInstitution = sanitize_text_field($_POST['other_institution']);
+    if(isset($otherInstitution) && !empty($otherInstitution)){
+        add_user_meta($dataUser, 'other_institution', $otherInstitution);
+    }
     
     $positionInstitution = sanitize_text_field($_POST['positionInstitution']);
     add_user_meta($dataUser, 'positionInstitution', $positionInstitution);
@@ -254,6 +259,19 @@ function novo_inssider_get_specialities()
 
     return $specialities;
 }
+
+/**
+ * Function get list position_institution
+*/
+function novo_inssider_get_position_institution()
+{
+    global $wpdb;
+
+    $positionInstitution = $wpdb->get_results('select name_pos_institution from wp_position_institution order by name_pos_institution ASC');
+
+    return $positionInstitution;
+}
+
 
 
 /**

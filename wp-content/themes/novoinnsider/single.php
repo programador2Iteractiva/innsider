@@ -185,7 +185,7 @@ $titlePostId = get_the_title();
                         <?php $postActivityId = get_the_ID(); ?>
                         <?php $imageModuleVision = get_field('Img_Video_Mod', $currentPostId) ?>
 
-                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3 border">
+                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                             <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&tax=' . $taxId); ?>" style="text-decoration: none;">
                                 <div class="mb-4 figure">
                                     <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
@@ -342,7 +342,7 @@ $titlePostId = get_the_title();
                                         <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
 
 
-                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3 border">
+                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                             <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" style="text-decoration: none;">
                                                 <div class="mb-4 figure">
                                                     <?php if ($imageModuleAcademy) :  ?>
@@ -606,7 +606,7 @@ $titlePostId = get_the_title();
 
                                         <?php $thePermalink = get_the_permalink(); ?>
 
-                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3 border">
+                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                             <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" style="text-decoration: none;">
                                                 <div class="mb-4 figure">
                                                     <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>
@@ -764,7 +764,7 @@ $titlePostId = get_the_title();
                                         <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
 
 
-                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3 border">
+                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                             <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" style="text-decoration: none;">
                                                 <div class="mb-4 figure">
                                                     <?php if ($imageModuleAcademy) :  ?>
@@ -936,7 +936,7 @@ $titlePostId = get_the_title();
                                                 <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
 
 
-                                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3 border">
+                                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                                     <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" style="text-decoration: none;">
                                                         <div class="mb-4 figure">
                                                             <?php if ($imageModuleAcademy) :  ?>

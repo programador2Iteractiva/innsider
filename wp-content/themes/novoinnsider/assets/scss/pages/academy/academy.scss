@@ -1224,14 +1224,20 @@
     .session-icon, .session-second-content {
         margin-left: 0;
         margin-bottom: 0px;
+        border-radius: 0px;
     }
     .session-second-icon, .session-content {
         margin-left: 0;
         margin-bottom: 0px;
+        border-radius: 0px;
     }
     .session-second-icon, .session-second-content {
         margin-left: 0;
         margin-bottom: 0px;
+        border: none;
+    }
+    .session-second-content-oth {
+        border-radius: 0px;
     }
 }
 @media (min-width: 577px) and (max-width: 991px) {

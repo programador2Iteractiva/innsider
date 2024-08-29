@@ -31,7 +31,7 @@ $pageHome = get_permalink($home_id);
                 <a style="text-decoration:none !important" href="<?php echo $pageHome; ?>">
                     Inicio
                 </a>
-                    / 
+                /
                 <a style="text-decoration:none !important" href="<?php echo $page_url; ?>">
                     <?php the_title(); ?>
                 </a>
@@ -71,8 +71,6 @@ $pageHome = get_permalink($home_id);
 
     $taxonomyAcademy = novo_inssider_get_all_academies_actives();
     ?>
-
-
 
     <?php if (count($taxonomyAcademy) == 1) : ?>
 
@@ -147,6 +145,10 @@ $pageHome = get_permalink($home_id);
                             <?php endif ?>
 
                         <?php endforeach; ?>
+
+                        <div class="container m-lg-5 mx-lg-auto m-3 px-0">
+                            <h5 class="NotoSans-Bold title-color"><?= the_content(); ?></h5>
+                        </div>
 
                     <?php endif ?>
 

@@ -1099,3 +1099,166 @@
     }
 
 }
+
+
+.session-a{
+    width: 100%;
+    text-decoration: none;
+}
+.session-row {
+    display: flex;
+    align-items: stretch;
+}
+.session-icon {
+    background-color: #93C7C5;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: white;
+    font-size: 24px;
+    border-top-left-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+    padding: 10px;
+    min-width: 100px;
+    flex: 1;
+    max-width: 100%;
+}
+.session-second-icon {
+    background-color: #EB9F81;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: white;
+    font-size: 24px;
+    border-top-left-radius: 0.7rem;
+    border-bottom-left-radius: 0.7rem;
+    padding: 10px;
+    min-width: 100px;
+    flex: 1;
+    max-width: 100%;
+}
+.session-icon .image {
+    width: 50px;
+    height: 50px;
+}
+.session-second-icon .image {
+    width: 50px;
+    height: 50px;
+}
+.session-icon .image .icon-card{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.session-second-icon .image .icon-card{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.session-icon .session-header {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #001965;
+}
+.session-second-icon .session-header {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #001965;
+}
+.session-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px 10px 25px;
+    background-color: #E9F3F3;
+    border-radius: 5px;
+    flex: 2;
+    max-width: 100%;
+}
+.session-second-content-oth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px 10px 25px;
+    background-color: #E9F3F3;
+    flex: 2;
+    max-width: 100%;
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+}
+.session-second-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px 10px 25px;
+    background-color: #E9F3F3;
+    flex: 2;
+    max-width: 100%;
+    border-left: 2px solid #001965;
+    border-top-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+}
+.session-header {
+    font-weight: bold;
+    color: #001965;
+    margin-bottom: 5px;
+}
+.session-subheader {
+    color: #939AA7;
+    font-size: 0.9em;
+}
+.doctor {
+    color: #001965;
+    font-weight: bold;
+}
+@media (max-width: 576px) {
+    .session-row {
+        flex-direction: column;
+    }
+    .session-icon, .session-content {
+        margin-left: 0;
+        margin-bottom: 0px;
+    }
+    .session-icon, .session-second-content {
+        margin-left: 0;
+        margin-bottom: 0px;
+    }
+    .session-second-icon, .session-content {
+        margin-left: 0;
+        margin-bottom: 0px;
+    }
+    .session-second-icon, .session-second-content {
+        margin-left: 0;
+        margin-bottom: 0px;
+    }
+}
+@media (min-width: 577px) and (max-width: 991px) {
+    .session-icon {
+        flex-direction: column;
+        text-align: center;
+    }
+    .session-icon .session-header {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 0.5em;
+    }
+    .session-second-icon {
+        flex-direction: column;
+        text-align: center;
+    }
+    .session-second-icon .session-header {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 0.5em;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .session-icon {
+        font-size: 17px;
+    }
+    .session-second-icon {
+        font-size: 17px;
+    }
+}

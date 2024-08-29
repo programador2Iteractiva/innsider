@@ -130,6 +130,15 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
             </div>
         </div>
     </div>
+
+    <?php $codePromomats = get_field('description_complementary', $taxonomy) ?>
+
+    <div class="container m-lg-5 mx-lg-auto m-3 px-0">
+        <?php if (isset($codePromomats) && !empty($codePromomats)) : ?>
+            <h5 class="NotoSans-Bold title-color"><?= $codePromomats; ?></h5>
+        <?php endif ?>
+    </div>
+
     <?php /* template con el contenido de las subcategoria de la categoria princiapl "Cursos de formación" term_id 5 */  ?>
 <?php elseif (!empty($cuttentTaxonomyParentId) && $cuttentTaxonomyParentId == 5) : ?>
 

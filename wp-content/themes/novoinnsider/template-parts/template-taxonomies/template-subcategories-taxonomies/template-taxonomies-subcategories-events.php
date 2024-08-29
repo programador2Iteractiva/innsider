@@ -216,7 +216,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                             <?php $descriptionModuleAcademyCourse = $listContentModule['Description_Module']; ?>
                                             <?php $urlModuleAcademyCourse = $listContentModule['URL_Video_Module']; ?>
 
-                                                <a href="<?php echo get_permalink($postActivityId) . '?modulecourse_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" class="session-a">
+                                                <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" class="session-a">
                                                     <div class="session-row mb-3">
                                                         <div class="<?= ($counter % 2 === 0) ? 'session-icon' : 'session-second-icon'; ?>">
                                                             <?php if(isset($imageModuleAcademyCourse) && !empty($imageModuleAcademyCourse)) : ?>

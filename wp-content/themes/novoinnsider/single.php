@@ -183,7 +183,7 @@ $titlePostId = get_the_title();
                             <div class="">
                                 <div class="row d-flex flex-lg-row flex-column ">
 
-                                    <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
+                                    <div class="row d-flex flex-lg-row flex-column ">
 
                                         <?php while ($listPostAcademy->have_posts()) : $listPostAcademy->the_post() ?>
 

@@ -132,7 +132,156 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
     </div>
     <?php /* template con el contenido de las subcategoria de la categoria princiapl "Cursos de formación" term_id 5 */  ?>
 <?php elseif (!empty($cuttentTaxonomyParentId) && $cuttentTaxonomyParentId == 5) : ?>
-    <div class="container">
+
+    <div class="container third-background-taxonomy mt-lg-3 mt-3 p-5">
+        <div class="container banner-taxonomy-academy" data-aos="zoom-in">
+            <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
+                <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
+            <?php endif; ?>
+            <div class="wrapper-taxonomy-academy"></div>
+        </div>
+        <div class="container mt-4">
+            <div class="row m-0 p-0">
+                <?php if (isset($subtitleCategory) && !empty($subtitleCategory)) : ?>
+                    <h2 class="NotoSans-Bold title-color text-uppercase d-none d-lg-block mx-0 p-0"><?= $subtitleCategory; ?></h2>
+                    <h5 class="NotoSans-Bold title-color text-uppercase d-block d-lg-none mx-0 p-0"><?= $subtitleCategory; ?></h5>
+                <?php endif ?>
+                <?php if (isset($subDescriptioonCategory) && !empty($subDescriptioonCategory)) : ?>
+                    <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-none d-lg-block mx-0 p-0"><?= $subDescriptioonCategory; ?></h5>
+                    <p class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-block d-lg-none mx-0 p-0"><?= $subDescriptioonCategory; ?></p>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-0">
+        <div class="container mt-4 mx-lg-0 px-0 pb-4">
+            <div class="row m-0 p-0">
+
+                <?php
+                $listPostAcademyCourse = new WP_Query(
+                    [
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'academia',
+                                'field' => 'id',
+                                'terms' => $taxonomy->term_id,
+                            )
+                        ),
+                        'orderby' => 'post_date',
+                        'order' => 'ASC',
+                        'posts_per_page' => -1,
+                        'post_status' => 'publish'
+                    ]
+                );
+                ?>
+
+                <?php if (isset($listPostAcademyCourse) && !empty($listPostAcademyCourse)) : ?>
+                    <?php if ($listPostAcademyCourse->have_posts()) : ?>
+                        <?php while ($listPostAcademyCourse->have_posts()) : $listPostAcademyCourse->the_post() ?>
+
+                        
+ 
+
+                            <?php $SubtitleModule = get_field('Subtitle_Module_Courses'); ?>
+                            <?php $postActivityId = get_the_ID(); ?>
+
+                            <h3 class="NotoSans-Bold title-color mt-5"><?= the_title() ?></h3>
+                            <h2 class="NotoSans-Bold m-0 text-uppercase title-color"><?= $SubtitleModule; ?></h2>
+
+                            <div class="col-12 mx-1" id="linea">
+                                <hr>
+                            </div>
+
+                            <div class="container">
+
+                                <?php $ifContentModuleCourse = get_field('If_Post_Content_Module_Courses'); ?>
+
+                                <?php if(isset($ifContentModuleCourse) && !empty($ifContentModuleCourse)) : ?>
+
+                                    <?php $listContentModulesCourse = get_field('list_of_content_module_Courses'); ?>
+
+                                    <?php if (isset($listContentModulesCourse) && !empty($listContentModulesCourse)) : ?>
+
+                                        <?php $counter = 0; ?>
+
+                                        <?php foreach ($listContentModulesCourse as $listContentModule) : ?>
+
+                                            <?php $imageModuleAcademyCourse = $listContentModule['Img_Video_Mod']; ?>
+                                            <?php $titleModuleAcademyCourse = $listContentModule['Title_Video_Mod']; ?>
+                                            <?php $secondTitleModuleAcademyCourse = $listContentModule['Second_Title_Video_Mod']; ?>
+                                            <?php $speakerModuleAcademyCourse = $listContentModule['Name_Speaker_Mod']; ?>
+                                            <?php $typeContentModuleAcademyCourse = $listContentModule['Type_Content_Course']; ?>
+                                            <?php $timeContentModuleAcademyCourse = $listContentModule['Time_Content_Course']; ?>
+                                            <?php $descriptionModuleAcademyCourse = $listContentModule['Description_Module']; ?>
+                                            <?php $urlModuleAcademyCourse = $listContentModule['URL_Video_Module']; ?>
+
+                                                <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" class="session-a">
+                                                    <div class="session-row mb-3">
+                                                        <div class="<?= ($counter % 2 === 0) ? 'session-icon' : 'session-second-icon'; ?>">
+                                                            <?php if(isset($imageModuleAcademyCourse) && !empty($imageModuleAcademyCourse)) : ?>
+                                                                <div class="image">
+                                                                    <?php echo wp_get_attachment_image($imageModuleAcademyCourse, 'full', '', ['class' => 'icon-card']); ?>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                            <?php if(isset($titleModuleAcademyCourse) && !empty($titleModuleAcademyCourse)) : ?>
+                                                                <div class="NotoSans-Regular session-header text-uppercase"><?= $titleModuleAcademyCourse ?></div>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                        <?php if(isset($secondTitleModuleAcademyCourse) && !empty($secondTitleModuleAcademyCourse)) : ?>
+                                                            <div class="session-content">
+                                                                <div class="NotoSans-Regular session-header"><?= $secondTitleModuleAcademyCourse; ?></div>
+                                                            </div>
+                                                            <div class="session-second-content">
+                                                                <?php if(isset($speakerModuleAcademyCourse) && !empty($speakerModuleAcademyCourse)) : ?>
+                                                                    <div class="NotoSans-Bold doctor"><?= $speakerModuleAcademyCourse; ?></div>
+                                                                <?php endif ?> 
+                                                                <?php if(isset($typeContentModuleAcademyCourse) && !empty($typeContentModuleAcademyCourse)) : ?>   
+                                                                    <div class="NotoSans-Regular session-subheader"><?= $typeContentModuleAcademyCourse; ?> | 
+                                                                        <?php if(isset($timeContentModuleAcademyCourse) && !empty($timeContentModuleAcademyCourse)) : ?> 
+                                                                            <?= $timeContentModuleAcademyCourse; ?>
+                                                                        <?php endif ?>
+                                                                    </div>
+                                                                <?php endif ?>
+                                                            </div>
+                                                        <?php else : ?>
+                                                            <div class="session-content">
+                                                                <div class="NotoSans-Bold doctor"><?= $speakerModuleAcademyCourse; ?></div>
+                                                                <div class="NotoSans-Regular session-subheader"><?= $typeContentModuleAcademyCourse; ?> | <?= $timeContentModuleAcademyCourse; ?></div>
+                                                            </div>
+                                                            <div class="session-second-content-oth">
+                                                            </div>
+                                                        <?php endif; ?>
+                                                    </div>
+                                                </a>
+
+                                            <?php $counter++; ?>
+
+                                        <?php endforeach; ?>
+
+                                    <?php endif; ?>
+
+                                <?php endif; ?>
+
+                            </div>
+
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+            </div>
+        </div>
+    </div>
+
+    <?php $codePromomats = get_field('description_complementary', $taxonomy) ?>
+
+    <div class="container m-lg-5 mx-lg-auto m-3 px-0">
+        <?php if (isset($codePromomats) && !empty($codePromomats)) : ?>
+            <h5 class="NotoSans-Bold title-color"><?= $codePromomats; ?></h5>
+        <?php endif ?>
+    </div>
+
+    <!-- <div class="container">
         <div class="row m-0 pt-5 pb-5 p-0 w-100 h-auto row-section">
             <div class="col-12 d-flex justify-content-center align-items-center container-toolbox">
                 <main class="main white">
@@ -150,5 +299,5 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
             </div>
 
         </div>
-    </div>
+    </div> -->
 <?php endif; ?>

@@ -382,6 +382,16 @@ $titlePostId = get_the_title();
                             </div>
                         </div>
 
+                        <?php $cat = get_term($taxId) ?>
+
+                        <?php $code = get_field('description_complementary', $cat); ?>
+
+                        <?php if(isset($code) && !empty($code)) : ?>                                
+                            <div class="container m-lg-5 mx-lg-auto m-3 px-0">
+                                <h5 class="NotoSans-Bold title-color"><?= $code; ?></h5>
+                            </div>
+                        <?php endif ?>
+
                     <?php endif; ?>
 
                 <?php endwhile; ?>

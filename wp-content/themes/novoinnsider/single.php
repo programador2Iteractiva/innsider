@@ -939,51 +939,62 @@ $titlePostId = get_the_title();
 
                                 <?php endif; ?>
 
-                                <div class="container third-background-taxonomy pt-2 px-5">
-                                    <div class="container mt-4">
+                                <div class="container mt-5">
 
-                                        <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
+                                    <?php foreach ($otherModules as $index => $listContentModule) : ?>
 
-                                            <?php foreach ($otherModules as $index => $listContentModule) : ?>
+                                        <?php $imageModuleAcademy = $listContentModule['Img_Video_Mod']; ?>
+                                        <?php $titleModuleAcademy = $listContentModule['Title_Video_Mod']; ?>
+                                        <?php $secondTitleModuleAcademyCourse = $listContentModule['Second_Title_Video_Mod']; ?>
+                                        <?php $speakerModuleAcademyCourse = $listContentModule['Name_Speaker_Mod']; ?>
+                                        <?php $typeContentModuleAcademyCourse = $listContentModule['Type_Content_Course']; ?>
+                                        <?php $timeContentModuleAcademyCourse = $listContentModule['Time_Content_Course']; ?>
+                                        <?php $descriptionModuleAcademyCourse = $listContentModule['Description_Module']; ?>
+                                        <?php $urlModuleAcademyCourse = $listContentModule['URL_Video_Module']; ?>
+                                        <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademyCourse);  ?>
 
-                                                <?php $imageModuleAcademy = $listContentModule['Img_Video_Mod']; ?>
-                                                <?php $titleModuleAcademy = $listContentModule['Title_Video_Mod']; ?>
-                                                <?php $speakerModuleAcademy = $listContentModule['Name_Speaker_Mod']; ?>
-                                                <?php $descriptionModuleAcademy = $listContentModule['Description_Module']; ?>
-                                                <?php $urlModuleAcademy = $listContentModule['URL_Video_Module']; ?>
-                                                <?php $bannerContentModule = $listContentModule['Banner_Content_Module']; ?>
-                                                <?php $titleVideoContentMod = $listContentModule['Title_Video_Content_Mod']; ?>
-                                                <?php $DescriptionContentModule = $listContentModule['Description_Content_Module']; ?>
-                                                <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
-
-
-                                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
-                                                    <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" style="text-decoration: none;">
-                                                        <div class="mb-4 figure">
-                                                            <?php if ($imageModuleAcademy) :  ?>
-                                                                <?php echo wp_get_attachment_image($imageModuleAcademy, 'full', '', ['style' => 'object-fit: fill']); ?>
-                                                            <?php endif ?>
+                                        <a href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" class="session-a">
+                                            <div class="session-row mb-3">
+                                                <div class="<?= ($counter % 2 === 0) ? 'session-icon' : 'session-second-icon'; ?>">
+                                                    <?php if ($imageModuleAcademy) :  ?>
+                                                        <div class="image">
+                                                            <?php echo wp_get_attachment_image($imageModuleAcademy, 'full', '', ['style' => 'object-fit: fill']); ?>
                                                         </div>
-                                                        <div class="mt-1 p-0">
-                                                            <div class="w-75 p-2 mb-4 btn-view-now">
-                                                                <i class="fa-regular fa-circle-play mx-2"></i>
-                                                                Ver ahora
-                                                            </div>
-                                                            <?php if ($titleModuleAcademy) : ?>
-                                                                <h5 class="NotoSans-Bold title-color"><?= $titleModuleAcademy; ?></h5>
-                                                            <?php endif; ?>
-                                                            <?php if ($speakerModuleAcademy) : ?>
-                                                                <p class="NotoSans-Regular description-color"><?= $speakerModuleAcademy; ?></p>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                    </a>
+                                                    <?php endif ?>
+                                                    <?php if ($titleModuleAcademy) : ?>
+                                                        <div class="NotoSans-Regular session-header text-uppercase"><?= $titleModuleAcademy; ?></div>
+                                                    <?php endif; ?>
                                                 </div>
+                                                <?php if(isset($secondTitleModuleAcademyCourse) && !empty($secondTitleModuleAcademyCourse)) : ?>
+                                                    <div class="session-content">
+                                                        <div class="NotoSans-Regular session-header"><?= $secondTitleModuleAcademyCourse; ?></div>
+                                                    </div>
+                                                    <div class="session-second-content">
+                                                        <?php if(isset($speakerModuleAcademyCourse) && !empty($speakerModuleAcademyCourse)) : ?>
+                                                            <div class="NotoSans-Bold doctor"><?= $speakerModuleAcademyCourse; ?></div>
+                                                        <?php endif ?> 
+                                                        <?php if(isset($typeContentModuleAcademyCourse) && !empty($typeContentModuleAcademyCourse)) : ?>   
+                                                            <div class="NotoSans-Regular session-subheader"><?= $typeContentModuleAcademyCourse; ?> | 
+                                                                <?php if(isset($timeContentModuleAcademyCourse) && !empty($timeContentModuleAcademyCourse)) : ?> 
+                                                                    <?= $timeContentModuleAcademyCourse; ?>
+                                                                <?php endif ?>
+                                                            </div>
+                                                        <?php endif ?>
+                                                    </div>
+                                                <?php else : ?>
+                                                    <div class="session-content">
+                                                        <div class="NotoSans-Bold doctor"><?= $speakerModuleAcademyCourse; ?></div>
+                                                        <div class="NotoSans-Regular session-subheader"><?= $typeContentModuleAcademyCourse; ?> | <?= $timeContentModuleAcademyCourse; ?></div>
+                                                    </div>
+                                                    <div class="session-second-content-oth">
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </a>
 
-                                                <?php $counter++; ?>
-                                            <?php endforeach; ?>
+                                        <?php $counter++; ?>
+                                    <?php endforeach; ?>
 
-                                        </div>
-                                    </div>
                                 </div>
 
                             <?php endif; ?>

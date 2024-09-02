@@ -1,10 +1,10 @@
 <footer class="container">
     <div class="footer-content d-flex justify-content-lg-between justify-content-center align-items-center align-items-lg-start flex-lg-row flex-column">
         <div class="footer-section">
-            <h3 class="mb-5 titlesFooter">NOVO NORDISK COLOMBIA SAS</h3>
+            <h3 class="mb-5 titlesFooter">NOVO NORDISK COLOMBIA S.A.S</h3>
             <p>Contáctenos</p>
-            <p>Calle 125 N.19-24, Piso 6 Bogotá</p>
-            <p>Phone: +57 60 1 3149999</p>
+            <p>Calle 125 N.° 19-24, Piso 6 Bogotá</p>
+            <p>Teléfono: +57 60 1 3149999</p>
         </div>
         <div class="footer-section">
             <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">ENLACES ÚTILES</h3>

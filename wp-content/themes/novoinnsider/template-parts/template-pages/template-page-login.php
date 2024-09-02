@@ -28,7 +28,7 @@
                             <div class="m-0 p-0 w-100">
                                 <div class="form-group mt-2 mb-3">
                                     <div class="col col-12 px-2 position-relative">
-                                        <label for="exampleInputEmail1" class="form-label">E-Mail*</label>
+                                        <label for="exampleInputEmail1" class="form-label">E-mail*</label>
                                         <input type="email" class="form-control input-password" id="email"  name="log" required>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                             <?php $permalink = get_permalink($pageRegister->ID); ?>
                             <a href="<?php echo esc_url($permalink); ?>" class="link-redirect-login d-flex justify-content-center align-items-center flex-lg-row flex-column mt-2 mb-2" style="text-decoration: none; color: #001965; font-weight: bold">¿Aún no está registrado? </a>
                         <?php endif ?>   
-                        <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="link-redirect-login d-flex justify-content-center align-items-center flex-lg-row flex-column mt-2 mb-2" style="text-decoration: none; color: #001965; font-weight: bold">¿Olvidaste tu contraseña? </a>
+                        <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="link-redirect-login d-flex justify-content-center align-items-center flex-lg-row flex-column mt-2 mb-2" style="text-decoration: none; color: #001965; font-weight: bold">¿Olvidó su contraseña? </a>
                     </div>
                 </div>
             </div>

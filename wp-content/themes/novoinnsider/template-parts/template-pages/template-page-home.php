@@ -94,7 +94,7 @@
                 <div class="card-info mt-3 p-0">
                     <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i>Recursos de interés</div>
                     <h2 class="font-weight-bold">Webinar</h2>
-                    <p>sobre el impacto socieconómico de las enfermedades en América Latina</p>
+                    <p>sobre el impacto socioeconómico de las enfermedades en América Latina</p>
                 </div>
             </div>
         </div>

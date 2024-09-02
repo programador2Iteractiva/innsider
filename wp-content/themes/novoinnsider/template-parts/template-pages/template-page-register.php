@@ -57,7 +57,7 @@
                                     <input class="form-control subs-email2" name="email-r" id="email-r" type="email" placeholder="" required>
                                 </div>
                                 <div class="col col-12 col-md-6 px-2">
-                                    <label class="mb-2 label-left2 form-label" for="phone">Telefono*</label>
+                                    <label class="mb-2 label-left2 form-label" for="phone">Teléfono*</label>
                                     <input class="form-control subs-email2" name="phone" id="phone" type="number" placeholder="" required>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@
 
                         <div>
                             <div class="d-flex justify-content-center align-items-center mb-3 px-3">
-                                <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center flex-row-reverse" id="c1">He leído y acepto los terminos y condiciones*
+                                <label class="container-checkbox Commissioner-Light form-label d-flex align-items-center flex-row-reverse" id="c1">He leído y acepto los términos y condiciones*
                                     <input type="checkbox" id="check_terms" class="mx-2" required>
                                     <span class="checkmark"></span>
                                 </label>

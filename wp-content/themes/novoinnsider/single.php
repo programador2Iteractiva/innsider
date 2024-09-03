@@ -884,6 +884,7 @@ $titlePostId = get_the_title();
                                     <?php $speakerModuleAcademy = $specificModule['Name_Speaker_Mod']; ?>
                                     <?php $descriptionModuleAcademy = $specificModule['Description_Module']; ?>
                                     <?php $urlModuleAcademy = $specificModule['URL_Video_Module']; ?>
+                                    <?php $urlPdfModuleAcademy = $specificModule['URL_Pdf_Module_Courses']; ?>
                                     <?php $bannerContentModule = $specificModule['Banner_Content_Module']; ?>
                                     <?php $titleVideoContentMod = $specificModule['Title_Video_Content_Mod']; ?>
                                     <?php $DescriptionContentModule = $specificModule['Description_Content_Module']; ?>
@@ -906,36 +907,61 @@ $titlePostId = get_the_title();
                                         </div>
                                     </div>
 
-                                    <div class="container third-background-taxonomy mt-lg-5 mt-4 p-5">
-                                        <div class="container banner-single preview-video"
-                                            onclick="playVideo(<?= $moduleId ?>, '<?= $urlModuleAcademy ?>', event, 'preview-video')">
-                                            <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)) : ?>
-                                                <img src="<?= esc_url($thumbnailUrl); ?>" alt="Herramientas" class="bg-single">
-                                            <?php elseif (isset($bannerContentModule) && !empty($bannerContentModule)) : ?>
-                                                <img src="<?= esc_url(wp_get_attachment_url($bannerContentModule)); ?>" alt="Herramientas" class="bg-single">
-                                            <?php endif; ?>
+                                    <?php if(isset($urlPdfModuleAcademy) && !empty($urlPdfModuleAcademy)) : ?>
 
-                                            <i class="fas fa-play icon-play-video"></i>
+                                        <div class="container p-lg-5 pb-lg-0 p-1">
+                                            <div class="container background-single p-2">
+                                                <div class="p-5">
 
-                                            <div class="wrapper-single"></div>
-                                        </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-12 d-flex justify-content-center mt-5 mb-5">
+                                                                <embed src="<?= $urlPdfModuleAcademy ?>" type="application/pdf" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                                            </div>
+                                                        </div>
 
-                                        <div class="player-video banner-single " id="player"></div>
-                                        <div class="container mt-4">
-                                            <div class="row m-0 p-0">
-                                                <?php if (isset($titleVideoContentMod) && !empty($titleVideoContentMod)) : ?>
-                                                    <h1 class="NotoSans-Bold title-color mb-3 text-uppercase"><?= esc_html($titleVideoContentMod); ?></h1>
-                                                <?php endif; ?>
-                                                <?php if (isset($DescriptionContentModule) && !empty($DescriptionContentModule)) : ?>
-                                                    <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= esc_html($DescriptionContentModule); ?></h5>
-                                                <?php endif; ?>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-12 mx-1" id="linea">
-                                            <hr>
+                                    <?php endif ?>
+
+                                    <?php if(isset($urlModuleAcademy) && !empty($urlModuleAcademy)) : ?>
+                                        <div class="container third-background-taxonomy mt-lg-5 mt-4 p-5">
+                                            <div class="container banner-single preview-video"
+                                                onclick="playVideo(<?= $moduleId ?>, '<?= $urlModuleAcademy ?>', event, 'preview-video')">
+                                                <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)) : ?>
+                                                    <img src="<?= esc_url($thumbnailUrl); ?>" alt="Herramientas" class="bg-single">
+                                                <?php elseif (isset($bannerContentModule) && !empty($bannerContentModule)) : ?>
+                                                    <img src="<?= esc_url(wp_get_attachment_url($bannerContentModule)); ?>" alt="Herramientas" class="bg-single">
+                                                <?php endif; ?>
+
+                                                <i class="fas fa-play icon-play-video"></i>
+
+                                                <div class="wrapper-single"></div>
+                                            </div>
+
+                                            <div class="player-video banner-single " id="player"></div>
+                                            <div class="container mt-4">
+                                                <div class="row m-0 p-0">
+                                                    <?php if (isset($titleVideoContentMod) && !empty($titleVideoContentMod)) : ?>
+                                                        <h1 class="NotoSans-Bold title-color mb-3 text-uppercase"><?= esc_html($titleVideoContentMod); ?></h1>
+                                                    <?php endif; ?>
+                                                    <?php if (isset($DescriptionContentModule) && !empty($DescriptionContentModule)) : ?>
+                                                        <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= esc_html($DescriptionContentModule); ?></h5>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 mx-1" id="linea">
+                                                <hr>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <?php endif ?>
+
+
 
                                 <?php endif; ?>
 

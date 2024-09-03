@@ -320,7 +320,7 @@ $titlePostId = get_the_title();
                                 <div class="container mt-4">
                                     <div class="row m-0 p-0">
                                         <?php if (isset($titleVideoContentMod) && !empty($titleVideoContentMod)) : ?>
-                                            <h1 class="NotoSans-Bold title-color mb-3 text-uppercase"><?= esc_html($titleVideoContentMod); ?></h1>
+                                            <h1 class="NotoSans-Bold title-color mb-3"><?= esc_html($titleVideoContentMod); ?></h1>
                                         <?php endif; ?>
                                         <?php if (isset($DescriptionContentModule) && !empty($DescriptionContentModule)) : ?>
                                             <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= esc_html($DescriptionContentModule); ?></h5>

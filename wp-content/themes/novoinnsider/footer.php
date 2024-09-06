@@ -9,7 +9,7 @@
         <div class="footer-section">
             <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">ENLACES ÚTILES</h3>
             <ul class="m-0 p-0">
-                <li><a href="https://www.novonordisk.com.co/">Acerca de Novo Nordisk</a></li>
+                <li><a href="https://www.novonordisk.com.co/" target="_blank">Acerca de Novo Nordisk</a></li>
                 <?php $page = get_page_by_path('terminos-y-condiciones'); ?>
                 <?php if($page) : ?>
                     <?php $permalink = get_permalink($page->ID); ?>

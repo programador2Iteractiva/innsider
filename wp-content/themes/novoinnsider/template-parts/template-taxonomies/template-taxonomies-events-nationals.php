@@ -28,6 +28,29 @@ $taxonomy = get_queried_object();
 
     <?php if (!empty($subcategories) && !is_wp_error($subcategories)) : ?>
 
+        <?php foreach ($subcategories as $subcategory) :  ?>
+
+            <?php $catId = $currentTermId ?>
+
+            <?php $ContentRegisterAcademy = get_term_meta($catId, 'Content_Register_Academy', true); ?>
+            <?php $urlCatRedirect = get_term_link($currentTermId); ?>
+
+            <?php if ($ContentRegisterAcademy === '1') : ?>
+
+                <?php if (!is_user_logged_in()) : ?>
+
+                    <?php $login_url = wp_login_url($urlCatRedirect); ?>
+                    <?php $linkCatRedirect = $login_url; ?>
+                    <script>
+                        window.location.href = '<?php echo $linkCatRedirect; ?>';
+                    </script>
+
+                <?php endif ?>
+
+            <?php endif; ?>
+
+        <?php endforeach ?>
+
         <div class="container mx-2 mx-lg-auto px-0">
             <div class="container mt-lg-5 mb-lg-5 mt-4 mb-4 mx-0 px-0">
                 <?php custom_breadcrumbs(); ?>
@@ -72,9 +95,33 @@ $taxonomy = get_queried_object();
 
                 <?php foreach ($subcategories as $subcategory) :  ?>
 
+                    <?php $catId = $subcategory->term_id ?>
+
+                    <?php $ContentRegisterAcademy = get_term_meta($catId, 'Content_Register_Academy', true); ?>
+                    <?php $urlCatRedirect = get_term_link($subcategory->term_id); ?>
+
+                    <?php if ($ContentRegisterAcademy === '1') : ?>
+
+                        <?php if (!is_user_logged_in()) : ?>
+
+                            <?php $login_url = wp_login_url($urlCatRedirect); ?>
+                            <?php $linkCatRedirect = $login_url; ?>
+
+                        <?php else : ?>
+
+                            <?php $linkCatRedirect = $urlCatRedirect; ?>
+
+                        <?php endif ?>
+
+                    <?php else : ?>
+
+                        <?php $linkCatRedirect = $urlCatRedirect; ?>
+
+                    <?php endif; ?>
+
                     <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center card-subcategory-academy-events m-0 p-0 mt-3 mb-5 pb-4 mx-4">
 
-                        <a href="<?php echo get_term_link($subcategory->term_id) ?>">
+                        <a href="<?php echo $linkCatRedirect; ?>">
                             <div class="mb-4 figure">
                                 <?php $imageSubcategoryAcademy = get_field('Category_Image', $subcategory); ?>
 

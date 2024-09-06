@@ -190,6 +190,53 @@ function novo_inssider_post_type() {
     /**
      * -- End Post Type Tendencias
     */
+
+
+    /**
+    * Post Type Actualidad en salud 
+    */
+
+    $labels = array(
+        'name'               => _x( 'Actualidad en salud', 'post type general name' ),
+        'singular_name'      => _x( 'Actualidad en salud', 'post type singular name' ),
+        'menu_name'          => _x( 'Actualidad en salud', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Actualidad en salud', 'add new on admin bar' ),
+        'add_new'            => _x( 'Agregar actualidad', 'Slide' ),
+        'add_new_item'       => __( 'Agregar nueva actualidad' ),
+        'new_item'           => __( 'Nueva actualidad' ),
+        'edit_item'          => __( 'Editar actualidad' ),
+        'view_item'          => __( 'Ver actualidad' ),
+        'all_items'          => __( 'Todas las actualidades' ),
+        'featured_image'     => __( 'Imagen destacada' ),
+        'search_items'       => __( 'Buscar actualidad' ),
+        'parent_item_colon'  => __( 'experiencia padre:' ),
+        'not_found'          => __( 'No se han encontrado actualidades en salud.' ),
+        'not_found_in_trash' => __( 'No se han encontrado actualidades en salud.' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'menu_icon'          => 'dashicons-list-view',
+        'description'        => __( 'Descripción de Actualidad.' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'actualidad' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 6,
+        'show_in_rest'       => true,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'Actualidad en salud', $args );
+
+    /**
+     * -- End Post Type Tendencias
+    */
 }
 
 add_action( 'init', 'novo_inssider_post_type' );

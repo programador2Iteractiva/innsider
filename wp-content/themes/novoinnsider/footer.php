@@ -17,7 +17,7 @@
                 <?php endif ?>                
             </ul>
         </div>
-        <div class="footer-section">
+        <!-- <div class="footer-section">
             <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">SÍGANOS</h3>
             <ul class="m-0 p-0">
                 <li><a href="#">LinkedIn</a></li>
@@ -25,7 +25,7 @@
                 <li><a href="#">Twitter</a></li>
                 <li><a href="#">Instagram</a></li>
             </ul>
-        </div>
+        </div> -->
         <div class="footer-section">
             <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">SOPORTE</h3>
             <a href="#">Ayuda y soporte</a>

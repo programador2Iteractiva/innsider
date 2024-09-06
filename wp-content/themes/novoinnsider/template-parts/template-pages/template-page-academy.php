@@ -98,9 +98,33 @@ $pageHome = get_permalink($home_id);
 
                                     <?php if ($listCategoryAcademy->term_id == $idCategoriesWithStatusActive && $listCategoryAcademy->parent == 0) : ?>
 
+                                        <?php $catId = $listCategoryAcademy->term_id ?>
+
+                                        <?php $ContentRegisterAcademy = get_term_meta($catId, 'Content_Register_Academy', true); ?>
+                                        <?php $urlCatRedirect = get_term_link($listCategoryAcademy->term_id); ?>
+
+                                        <?php if($ContentRegisterAcademy === '1') : ?> 
+
+                                            <?php if(!is_user_logged_in()) : ?>
+
+                                                <?php $login_url = wp_login_url($urlCatRedirect); ?>
+                                                <?php $linkCatRedirect = $login_url; ?>
+
+                                            <?php else : ?> 
+
+                                                <?php $linkCatRedirect = $urlCatRedirect; ?>
+
+                                            <?php endif ?>
+
+                                        <?php else : ?>    
+
+                                            <?php $linkCatRedirect = $urlCatRedirect; ?>
+
+                                        <?php endif; ?>
+
                                         <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
 
-                                            <a href="<?= get_term_link($listCategoryAcademy->term_id); ?>" class="w-100">
+                                            <a href="<?= $linkCatRedirect; ?>" class="w-100">
                                                 <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
                                                     <div class="col-10 col-lg-11">
                                                         <div class="mb-4 figure">

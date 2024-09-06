@@ -11,6 +11,44 @@ $cuttentTaxonomyId = $taxonomy->term_taxonomy_id;
 $cuttentTaxonomyParentId = $taxonomy->parent;
 
 ?>
+<?php $catId = $taxonomy->term_id ?>
+
+<?php $ContentRegisterAcademy = get_term_meta($cuttentTaxonomyParentId, 'Content_Register_Academy', true); ?>
+<?php $urlCatRedirect = get_term_link($catId); ?>
+
+<?php if ($ContentRegisterAcademy === '1') : ?>
+
+    <?php if (!is_user_logged_in()) : ?>
+
+        <?php $login_url = wp_login_url($urlCatRedirect); ?>
+        <?php $linkCatRedirect = $login_url; ?>
+        <script>
+            window.location.href = '<?php echo $linkCatRedirect; ?>';
+        </script>
+
+    <?php endif ?>
+
+<?php endif; ?>
+
+<?php $ContentRegisterAcademysub = get_term_meta($catId, 'Content_Register_Academy', true); ?>
+<?php $urlCatRedirect = get_term_link($catId); ?>
+
+<?php if ($ContentRegisterAcademysub === '1') : ?>
+
+    <?php if (!is_user_logged_in()) : ?>
+
+        <?php $login_url = wp_login_url($urlCatRedirect); ?>
+        <?php $linkCatRedirect = $login_url; ?>
+        <script>
+            window.location.href = '<?php echo $linkCatRedirect; ?>';
+        </script>
+
+    <?php endif ?>
+
+<?php endif; ?>
+
+
+
 <div class="container mx-2 mx-lg-auto px-0">
     <div class="container mt-4 mx-0 px-0 pb-4">
         <?php custom_breadcrumbs(); ?>
@@ -21,6 +59,8 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 <?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
 <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
 <?php $subDescriptioonCategory = get_field('subdescription_complementary', $taxonomy); ?>
+
+
 
 <?php /* template con el contenido de las subcategoria de la categoria princiapl "Eventos Nacionales" term_id 6 */  ?>
 <?php if (!empty($cuttentTaxonomyParentId) && $cuttentTaxonomyParentId == 6) : ?>

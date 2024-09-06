@@ -65,38 +65,200 @@
                 </div>
             </div>
         </div>
-        <div class="content d-flex justify-content-center flex-lg-row flex-column">
-            <div class="card large d-flex flex-column">
-                <img src="<?= get_template_directory_uri() . '/assets/images/vision_innsider.png'; ?>" alt="Podcast">
-                <div class="card-info mt-3">
-                    <h2 class="font-weight-bold">Visión Innsider</h2>
-                    <p>El Podcast</p>
-                    <p class="time">Video | 5 min</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Image1.png'; ?>" alt="Podcast">
-                <div class="card-info mt-3 p-0">
-                    <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i></i>Tendencias</div>
-                    <h2 class="font-weight-bold">Circular 19: Regulación de precios</h2>
-                </div>
-            </div>
-            <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Image2.png'; ?>" alt="Podcast">
-                <div class="card-info mt-3 p-0">
-                    <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i></i>Cursos de formación</div>
-                    <h2 class="font-weight-bold">Curso multidisciplinario</h2>
-                    <p>en gestión de la atención en hemofilia</p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Image3.png'; ?>" alt="Podcast">
-                <div class="card-info mt-3 p-0">
-                    <div class="w-100 p-2 mb-2" style="border-radius: 0.5rem; background: #001965; color: white;"><i class="fa-solid fa-newspaper mx-2"></i>Recursos de interés</div>
-                    <h2 class="font-weight-bold">Webinar</h2>
-                    <p>sobre el impacto socioeconómico de las enfermedades en América Latina</p>
-                </div>
-            </div>
+        <div class="content d-flex justify-content-center align-items-center align-items-sm-center align-items-lg-start flex-lg-row flex-column">
+
+            <?php $listNewsHealth = new WP_Query(array('post_type' => 'Actualidad en salud', 'posts_per_page' => -1, 'order' => 'ASC')); ?>
+
+            <?php if ($listNewsHealth->have_posts()) : ?>
+
+                <?php $key = 0; ?>
+
+                <?php while ($listNewsHealth->have_posts()) : $listNewsHealth->the_post(); ?>
+
+                    <?php $Image_Card_News_Health = get_field('Image_Card_News_Health'); ?>
+                    <?php $Ico_Button_Card_News_Health = get_field('Ico_Button_Card_News_Health'); ?>
+                    <?php $Title_Button_Card_News_Health = get_field('Title_Button_Card_News_Health'); ?>
+                    <?php $Subtitle_Card_News_Health = get_field('Subtitle_Card_News_Health'); ?>
+                    <?php $Type_Card_News_Health = get_field('Type_Card_News_Health'); ?>
+                    <?php $Url_Redirect_Card_News_Health = get_field('Url_Redirect_Card_News_Health'); ?>
+                    <?php $postId = get_the_ID(); ?>
+                    <?php $Content_Register = get_post_meta($postId, 'Content_Register', true); ?>
+
+                    <?php if($Content_Register === '1') : ?> 
+
+                        <?php if(!is_user_logged_in()) : ?>
+
+                            <?php $login_url = wp_login_url($Url_Redirect_Card_News_Health); ?>
+                            <?php $link = $login_url; ?>
+
+                        <?php else : ?> 
+
+                            <?php $link = $Url_Redirect_Card_News_Health; ?>
+
+                        <?php endif ?>
+
+                    <?php else : ?>    
+
+                        <?php $link = $Url_Redirect_Card_News_Health; ?>
+
+                    <?php endif; ?>
+
+                    <?php if($key == 0) : ?> 
+
+                        <div class="col-8 col-sm-8 card large d-flex flex-column">
+
+                            <?php if($Url_Redirect_Card_News_Health) : ?>
+
+                                <a href="<?= $link ?>" target="_blank">
+
+                                    <?php if(isset($Image_Card_News_Health) && !empty($Image_Card_News_Health)) : ?>
+                                        <?php echo wp_get_attachment_image($Image_Card_News_Health, 'full', '', ['class' => 'other-image-card-news-health']); ?>
+                                    <?php endif ?>
+
+                                    <div class="card-info mt-3">
+
+                                        <?php if(isset($Title_Button_Card_News_Health) && !empty($Title_Button_Card_News_Health)) : ?>
+                                            <div class="w-100 p-2 mb-2 btn-card-News_Health">
+
+                                            <?php if(isset($Ico_Button_Card_News_Health) && !empty($Ico_Button_Card_News_Health)) : ?>
+                                                <?php echo wp_get_attachment_image($Ico_Button_Card_News_Health, 'full', '', ['class' => 'icon-button-card-news-health']) ?>
+                                            <?php endif ?>
+
+                                                <?= $Title_Button_Card_News_Health; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <h2 class="font-weight-bold"><?php the_title(); ?></h2>
+
+                                        <?php if(isset($Subtitle_Card_News_Health) && !empty($Subtitle_Card_News_Health)) : ?>
+                                            <p><?= $Subtitle_Card_News_Health; ?></p>
+                                        <?php endif; ?>
+
+                                        <?php if(isset($Type_Card_News_Health) && !empty($Type_Card_News_Health)) : ?>
+                                            <p class="time"><?= $Type_Card_News_Health; ?></p>
+                                        <?php endif ?>
+
+                                    </div>
+
+                                </a>
+
+                            <?php else : ?>
+
+                                <?php if(isset($Image_Card_News_Health) && !empty($Image_Card_News_Health)) : ?>
+                                    <?php echo wp_get_attachment_image($Image_Card_News_Health, 'full', '', ['style' => 'object-fit: fill']) ?>
+                                <?php endif ?>
+
+                                <div class="card-info mt-3">
+
+                                    <?php if(isset($Title_Button_Card_News_Health) && !empty($Title_Button_Card_News_Health)) : ?>
+                                        <div class="w-100 p-2 mb-2 btn-card-News_Health">
+
+                                        <?php if(isset($Ico_Button_Card_News_Health) && !empty($Ico_Button_Card_News_Health)) : ?>
+                                            <?php echo wp_get_attachment_image($Ico_Button_Card_News_Health, 'full', '', ['class' => 'icon-button-card-news-health']) ?>
+                                        <?php endif ?>
+
+                                            <?= $Title_Button_Card_News_Health; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <h2 class="font-weight-bold"><?php the_title(); ?></h2>
+
+                                    <?php if(isset($Subtitle_Card_News_Health) && !empty($Subtitle_Card_News_Health)) : ?>
+                                        <p><?= $Subtitle_Card_News_Health; ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if(isset($Type_Card_News_Health) && !empty($Type_Card_News_Health)) : ?>
+                                        <p class="time"><?= $Type_Card_News_Health; ?></p>
+                                    <?php endif ?>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                    <?php else : ?>
+
+                        <div class="col-8 col-sm-8 card">
+
+                            <?php if($Url_Redirect_Card_News_Health) : ?>
+
+                                <a href="<?= $link ?>" target="_blank">
+
+                                    <?php if(isset($Image_Card_News_Health) && !empty($Image_Card_News_Health)) : ?>
+                                        <?php echo wp_get_attachment_image($Image_Card_News_Health, 'full', '', ['class' => 'image-card-news-health']); ?>
+                                    <?php endif ?>
+
+                                    <div class="card-info mt-3 p-0">
+
+                                        <?php if(isset($Title_Button_Card_News_Health) && !empty($Title_Button_Card_News_Health)) : ?>
+                                            <div class="w-100 p-2 mb-2 btn-card-News_Health">
+
+                                            <?php if(isset($Ico_Button_Card_News_Health) && !empty($Ico_Button_Card_News_Health)) : ?>
+                                                <?php echo wp_get_attachment_image($Ico_Button_Card_News_Health, 'full', '', ['class' => 'icon-button-card-news-health']) ?>
+                                            <?php endif ?>
+
+                                                <?= $Title_Button_Card_News_Health; ?>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <h2 class="font-weight-bold"><?php the_title(); ?></h2>
+
+                                        <?php if(isset($Subtitle_Card_News_Health) && !empty($Subtitle_Card_News_Health)) : ?>
+                                            <p><?= $Subtitle_Card_News_Health; ?></p>
+                                        <?php endif; ?>
+
+                                        <?php if(isset($Type_Card_News_Health) && !empty($Type_Card_News_Health)) : ?>
+                                            <p class="time"><?= $Type_Card_News_Health; ?></p>
+                                        <?php endif ?>
+
+                                    </div>
+
+                                </a>
+
+                            <?php else : ?>
+
+                                <?php if(isset($Image_Card_News_Health) && !empty($Image_Card_News_Health)) : ?>
+                                    <?php echo wp_get_attachment_image($Image_Card_News_Health, 'full', '', ['class' => 'image-card-news-health']) ?>
+                                <?php endif ?>
+
+                                <div class="card-info mt-3 p-0">
+
+                                    <?php if(isset($Title_Button_Card_News_Health) && !empty($Title_Button_Card_News_Health)) : ?>
+                                        <div class="w-100 p-2 mb-2 btn-card-News_Health">
+
+                                        <?php if(isset($Ico_Button_Card_News_Health) && !empty($Ico_Button_Card_News_Health)) : ?>
+                                            <?php echo wp_get_attachment_image($Ico_Button_Card_News_Health, 'full', '', ['class' => 'icon-button-card-news-health']) ?>
+                                        <?php endif ?>
+
+                                            <?= $Title_Button_Card_News_Health; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <h2 class="font-weight-bold"><?php the_title(); ?></h2>
+
+                                    <?php if(isset($Subtitle_Card_News_Health) && !empty($Subtitle_Card_News_Health)) : ?>
+                                        <p><?= $Subtitle_Card_News_Health; ?></p>
+                                    <?php endif; ?>
+
+                                    <?php if(isset($Type_Card_News_Health) && !empty($Type_Card_News_Health)) : ?>
+                                        <p class="time"><?= $Type_Card_News_Health; ?></p>
+                                    <?php endif ?>
+
+                                </div>
+
+                            <?php endif; ?>
+
+                        </div>
+
+                    <?php endif ?>
+
+                    <?php $key++; ?>
+
+                <?php endwhile; ?>
+
+            <?php endif; ?>
+
         </div>
     </div>
     <div class="container my-5">
@@ -110,9 +272,12 @@
         </div>
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-lg-12 col-11 second-banner-category">
-                <div class="d-flex align-items-center justify-content-lg-end justify-content-center h-100">
-                    <img src="<?= get_template_directory_uri() . '/assets/images/BannerHome.jpg';  ?>" alt="Herramientas" class="bg-banner-single-category">
-                </div>
+                <?php $current_url = home_url(add_query_arg(array(), $_SERVER['REQUEST_URI'])); ?>
+                <a href="<?= $current_url ?>/registro/">
+                    <div class="d-flex align-items-center justify-content-lg-end justify-content-center h-100">
+                        <img src="<?= get_template_directory_uri() . '/assets/images/BannerHome.jpg';  ?>" alt="Herramientas" class="bg-banner-single-category">
+                    </div>
+                </a>
             </div>
         </div>
     </div>

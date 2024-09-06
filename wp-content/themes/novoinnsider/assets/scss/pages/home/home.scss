@@ -490,21 +490,12 @@ footer {
 }
 
 .card.large img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    height: 240px;
-    object-position: left;
-    border-radius: 0.5rem;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    height: 200px;
-    object-position: left;
-    border-radius: 0.5rem;
+    // width: 100%;
+    // height: auto;
+    // object-fit: cover;
+    // height: 274px;
+    // object-position: top;
+    // border-radius: 0.5rem;
 }
 
 .card .img-card-event {
@@ -709,4 +700,106 @@ footer {
 
 .bg-transparent{
     background-color: transparent !important;
+}
+
+.btn-card-News_Health{
+    border-radius: 0.5rem;
+    background: #001965;
+    color: white;
+}
+
+.icon-button-card-news-health{
+    height: 30px !important;
+    background: transparent;
+    width: 30px !important;
+    object-fit: cover;
+    filter: brightness(0) invert(1);
+}
+
+.other-image-card-news-health{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    height: 260px;
+    object-position: top;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-up(md) {
+        height: 310px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+        height: 220px;
+    }
+  
+    @include media-breakpoint-up(xl) {
+        height: 274px;
+    }
+  
+    @include media-breakpoint-up(xxl) {
+        height: 274px;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 274px;
+    }
+}
+
+.image-card-news-health{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    height: 200px;
+    object-position: left;
+    border-radius: 0.5rem;
+    object-position: center;
+
+    @include media-breakpoint-up(md) {
+        height: 310px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+        height: 160px;
+    }
+  
+    @include media-breakpoint-up(xl) {
+        height: 200px;
+    }
+  
+    @include media-breakpoint-up(xxl) {
+        height: 200px;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 200px;
+    }
+}
+
+
+.card a{
+    text-decoration: none;
+    
+    &:hover{
+        .card-info h2 {
+            color: #008dd4 !important;
+        }
+        .card-info p{
+            color: #008dd4 !important;
+        }
+        .image-card-news-health{
+            transform: scale(0.9);   
+            transition: all 400ms ease-out;
+            will-change: transform;
+        }
+        .other-image-card-news-health{
+            transform: scale(0.95);   
+            transition: all 400ms ease-out;
+            will-change: transform;
+        }
+        .btn-card-News_Health{       
+            background: #008dd4;
+            color: #fff;
+            border: 2px solid #008dd4;
+        }
+    }
 }

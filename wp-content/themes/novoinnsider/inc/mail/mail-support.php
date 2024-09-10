@@ -176,9 +176,9 @@ $linkimage = 'https://innsider.com.co/wp-content/uploads/2024/08/Capa_1-1-1.png'
                             <td align=\"center\" style=\"background-color: #14337e;padding: 30px; color: #ffffff; width: 100%; \">
         
                                 Mensaje enviado desde
-                                <a href=\"#\" style=\"color: #ffffff\">Prueba</a>
+                                <a href=\"https://innsider.com.co/\" style=\"color: #ffffff\">iNNsider</a>
                                 <br>
-                                © {$date} | Prueba - | Todos los derechos reservados
+                                © {$date} | iNNsider | Todos los derechos reservados
                             </td>
         
                         </tr>

@@ -28,7 +28,11 @@
         </div> -->
         <div class="footer-section">
             <h3 class="mb-5 mt-5 mt-lg-0 titlesFooter">SOPORTE</h3>
-            <a href="#">Ayuda y soporte</a>
+            <?php $page = get_page_by_path('ayuda-y-soporte'); ?>
+            <?php if($page) : ?>
+                <?php $permalink = get_permalink($page->ID); ?>
+                <a href="<?php echo esc_url($permalink); ?>">Ayuda y soporte</a>
+            <?php endif ?>
         </div>
     </div>
     <div class="footer-bottom pt-5 pb-5 text-center">

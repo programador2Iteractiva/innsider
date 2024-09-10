@@ -29,6 +29,14 @@ require_once 'inc/custom-login-and-register/custom-login-and-register.php';
  */
 require_once 'inc/custom-class-nav/custom-class-nav.php';
 
+
+/**
+ * 
+ * Load Custom help support
+ */
+require_once 'inc/custom-help-support/custom-help-support.php';
+
+
 /**
  * 
  * Load Custom post types

@@ -16,9 +16,6 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php wp_title(); ?></title>
     <?php wp_head(); ?>
-    <!-- Start cookieyes banner -->
-    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/11fba7f348bf2f0313186e00/script.js"></script>
-    <!-- End cookieyes banner -->
 </head>
 
 <body>

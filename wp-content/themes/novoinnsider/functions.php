@@ -1741,5 +1741,12 @@ function novo_innsider_check_menu_items() {
     return ob_get_clean();
 }
 
-add_action( 'gdpr_cc_prevent_ajax_script_inject', '__return_true' );
+function my_custom_enqueue_scripts() {
+    // Desenlaza el script original
+    wp_dequeue_script('cookie-law-info-script');
+
+    // Vuelve a añadirlo al final
+    wp_enqueue_script('cookie-law-info-script', plugins_url('cookie-law-info/lite/frontend/js/script.min.js', __FILE__), array(), '3.2.6', true);
+}
+add_action('wp_enqueue_scripts', 'my_custom_enqueue_scripts');
 ?>

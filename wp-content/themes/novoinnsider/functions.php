@@ -1740,4 +1740,6 @@ function novo_innsider_check_menu_items() {
 
     return ob_get_clean();
 }
+
+add_action( 'gdpr_cc_prevent_ajax_script_inject', '__return_true' );
 ?>

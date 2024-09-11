@@ -83,11 +83,10 @@ add_action('after_setup_theme', 'novo_inssider_support');
 function novo_inssider_styles()
 {
 
-    $version = rand(0, 1000);
+    $version = wp_get_theme()->get('Version'); // Usa la versión del tema
     wp_enqueue_style('style-co', get_stylesheet_uri(), array(), $version);
     
 }
-
 add_action('wp_enqueue_scripts', 'novo_inssider_styles');
 
 
@@ -99,7 +98,7 @@ function novo_inssider_scripts()
     $userData = wp_get_current_user();
     $full_name = get_user_meta($userData->ID, 'first_name', true);
 
-    $version = rand(0, 1000);
+    $version = filemtime(get_template_directory() . '/main.js');
     wp_enqueue_script('main-co', get_template_directory_uri() . '/main.js', array(), $version, false);
 
     wp_localize_script('main-co', 'ajax_object',

@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var checkCookies = document.getElementById('open-cookie-settings');
 
   checkCookies.addEventListener('click', function(){
+      console.log('click');
       var revisitButton = document.querySelector('.cky-btn-revisit');
       if (revisitButton) {
           revisitButton.click();

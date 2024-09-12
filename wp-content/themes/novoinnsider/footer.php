@@ -39,14 +39,16 @@
         <?php $page = get_page_by_path('terminos-y-condiciones'); ?>
         <?php if($page) : ?>
             <?php $permalink = get_permalink($page->ID); ?>
-            <a href="<?php echo esc_url($permalink); ?>" id="open-cookie-settings" class="secondtitleFooter">Términos y condiciones</a>
+            <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Términos y condiciones</a>
         <?php endif ?>
-        <a href="#" class="secondtitleFooter cky-banner-element" id="open-cookie-settings">Política cookies</a>
+        <?php $page = get_page_by_path('politica-de-cookies'); ?>
+        <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política cookies</a>
+        <?php $page = get_page_by_path('politica-de-privacidad'); ?>
         <?php if($page) : ?>
             <?php $permalink = get_permalink($page->ID); ?>
             <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política de privacidad</a>
-        <?php endif ?>     
-        <a href="#" class="secondtitleFooter">Cookie settings</a>
+        <?php endif ?>
+        <p class="secondtitleFooter" style="cursor: pointer;" id="open-cookie-settings">Política cookies</p>
     </div>
     <div class="footer-bottom pt-5 pb-5 d-flex justify-content-center justify-content-center">
         <p class="text-center mx-2 mx-lg-0">En caso de reporte de eventos adversos relacionados con nuestros productos, contactarse con: colombia-safety@novonordisk.com</p>

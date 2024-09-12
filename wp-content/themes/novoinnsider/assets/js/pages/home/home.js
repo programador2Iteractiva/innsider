@@ -33,7 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
   var checkCookies = document.getElementById('open-cookie-settings');
 
   checkCookies.addEventListener('click', function(){
-    CookieYes.openSettings();
+      var revisitButton = document.querySelector('.cky-btn-revisit');
+      if (revisitButton) {
+          revisitButton.click();
+      } else {
+          console.error('Botón con la clase "cky-btn-revisit" no encontrado.');
+      }
   })
 
 });

@@ -41,9 +41,7 @@
             <?php $permalink = get_permalink($page->ID); ?>
             <a href="<?php echo esc_url($permalink); ?>" id="open-cookie-settings" class="secondtitleFooter">Términos y condiciones</a>
         <?php endif ?>
-        <?php $page = get_page_by_path('politica-de-cookies'); ?>
-        <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política cookies</a>
-        <?php $page = get_page_by_path('politica-de-privacidad'); ?>
+        <a href="#" class="secondtitleFooter" id="open-cookie-settings">Política cookies</a>
         <?php if($page) : ?>
             <?php $permalink = get_permalink($page->ID); ?>
             <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política de privacidad</a>

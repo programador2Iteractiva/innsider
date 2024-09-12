@@ -31,3 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+document.getElementById('open-cookie-settings').addEventListener('click', function(event){
+  event.preventDefault();
+
+  CookieYes.openSettings();
+})

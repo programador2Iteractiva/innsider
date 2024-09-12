@@ -30,10 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
     once: true,
   });
 
+  document.getElementById('open-cookie-settings').addEventListener('click', function(event){
+    event.preventDefault();
+  
+    CookieYes.openSettings();
+  })
+
 });
 
-document.getElementById('open-cookie-settings').addEventListener('click', function(event){
-  event.preventDefault();
-
-  CookieYes.openSettings();
-})

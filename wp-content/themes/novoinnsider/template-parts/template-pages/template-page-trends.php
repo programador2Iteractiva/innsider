@@ -136,7 +136,7 @@ $content = get_the_content();
                                                     <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
                                                     <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
 
-                                                    <a href="<?php echo $thePermalink; ?>">
+                                                    <a href="<?= $thePermalink  . '?tax=' . $listCategoryTrends->term_id; ?>">
                                                         <div class="mb-4 figure">
 
                                                             <?php if ($imgPostTrend) :  ?>

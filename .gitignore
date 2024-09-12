@@ -8,3 +8,4 @@ error_log
 cgi-bin
 doc.default.php
 wp-content/uploads/
+wp-content/plugins/

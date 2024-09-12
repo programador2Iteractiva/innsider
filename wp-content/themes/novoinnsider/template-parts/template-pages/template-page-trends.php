@@ -127,7 +127,7 @@ $content = get_the_content();
                                     <?php if($listPostTrends->have_posts()) : ?>
                                         <?php while($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
-
+                                        <a href=""></a>
 
                                         <?php endwhile; ?>   
                                     <?php endif ?>

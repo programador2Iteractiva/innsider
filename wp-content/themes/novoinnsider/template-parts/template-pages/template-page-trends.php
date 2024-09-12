@@ -127,9 +127,8 @@ $content = get_the_content();
                                     <?php if($listPostTrends->have_posts()) : ?>
                                         <?php while($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
-                                            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center container-card-category pb-5" style="border-radius: 2rem">
-                                                <div class="col-12">
-                                                    
+                                            <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center card-subcategory-academy-events m-0 p-0 mt-3 mb-5 pb-4 mx-4">
+
                                                     <?php $thePermalink = get_the_permalink(); ?>
                                                     <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
                                                     <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
@@ -138,24 +137,29 @@ $content = get_the_content();
                                                     <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
                                                     <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
 
-                                                    <a href="<?= $thePermalink . '?tax=' . $listCategoryTrends->term_id; ?>" style="text-decoration: none;">
-                                                        <div class="figure" style="border-radius: 2rem">
-                                                            <img src="<?php echo wp_get_attachment_image_url($imgPostTrend, 'full', ''); ?>" alt="Podcast" style="object-fit: fill;">
-                                                            <h3 class="position-absolute title-slide-system class-title-card-system"><?= esc_html(the_title()) ?></h3>
-                                                        </div>
-                                                        <div class="info_description d-flex align-items-center mt-3">
-                                                            <div class="d-flex flex-lg-row flex-column position-relative col-11">
-                                                                <div class="col-12 col-lg-8">
-                                                                    <h3 class="NotoSans-Bold title-color"><?= the_title(); ?></h3>
-                                                                    <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
+                                                <a href="<?php echo $thePermalink; ?>">
+                                                    <div class="mb-4 figure">
+
+                                                        <?php if ($imgPostTrend) :  ?>
+                                                            <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                                        <?php endif ?>
+                                                    </div>
+                                                    <div class="info_description col-12">
+                                                        <div class="col-12 h-100">
+                                                            <div class="col-12 h-100">
+                                                                <div class="d-flex justify-content-start align-items-start flex-column">
+                                                                    <h4 class="NotoSans-Bold title-color"><?= the_title(); ?></h4>
+                                                                    <p class="description-color NotoSans-Bold"><?= $subtitlePostTrend; ?></p>
                                                                 </div>
-                                                                <div class="col-12 col-lg-4">
-                                                                    <div class="w-100 p-1 mb-2 btn-view-more">Ver más</div>
+                                                            </div>
+                                                            <div class="col-12 d-flex justify-content-center align-items-center">
+                                                                <div class="w-75">
+                                                                    <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </div>
+                                                </a>
                                             </div>
 
                                         <?php endwhile; ?>   

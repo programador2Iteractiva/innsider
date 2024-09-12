@@ -30,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
     once: true,
   });
 
-  document.getElementById('open-cookie-settings').addEventListener('click', function(event){
-    event.preventDefault();
-  
+  var checkCookies = document.getElementById('open-cookie-settings');
+
+  checkCookies.addEventListener('click', function(){
     CookieYes.openSettings();
   })
 

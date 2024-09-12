@@ -24,7 +24,7 @@ $content = get_the_content();
                 <a style="text-decoration:none !important" href="<?php echo $pageHome; ?>">
                     Inicio
                 </a>
-                    / 
+                /
                 <a style="text-decoration:none !important" href="<?php echo $page_url; ?>">
                     <?php the_title(); ?>
                 </a>
@@ -64,83 +64,115 @@ $content = get_the_content();
     $taxonomyTrends = novo_inssider_get_all_trends_actives();
     ?>
 
-    <?php if(count($taxonomyTrends) == 1) : ?>
+    <?php if (count($taxonomyTrends) == 1) : ?>
 
         <div class="container align-items-center mt-5 pt-1">
             <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
 
-    <?php else : ?> 
+            <?php else : ?>
 
-        <div class="container align-items-center mt-5 pt-1">
-            <div class="row d-flex justify-content-center align-items-start m-0 mt-4 p-0">
+                <div class="container align-items-center mt-5 pt-1">
+                    <div class="row d-flex justify-content-center align-items-start m-0 mt-4 p-0">
 
-    <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
+                    <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
 
-                    <div class="container my-2 mb-0">
-                        <div class="row d-flex justify-content-center align-align-items-center mb-4">
-                            <div class="col-12 d-flex flex-lg-row">
-                                <h2 class="NotoSans-Bold text-transform-uppercase">Noticias</h2>
-                                <div class="col-9 mx-1" id="linea">
-                                    <hr class="mx-4">
+                        <div class="container my-2 mb-0">
+                            <div class="row d-flex justify-content-center align-align-items-center mb-4">
+                                <div class="col-12 d-flex flex-lg-row">
+                                    <h2 class="NotoSans-Bold text-transform-uppercase">Noticias</h2>
+                                    <div class="col-9 mx-1" id="linea">
+                                        <hr class="mx-4">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
+                        <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
 
-                        <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
+                            <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
 
-                        <?php $listCategoriesTrends = get_terms(
-                            array(
-                                'taxonomy' => 'tendencias',
-                                'hide_empty' => true,
-                                'order' => 'DESC'
+                            <?php $listCategoriesTrends = get_terms(
+                                array(
+                                    'taxonomy' => 'tendencias',
+                                    'hide_empty' => true,
+                                    'order' => 'DESC'
+                                )
                             )
-                        )
-                        ?>
+                            ?>
 
-                        <?php if (isset($listCategoriesTrends) && !empty($listCategoriesTrends)) : ?>
-                            <?php foreach ($listCategoriesTrends as $listCategoryTrends) : ?>
-                                <?php if ($listCategoryTrends->term_id == $idCategoriesWithStatusActive) : ?>
+                            <?php if (isset($listCategoriesTrends) && !empty($listCategoriesTrends)) : ?>
+                                <?php foreach ($listCategoriesTrends as $listCategoryTrends) : ?>
+                                    <?php if ($listCategoryTrends->term_id == $idCategoriesWithStatusActive) : ?>
 
-                                    <?php $listPostTrends = new WP_Query
-                                        (
-                                            [
-                                                'tax_query' => array(
-                                                    array(
-                                                        'taxonomy' => 'tendencias',
-                                                        'field' => 'id',
-                                                        'terms' => $listCategoryTrends->term_id,
-                                                    )
-                                                ),
-                                                'orderby' => 'post_date',
-                                                'order' => 'ASC',
-                                                'posts_per_page' => -1,
-                                                'post_status' => 'publish'
-                                            ]
-                                        );
-                                    ?>
+                                        <?php $listPostTrends = new WP_Query(
+                                                [
+                                                    'tax_query' => array(
+                                                        array(
+                                                            'taxonomy' => 'tendencias',
+                                                            'field' => 'id',
+                                                            'terms' => $listCategoryTrends->term_id,
+                                                        )
+                                                    ),
+                                                    'orderby' => 'post_date',
+                                                    'order' => 'ASC',
+                                                    'posts_per_page' => -1,
+                                                    'post_status' => 'publish'
+                                                ]
+                                            );
+                                        ?>
 
-                                    <?php if($listPostTrends->have_posts()) : ?>
-                                        <?php while($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
+                                        <?php if ($listPostTrends->have_posts()) : ?>
+                                            <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
-                                        <a href=""></a>
+                                                <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center card-subcategory-academy-events m-0 p-0 mt-3 mb-5 pb-4 mx-4">
 
-                                        <?php endwhile; ?>   
-                                    <?php endif ?>
+                                                    <?php $thePermalink = get_the_permalink(); ?>
+                                                    <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+                                                    <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
+                                                    <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
+                                                    <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
+                                                    <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
+                                                    <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
 
-                                <?php endif; ?>
-                            <?php endforeach ?>
-                        <?php endif ?>
+                                                    <a href="<?php echo $thePermalink; ?>">
+                                                        <div class="mb-4 figure">
 
-                    <?php endforeach; ?>
+                                                            <?php if ($imgPostTrend) :  ?>
+                                                                <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                                            <?php endif ?>
+                                                        </div>
+                                                        <div class="info_description col-12">
+                                                            <div class="col-12 h-100">
+                                                                <div class="col-12 h-100">
+                                                                    <div class="d-flex justify-content-start align-items-start flex-column">
+                                                                        <h4 class="NotoSans-Bold title-color"><?= the_title(); ?></h4>
+                                                                        <p class="description-color NotoSans-Bold"><?= $subtitlePostTrend; ?></p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 d-flex justify-content-center align-items-center">
+                                                                    <div class="w-75">
+                                                                        <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
 
-                <?php endif ?>
+                                            <?php endwhile; ?>
+                                        <?php endif ?>
+
+                                    <?php endif; ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
+
+                        <?php endforeach; ?>
+
+                    <?php endif ?>
+
+                    </div>
+                </div>
 
             </div>
-        </div>
-
-</div>

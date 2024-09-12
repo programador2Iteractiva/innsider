@@ -39,13 +39,10 @@
         <?php $page = get_page_by_path('terminos-y-condiciones'); ?>
         <?php if($page) : ?>
             <?php $permalink = get_permalink($page->ID); ?>
-            <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Términos y condiciones</a>
+            <a href="<?php echo esc_url($permalink); ?>" id="open-cookie-settings" class="secondtitleFooter">Términos y condiciones</a>
         <?php endif ?>
         <?php $page = get_page_by_path('politica-de-cookies'); ?>
-        <?php if($page) : ?>
-            <?php $permalink = get_permalink($page->ID); ?>
-            <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política cookies</a>
-        <?php endif ?> 
+        <a href="<?php echo esc_url($permalink); ?>" class="secondtitleFooter">Política cookies</a>
         <?php $page = get_page_by_path('politica-de-privacidad'); ?>
         <?php if($page) : ?>
             <?php $permalink = get_permalink($page->ID); ?>

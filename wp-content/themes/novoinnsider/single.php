@@ -121,13 +121,21 @@ $titlePostId = get_the_title();
             <div class="container background-vision_single p-2">
                 <div class="p-5">
 
-                    <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?= $currentTermParent->name ?></h1>
+                    <?php if(isset($currentTermParent->name) && !empty($currentTermParent->name)) : ?>
+                        <h1 class="NotoSans-Bold title-color d-none d-lg-block mb-5 pb-2"><?= $currentTermParent->name ?></h1>
+                        <h5 class="NotoSans-Bold title-color d-block d-lg-none mb-3 pb-2"><?= $currentTermParent->name; ?></h5>
+                    <?php endif ?>
 
-                    <h2 class="NotoSans-Bold title-color mx-4"><?php the_title(); ?></h2>
+                    <?php $titlePost = get_the_title(); ?>
+
+                    <?php if(isset($currentTermParent->name) && !empty($currentTermParent->name)) : ?>
+                        <h2 class="NotoSans-Bold title-color mx-4 d-none d-lg-block"><?= $titlePost ?></h2>
+                        <h5 class="NotoSans-Bold title-color mx-2 d-block d-lg-none"><?= $titlePost; ?></h5>
+                    <?php endif ?>
 
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
-                            <div class="col-12 d-flex justify-content-center mt-5 mb-5 flex-column">
+                            <div class="col-12 d-flex justify-content-center mt-lg-5 mt-2 mb-2 flex-column">
                                 <div class="container banner-single preview-video"
                                     onclick="playVideo(<?= $moduleId ?>, '<?= $videoPostVisionInnsider ?>', event, 'preview-video')">
                                     <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
@@ -163,87 +171,48 @@ $titlePostId = get_the_title();
                                 <?php $IfPostContentModuleVideovisioninnsider = get_field('If_Post_Content_Module_Video_vision_innsider') ?>
                                 <?php $URLPostContentModuleVideovisioninnsider = get_field('URL_Post_Content_Module_Video_vision_innsider') ?>
 
-                                <h1><?= $DescriptionModuleInnsider  ?></h1>
+                                <?php if(isset($DescriptionModuleInnsider) && !empty($DescriptionModuleInnsider)) : ?>
+                                    <h5 class="NotoSans-SemiBold title-color d-none d-lg-block mx-0 mt-0 m-4"><?= $DescriptionModuleInnsider; ?></h5>
+                                    <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4"><?= $DescriptionModuleInnsider; ?></p>
+                                <?php endif ?>
 
                                 <?php if (isset($IfSpeakerModuleInnsider) && !empty($IfSpeakerModuleInnsider)) : ?>
                                     <?php if (isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
 
-                                        
-
                                             <?php $count = 0; ?>
 
-                                            <?php foreach ($ListOfSpeakerModuleInnsider as  $listSpeakerContentModule) : ?>
+                                            <h1 class="NotoSans-Bold title-color mx-0 m-4">Conferencistas</h1>
+
+                                            <?php foreach ($ListOfSpeakerModuleInnsider as $index => $listSpeakerContentModule) : ?>
 
                                                 <?php if ($listSpeakerContentModule) : ?>
                                                     <?php $imageSpeakerModuleInnsider = $listSpeakerContentModule['Img_Speaker_Module_Innsider']; ?>
                                                     <?php $nameSpeakerModuleInnsider = $listSpeakerContentModule['Name_Speaker_Module_Innsider']; ?>
                                                     <?php $credentialsSpeakerModuleInnsider = $listSpeakerContentModule['Credentials_Speaker_Module_Innsider']; ?>
 
-                                                    <!-- <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="headingOne">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                Accordion Item #1
+                                                    <div x-data="{ open: null }">
+                                                        <div class="accordion-item">
+                                                            <button @click="open = open === <?= $index ?> ? null : <?= $index ?>" class="accordion-header">
+                                                                <div class="w-100 h-100 d-flex justify-content-start align-items-center">
+                                                                    <?php if($imageSpeakerModuleInnsider) : ?>
+                                                                        <img src="<?= esc_url(wp_get_attachment_url($imageSpeakerModuleInnsider)); ?>" alt="Herramientas" class="img-speaker-video-podcast">
+                                                                    <?php endif; ?>
+                                                                    <span class="mx-4 NotoSans-Bold title-color "><?= htmlspecialchars($nameSpeakerModuleInnsider) ?></span>
+                                                                </div>
+                                                                <i :class="open === <?= $index ?> ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
                                                             </button>
-                                                        </h2>
-                                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                            <div :class="{ 'open': open === <?= $index ?>, 'closed': open !== <?= $index ?> }" class="accordion-body">
+                                                                <div class="row m-0 p-0">
+                                                                    <p class="NotoSans-Regular title-color m-5 mx-0 "><?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?></p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div> -->
+                                                    </div>
 
                                                 <?php endif; ?>
 
-                                                <?php $count++; ?>
 
                                             <?php endforeach; ?>
-
-
-                                            <div class="container mt-4">
-                                                <div class="accordion" id="accordionExample">
-                                                    <!-- Accordion Item 1 -->
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="headingOne">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                                Item #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
-                                                            <div class="accordion-body">
-                                                                Contenido del primer acordeón.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Accordion Item 2 -->
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="headingTwo">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                                Item #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
-                                                            <div class="accordion-body">
-                                                                Contenido del segundo acordeón.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Accordion Item 3 -->
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="headingThree">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                                Item #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
-                                                            <div class="accordion-body">
-                                                                Contenido del tercer acordeón.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
 
                                     <?php endif; ?>
                                 <?php endif; ?>
@@ -256,6 +225,113 @@ $titlePostId = get_the_title();
                         </div>
 
                     </div>
+
+
+
+                    <!-- Codigo de prueba -->
+                    <?php
+                    $list_videos_speaker = new WP_Query
+                    (
+                        [
+                            'post__not_in' => [$moduleId],
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'visioninnsider-category',
+                                    'field' => 'id',
+                                    'terms' => $taxId,
+                                )
+                            ),
+                            'orderby' => 'post_date',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1,
+                            'post_status' => 'publish'
+                        ]
+                    );
+                    ?>
+
+                    <!-- Videos -->
+                    <div class="container-videos-speaker">
+                        <?php if ($list_videos_speaker->have_posts()) : $count = 0; ?>
+                            <div class="row m-0 mt-4">
+                                <div class="col-12 d-flex justify-content-center align-items-center mb-4">
+                                    <input type="hidden" id="name_speaker" value="<?= $speaker->name ?>">
+                                </div>
+                            </div>
+                            <div class="row m-0">
+                                <div class="col-12 col-lg-8 p-0">
+                                    <div class="container-info-video-speaker w-100 h-100">
+                                        <?php while ($list_videos_speaker->have_posts()) : $list_videos_speaker->the_post(); ?>
+                                            <?php if ($count == 0) : ?>
+                                                <div class="container-player-video w-100 h-100">
+                                                    <div class="preview-video w-100 h-100"
+                                                        onclick="playVideo(<?= the_ID() ?>, '<?= get_field('video_post') ?>', event, 'preview-video', <?= $count + 1 ?>)">
+                                                        <?php if (!empty($avatar_speaker)) : ?>
+                                                            <?php echo wp_get_attachment_image($avatar_speaker, 'full', '', ['class' => 'image-preview-player-video']); ?>
+                                                        <?php else : ?>
+                                                            <img src="https://i.vimeocdn.com/video/1920366696-fac41de0c389f27ad80ffc43367da730490b4920e4308cd8b8050575d3a0c3e5-d_1280x720"
+                                                                class="image-preview-player-video" style="width: 90%; height: 100%;">
+                                                        <?php endif; ?>
+
+                                                        <i class="fas fa-play icon-play-video"></i>
+                                                    </div>
+
+                                                    <div class="player-video" id="player">
+                                                        <!--                                    <iframe src class="control-player" id="player" allow="autoplay; fullscreen;" allowfullscreen></iframe>-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="wrapper-info-video-speaker">
+                                                    <p class="name-info-video-speaker"><?= esc_html(the_title()) ?></p>
+                                                    <input type="hidden" id="post_id" value="<?= the_ID() ?>">
+                                                    <input type="hidden" id="speaker_id" value="<?= $speaker_id ?>">
+                                                    <input type="hidden" id="now" value="">
+                                                    <div class="text-info-video-speaker"><?= the_content() ?></div>
+                                                </div>
+                                                <?php $count++; ?>
+                                            <?php endif; ?>
+                                        <?php endwhile; ?>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4 p-0">
+                                    <div class="container-playlist-videos">
+                                        <div class="wrapper-playlist-videos">
+                                            <?php $i = 0;
+                                            $array_post_id = [];
+                                            $post_id = ""; ?>
+                                            <?php while ($list_videos_speaker->have_posts()) : $list_videos_speaker->the_post(); ?>
+
+                                                <div id="video-<?= $i ?>"
+                                                    playsinline class="item-playlist-videos btn-up <?php if ($i == 0) : ?>active-item-playlist-videos<?php endif; ?>"
+                                                    onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $i + 1 ?>)">
+
+                                                    <p class="name-playlist-video"><?= esc_html(the_title()) ?></p>
+                                                    <input type="hidden" id="description_video" value="<?= esc_html(the_content()) ?>">
+                                                </div>
+
+
+                                                <?php $i++; ?>
+
+                                                <?php $post_id = get_the_id(); ?>
+                                                <?php array_push($array_post_id, $post_id); ?>
+                                            <?php endwhile; ?>
+
+                                            <input type="hidden" id="total_progress_videos">
+                                            <input type="hidden" id="array_post_id" value="<?= json_encode($array_post_id) ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3 mb-5 mx-3"></div>
+                        <?php else: ?>
+                            <div class="container-not-found text-center">
+                                <i class="fas fa-exclamation-circle text-white"></i>
+                                <h2 class="text-not-found text-white"><?= __('No se encontró contenido para esta categoría.') ?></h2>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <!-- Videos -->
+                    <!-- Codigo de prueba -->
 
                     <?php
                     $listPostAcademy = new WP_Query(
@@ -293,8 +369,8 @@ $titlePostId = get_the_title();
                                                 <?php $videoPostVisionInnsider = get_field('URL_Post_Content_Module_Video_vision_innsider', $postActivityId) ?>
                                                 <?php $thumbnailUrlVisionInnsider = obtenerMiniaturaVimeo($videoPostVisionInnsider);  ?>
 
-                                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
-                                                    <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&tax=' . $taxId); ?>" style="text-decoration: none;">
+                                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
+                                                    <a class="custom-width-single" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&tax=' . $taxId); ?>" style="text-decoration: none;">
                                                         <div class="mb-4 figure">
                                                             <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
                                                                 <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">

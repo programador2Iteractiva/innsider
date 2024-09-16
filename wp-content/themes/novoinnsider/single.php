@@ -226,112 +226,13 @@ $titlePostId = get_the_title();
 
                     </div>
 
-
-
-                    <!-- Codigo de prueba -->
-                    <?php
-                    $list_videos_speaker = new WP_Query
-                    (
-                        [
-                            'post__not_in' => [$moduleId],
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'visioninnsider-category',
-                                    'field' => 'id',
-                                    'terms' => $taxId,
-                                )
-                            ),
-                            'orderby' => 'post_date',
-                            'order' => 'ASC',
-                            'posts_per_page' => -1,
-                            'post_status' => 'publish'
-                        ]
-                    );
-                    ?>
-
-                    <!-- Videos -->
-                    <div class="container-videos-speaker">
-                        <?php if ($list_videos_speaker->have_posts()) : $count = 0; ?>
-                            <div class="row m-0 mt-4">
-                                <div class="col-12 d-flex justify-content-center align-items-center mb-4">
-                                    <input type="hidden" id="name_speaker" value="<?= $speaker->name ?>">
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-12 col-lg-8 p-0">
-                                    <div class="container-info-video-speaker w-100 h-100">
-                                        <?php while ($list_videos_speaker->have_posts()) : $list_videos_speaker->the_post(); ?>
-                                            <?php if ($count == 0) : ?>
-                                                <div class="container-player-video w-100 h-100">
-                                                    <div class="preview-video w-100 h-100"
-                                                        onclick="playVideo(<?= the_ID() ?>, '<?= get_field('video_post') ?>', event, 'preview-video', <?= $count + 1 ?>)">
-                                                        <?php if (!empty($avatar_speaker)) : ?>
-                                                            <?php echo wp_get_attachment_image($avatar_speaker, 'full', '', ['class' => 'image-preview-player-video']); ?>
-                                                        <?php else : ?>
-                                                            <img src="https://i.vimeocdn.com/video/1920366696-fac41de0c389f27ad80ffc43367da730490b4920e4308cd8b8050575d3a0c3e5-d_1280x720"
-                                                                class="image-preview-player-video" style="width: 90%; height: 100%;">
-                                                        <?php endif; ?>
-
-                                                        <i class="fas fa-play icon-play-video"></i>
-                                                    </div>
-
-                                                    <div class="player-video" id="player">
-                                                        <!--                                    <iframe src class="control-player" id="player" allow="autoplay; fullscreen;" allowfullscreen></iframe>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="wrapper-info-video-speaker">
-                                                    <p class="name-info-video-speaker"><?= esc_html(the_title()) ?></p>
-                                                    <input type="hidden" id="post_id" value="<?= the_ID() ?>">
-                                                    <input type="hidden" id="speaker_id" value="<?= $speaker_id ?>">
-                                                    <input type="hidden" id="now" value="">
-                                                    <div class="text-info-video-speaker"><?= the_content() ?></div>
-                                                </div>
-                                                <?php $count++; ?>
-                                            <?php endif; ?>
-                                        <?php endwhile; ?>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-4 p-0">
-                                    <div class="container-playlist-videos">
-                                        <div class="wrapper-playlist-videos">
-                                            <?php $i = 0;
-                                            $array_post_id = [];
-                                            $post_id = ""; ?>
-                                            <?php while ($list_videos_speaker->have_posts()) : $list_videos_speaker->the_post(); ?>
-
-                                                <div id="video-<?= $i ?>"
-                                                    playsinline class="item-playlist-videos btn-up <?php if ($i == 0) : ?>active-item-playlist-videos<?php endif; ?>"
-                                                    onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $i + 1 ?>)">
-
-                                                    <p class="name-playlist-video"><?= esc_html(the_title()) ?></p>
-                                                    <input type="hidden" id="description_video" value="<?= esc_html(the_content()) ?>">
-                                                </div>
-
-
-                                                <?php $i++; ?>
-
-                                                <?php $post_id = get_the_id(); ?>
-                                                <?php array_push($array_post_id, $post_id); ?>
-                                            <?php endwhile; ?>
-
-                                            <input type="hidden" id="total_progress_videos">
-                                            <input type="hidden" id="array_post_id" value="<?= json_encode($array_post_id) ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mt-3 mb-5 mx-3"></div>
-                        <?php else: ?>
-                            <div class="container-not-found text-center">
-                                <i class="fas fa-exclamation-circle text-white"></i>
-                                <h2 class="text-not-found text-white"><?= __('No se encontró contenido para esta categoría.') ?></h2>
-                            </div>
-                        <?php endif; ?>
+                    <div class="wrapper-info-video-speaker">
+                        <p class="name-info-video-speaker"><?= esc_html(the_title()) ?></p>
+                        <input type="hidden" id="post_id" value="<?= the_ID() ?>">
+                        <input type="hidden" id="speaker_id" value="<?= $speaker_id ?>">
+                        <input type="hidden" id="now" value="">
+                        <div class="text-info-video-speaker"><?= the_content() ?></div>
                     </div>
-                    <!-- Videos -->
-                    <!-- Codigo de prueba -->
 
                     <?php
                     $listPostAcademy = new WP_Query(
@@ -361,6 +262,8 @@ $titlePostId = get_the_title();
 
                                         <div class="row d-flex flex-lg-row flex-column ">
 
+                                            <?php $i = 0; ?>
+
                                             <?php while ($listPostAcademy->have_posts()) : $listPostAcademy->the_post() ?>
 
                                                 <?php $postActivityId = get_the_ID(); ?>
@@ -370,7 +273,7 @@ $titlePostId = get_the_title();
                                                 <?php $thumbnailUrlVisionInnsider = obtenerMiniaturaVimeo($videoPostVisionInnsider);  ?>
 
                                                 <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
-                                                    <a class="custom-width-single" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&tax=' . $taxId); ?>" style="text-decoration: none;">
+                                                    <a class="custom-width-single item-playlist-videos" id="video-<?= $i ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $i + 1 ?>)">
                                                         <div class="mb-4 figure">
                                                             <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
                                                                 <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
@@ -386,8 +289,12 @@ $titlePostId = get_the_title();
                                                                 <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
                                                             <?php endif; ?>
                                                         </div>
+                                                        <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
+                                                        <input type="hidden" id="description_video" value="<?= esc_html(the_content()) ?>">
                                                     </a>
                                                 </div>
+
+                                                <?php $i ++; ?>
 
                                             <?php endwhile; ?>
                                             <?php wp_reset_postdata(); ?>

@@ -54,6 +54,26 @@ export function getBrowser() {
 }
 // END FUNCTION DETECT BROWSER
 
+$(function () {
+    // VALIDACION BOTON CERTIFICADO
+
+    $('.item-playlist-videos').click(function () {
+
+        console.log('clic');
+
+        $('.item-playlist-videos').removeClass('active-item-playlist-videos');
+        $(this).addClass('active-item-playlist-videos');
+
+        $('.name-info-video-speaker').text('');
+        $('.text-info-video-speaker').children('p').remove();
+
+        $('.name-info-video-speaker').append( $(this).children('.name-playlist-video').val() );
+        $('.text-info-video-speaker').append( $(this).children('#description_video').val() );
+
+    });
+
+})
+
 // FUNCTION PLAY VIDEO
 export function playVideo( post_id, url, evt, classElement) {
 
@@ -137,6 +157,57 @@ export function playVideo( post_id, url, evt, classElement) {
         );
 
         return;
+    }
+    
+
+    if ( classElement == 'item-playlist-videos' ) {
+        if($('.preview-video').hasClass('hide-preview')){
+            
+        }
+        Velocity( $('.preview-video'), 'transition.slideLeftOut',
+            {
+                duration: 500,
+                complete() {
+
+                    var options = {
+                        url: url,
+                        playsInline: true,
+                        autoplay: true
+                    };
+
+                    if ( deviceDetected ) {
+
+                        var options = {
+                            url: url,
+                            playsInline: true,
+                            autoplay: true,
+                            muted: true
+                        };
+
+                    }
+
+                    if ( getBrowserInfo === 'Safari' ) {
+
+                        var options = {
+                            url: url,
+                            playsInline: true,
+                            autoplay: true,
+                            muted: true
+                        };
+
+                    }
+
+                    var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
+
+                    iframe = $('#player').attr('id');
+                    player = new Player(iframe, options);
+
+                }
+            }
+        );
+
+        return;
+
     }
 }
 // FUNCTION PLAY VIDEO

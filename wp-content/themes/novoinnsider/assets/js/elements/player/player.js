@@ -71,7 +71,71 @@ $(function () {
         $('.name-info-video-speaker').append( $(this).children('.name-playlist-video').val() );
         $('.text-info-video-speaker').append( $(this).children('#description_video').val() );
 
+
+
+        var itemId = $(this).attr('id');
+        var videoIndex = itemId.split('-')[1];
+        
+        console.log('Data index del video:', videoIndex);
+        
+        // Encuentra los inputs ocultos correspondientes
+        var nameSpeaker = $('input.name-speaker[data-index="' + videoIndex + '"]').val();
+        var credentialsSpeaker = $('input.credentials-speaker[data-index="' + videoIndex + '"]').val();
+        
+        // Mostrar los valores en la consola para verificar
+        console.log('Nombre del ponente:', nameSpeaker);
+        console.log('Credenciales del ponente:', credentialsSpeaker);
+
     });
+
+
+    document.querySelectorAll('.item-playlist-videos').forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+    
+            const container = this.closest('.card-single-post-podcast');
+            const speakers = container.querySelectorAll('.name-speaker');
+            const credentials = container.querySelectorAll('.credentials-speaker');
+    
+            const speakersData = [];
+            const credentialsData = [];
+    
+            speakers.forEach(speaker => {
+                const index = speaker.getAttribute('data-index');
+                speakersData.push({
+                    index: index,
+                    name: speaker.value
+                });
+            });
+    
+            credentials.forEach(credential => {
+                const index = credential.getAttribute('data-index');
+                credentialsData.push({
+                    index: index,
+                    credentials: credential.value
+                });
+            });
+    
+            // Actualiza los datos en el acordeón
+            speakersData.forEach(speaker => {
+                const titleElement = document.querySelector(`.title-speaker-${speaker.index}`);
+                if (titleElement) {
+                    titleElement.textContent = speaker.name;
+                }
+            });
+    
+            credentialsData.forEach(credential => {
+                const credentialElement = document.querySelector(`.credential-speaker-${credential.index}`);
+                if (credentialElement) {
+                    credentialElement.textContent = credential.credentials;
+                }
+            });
+    
+            console.log("Speakers Data:", speakersData);
+            console.log("Credentials Data:", credentialsData);
+        });
+    });
+    
 
 
     // Actualiza el estado activo del botón de conferencista

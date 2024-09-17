@@ -191,19 +191,19 @@ $titlePostId = get_the_title();
                                                 <?php $credentialsSpeakerModuleInnsider = $listSpeakerContentModule['Credentials_Speaker_Module_Innsider']; ?>
 
                                                 <div x-data="{ open: null }">
-                                                    <div class="accordion-item">
+                                                    <div class="accordion-item" data-index="<?= $index ?>">
                                                         <button @click="open = open === <?= $index ?> ? null : <?= $index ?>" class="accordion-header">
                                                             <div class="w-100 h-100 d-flex justify-content-start align-items-center">
                                                                 <?php if ($imageSpeakerModuleInnsider) : ?>
                                                                     <img src="<?= esc_url(wp_get_attachment_url($imageSpeakerModuleInnsider)); ?>" alt="Herramientas" class="img-speaker-video-podcast">
                                                                 <?php endif; ?>
-                                                                <span class="mx-4 NotoSans-Bold title-color "><?= htmlspecialchars($nameSpeakerModuleInnsider) ?></span>
+                                                                <span class="mx-4 NotoSans-Bold title-color title-speaker-<?= $index ?>"><?= htmlspecialchars($nameSpeakerModuleInnsider) ?></span>
                                                             </div>
                                                             <i :class="open === <?= $index ?> ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
                                                         </button>
                                                         <div :class="{ 'open': open === <?= $index ?>, 'closed': open !== <?= $index ?> }" class="accordion-body">
                                                             <div class="row m-0 p-0">
-                                                                <p class="NotoSans-Regular title-color m-5 mx-0 "><?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?></p>
+                                                                <p class="NotoSans-Regular title-color m-5 mx-0 credential-speaker-<?= $index ?>"><?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?></p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -325,30 +325,27 @@ $titlePostId = get_the_title();
                                                         </div>
                                                         <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
                                                         <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
+
+                                                        <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+
+                                                            <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
+
+                                                                <?php $imageSpeakerModuleInnsider = $speaker['Img_Speaker_Module_Innsider']; ?>
+                                                                <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
+                                                                <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
+
+                                                                
+                                                                <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
+                                                                <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
+                                                                
+
+                                                            <?php endforeach; ?>
+
+                                                        <?php endif; ?>
                                                     </a>
                                                 </div>
 
                                                 <?php $i++; ?>
-
-                                                <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
-
-                                                    <?php foreach ($ListOfSpeakerModuleInnsider as $index) : ?>
-
-                                                        <?php if ($listSpeakerContentModule) : ?>
-                                                            <?php $imageSpeakerModuleInnsider = $index['Img_Speaker_Module_Innsider']; ?>
-                                                            <?php $nameSpeakerModuleInnsider = $index['Name_Speaker_Module_Innsider']; ?>
-                                                            <?php $credentialsSpeakerModuleInnsider = $index['Credentials_Speaker_Module_Innsider']; ?>
-
-                                                            <!-- Campos ocultos -->
-                                                            <input type="hidden" class="name-speaker" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
-                                                            <input type="hidden" class="credentials-speaker" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
-
-                                                        <?php endif; ?>
-
-
-                                                    <?php endforeach; ?>
-
-                                                <?php endif; ?>
 
                                             <?php endwhile; ?>
                                             <?php wp_reset_postdata(); ?>

@@ -129,15 +129,15 @@ $titlePostId = get_the_title();
                     <?php $titlePost = get_the_title(); ?>
 
                     <?php if(isset($currentTermParent->name) && !empty($currentTermParent->name)) : ?>
-                        <h2 class="NotoSans-Bold title-color mx-4 d-none d-lg-block"><?= $titlePost ?></h2>
-                        <h5 class="NotoSans-Bold title-color mx-2 d-block d-lg-none"><?= $titlePost; ?></h5>
+                        <h2 class="NotoSans-Bold title-color mx-4 d-none d-lg-block name-info-video-speaker"><?= $titlePost ?></h2>
+                        <h5 class="NotoSans-Bold title-color mx-2 d-block d-lg-none name-info-video-speaker"><?= $titlePost; ?></h5>
                     <?php endif ?>
 
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
                             <div class="col-12 d-flex justify-content-center mt-lg-5 mt-2 mb-2 flex-column">
                                 <div class="container banner-single preview-video"
-                                    onclick="playVideo(<?= $moduleId ?>, '<?= $videoPostVisionInnsider ?>', event, 'preview-video')">
+                                    onclick="playVideo(<?= $moduleId ?>, '<?= $videoPostVisionInnsider ?>', event, 'preview-video', <?= $contentId ?>)">
                                     <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
                                         <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single">
                                     <?php elseif (isset($bannerContentModule) && !empty($bannerContentModule)) : ?>
@@ -172,8 +172,8 @@ $titlePostId = get_the_title();
                                 <?php $URLPostContentModuleVideovisioninnsider = get_field('URL_Post_Content_Module_Video_vision_innsider') ?>
 
                                 <?php if(isset($DescriptionModuleInnsider) && !empty($DescriptionModuleInnsider)) : ?>
-                                    <h5 class="NotoSans-SemiBold title-color d-none d-lg-block mx-0 mt-0 m-4"><?= $DescriptionModuleInnsider; ?></h5>
-                                    <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4"><?= $DescriptionModuleInnsider; ?></p>
+                                    <h5 class="NotoSans-SemiBold title-color d-none d-lg-block mx-0 mt-0 m-4 description_video"><?= $DescriptionModuleInnsider; ?></h5>
+                                    <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4 description_video"><?= $DescriptionModuleInnsider; ?></p>
                                 <?php endif ?>
 
                                 <?php if (isset($IfSpeakerModuleInnsider) && !empty($IfSpeakerModuleInnsider)) : ?>
@@ -226,14 +226,6 @@ $titlePostId = get_the_title();
 
                     </div>
 
-                    <div class="wrapper-info-video-speaker">
-                        <p class="name-info-video-speaker"><?= esc_html(the_title()) ?></p>
-                        <input type="hidden" id="post_id" value="<?= the_ID() ?>">
-                        <input type="hidden" id="speaker_id" value="<?= $speaker_id ?>">
-                        <input type="hidden" id="now" value="">
-                        <div class="text-info-video-speaker"><?= the_content() ?></div>
-                    </div>
-
                     <?php
                     $listPostAcademy = new WP_Query(
                         [
@@ -253,6 +245,42 @@ $titlePostId = get_the_title();
                     );
                     ?>
 
+                    <?php
+                    $otherListPostAcademy = new WP_Query(
+                        [
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'visioninnsider-category',
+                                    'field' => 'id',
+                                    'terms' => $taxId,
+                                )
+                            ),
+                            'orderby' => 'post_date',
+                            'order' => 'ASC',
+                            'posts_per_page' => -1,
+                            'post_status' => 'publish'
+                        ]
+                    );
+                    ?>
+
+                    <?php
+                        if ($otherListPostAcademy->have_posts()) {
+                            while ($otherListPostAcademy->have_posts()) {
+                                $otherListPostAcademy->the_post();
+                                $postIds[] = get_the_ID();
+                            }
+                            wp_reset_postdata();
+                        }
+                    ?>
+
+                    <?php    
+                        // Crea un array asociativo para mapear IDs a posiciones
+                        $postPosition = array_flip($postIds);
+                        foreach ($postPosition as $id => $index) {
+                            $postPosition[$id] = $index + 1; // Asigna posiciones comenzando desde 1
+                        }
+                    ?>
+
                     <div class="container p-lg-5 pt-lg-0">
                         <?php if (isset($listPostAcademy) && !empty($listPostAcademy)) : ?>
                             <?php if ($listPostAcademy->have_posts()) : ?>
@@ -267,13 +295,17 @@ $titlePostId = get_the_title();
                                             <?php while ($listPostAcademy->have_posts()) : $listPostAcademy->the_post() ?>
 
                                                 <?php $postActivityId = get_the_ID(); ?>
+                                                <?php $postIndex = isset($postPosition[$postActivityId]) ? $postPosition[$postActivityId] : 0; ?>
+                                                
                                                 <?php $imageModuleVision = get_field('Img_Video_Mod', $currentPostId) ?>
 
                                                 <?php $videoPostVisionInnsider = get_field('URL_Post_Content_Module_Video_vision_innsider', $postActivityId) ?>
                                                 <?php $thumbnailUrlVisionInnsider = obtenerMiniaturaVimeo($videoPostVisionInnsider);  ?>
 
+                                                <?php $descriptionModuleInnsider = get_field('Description_Module_Innsider', $currentPostId) ?>
+
                                                 <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
-                                                    <a class="custom-width-single item-playlist-videos" id="video-<?= $i ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $i + 1 ?>)">
+                                                    <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>)">
                                                         <div class="mb-4 figure">
                                                             <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
                                                                 <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
@@ -290,7 +322,7 @@ $titlePostId = get_the_title();
                                                             <?php endif; ?>
                                                         </div>
                                                         <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
-                                                        <input type="hidden" id="description_video" value="<?= esc_html(the_content()) ?>">
+                                                        <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
                                                     </a>
                                                 </div>
 

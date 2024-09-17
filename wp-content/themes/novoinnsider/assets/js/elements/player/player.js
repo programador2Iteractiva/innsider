@@ -55,11 +55,12 @@ export function getBrowser() {
 // END FUNCTION DETECT BROWSER
 
 $(function () {
-    // VALIDACION BOTON CERTIFICADO
+    // CALCULO PROGRESO TOTAL DE VIDEOS
+    countVideos = parseInt( $('.item-playlist-videos').length );
 
+    console.log(countVideos)
+    
     $('.item-playlist-videos').click(function () {
-
-        console.log('clic');
 
         $('.item-playlist-videos').removeClass('active-item-playlist-videos');
         $(this).addClass('active-item-playlist-videos');
@@ -75,7 +76,7 @@ $(function () {
 })
 
 // FUNCTION PLAY VIDEO
-export function playVideo( post_id, url, evt, classElement) {
+export function playVideo( post_id, url, evt, classElement, next ) {
 
     $('.loading-waiting').fadeIn("slow");
 
@@ -137,11 +138,6 @@ export function playVideo( post_id, url, evt, classElement) {
                                         player.getDuration().then(function(duration) {
                                             video_duration = parseInt( duration );
 
-                                            saveVideoAudit( post_id, video_duration, current_time );
-                                            progressVideo(post_id);
-                                            validateLogCertificate();
-
-
                                         });
 
                                         $('#post_id').val(post_id);
@@ -157,54 +153,183 @@ export function playVideo( post_id, url, evt, classElement) {
         );
 
         return;
-    }
-    
-
-    if ( classElement == 'item-playlist-videos' ) {
+    }else if( classElement == 'item-playlist-videos' ) {
         if($('.preview-video').hasClass('hide-preview')){
-            
-        }
-        Velocity( $('.preview-video'), 'transition.slideLeftOut',
-            {
-                duration: 500,
-                complete() {
+            console.log('Entro a .preview-video con hide-preview');
+                Velocity( $('.player-video'), 'transition.slideLeftOut',
+                {
+                    duration: 500,
+                    complete() {
+                        player.pause().then(function () {
+                            player.getCurrentTime().then(function(seconds) {
+                                current_time = parseInt( seconds );
 
-                    var options = {
-                        url: url,
-                        playsInline: true,
-                        autoplay: true
-                    };
+                                player.destroy().then(function () {
+                                    var options = {
+                                        url: url,
+                                        playsInline: true,
+                                        autoplay: true
+                                    };
 
-                    if ( deviceDetected ) {
+                                    if ( deviceDetected ) {
 
-                        var options = {
-                            url: url,
-                            playsInline: true,
-                            autoplay: true,
-                            muted: true
-                        };
+                                        var options = {
+                                            url: url,
+                                            playsInline: true,
+                                            autoplay: true,
+                                            muted: true
+                                        };
 
+                                    }
+
+                                    if ( getBrowserInfo === 'Safari' ) {
+
+                                        var options = {
+                                            url: url,
+                                            playsInline: true,
+                                            autoplay: true,
+                                            muted: true
+                                        };
+
+                                    }
+
+                                    iframe = $('#player').attr('id');
+                                    player = new Player(iframe, options);
+                                });
+                            });
+                        })
+
+                        Velocity( $('.player-video'), 'transition.slideRightIn',
+                            {
+                                duration: 500,
+                                complete() {
+                                    $('.loading-waiting').fadeOut("slow");
+                                    player.play().then(function () {
+                                        player.ready().then(function () {
+                                            player.getDuration().then(function(duration) {
+                                                video_duration = parseInt( duration );
+
+                                                var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
+                                            });
+
+                                            $('#post_id').val(post_id);
+                                            eventsVideo(next, post_id);
+                                        })
+                                    });
+                                }
+                            }
+                        )
                     }
-
-                    if ( getBrowserInfo === 'Safari' ) {
-
-                        var options = {
-                            url: url,
-                            playsInline: true,
-                            autoplay: true,
-                            muted: true
-                        };
-
-                    }
-
-                    var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
-
-                    iframe = $('#player').attr('id');
-                    player = new Player(iframe, options);
-
                 }
-            }
-        );
+            );
+
+            return;
+
+        }else {
+            console.log('No Entra a .preview-video');
+            Velocity( $('.preview-video'), 'transition.slideLeftOut',
+                {
+                    duration: 500,
+                    complete() {
+                        var options = {
+                            url: url,
+                            playsInline: true,
+                            autoplay: true
+                        };
+
+                        if ( deviceDetected ) {
+
+                            var options = {
+                                url: url,
+                                playsInline: true,
+                                autoplay: true,
+                                muted: true
+                            };
+
+                        }
+
+                        if ( getBrowserInfo === 'Safari' ) {
+
+                            var options = {
+                                url: url,
+                                playsInline: true,
+                                autoplay: true,
+                                muted: true
+                            };
+
+                        }
+
+                        iframe = $('#player').attr('id');
+                        player = new Player(iframe, options);
+
+                        Velocity( $('.player-video'), 'transition.slideRightIn',
+                            {
+                                duration: 500,
+                                complete() {
+                                    $('.loading-waiting').fadeOut("slow");
+                                    player.play().then(function () {
+                                        player.ready().then(function () {
+                                            player.getDuration().then(function(duration) {
+                                                video_duration = parseInt( duration );
+                                            });
+
+                                            $('#post_id').val(post_id);
+                                            eventsVideo(next, post_id);
+
+                                            var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
+                                        })
+                                    });
+                                    $('.preview-video').addClass('hide-preview');
+                                }
+                            }
+                        )
+                    }
+                }
+            );
+
+            return;
+        }
+        // Velocity( $('.preview-video'), 'transition.slideLeftOut',
+        //     {
+        //         duration: 500,
+        //         complete() {
+
+        //             var options = {
+        //                 url: url,
+        //                 playsInline: true,
+        //                 autoplay: true
+        //             };
+
+        //             if ( deviceDetected ) {
+
+        //                 var options = {
+        //                     url: url,
+        //                     playsInline: true,
+        //                     autoplay: true,
+        //                     muted: true
+        //                 };
+
+        //             }
+
+        //             if ( getBrowserInfo === 'Safari' ) {
+
+        //                 var options = {
+        //                     url: url,
+        //                     playsInline: true,
+        //                     autoplay: true,
+        //                     muted: true
+        //                 };
+
+        //             }
+
+        //             var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
+
+        //             iframe = $('#player').attr('id');
+        //             player = new Player(iframe, options);
+
+        //         }
+        //     }
+        // );
 
         return;
 
@@ -214,7 +339,7 @@ export function playVideo( post_id, url, evt, classElement) {
 
 // FUNCTION EVENTS VIDEO
 export function eventsVideo(nextIndex, post_id) {
-    nextControlVideo = nextIndex;
+    nextControlVideo = nextIndex +1;
 
     player.on('pause', function () {
         player.getDuration().then(function(duration) {
@@ -223,28 +348,33 @@ export function eventsVideo(nextIndex, post_id) {
 
         player.getCurrentTime().then(function(seconds) {
             current_time = parseInt( seconds );
-            progressVideo(post_id);
-            saveVideoAudit( post_id, video_duration, current_time );
-            validateLogCertificate();
+            // progressVideo(post_id);
+            // saveVideoAudit( post_id, video_duration, current_time );
+            // validateLogCertificate();
         });
     });
 
     player.on('ended', function() {
         var nextVideo = nextControlVideo;
 
-        if ( nextVideo < countVideos ) {
-            progressVideo(post_id);
-            saveVideoAudit( post_id, video_duration, video_duration );
-            validateLogCertificate();
+        if ( nextVideo <= countVideos ) {
+            // progressVideo(post_id);
+            // saveVideoAudit( post_id, video_duration, video_duration );
+            // validateLogCertificate();
 
             $('#video-'+nextVideo+'').click();
             nextControlVideo = nextControlVideo;
 
         }
         else {
-            progressVideo(post_id);
-            saveVideoAudit( post_id, video_duration, video_duration );
-            validateLogCertificate();
+            console.log(nextVideo);
+
+            nextControlVideo = nextVideo;
+            $('#video-'+nextControlVideo+'').click();
+
+            // progressVideo(post_id);
+            // saveVideoAudit( post_id, video_duration, video_duration );
+            // validateLogCertificate();
         }
     });
 }

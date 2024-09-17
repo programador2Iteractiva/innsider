@@ -172,8 +172,8 @@ $titlePostId = get_the_title();
                                 <?php $URLPostContentModuleVideovisioninnsider = get_field('URL_Post_Content_Module_Video_vision_innsider') ?>
 
                                 <?php if (isset($DescriptionModuleInnsider) && !empty($DescriptionModuleInnsider)) : ?>
-                                    <h5 class="NotoSans-SemiBold title-color d-none d-lg-block mx-0 mt-0 m-4 description_video text-info-video-speaker"><?= $DescriptionModuleInnsider; ?></h5>
-                                    <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4 description_video text-info-video-speaker"><?= $DescriptionModuleInnsider; ?></p>
+                                    <h5 class="NotoSans-SemiBold title-color d-none d-lg-block mx-0 mt-0 m-4 text-info-video-speaker"><?= $DescriptionModuleInnsider; ?></h5>
+                                    <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4 text-info-video-speaker"><?= $DescriptionModuleInnsider; ?></p>
                                 <?php endif ?>
 
                                 <?php if (isset($IfSpeakerModuleInnsider) && !empty($IfSpeakerModuleInnsider)) : ?>

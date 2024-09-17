@@ -71,21 +71,6 @@ $(function () {
         $('.name-info-video-speaker').append( $(this).children('.name-playlist-video').val() );
         $('.text-info-video-speaker').append( $(this).children('#description_video').val() );
 
-
-
-        var itemId = $(this).attr('id');
-        var videoIndex = itemId.split('-')[1];
-        
-        console.log('Data index del video:', videoIndex);
-        
-        // Encuentra los inputs ocultos correspondientes
-        var nameSpeaker = $('input.name-speaker[data-index="' + videoIndex + '"]').val();
-        var credentialsSpeaker = $('input.credentials-speaker[data-index="' + videoIndex + '"]').val();
-        
-        // Mostrar los valores en la consola para verificar
-        console.log('Nombre del ponente:', nameSpeaker);
-        console.log('Credenciales del ponente:', credentialsSpeaker);
-
     });
 
 
@@ -447,7 +432,14 @@ export function eventsVideo(nextIndex, post_id) {
             // saveVideoAudit( post_id, video_duration, video_duration );
             // validateLogCertificate();
 
-            $('#video-'+nextVideo+'').click();
+            // $('#video-'+nextVideo+'').click();
+
+            const nextVideoElement = document.querySelector('#video-' + nextVideo+'');
+
+            if (nextVideoElement) {
+                nextVideoElement.dispatchEvent(new Event('click'));
+            }
+
             nextControlVideo = nextControlVideo;
 
         }
@@ -456,6 +448,13 @@ export function eventsVideo(nextIndex, post_id) {
 
             nextControlVideo = nextVideo;
             $('#video-'+nextControlVideo+'').click();
+
+
+            const nextVideoElement = document.querySelector('#video-'+nextControlVideo+'');
+
+            if (nextVideoElement) {
+                nextVideoElement.dispatchEvent(new Event('click'));
+            }
 
             // progressVideo(post_id);
             // saveVideoAudit( post_id, video_duration, video_duration );

@@ -121,14 +121,14 @@ $titlePostId = get_the_title();
             <div class="container background-vision_single p-2">
                 <div class="p-5">
 
-                    <?php if(isset($currentTermParent->name) && !empty($currentTermParent->name)) : ?>
+                    <?php if (isset($currentTermParent->name) && !empty($currentTermParent->name)) : ?>
                         <h1 class="NotoSans-Bold title-color d-none d-lg-block mb-5 pb-2"><?= $currentTermParent->name ?></h1>
                         <h5 class="NotoSans-Bold title-color d-block d-lg-none mb-3 pb-2"><?= $currentTermParent->name; ?></h5>
                     <?php endif ?>
 
                     <?php $titlePost = get_the_title(); ?>
 
-                    <?php if(isset($currentTermParent->name) && !empty($currentTermParent->name)) : ?>
+                    <?php if (isset($currentTermParent->name) && !empty($currentTermParent->name)) : ?>
                         <h2 class="NotoSans-Bold title-color mx-4 d-none d-lg-block name-info-video-speaker"><?= $titlePost ?></h2>
                         <h5 class="NotoSans-Bold title-color mx-2 d-block d-lg-none name-info-video-speaker"><?= $titlePost; ?></h5>
                     <?php endif ?>
@@ -171,7 +171,7 @@ $titlePostId = get_the_title();
                                 <?php $IfPostContentModuleVideovisioninnsider = get_field('If_Post_Content_Module_Video_vision_innsider') ?>
                                 <?php $URLPostContentModuleVideovisioninnsider = get_field('URL_Post_Content_Module_Video_vision_innsider') ?>
 
-                                <?php if(isset($DescriptionModuleInnsider) && !empty($DescriptionModuleInnsider)) : ?>
+                                <?php if (isset($DescriptionModuleInnsider) && !empty($DescriptionModuleInnsider)) : ?>
                                     <h5 class="NotoSans-SemiBold title-color d-none d-lg-block mx-0 mt-0 m-4 description_video"><?= $DescriptionModuleInnsider; ?></h5>
                                     <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4 description_video"><?= $DescriptionModuleInnsider; ?></p>
                                 <?php endif ?>
@@ -179,40 +179,40 @@ $titlePostId = get_the_title();
                                 <?php if (isset($IfSpeakerModuleInnsider) && !empty($IfSpeakerModuleInnsider)) : ?>
                                     <?php if (isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
 
-                                            <?php $count = 0; ?>
+                                        <?php $count = 0; ?>
 
-                                            <h1 class="NotoSans-Bold title-color mx-0 m-4">Conferencistas</h1>
+                                        <h1 class="NotoSans-Bold title-color mx-0 m-4">Conferencistas</h1>
 
-                                            <?php foreach ($ListOfSpeakerModuleInnsider as $index => $listSpeakerContentModule) : ?>
+                                        <?php foreach ($ListOfSpeakerModuleInnsider as $index => $listSpeakerContentModule) : ?>
 
-                                                <?php if ($listSpeakerContentModule) : ?>
-                                                    <?php $imageSpeakerModuleInnsider = $listSpeakerContentModule['Img_Speaker_Module_Innsider']; ?>
-                                                    <?php $nameSpeakerModuleInnsider = $listSpeakerContentModule['Name_Speaker_Module_Innsider']; ?>
-                                                    <?php $credentialsSpeakerModuleInnsider = $listSpeakerContentModule['Credentials_Speaker_Module_Innsider']; ?>
+                                            <?php if ($listSpeakerContentModule) : ?>
+                                                <?php $imageSpeakerModuleInnsider = $listSpeakerContentModule['Img_Speaker_Module_Innsider']; ?>
+                                                <?php $nameSpeakerModuleInnsider = $listSpeakerContentModule['Name_Speaker_Module_Innsider']; ?>
+                                                <?php $credentialsSpeakerModuleInnsider = $listSpeakerContentModule['Credentials_Speaker_Module_Innsider']; ?>
 
-                                                    <div x-data="{ open: null }">
-                                                        <div class="accordion-item">
-                                                            <button @click="open = open === <?= $index ?> ? null : <?= $index ?>" class="accordion-header">
-                                                                <div class="w-100 h-100 d-flex justify-content-start align-items-center">
-                                                                    <?php if($imageSpeakerModuleInnsider) : ?>
-                                                                        <img src="<?= esc_url(wp_get_attachment_url($imageSpeakerModuleInnsider)); ?>" alt="Herramientas" class="img-speaker-video-podcast">
-                                                                    <?php endif; ?>
-                                                                    <span class="mx-4 NotoSans-Bold title-color "><?= htmlspecialchars($nameSpeakerModuleInnsider) ?></span>
-                                                                </div>
-                                                                <i :class="open === <?= $index ?> ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
-                                                            </button>
-                                                            <div :class="{ 'open': open === <?= $index ?>, 'closed': open !== <?= $index ?> }" class="accordion-body">
-                                                                <div class="row m-0 p-0">
-                                                                    <p class="NotoSans-Regular title-color m-5 mx-0 "><?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?></p>
-                                                                </div>
+                                                <div x-data="{ open: null }">
+                                                    <div class="accordion-item">
+                                                        <button @click="open = open === <?= $index ?> ? null : <?= $index ?>" class="accordion-header">
+                                                            <div class="w-100 h-100 d-flex justify-content-start align-items-center">
+                                                                <?php if ($imageSpeakerModuleInnsider) : ?>
+                                                                    <img src="<?= esc_url(wp_get_attachment_url($imageSpeakerModuleInnsider)); ?>" alt="Herramientas" class="img-speaker-video-podcast">
+                                                                <?php endif; ?>
+                                                                <span class="mx-4 NotoSans-Bold title-color "><?= htmlspecialchars($nameSpeakerModuleInnsider) ?></span>
+                                                            </div>
+                                                            <i :class="open === <?= $index ?> ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
+                                                        </button>
+                                                        <div :class="{ 'open': open === <?= $index ?>, 'closed': open !== <?= $index ?> }" class="accordion-body">
+                                                            <div class="row m-0 p-0">
+                                                                <p class="NotoSans-Regular title-color m-5 mx-0 "><?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?></p>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
 
-                                                <?php endif; ?>
+                                            <?php endif; ?>
 
 
-                                            <?php endforeach; ?>
+                                        <?php endforeach; ?>
 
                                     <?php endif; ?>
                                 <?php endif; ?>
@@ -264,21 +264,21 @@ $titlePostId = get_the_title();
                     ?>
 
                     <?php
-                        if ($otherListPostAcademy->have_posts()) {
-                            while ($otherListPostAcademy->have_posts()) {
-                                $otherListPostAcademy->the_post();
-                                $postIds[] = get_the_ID();
-                            }
-                            wp_reset_postdata();
+                    if ($otherListPostAcademy->have_posts()) {
+                        while ($otherListPostAcademy->have_posts()) {
+                            $otherListPostAcademy->the_post();
+                            $postIds[] = get_the_ID();
                         }
+                        wp_reset_postdata();
+                    }
                     ?>
 
-                    <?php    
-                        // Crea un array asociativo para mapear IDs a posiciones
-                        $postPosition = array_flip($postIds);
-                        foreach ($postPosition as $id => $index) {
-                            $postPosition[$id] = $index + 1; // Asigna posiciones comenzando desde 1
-                        }
+                    <?php
+                    // Crea un array asociativo para mapear IDs a posiciones
+                    $postPosition = array_flip($postIds);
+                    foreach ($postPosition as $id => $index) {
+                        $postPosition[$id] = $index + 1; // Asigna posiciones comenzando desde 1
+                    }
                     ?>
 
                     <div class="container p-lg-5 pt-lg-0">
@@ -296,13 +296,15 @@ $titlePostId = get_the_title();
 
                                                 <?php $postActivityId = get_the_ID(); ?>
                                                 <?php $postIndex = isset($postPosition[$postActivityId]) ? $postPosition[$postActivityId] : 0; ?>
-                                                
+
                                                 <?php $imageModuleVision = get_field('Img_Video_Mod', $currentPostId) ?>
 
                                                 <?php $videoPostVisionInnsider = get_field('URL_Post_Content_Module_Video_vision_innsider', $postActivityId) ?>
                                                 <?php $thumbnailUrlVisionInnsider = obtenerMiniaturaVimeo($videoPostVisionInnsider);  ?>
 
-                                                <?php $descriptionModuleInnsider = get_field('Description_Module_Innsider', $currentPostId) ?>
+                                                <?php $descriptionModuleInnsider = get_field('Description_Module_Innsider', $postActivityId) ?>
+
+                                                <?php $ListOfSpeakerModuleInnsider = get_field('List_Of_Speaker_Module_Innsider', $postActivityId) ?>
 
                                                 <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
                                                     <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>)">
@@ -326,7 +328,27 @@ $titlePostId = get_the_title();
                                                     </a>
                                                 </div>
 
-                                                <?php $i ++; ?>
+                                                <?php $i++; ?>
+
+                                                <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+
+                                                    <?php foreach ($ListOfSpeakerModuleInnsider as $index) : ?>
+
+                                                        <?php if ($listSpeakerContentModule) : ?>
+                                                            <?php $imageSpeakerModuleInnsider = $index['Img_Speaker_Module_Innsider']; ?>
+                                                            <?php $nameSpeakerModuleInnsider = $index['Name_Speaker_Module_Innsider']; ?>
+                                                            <?php $credentialsSpeakerModuleInnsider = $index['Credentials_Speaker_Module_Innsider']; ?>
+
+                                                            <!-- Campos ocultos -->
+                                                            <input type="hidden" class="name-speaker" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
+                                                            <input type="hidden" class="credentials-speaker" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
+
+                                                        <?php endif; ?>
+
+
+                                                    <?php endforeach; ?>
+
+                                                <?php endif; ?>
 
                                             <?php endwhile; ?>
                                             <?php wp_reset_postdata(); ?>

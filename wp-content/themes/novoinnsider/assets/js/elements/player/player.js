@@ -73,6 +73,27 @@ $(function () {
 
     });
 
+
+    // Actualiza el estado activo del botón de conferencista
+    $('.item-speaker').removeClass('active-item-speaker');
+    $(this).addClass('active-item-speaker');
+
+    // Obtiene los valores de los campos ocultos
+    const speakerName = $(this).siblings().find('.name-speaker').val();
+    const speakerCredentials = $(this).siblings().find('.credentials-speaker').val();
+
+    // Actualiza la interfaz de usuario con los datos del conferencista
+    $('.name-info-speaker').text(speakerName);
+    $('.text-info-speaker').text(speakerCredentials);
+
+    // Actualiza el ícono del botón
+    const icon = $(this).find('i');
+    if (icon.hasClass('fa-plus')) {
+        icon.removeClass('fa-plus').addClass('fa-minus');
+    } else {
+        icon.removeClass('fa-minus').addClass('fa-plus');
+    }
+
 })
 
 // FUNCTION PLAY VIDEO

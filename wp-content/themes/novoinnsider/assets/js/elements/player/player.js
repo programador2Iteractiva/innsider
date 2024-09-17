@@ -69,6 +69,7 @@ $(function () {
         $('.name-info-video-speaker').children('h5').remove();
         $('.name-info-video-speaker').children('p').remove();
         $('.text-info-video-speaker').children('p').remove();
+        $('.text-info-video-speaker').children('h5').remove();
 
         $('.name-info-video-speaker').append( $(this).children('.name-playlist-video').val() );
         $('.text-info-video-speaker').append( $(this).children('#description_video').val() );

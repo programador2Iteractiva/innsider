@@ -66,6 +66,8 @@ $(function () {
         $(this).addClass('active-item-playlist-videos');
 
         $('.name-info-video-speaker').text('');
+        $('.name-info-video-speaker').children('h5').remove();
+        $('.name-info-video-speaker').children('p').remove();
         $('.text-info-video-speaker').children('p').remove();
 
         $('.name-info-video-speaker').append( $(this).children('.name-playlist-video').val() );

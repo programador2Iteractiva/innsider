@@ -20,7 +20,7 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
 
 <body>
 
-    <header>
+    <header id="header">
         <div class="">
             <div class="">
                 <nav class="navbar navbar-expand-lg py-lg-5 py-4 d-lg-flex justify-content-between align-items-lg-center flex-row mx-4 mx-lg-0">
@@ -41,17 +41,41 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body d-lg-flex d-block justify-content-lg-center align-items-lg-center">
-                            <?php
-                            wp_nav_menu(array(
-                                'theme_location' => 'primary',
-                                'container' => false,
-                                'menu_class' => 'navbar-nav',
-                                'fallback_cb' => '__return_false',
-                                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                                'depth' => 3,
-                                'walker' => new bootstrap_5_wp_nav_menu_walker()
-                            ));
-                            ?>
+
+                            <div class="d-none d-lg-block row m-0 p-0">
+
+                                <?php if ( function_exists('max_mega_menu_is_enabled') && max_mega_menu_is_enabled('primary') ) : ?>
+                                    <?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
+                                <?php else: ?>
+                                    <?php
+                                        wp_nav_menu(array(
+                                            'theme_location' => 'primary',
+                                            'container' => false,
+                                            'menu_class' => 'navbar-nav',
+                                            'fallback_cb' => '__return_false',
+                                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                            'depth' => 3,
+                                            'walker' => new bootstrap_5_wp_nav_menu_walker()
+                                        ));
+                                    ?>
+                                <?php endif; ?>
+
+                            </div>
+
+                            <div class="d-block d-lg-none col-12">
+                                <?php
+                                    wp_nav_menu(array(
+                                        'theme_location' => 'secundary',
+                                        'container' => false,
+                                        'menu_class' => 'navbar-nav',
+                                        'fallback_cb' => '__return_false',
+                                        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                        'depth' => 3,
+                                        'walker' => new bootstrap_5_wp_nav_menu_walker()
+                                    ));
+                                ?>
+                            </div>
+
                         </div>
                     </div>
 

@@ -122,6 +122,7 @@ function novo_inssider_menus()
 
     $locations = array(
         'primary' => __('Menú principal', 'novo_inssider'),
+        'secundary' => __('Menú principal Movil', 'novo_inssider'),
     );
 
     register_nav_menus($locations);

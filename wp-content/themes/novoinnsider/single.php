@@ -187,7 +187,7 @@ $titlePostId = get_the_title();
 
                                         <?php $count = 0; ?>
 
-                                        <h1 class="NotoSans-Bold title-color mx-0 m-4">Conferencistas</h1>
+                                        <h1 class="NotoSans-Bold title-color mx-0 m-4">Expertos</h1>
 
                                         <?php foreach ($ListOfSpeakerModuleInnsider as $index => $listSpeakerContentModule) : ?>
 

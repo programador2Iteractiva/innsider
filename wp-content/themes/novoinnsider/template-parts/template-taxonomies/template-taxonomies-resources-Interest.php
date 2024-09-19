@@ -36,10 +36,12 @@ $taxonomy = get_queried_object();
         <div class="container mt-4">
             <div class="row m-0 p-0">
                 <?php if (isset($descriptioonCategory) && !empty($descriptioonCategory)) : ?>
-                    <h1 class="NotoSans-Bold title-color mb-3 text-uppercase"><?= $descriptioonCategory; ?></h1>
+                    <h1 class="NotoSans-Bold title-color mb-3 text-uppercase d-none d-lg-block"><?= $descriptioonCategory; ?></h1>
+                    <h3 class="NotoSans-Bold title-color mb-3 mt-2 d-block d-lg-none"><?= $descriptioonCategory; ?></h3>
                 <?php endif ?>
                 <?php if (isset($subtitleCategory) && !empty($subtitleCategory)) : ?>
-                    <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= $subtitleCategory; ?></h5>
+                    <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2 d-none d-lg-block"><?= $subtitleCategory; ?></h5>
+                    <p class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2 d-block d-lg-none"><?= $subtitleCategory; ?></p>
                 <?php endif ?>
             </div>
         </div>

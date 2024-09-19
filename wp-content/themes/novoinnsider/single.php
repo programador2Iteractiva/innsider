@@ -37,8 +37,14 @@ $titlePostId = get_the_title();
 
                     <div class="col-lg-12">
                         <div class="row justify-content-center">
-                            <div class="col-12 d-flex justify-content-center mt-5 mb-5">
-                                <embed src="<?= $pdfPostTrend ?>" type="application/pdf" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                            <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
+                                <embed src="<?= $pdfPostTrend ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $pdfPostTrend ?>" class="d-block d-lg-none" style="width: 90%; height: 100vh;" frameborder="0"></iframe>
+
+                                <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
+                                    <a href="<?= $pdfPostTrend ?>" download class="text-decoration-none text-light">Descargar PDF</a>
+                                </div>
+
                             </div>
                         </div>
 
@@ -181,7 +187,7 @@ $titlePostId = get_the_title();
 
                                         <?php $count = 0; ?>
 
-                                        <h1 class="NotoSans-Bold title-color mx-0 m-4">Conferencistas</h1>
+                                        <h1 class="NotoSans-Bold title-color mx-0 m-4">Expertos</h1>
 
                                         <?php foreach ($ListOfSpeakerModuleInnsider as $index => $listSpeakerContentModule) : ?>
 
@@ -413,7 +419,7 @@ $titlePostId = get_the_title();
                             <?php endforeach; ?>
 
                             <?php if ($specificModule) : ?>
-                                <!-- Mostrar el contenido del módulo específico -->
+                                <!-- Mostrar el contenido del módulo específico 1-->
                                 <?php $imageModuleAcademy = $specificModule['Img_Video_Mod']; ?>
                                 <?php $titleModuleAcademy = $specificModule['Title_Video_Mod']; ?>
                                 <?php $speakerModuleAcademy = $specificModule['Name_Speaker_Mod']; ?>
@@ -436,7 +442,7 @@ $titlePostId = get_the_title();
                                     </div>
                                 </div>
 
-                                <div class="container third-background-taxonomy mt-lg-5 mt-4 p-5">
+                                <div class="container third-background-taxonomy mt-lg-5 mt-4 p-5 pb-lg-5 pb-1">
                                     <div class="container banner-single preview-video"
                                         onclick="playVideo(<?= $moduleId ?>, '<?= $urlModuleAcademy ?>', event, 'preview-video')">
                                         <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)) : ?>
@@ -451,13 +457,15 @@ $titlePostId = get_the_title();
                                     </div>
 
                                     <div class="player-video banner-single " id="player"></div>
-                                    <div class="container mt-4">
+                                    <div class="container mt-lg-4">
                                         <div class="row m-0 p-0">
                                             <?php if (isset($titleVideoContentMod) && !empty($titleVideoContentMod)) : ?>
-                                                <h1 class="NotoSans-Bold title-color mb-3"><?= esc_html($titleVideoContentMod); ?></h1>
+                                                <h1 class="NotoSans-Bold title-color mb-3 d-none d-lg-block"><?= esc_html($titleVideoContentMod); ?></h1>
+                                                <h3 class="NotoSans-Bold title-color mb-3 mt-2 d-block d-lg-none"><?= esc_html($titleVideoContentMod); ?></h3>
                                             <?php endif; ?>
                                             <?php if (isset($DescriptionContentModule) && !empty($DescriptionContentModule)) : ?>
-                                                <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2"><?= esc_html($DescriptionContentModule); ?></h5>
+                                                <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify mb-lg-5 mb-2 d-none d-lg-block"><?= esc_html($DescriptionContentModule); ?></h5>
+                                                <p class="NotoSans-SemiBold description-color text-align-justify mb-lg-5 mb-2 d-block d-lg-none"><?= esc_html($DescriptionContentModule); ?></p>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -582,7 +590,7 @@ $titlePostId = get_the_title();
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="container banner-academy" data-aos="zoom-in">
                     <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
                     <div class="wrapper-banner-academy">
@@ -619,7 +627,6 @@ $titlePostId = get_the_title();
                                     <div class="container p-lg-5 p-1">
                                         <div class="container background-single p-2">
                                             <div class="p-1">
-
                                                 <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
 
                                                 <?php if (have_rows('Content_Post_Trend')) : ?>
@@ -660,17 +667,23 @@ $titlePostId = get_the_title();
                     <?php if (isset($ifPostTrendPdf) && !empty($ifPostTrendPdf)) : ?>
                         <?php if (isset($pdfPostTrend) && !empty($pdfPostTrend)) : ?>
 
-
                             <div class="container p-lg-5 pb-lg-0 p-1">
                                 <div class="container background-single p-2">
-                                    <div class="p-5">
+                                    <div class="p-5 pt-3 pt-lg-5 w-100">
 
-                                        <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+                                        <h1 class="NotoSans-Bold title-color mb-5 pb-2 d-none d-lg-block"><?php the_title(); ?></h1>
+                                        <h5 class="NotoSans-Bold title-color mb-2 pb-2 d-block d-lg-none"><?php the_title(); ?></h5>  
 
                                         <div class="col-lg-12">
                                             <div class="row justify-content-center">
-                                                <div class="col-12 d-flex justify-content-center mt-5 mb-5">
-                                                    <embed src="<?= $pdfPostTrend ?>" type="application/pdf" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                                <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
+                                                    <embed src="<?= $pdfPostTrend ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                                    <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $pdfPostTrend ?>" class="d-block d-lg-none" style="width: 90%; height: 100vh;" frameborder="0"></iframe>
+
+                                                    <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
+                                                        <a href="<?= $pdfPostTrend ?>" download class="text-decoration-none text-light">Descargar PDF</a>
+                                                    </div> 
+
                                                 </div>
                                             </div>
 
@@ -752,8 +765,8 @@ $titlePostId = get_the_title();
 
                         <div class="container p-lg-5 pt-lg-0">
 
-                            <div class="container background-taxonomy px-5">
-                                <div class="container mt-4">
+                            <div class="container background-single p-0 m-0 px-lg-5">
+                                <div class="container mt-3">
 
                                     <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
 
@@ -761,7 +774,9 @@ $titlePostId = get_the_title();
 
                                             <?php $thePermalink = get_the_permalink(); ?>
 
-                                            <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
+                                            <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+
+                                            <div class="col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                                 <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" style="text-decoration: none;">
                                                     <div class="mb-4 figure">
                                                         <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>
@@ -1049,8 +1064,14 @@ $titlePostId = get_the_title();
 
                                                         <div class="col-lg-12">
                                                             <div class="row justify-content-center">
-                                                                <div class="col-12 d-flex justify-content-center mt-5 mb-5">
-                                                                    <embed src="<?= $urlPdfModuleAcademy ?>" type="application/pdf" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                                                <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
+                                                                    <embed src="<?= $urlPdfModuleAcademy ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                                                    <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfModuleAcademy ?>" class="d-block d-lg-none" style="width: 90%; height: 100vh;" frameborder="0"></iframe>
+
+                                                                    <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
+                                                                        <a href="<?= $urlPdfModuleAcademy ?>" download class="text-decoration-none text-light">Descargar pdf</a>   
+                                                                    </div> 
+
                                                                 </div>
                                                             </div>
 

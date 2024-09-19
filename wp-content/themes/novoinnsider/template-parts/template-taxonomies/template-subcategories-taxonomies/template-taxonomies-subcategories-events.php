@@ -135,7 +135,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                     <?php $descriptionModuleAcademy = $listContentModule['Description_Module']; ?>
                                     <?php $urlModuleAcademy = $listContentModule['URL_Video_Module']; ?>
 
-                                    <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
+                                    <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events-two m-0 p-0 mt-3 mb-3">
                                         <a class="custom-width" href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" style="text-decoration: none;">
                                             <div class="mb-4 figure">
                                                 <?php if ($imageModuleAcademy) :  ?>

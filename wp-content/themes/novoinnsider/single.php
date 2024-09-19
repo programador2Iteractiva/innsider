@@ -590,7 +590,7 @@ $titlePostId = get_the_title();
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="container banner-academy" data-aos="zoom-in">
                     <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
                     <div class="wrapper-banner-academy">
@@ -627,7 +627,6 @@ $titlePostId = get_the_title();
                                     <div class="container p-lg-5 p-1">
                                         <div class="container background-single p-2">
                                             <div class="p-1">
-
                                                 <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
 
                                                 <?php if (have_rows('Content_Post_Trend')) : ?>
@@ -668,12 +667,12 @@ $titlePostId = get_the_title();
                     <?php if (isset($ifPostTrendPdf) && !empty($ifPostTrendPdf)) : ?>
                         <?php if (isset($pdfPostTrend) && !empty($pdfPostTrend)) : ?>
 
-
                             <div class="container p-lg-5 pb-lg-0 p-1">
                                 <div class="container background-single p-2">
-                                    <div class="p-5">
+                                    <div class="p-5 pt-3 pt-lg-5 w-100">
 
-                                        <h1 class="NotoSans-Bold title-color mb-5 pb-2"><?php the_title(); ?></h1>
+                                        <h1 class="NotoSans-Bold title-color mb-5 pb-2 d-none d-lg-block"><?php the_title(); ?></h1>
+                                        <h5 class="NotoSans-Bold title-color mb-2 pb-2 d-block d-lg-none"><?php the_title(); ?></h5>  
 
                                         <div class="col-lg-12">
                                             <div class="row justify-content-center">
@@ -766,8 +765,8 @@ $titlePostId = get_the_title();
 
                         <div class="container p-lg-5 pt-lg-0">
 
-                            <div class="container background-taxonomy px-5">
-                                <div class="container mt-4">
+                            <div class="container background-single p-0 m-0 px-lg-5">
+                                <div class="container mt-3">
 
                                     <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
 
@@ -775,7 +774,9 @@ $titlePostId = get_the_title();
 
                                             <?php $thePermalink = get_the_permalink(); ?>
 
-                                            <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
+                                            <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+
+                                            <div class="col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                                 <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" style="text-decoration: none;">
                                                     <div class="mb-4 figure">
                                                         <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>

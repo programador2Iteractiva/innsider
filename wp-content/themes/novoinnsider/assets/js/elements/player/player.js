@@ -65,13 +65,62 @@ $(function () {
         $('.item-playlist-videos').removeClass('active-item-playlist-videos');
         $(this).addClass('active-item-playlist-videos');
 
-        $('.name-info-video-speaker').text('');
-        $('.text-info-video-speaker').children('p').remove();
+        $('.name-info-video-speaker').empty();
+        $('.text-info-video-speaker').empty();
 
         $('.name-info-video-speaker').append( $(this).children('.name-playlist-video').val() );
         $('.text-info-video-speaker').append( $(this).children('#description_video').val() );
 
     });
+
+
+    document.querySelectorAll('.item-playlist-videos').forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+    
+            const container = this.closest('.card-single-post-podcast');
+            const speakers = container.querySelectorAll('.name-speaker');
+            const credentials = container.querySelectorAll('.credentials-speaker');
+    
+            const speakersData = [];
+            const credentialsData = [];
+    
+            speakers.forEach(speaker => {
+                const index = speaker.getAttribute('data-index');
+                speakersData.push({
+                    index: index,
+                    name: speaker.value
+                });
+            });
+    
+            credentials.forEach(credential => {
+                const index = credential.getAttribute('data-index');
+                credentialsData.push({
+                    index: index,
+                    credentials: credential.value
+                });
+            });
+    
+            // Actualiza los datos en el acordeón
+            speakersData.forEach(speaker => {
+                const titleElement = document.querySelector(`.title-speaker-${speaker.index}`);
+                if (titleElement) {
+                    titleElement.textContent = speaker.name;
+                }
+            });
+    
+            credentialsData.forEach(credential => {
+                const credentialElement = document.querySelector(`.credential-speaker-${credential.index}`);
+                if (credentialElement) {
+                    credentialElement.textContent = credential.credentials;
+                }
+            });
+    
+            console.log("Speakers Data:", speakersData);
+            console.log("Credentials Data:", credentialsData);
+        });
+    });
+    
 
 
     // Actualiza el estado activo del botón de conferencista
@@ -383,7 +432,14 @@ export function eventsVideo(nextIndex, post_id) {
             // saveVideoAudit( post_id, video_duration, video_duration );
             // validateLogCertificate();
 
-            $('#video-'+nextVideo+'').click();
+            // $('#video-'+nextVideo+'').click();
+
+            const nextVideoElement = document.querySelector('#video-' + nextVideo+'');
+
+            if (nextVideoElement) {
+                nextVideoElement.dispatchEvent(new Event('click'));
+            }
+
             nextControlVideo = nextControlVideo;
 
         }
@@ -392,6 +448,13 @@ export function eventsVideo(nextIndex, post_id) {
 
             nextControlVideo = nextVideo;
             $('#video-'+nextControlVideo+'').click();
+
+
+            const nextVideoElement = document.querySelector('#video-'+nextControlVideo+'');
+
+            if (nextVideoElement) {
+                nextVideoElement.dispatchEvent(new Event('click'));
+            }
 
             // progressVideo(post_id);
             // saveVideoAudit( post_id, video_duration, video_duration );

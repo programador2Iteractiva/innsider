@@ -39,7 +39,7 @@ $titlePostId = get_the_title();
                         <div class="row justify-content-center">
                             <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
                                 <embed src="<?= $pdfPostTrend ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
-                                <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $pdfPostTrend ?>" class="d-block d-lg-none" style="width: 90%; height: 100vh;" frameborder="0"></iframe>
+                                <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $pdfPostTrend ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
 
                                 <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
                                     <a href="<?= $pdfPostTrend ?>" download class="text-decoration-none text-light">Descargar PDF</a>
@@ -205,7 +205,7 @@ $titlePostId = get_the_title();
                                                                 <?php endif; ?>
                                                                 <span class="mx-4 NotoSans-Bold title-color title-speaker-<?= $index ?>"><?= htmlspecialchars($nameSpeakerModuleInnsider) ?></span>
                                                             </div>
-                                                            <i :class="open === <?= $index ?> ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
+                                                            <span class="span-icon-accordeon" x-text="open === <?= $index ?> ? '-' : '+'"></span>
                                                         </button>
                                                         <div :class="{ 'open': open === <?= $index ?>, 'closed': open !== <?= $index ?> }" class="accordion-body">
                                                             <div class="row m-0 p-0">
@@ -678,7 +678,7 @@ $titlePostId = get_the_title();
                                             <div class="row justify-content-center">
                                                 <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
                                                     <embed src="<?= $pdfPostTrend ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
-                                                    <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $pdfPostTrend ?>" class="d-block d-lg-none" style="width: 90%; height: 100vh;" frameborder="0"></iframe>
+                                                    <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $pdfPostTrend ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
 
                                                     <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
                                                         <a href="<?= $pdfPostTrend ?>" download class="text-decoration-none text-light">Descargar PDF</a>
@@ -1066,7 +1066,7 @@ $titlePostId = get_the_title();
                                                             <div class="row justify-content-center">
                                                                 <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
                                                                     <embed src="<?= $urlPdfModuleAcademy ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
-                                                                    <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfModuleAcademy ?>" class="d-block d-lg-none" style="width: 90%; height: 100vh;" frameborder="0"></iframe>
+                                                                    <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfModuleAcademy ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
 
                                                                     <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
                                                                         <a href="<?= $urlPdfModuleAcademy ?>" download class="text-decoration-none text-light">Descargar pdf</a>   

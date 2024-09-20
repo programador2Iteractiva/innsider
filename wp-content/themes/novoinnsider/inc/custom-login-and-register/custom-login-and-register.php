@@ -381,4 +381,73 @@ function novo_innsider_get_cities()
 add_action('wp_ajax_nopriv_get_cities', 'novo_innsider_get_cities');
 add_action('wp_ajax_get_cities', 'novo_innsider_get_cities');
 
+
+/**
+ * Function to create user coNNexo in novo-innsider
+*/
+
+function novo_inssider_create_user_connexo($dat = null)
+{
+
+    $name = $dat['name'];
+    $lastName = $dat['lastName'];
+    $document = $dat['document'];
+    $email = $dat['email'];
+    $username = sanitize_user(explode('@', $dat['name'])[0] . substr(md5(microtime()), 0, 4));
+
+    if(email_exists($email)){
+        wp_send_json_error(['message' => 'El correo ingresado ya esta en uso'], 404);
+    }
+
+    $dataUser = wp_insert_user(
+        array(
+            'user_pass' => $document,
+            'user_email' => $email,
+            'user_login' => $username,
+            'first_name' => $name,
+            'last_name' => $lastName
+        )
+    );
+
+    if (is_wp_error($dataUser)) {
+        wp_send_json_error(['message' => 'Error al crear el usuario, inténtalo de nuevo','message' => $dataUser], 404);
+    }
+
+    add_user_meta($dataUser, 'document_number', $document);
+
+    $phone = sanitize_text_field($dat['phone']);
+    add_user_meta($dataUser, 'phone', $phone);
+
+    $speciality = sanitize_text_field($dat['speciality']);
+    add_user_meta($dataUser, 'speciality', $speciality);
+
+    $institution = sanitize_text_field($dat['institution']);
+    add_user_meta($dataUser, 'institution', $institution);
+
+    $otherInstitution = sanitize_text_field($dat['other_institution']);
+    if(isset($otherInstitution) && !empty($otherInstitution)){
+        add_user_meta($dataUser, 'other_institution', $otherInstitution);
+    }
+    
+    $positionInstitution = sanitize_text_field($dat['positionInstitution']);
+    add_user_meta($dataUser, 'positionInstitution', $positionInstitution);
+
+    $country = sanitize_text_field($dat['country']);
+    add_user_meta($dataUser, 'country', $country);
+
+    $city = sanitize_text_field($dat['city']);
+    add_user_meta($dataUser, 'city', $city);
+
+    $checkTerms = sanitize_text_field($dat['checkTerms']);
+    add_user_meta($dataUser, 'checkTerms', $checkTerms);
+
+    $dataTreatment = sanitize_text_field($dat['dataTreatment']);
+    add_user_meta($dataUser, 'dataTreatment', $dataTreatment);
+
+}
+
+add_action('wp_ajax_nopriv_create_user', 'novo_inssider_create_user');
+add_action('wp_ajax_create_user', 'novo_inssider_create_user');
+
+
 ?>

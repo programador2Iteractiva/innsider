@@ -2,6 +2,7 @@ import $, { ajax } from 'jquery';
 import Swiper from "swiper/bundle";
 import "bootstrap";
 import Swal from "sweetalert2";
+import { auto } from '@popperjs/core';
 
 
 export function saveClickImput(institutionName) {
@@ -68,6 +69,35 @@ export function saveClickCities(citiesName) {
 }
 
 document.addEventListener("DOMContentLoaded", function(){
+
+    // const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
+    // const imageHeight = isMobile ? 'auto' : '500px'; // Establecer la altura
+
+    // Swal.fire({
+    //     imageAlt: 'Descripción de la imagen',
+    //     html: `
+    //     <img src="https://interactiva.net.co/images/NN_AGO.png" alt="Una imagen descriptiva" 
+    //          style="cursor: pointer; height: ${imageHeight}; width: 100%" 
+    //          onclick="window.location='https://www.google.com.co/';">
+    //   `,
+    //     showCloseButton: false,
+    //     showConfirmButton: false,
+    //     showCancelButton: false,
+    //     customClass: {
+    //         popup: "swal-style-popup-event",
+    //         confirmButton: 'swal-custom-button',
+    //         image: 'swal-image-popup-event'
+    //     },
+    //     backdrop: `
+    //         rgba(0,0,0,0.4)
+    //         left top
+    //         no-repeat
+    //     `,
+    //     allowOutsideClick: false,
+    //     confirmButtonText: "Ir al evento",
+    //     color: "#000000",
+    // });
+
 
     /* Call name user to object ajax */
     var nameUser = ajax_object.full_name;
@@ -445,6 +475,10 @@ document.addEventListener("DOMContentLoaded", function(){
             console.error('Error', error);
         })
         
-    })    
+    })
+    
+    
+
+
 
 })

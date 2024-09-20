@@ -294,6 +294,17 @@
     height: 430px;
 }
 
+.swal-style-popup-event{
+    border-radius: 2rem !important;
+    height: auto;
+    padding: 1rem 2rem;
+    background: transparent;
+}
+
+.swal-image-popup-event{
+    margin-top: 3rem;
+}
+
 .swal2-popup .swal2-confirm.swal-custom-button {
     background-color: #ffffff;
     color: #001965;

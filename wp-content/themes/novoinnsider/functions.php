@@ -1741,4 +1741,100 @@ function novo_innsider_check_menu_items() {
     return ob_get_clean();
 }
 
+
+function novo_innsider_save_logs()
+{
+    if (is_user_logged_in()) {
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . 'log';
+
+        $user_id = wp_get_current_user()->ID;
+        $user_name = wp_get_current_user()->first_name;
+        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $actionurl = 'Ingresa a la url';
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        $wpdb->insert($table_name, [
+            'user_id' => $user_id,
+            'user_name' => $user_name,
+            'url' => $url,
+            'actionurl' => $actionurl,
+            'ip' => $ip
+        ]);
+
+    }else{
+
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . 'log';
+
+        $user_id = 0;
+        $user_name = 'Usuario no registrado';
+        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $actionurl = 'Ingresa a la url';
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        $wpdb->insert($table_name, [
+            'user_id' => $user_id,
+            'user_name' => $user_name,
+            'url' => $url,
+            'actionurl' => $actionurl,
+            'ip' => $ip
+        ]);
+
+    }
+}
+
+function novo_innsider_save_logs_click()
+{
+
+    if (is_user_logged_in()) {
+    
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . 'log';
+
+        $user_id = wp_get_current_user()->ID;
+        $user_name = wp_get_current_user()->first_name;
+
+        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $actionurl = $_POST['actionurl'];
+        $ip = $_SERVER['REMOTE_ADDR'];
+    
+        $wpdb->insert($table_name, [
+            'user_id' => $user_id,
+            'user_name' => $user_name,
+            'url' => $url,
+            'actionurl' => $actionurl,
+            'ip' => $ip
+        ]);
+
+    }else{
+
+        global $wpdb;
+
+        $table_name = $wpdb->prefix . 'log';
+
+        $user_id = 0;
+        $user_name = 'Usuario no registrado';
+        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $actionurl = $_POST['actionurl'];
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        $wpdb->insert($table_name, [
+            'user_id' => $user_id,
+            'user_name' => $user_name,
+            'url' => $url,
+            'actionurl' => $actionurl,
+            'ip' => $ip
+        ]);
+
+    }
+
+}
+
+add_action('wp_ajax_nopriv_save_logs_click', 'novo_innsider_save_logs_click');
+add_action('wp_ajax_save_logs_click', 'novo_innsider_save_logs_click');
+
 ?>

@@ -5,6 +5,9 @@ if (!is_user_logged_in() && (is_page('herramientas'))) {
 }elseif (is_user_logged_in() && (is_page('login')) || is_user_logged_in() && (is_page('registro')) ) { 
     wp_safe_redirect(get_site_url());
 }
+
+novo_innsider_save_logs();
+
 ?>
 
 

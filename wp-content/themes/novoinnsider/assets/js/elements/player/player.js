@@ -189,8 +189,8 @@ export function playVideo( post_id, url, evt, classElement, next ) {
 
                     }
 
-                    var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
-                    // saveLogs( textLog );
+                    var textLog = 'Play video '+$('.name-info-video-speaker').text();
+                    saveLogsClick( textLog );
 
                     iframe = $('#player').attr('id');
                     // console.log(iframe);
@@ -279,7 +279,8 @@ export function playVideo( post_id, url, evt, classElement, next ) {
                                             player.getDuration().then(function(duration) {
                                                 video_duration = parseInt( duration );
 
-                                                var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
+                                                var textLog = 'Play video '+$('.name-info-video-speaker').text();
+                                                saveLogsClick( textLog );
                                             });
 
                                             $('#post_id').val(post_id);
@@ -346,7 +347,8 @@ export function playVideo( post_id, url, evt, classElement, next ) {
                                             $('#post_id').val(post_id);
                                             eventsVideo(next, post_id);
 
-                                            var textLog = 'Play video '+$('.name-info-video-speaker').text()+' - Speaker: '+$('#name_speaker').val();
+                                            var textLog = 'Play video '+$('.name-info-video-speaker').text();
+                                            saveLogsClick( textLog );
                                         })
                                     });
                                     $('.preview-video').addClass('hide-preview');

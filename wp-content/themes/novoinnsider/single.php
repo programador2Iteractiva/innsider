@@ -313,7 +313,7 @@ $titlePostId = get_the_title();
                                                 <?php $ListOfSpeakerModuleInnsider = get_field('List_Of_Speaker_Module_Innsider', $postActivityId) ?>
 
                                                 <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
-                                                    <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>)">
+                                                    <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>); saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
                                                         <div class="mb-4 figure">
                                                             <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
                                                                 <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
@@ -777,7 +777,7 @@ $titlePostId = get_the_title();
                                             <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
 
                                             <div class="col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
-                                                <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" style="text-decoration: none;">
+                                                <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');" style="text-decoration: none;">
                                                     <div class="mb-4 figure">
                                                         <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>
                                                             <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
@@ -1134,7 +1134,7 @@ $titlePostId = get_the_title();
                                             <?php $urlModuleAcademyCourse = $listContentModule['URL_Video_Module']; ?>
                                             <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademyCourse);  ?>
 
-                                            <a href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" class="session-a">
+                                            <a href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" onclick="saveLogsClick('Clic en `<?= the_title() ?>`, `<?= $SubtitleModule; ?>` `<?= isset($titleModuleAcademy) ? $titleModuleAcademy : '' ?><?= isset($secondTitleModuleAcademyCourse) ? ' - ' . $secondTitleModuleAcademyCourse : '' ?>`');" class="session-a">
                                                 <div class="session-row mb-3">
                                                     <div class="<?= ($counter % 2 === 0) ? 'session-icon' : 'session-second-icon'; ?>">
                                                         <?php if ($imageModuleAcademy) :  ?>

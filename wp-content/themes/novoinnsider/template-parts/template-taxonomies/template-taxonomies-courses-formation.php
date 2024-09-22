@@ -122,7 +122,7 @@ $currentTermId = $taxonomy->term_id;
                     <div class="container mt-3 mb-3">
                         <div class="row">
                             <div class="col-12 card-subcategory-academy-course background-taxonomy-card-subcategory-academy-course">
-                                <a href="<?php echo $linkCatRedirect; ?>">
+                                <a href="<?php echo $linkCatRedirect; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= $subcategory->name; ?>`');">
                                     <div class="d-flex flex-md-row flex-column position-relative justify-content-center align-items-center">
                                         <div class="col-md-4 col-lg-4" style="border-radius: 1rem;">
                                             <div class="figure">

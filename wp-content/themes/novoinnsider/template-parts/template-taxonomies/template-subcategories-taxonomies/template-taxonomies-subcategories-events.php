@@ -136,7 +136,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                     <?php $urlModuleAcademy = $listContentModule['URL_Video_Module']; ?>
 
                                     <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events-two m-0 p-0 mt-3 mb-3">
-                                        <a class="custom-width" href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" style="text-decoration: none;">
+                                        <a class="custom-width" href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= $titleModuleAcademy ?>`');" style="text-decoration: none;">
                                             <div class="mb-4 figure">
                                                 <?php if ($imageModuleAcademy) :  ?>
                                                     <?php echo wp_get_attachment_image($imageModuleAcademy, 'full', '', ['style' => 'object-fit: fill']); ?>
@@ -265,7 +265,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                             <?php $descriptionModuleAcademyCourse = $listContentModule['Description_Module']; ?>
                                             <?php $urlModuleAcademyCourse = $listContentModule['URL_Video_Module']; ?>
 
-                                                <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" class="session-a">
+                                                <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" onclick="saveLogsClick('Clic en `<?= the_title() ?>`, `<?= $SubtitleModule; ?>` `<?= isset($titleModuleAcademyCourse) ? $titleModuleAcademyCourse : '' ?><?= isset($secondTitleModuleAcademyCourse) ? ' - ' . $secondTitleModuleAcademyCourse : '' ?>`');" class="session-a">
                                                     <div class="session-row mb-3">
                                                         <div class="<?= ($counter % 2 === 0) ? 'session-icon' : 'session-second-icon'; ?>">
                                                             <?php if(isset($imageModuleAcademyCourse) && !empty($imageModuleAcademyCourse)) : ?>

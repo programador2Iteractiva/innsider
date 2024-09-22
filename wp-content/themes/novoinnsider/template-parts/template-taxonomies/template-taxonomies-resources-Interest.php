@@ -87,7 +87,7 @@ $taxonomy = get_queried_object();
                                     <?php $thePermalink = get_the_permalink(); ?>
                                     <?php $postActivityId = get_the_ID(); ?>
 
-                                    <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>">
+                                    <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
                                         <div class="d-flex flex-md-row flex-column position-relative justify-content-center align-items-center">
                                             <div class="col-md-4 col-lg-4" style="border-radius: 1rem;">
                                                 <div class="figure">

@@ -1751,7 +1751,7 @@ function novo_innsider_save_logs()
 
         $user_id = wp_get_current_user()->ID;
         $user_name = wp_get_current_user()->first_name;
-        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $url = 'https://innsider.com.co' . $_SERVER['REQUEST_URI'];
         $actionurl = 'Ingresa a la url';
         $ip = $_SERVER['REMOTE_ADDR'];
 
@@ -1771,7 +1771,7 @@ function novo_innsider_save_logs()
 
         $user_id = 0;
         $user_name = 'Usuario no registrado';
-        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $url = 'https://innsider.com.co' . $_SERVER['REQUEST_URI'];
         $actionurl = 'Ingresa a la url';
         $ip = $_SERVER['REMOTE_ADDR'];
 
@@ -1798,7 +1798,7 @@ function novo_innsider_save_logs_click()
         $user_id = wp_get_current_user()->ID;
         $user_name = wp_get_current_user()->first_name;
 
-        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $url = $_POST['url'];
         $actionurl = $_POST['actionurl'];
         $ip = $_SERVER['REMOTE_ADDR'];
     
@@ -1818,7 +1818,7 @@ function novo_innsider_save_logs_click()
 
         $user_id = 0;
         $user_name = 'Usuario no registrado';
-        $url = 'https://innsider.com.co/' . $_SERVER['REQUEST_URI'];
+        $url = $_POST['url'];
         $actionurl = $_POST['actionurl'];
         $ip = $_SERVER['REMOTE_ADDR'];
 

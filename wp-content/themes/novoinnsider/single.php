@@ -469,6 +469,15 @@ $titlePostId = get_the_title();
                 </div>
             </div>
 
+            <?php $termSingle = get_term($taxId); ?>                                                        
+            <?php $codePromomats = get_field('description_complementary', $termSingle) ?>
+
+            <div class="container m-lg-5 mx-lg-auto m-3 px-0">
+                <?php if (isset($codePromomats) && !empty($codePromomats)) : ?>
+                    <h5 class="NotoSans-Bold title-color"><?= $codePromomats; ?></h5>
+                <?php endif ?>
+            </div>
+
         <?php endif; ?>
     <?php endif; ?>
 

@@ -109,7 +109,7 @@
 
                             <?php if($Url_Redirect_Card_News_Health) : ?>
 
-                                <a href="<?= $link ?>" target="_blank">
+                                <a href="<?= $link ?>" target="_blank" onclick="saveLogsClick('Clic en tarjeta, actualidad en salud  `<?php the_title(); ?>`');">
 
                                     <?php if(isset($Image_Card_News_Health) && !empty($Image_Card_News_Health)) : ?>
                                         <?php echo wp_get_attachment_image($Image_Card_News_Health, 'full', '', ['class' => 'other-image-card-news-health']); ?>
@@ -183,7 +183,7 @@
 
                             <?php if($Url_Redirect_Card_News_Health) : ?>
 
-                                <a href="<?= $link ?>" target="_blank">
+                                <a href="<?= $link ?>" target="_blank" onclick="saveLogsClick('Clic en tarjeta, actualidad en salud  `<?php the_title(); ?>`');">
 
                                     <?php if(isset($Image_Card_News_Health) && !empty($Image_Card_News_Health)) : ?>
                                         <?php echo wp_get_attachment_image($Image_Card_News_Health, 'full', '', ['class' => 'image-card-news-health']); ?>

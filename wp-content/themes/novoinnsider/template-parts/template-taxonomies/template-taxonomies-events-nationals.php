@@ -121,7 +121,7 @@ $taxonomy = get_queried_object();
 
                     <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center card-subcategory-academy-events m-0 p-0 mt-3 mb-5 pb-4 mx-4">
 
-                        <a href="<?php echo $linkCatRedirect; ?>">
+                        <a href="<?php echo $linkCatRedirect; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= $subcategory->name ?>`');">
                             <div class="mb-4 figure">
                                 <?php $imageSubcategoryAcademy = get_field('Category_Image', $subcategory); ?>
 

@@ -172,7 +172,9 @@ add_action('wp_ajax_login_after_register', 'novo_inssider_login_after_register')
  */
 function novo_inssider_login_page($login_url, $redirect, $force_reauth)
 {
-    return home_url('/login/?redirect_to=' . $redirect);
+    $encoded_redirect = urlencode($redirect);
+
+    return home_url('/login/?redirect_to=' . $encoded_redirect);
 }
 
 add_filter('login_url', 'novo_inssider_login_page', 10, 3);

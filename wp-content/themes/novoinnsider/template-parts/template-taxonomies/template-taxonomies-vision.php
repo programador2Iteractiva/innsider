@@ -17,7 +17,6 @@ $taxonomy = get_queried_object();
     </div>
 </div>
 
-
 <?php $descriptioonCategory = $taxonomy->description; ?>
 <?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
 <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
@@ -80,7 +79,33 @@ $taxonomy = get_queried_object();
                                 <?php $thePermalink = get_the_permalink(); ?>
                                 <?php $postActivityId = get_the_ID(); ?>
 
-                                <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>">
+                                <?php $completePermalink = $thePermalink . '?module_id=' . urlencode($postActivityId) . '&content_id=' . urlencode($counter) . '&tax=' . urlencode($taxonomy->term_id); ?>
+
+                                <?php $contentRegister = get_post_meta($postActivityId, 'Content_Register', true); ?>
+
+                                <?php if($contentRegister === '1') : ?> 
+
+                                    <?php if(!is_user_logged_in()) : ?>
+                                        
+                                        <?php $completePermalink = $thePermalink . '?module_id=' . urlencode($postActivityId) . '&content_id=' . urlencode($counter) . '&tax=' . urlencode($taxonomy->term_id); ?>
+
+                                        <?php $login_url = wp_login_url($completePermalink); ?>
+                                        <?php $link = $login_url; ?>
+
+                                    <?php else : ?> 
+
+                                        <?php $link = $completePermalink; ?>
+
+                                    <?php endif ?>
+
+                                <?php else : ?>    
+
+                                    <?php $link = $completePermalink; ?>
+
+                                <?php endif; ?>
+
+
+                                <a href="<?= $link; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
                                     <div class="d-flex flex-md-row flex-column position-relative justify-content-start align-items-start">
                                         <div class="col-md-6 col-lg-5">
                                             <div class="figure">

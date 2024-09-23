@@ -124,7 +124,7 @@ $pageHome = get_permalink($home_id);
 
                                         <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
 
-                                            <a href="<?= $linkCatRedirect; ?>" class="w-100">
+                                            <a href="<?= $linkCatRedirect; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= $listCategoryAcademy->name ?>`');"  class="w-100">
                                                 <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
                                                     <div class="col-10 col-lg-11">
                                                         <div class="mb-4 figure">

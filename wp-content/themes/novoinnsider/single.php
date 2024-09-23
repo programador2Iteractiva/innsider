@@ -122,6 +122,7 @@ $titlePostId = get_the_title();
     <?php if (isset($videoPostVisionInnsider) && !empty($videoPostVisionInnsider)) : ?>
 
         <?php $currentTermParent = get_term($taxId); ?>
+        
 
         <div class="container p-lg-5 p-1">
             <div class="container background-vision_single p-2">
@@ -312,44 +313,147 @@ $titlePostId = get_the_title();
 
                                                 <?php $ListOfSpeakerModuleInnsider = get_field('List_Of_Speaker_Module_Innsider', $postActivityId) ?>
 
-                                                <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
-                                                    <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>); saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
-                                                        <div class="mb-4 figure">
-                                                            <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
-                                                                <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
-                                                            <?php endif ?>
+                                                <?php $contentRegister = get_post_meta($postActivityId, 'Content_Register', true); ?>
+
+                                                <?php $thePermalink = get_the_permalink(); ?>
+                                                <?php $taxonomies = get_object_taxonomies(get_post_type($postActivityId)); ?>
+
+                                                <?php $terms = get_the_terms($postActivityId, $taxonomies[0]); ?>
+
+                                                <?php $completePermalink = $thePermalink . '?module_id=' . urlencode($postActivityId) . '&content_id=' . urlencode($postIndex) . '&tax=' . urlencode($terms[0]->term_id); ?>
+
+                                                <?php if($contentRegister === '1') : ?>
+
+                                                    <?php if(!is_user_logged_in()) : ?>
+
+                                                        <?php $login_url = wp_login_url($completePermalink); ?>
+                                                        <?php $link = $login_url; ?>
+
+
+                                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
+                                                            <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="redirectVideo('<?= $link; ?>'); saveLogsClick('redirect a `<?= the_title(); ?>`');">
+                                                                <div class="mb-4 figure">
+                                                                    <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
+                                                                        <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
+                                                                    <?php endif ?>
+                                                                </div>
+                                                                <div class="mt-1 p-0">
+                                                                    <div class="w-75 p-2 mb-4 btn-view-now">
+                                                                        <i class="fa-regular fa-circle-play mx-2"></i>
+                                                                        Ver ahora
+                                                                    </div>
+                                                                    <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                                    <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
+                                                                        <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
+                                                                    <?php endif; ?>
+                                                                </div>
+                                                                <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
+                                                                <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
+
+                                                                <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+
+                                                                    <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
+
+                                                                        <?php $imageSpeakerModuleInnsider = $speaker['Img_Speaker_Module_Innsider']; ?>
+                                                                        <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
+                                                                        <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
+
+                                                                        
+                                                                        <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
+                                                                        <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
+                                                                        
+
+                                                                    <?php endforeach; ?>
+
+                                                                <?php endif; ?>
+                                                            </a>
                                                         </div>
-                                                        <div class="mt-1 p-0">
-                                                            <div class="w-75 p-2 mb-4 btn-view-now">
-                                                                <i class="fa-regular fa-circle-play mx-2"></i>
-                                                                Ver ahora
+
+                                                    <?php else : ?> 
+
+                                                        <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
+                                                            <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>); saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
+                                                                <div class="mb-4 figure">
+                                                                    <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
+                                                                        <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
+                                                                    <?php endif ?>
+                                                                </div>
+                                                                <div class="mt-1 p-0">
+                                                                    <div class="w-75 p-2 mb-4 btn-view-now">
+                                                                        <i class="fa-regular fa-circle-play mx-2"></i>
+                                                                        Ver ahora
+                                                                    </div>
+                                                                    <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                                    <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
+                                                                        <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
+                                                                    <?php endif; ?>
+                                                                </div>
+                                                                <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
+                                                                <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
+
+                                                                <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+
+                                                                    <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
+
+                                                                        <?php $imageSpeakerModuleInnsider = $speaker['Img_Speaker_Module_Innsider']; ?>
+                                                                        <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
+                                                                        <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
+
+                                                                        
+                                                                        <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
+                                                                        <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
+                                                                        
+
+                                                                    <?php endforeach; ?>
+
+                                                                <?php endif; ?>
+                                                            </a>
+                                                        </div>
+
+                                                    <?php endif ?>
+                                                                
+                                                <?php else : ?>    
+
+                                                    <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
+                                                        <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>); saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
+                                                            <div class="mb-4 figure">
+                                                                <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
+                                                                    <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
+                                                                <?php endif ?>
                                                             </div>
-                                                            <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
-                                                            <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
-                                                                <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
+                                                            <div class="mt-1 p-0">
+                                                                <div class="w-75 p-2 mb-4 btn-view-now">
+                                                                    <i class="fa-regular fa-circle-play mx-2"></i>
+                                                                    Ver ahora
+                                                                </div>
+                                                                <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                                <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
+                                                                    <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                            <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
+                                                            <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
+
+                                                            <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+
+                                                                <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
+
+                                                                    <?php $imageSpeakerModuleInnsider = $speaker['Img_Speaker_Module_Innsider']; ?>
+                                                                    <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
+                                                                    <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
+
+                                                                    
+                                                                    <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
+                                                                    <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
+                                                                    
+
+                                                                <?php endforeach; ?>
+
                                                             <?php endif; ?>
-                                                        </div>
-                                                        <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
-                                                        <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
-
-                                                        <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
-
-                                                            <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
-
-                                                                <?php $imageSpeakerModuleInnsider = $speaker['Img_Speaker_Module_Innsider']; ?>
-                                                                <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
-                                                                <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
-
-                                                                
-                                                                <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
-                                                                <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
-                                                                
-
-                                                            <?php endforeach; ?>
-
-                                                        <?php endif; ?>
-                                                    </a>
-                                                </div>
+                                                        </a>
+                                                    </div>
+                                                    
+                                                <?php endif ?>
 
                                                 <?php $i++; ?>
 
@@ -496,7 +600,7 @@ $titlePostId = get_the_title();
 
 
                                             <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
-                                                <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" style="text-decoration: none;">
+                                                <a class="custom-width" href="<?= esc_url(get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $index . '&tax=' . $taxId); ?>" onclick="saveLogsClick('Clic en tarjeta `<?= $titleModuleAcademy; ?>`');" style="text-decoration: none;">
                                                     <div class="mb-4 figure">
                                                         <?php if ($imageModuleAcademy) :  ?>
                                                             <?php echo wp_get_attachment_image($imageModuleAcademy, 'full', '', ['style' => 'object-fit: fill']); ?>

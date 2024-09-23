@@ -1837,4 +1837,6 @@ function novo_innsider_save_logs_click()
 add_action('wp_ajax_nopriv_save_logs_click', 'novo_innsider_save_logs_click');
 add_action('wp_ajax_save_logs_click', 'novo_innsider_save_logs_click');
 
+
+
 ?>

@@ -409,6 +409,10 @@ export function playVideo( post_id, url, evt, classElement, next ) {
 }
 // FUNCTION PLAY VIDEO
 
+export function redirectVideo( url) {
+    window.location.href = url;
+}
+
 // FUNCTION EVENTS VIDEO
 export function eventsVideo(nextIndex, post_id) {
     nextControlVideo = nextIndex +1;

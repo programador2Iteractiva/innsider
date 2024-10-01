@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     spaceBetween: 30,
     loop: true,
     autoplay: {
-      delay: 2500,
+      delay: 8500,
       disableOnInteraction: false,
     },
     pagination: {

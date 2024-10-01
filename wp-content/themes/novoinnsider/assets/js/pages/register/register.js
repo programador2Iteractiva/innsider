@@ -70,31 +70,31 @@ export function saveClickCities(citiesName) {
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    // const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
-    // const imageHeight = isMobile ? 'auto' : '500px'; // Establecer la altura
+    const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
+    const imageHeight = isMobile ? 'auto' : '500px'; // Establecer la altura
 
-    // Swal.fire({
-    //     imageAlt: 'Descripción de la imagen',
-    //     html: `
-    //     <img src="https://innsider.com.co/wp-content/uploads/2024/09/POPUpampliado-scaled.jpg" alt="Una imagen descriptiva" 
-    //          style="cursor: pointer; height: ${imageHeight}; width: 100%" 
-    //          onclick="window.location='https://event.on24.com/wcc/r/4710815/6E89E7A9AD62689716C79F54A812B97A';">
-    //   `,
-    //     showCloseButton: false,
-    //     showConfirmButton: false,
-    //     showCancelButton: false,
-    //     customClass: {
-    //         popup: "swal-style-popup-event",
-    //     },
-    //     backdrop: `
-    //         rgba(0,0,0,0.4)
-    //         left top
-    //         no-repeat
-    //     `,
-    //     allowOutsideClick: false,
-    //     confirmButtonText: "Ir al evento",
-    //     color: "#000000",
-    // });
+    Swal.fire({
+        imageAlt: 'Descripción de la imagen',
+        html: `
+        <img src="https://innsider.com.co/wp-content/uploads/2024/09/POPUpampliado-scaled.jpg" alt="Una imagen descriptiva" 
+             style="cursor: pointer; height: ${imageHeight}; width: 100%" 
+             onclick="window.location='https://event.on24.com/wcc/r/4710815/6E89E7A9AD62689716C79F54A812B97A';">
+      `,
+        showCloseButton: false,
+        showConfirmButton: false,
+        showCancelButton: false,
+        customClass: {
+            popup: "swal-style-popup-event",
+        },
+        backdrop: `
+            rgba(0,0,0,0.4)
+            left top
+            no-repeat
+        `,
+        allowOutsideClick: false,
+        confirmButtonText: "Ir al evento",
+        color: "#000000",
+    });
 
 
     /* Call name user to object ajax */

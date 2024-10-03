@@ -2,7 +2,7 @@
 if (!is_user_logged_in() && (is_page('herramientas'))) {
     auth_redirect();
     exit;
-}elseif (is_user_logged_in() && (is_page('login')) || is_user_logged_in() && (is_page('registro')) ) { 
+} elseif (is_user_logged_in() && (is_page('login')) || is_user_logged_in() && (is_page('registro'))) {
     wp_safe_redirect(get_site_url());
 }
 
@@ -18,18 +18,22 @@ novo_innsider_save_logs();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php wp_title(); ?></title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DK3B6EZZD4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DK3B6EZZD4');
+    </script>
     <?php wp_head(); ?>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DK3B6EZZD4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DK3B6EZZD4');
-</script>
 <body>
 
     <header id="header">
@@ -56,28 +60,12 @@ novo_innsider_save_logs();
 
                             <div class="d-none d-lg-block row m-0 p-0">
 
-                                <?php if ( function_exists('max_mega_menu_is_enabled') && max_mega_menu_is_enabled('primary') ) : ?>
-                                    <?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
+                                <?php if (function_exists('max_mega_menu_is_enabled') && max_mega_menu_is_enabled('primary')) : ?>
+                                    <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
                                 <?php else: ?>
                                     <?php
-                                        wp_nav_menu(array(
-                                            'theme_location' => 'primary',
-                                            'container' => false,
-                                            'menu_class' => 'navbar-nav',
-                                            'fallback_cb' => '__return_false',
-                                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                                            'depth' => 3,
-                                            'walker' => new bootstrap_5_wp_nav_menu_walker()
-                                        ));
-                                    ?>
-                                <?php endif; ?>
-
-                            </div>
-
-                            <div class="d-block d-lg-none col-12">
-                                <?php
                                     wp_nav_menu(array(
-                                        'theme_location' => 'secundary',
+                                        'theme_location' => 'primary',
                                         'container' => false,
                                         'menu_class' => 'navbar-nav',
                                         'fallback_cb' => '__return_false',
@@ -85,6 +73,22 @@ novo_innsider_save_logs();
                                         'depth' => 3,
                                         'walker' => new bootstrap_5_wp_nav_menu_walker()
                                     ));
+                                    ?>
+                                <?php endif; ?>
+
+                            </div>
+
+                            <div class="d-block d-lg-none col-12">
+                                <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'secundary',
+                                    'container' => false,
+                                    'menu_class' => 'navbar-nav',
+                                    'fallback_cb' => '__return_false',
+                                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                    'depth' => 3,
+                                    'walker' => new bootstrap_5_wp_nav_menu_walker()
+                                ));
                                 ?>
                             </div>
 
@@ -97,15 +101,15 @@ novo_innsider_save_logs();
                                 <?php if (is_page('login') || is_page('registro') || !is_user_logged_in()) : ?>
 
                                     <?php $pageLogin = get_page_by_path('login'); ?>
-                                    <?php if($pageLogin) : ?>
+                                    <?php if ($pageLogin) : ?>
                                         <?php $permalink = get_permalink($pageLogin->ID); ?>
                                         <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
                                     <?php endif ?>
                                     <?php $pageRegister = get_page_by_path('Registro'); ?>
-                                    <?php if($pageRegister) : ?>
+                                    <?php if ($pageRegister) : ?>
                                         <?php $permalink = get_permalink($pageRegister->ID); ?>
                                         <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
-                                    <?php endif ?>   
+                                    <?php endif ?>
 
                                 <?php else : ?>
 
@@ -119,7 +123,7 @@ novo_innsider_save_logs();
                                             <?php echo novo_innsider_display_user_name(); ?>
                                         </div>
                                     </div>
-                                    
+
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -130,12 +134,12 @@ novo_innsider_save_logs();
                             <div class="d-flex justify-content-center align-items-center flex-row container-btn-login">
                                 <?php if (is_page('login') || is_page('registro') || !is_user_logged_in()) : ?>
                                     <?php $pageLogin = get_page_by_path('login'); ?>
-                                    <?php if($pageLogin) : ?>
+                                    <?php if ($pageLogin) : ?>
                                         <?php $permalink = get_permalink($pageLogin->ID); ?>
                                         <a class="btn-login mx-2" id="btn-login" href="<?php echo esc_url($permalink); ?>">Ingresar</a>
                                     <?php endif ?>
                                     <?php $pageRegister = get_page_by_path('Registro'); ?>
-                                    <?php if($pageRegister) : ?>
+                                    <?php if ($pageRegister) : ?>
                                         <?php $permalink = get_permalink($pageRegister->ID); ?>
                                         <a class="btn-login mx-2" id="btn-register" href="<?php echo esc_url($permalink); ?>">Registro</a>
                                     <?php endif ?>
@@ -150,7 +154,7 @@ novo_innsider_save_logs();
                                             <?= novo_innsider_logout(); ?><i class="mx-2 fas fa-power-off"></i>
                                         </div>
                                     </div>
-                                <?php endif ?>   
+                                <?php endif ?>
                             </div>
                         </div>
                     </div>

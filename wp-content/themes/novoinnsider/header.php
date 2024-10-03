@@ -21,6 +21,15 @@ novo_innsider_save_logs();
     <?php wp_head(); ?>
 </head>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DK3B6EZZD4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DK3B6EZZD4');
+</script>
 <body>
 
     <header id="header">

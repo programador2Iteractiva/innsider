@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
     const imageHeight = isMobile ? 'auto' : 'auto'; // Establecer la altura
 
-    const limitDate = new Date('2024-10-03T011:30:00'); // Fecha límite
+    const limitDate = new Date('2024-10-03T011:31:00'); // Fecha límite
     const now = new Date();
     console.log(now);
     let popupMostrado = false; // Variable para rastrear si el popup ya fue mostrado

@@ -71,7 +71,7 @@ export function saveClickCities(citiesName) {
 document.addEventListener("DOMContentLoaded", function(){
 
     const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
-    const imageHeight = isMobile ? 'auto' : '650px'; // Establecer la altura
+    const imageHeight = isMobile ? 'auto' : 'auto'; // Establecer la altura
 
     const limitDate = new Date('2024-10-03T018:00:00'); // Fecha límite
     const now = new Date();
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function(){
         Swal.fire({
             imageAlt: 'Descripción de la imagen',
             html: `
-            <img src="https://innsider.com.co/wp-content/uploads/2024/09/POP-UP-INNSIDER-Sept.png" alt="Una imagen descriptiva" 
+            <img src="https://innsider.com.co/wp-content/uploads/2024/09/POPUpampliado-scaled.jpg" alt="Una imagen descriptiva" 
                  style="cursor: pointer; height: ${imageHeight}; width: 100%" 
                  onclick="window.location='https://event.on24.com/wcc/r/4710815/6E89E7A9AD62689716C79F54A812B97A';">
           `,

@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function(){
                 popup: "swal-style-popup-event",
             },
             backdrop: `
-                rgba(0,0,0,0.4) left top no-repeat
+                rgba(0,0,0,0.7) left top no-repeat
             `,
             allowOutsideClick: false,
             confirmButtonText: "Ir al evento",

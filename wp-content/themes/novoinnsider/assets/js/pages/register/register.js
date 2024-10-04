@@ -70,70 +70,70 @@ export function saveClickCities(citiesName) {
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
-    const imageHeight = isMobile ? 'auto' : 'auto'; // Establecer la altura
+    // const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
+    // const imageHeight = isMobile ? 'auto' : 'auto'; // Establecer la altura
 
-    const limitDate = new Date('2024-10-03T18:00:00'); // Fecha límite
-    const now = new Date();
-    console.log(now);
-    let popupMostrado = false; // Variable para rastrear si el popup ya fue mostrado
+    // const limitDate = new Date('2024-10-03T18:00:00'); // Fecha límite
+    // const now = new Date();
+    // console.log(now);
+    // let popupMostrado = false; // Variable para rastrear si el popup ya fue mostrado
 
-    // Verifica si la recarga ya se realizó
-    if (getCookie('recargaRealizada')) {
-        return; // Si ya se recargó, no hacer nada más
-    }
+    // // Verifica si la recarga ya se realizó
+    // if (getCookie('recargaRealizada')) {
+    //     return; // Si ya se recargó, no hacer nada más
+    // }
 
-    // Función para mostrar el popup
-    function mostrarPopup() {
-        Swal.fire({
-            imageAlt: 'Descripción de la imagen',
-            html: `
-            <img src="https://innsider.com.co/wp-content/uploads/2024/09/POPUpampliado-scaled.jpg" alt="Una imagen descriptiva" 
-                 style="cursor: pointer; height: ${imageHeight}; width: 100%" 
-                 onclick="window.location='https://event.on24.com/wcc/r/4710815/6E89E7A9AD62689716C79F54A812B97A';">
-          `,
-            showCloseButton: false,
-            showConfirmButton: false,
-            showCancelButton: false,
-            customClass: {
-                popup: "swal-style-popup-event",
-            },
-            backdrop: `
-                rgba(0,0,0,0.7) left top no-repeat
-            `,
-            allowOutsideClick: false,
-            confirmButtonText: "Ir al evento",
-            color: "#000000",
-        }).then(() => {
-            popupMostrado = true; // Marca que el popup ha sido mostrado
-        });
-    }
+    // // Función para mostrar el popup
+    // function mostrarPopup() {
+    //     Swal.fire({
+    //         imageAlt: 'Descripción de la imagen',
+    //         html: `
+    //         <img src="https://innsider.com.co/wp-content/uploads/2024/09/POPUpampliado-scaled.jpg" alt="Una imagen descriptiva" 
+    //              style="cursor: pointer; height: ${imageHeight}; width: 100%" 
+    //              onclick="window.location='https://event.on24.com/wcc/r/4710815/6E89E7A9AD62689716C79F54A812B97A';">
+    //       `,
+    //         showCloseButton: false,
+    //         showConfirmButton: false,
+    //         showCancelButton: false,
+    //         customClass: {
+    //             popup: "swal-style-popup-event",
+    //         },
+    //         backdrop: `
+    //             rgba(0,0,0,0.7) left top no-repeat
+    //         `,
+    //         allowOutsideClick: false,
+    //         confirmButtonText: "Ir al evento",
+    //         color: "#000000",
+    //     }).then(() => {
+    //         popupMostrado = true; // Marca que el popup ha sido mostrado
+    //     });
+    // }
 
-    // Verificamos la fecha y recargamos si se alcanza la fecha límite
-    const intervalo = setInterval(function() {
-        const ahora = new Date(); // Obtener la fecha actual
+    // // Verificamos la fecha y recargamos si se alcanza la fecha límite
+    // const intervalo = setInterval(function() {
+    //     const ahora = new Date(); // Obtener la fecha actual
 
-        if (ahora >= limitDate) {
-            clearInterval(intervalo); // Detenemos el intervalo
-            setCookie('recargaRealizada', 'true', 1); // Marca que se ha realizado la recarga por 1 día
-            location.reload(); // Recarga la página
-        } else if (!popupMostrado) {
-            mostrarPopup(); // Muestra el popup si no se ha mostrado
-        }
-    }, 1000); // Comprobamos cada segundo
+    //     if (ahora >= limitDate) {
+    //         clearInterval(intervalo); // Detenemos el intervalo
+    //         setCookie('recargaRealizada', 'true', 1); // Marca que se ha realizado la recarga por 1 día
+    //         location.reload(); // Recarga la página
+    //     } else if (!popupMostrado) {
+    //         mostrarPopup(); // Muestra el popup si no se ha mostrado
+    //     }
+    // }, 1000); // Comprobamos cada segundo
 
-    // Funciones para manejar cookies
-    function setCookie(name, value, days) {
-        const expires = new Date(Date.now() + days * 864e5).toUTCString();
-        document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-    }
+    // // Funciones para manejar cookies
+    // function setCookie(name, value, days) {
+    //     const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    //     document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    // }
 
-    function getCookie(name) {
-        return document.cookie.split('; ').reduce((r, v) => {
-            const parts = v.split('=');
-            return parts[0] === name ? decodeURIComponent(parts[1]) : r;
-        }, '');
-    }
+    // function getCookie(name) {
+    //     return document.cookie.split('; ').reduce((r, v) => {
+    //         const parts = v.split('=');
+    //         return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+    //     }, '');
+    // }
 
 
     /* Call name user to object ajax */

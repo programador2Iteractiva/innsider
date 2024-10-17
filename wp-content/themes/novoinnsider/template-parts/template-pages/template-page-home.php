@@ -261,6 +261,33 @@
 
         </div>
     </div>
+    <div class="container">
+        <div class="row d-flex justify-content-center align-align-items-center mb-4">
+            <div class="col-12 d-flex flex-lg-row">
+                <div class="col-12 mx-1 mt-3" id="linea">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row m-0 p-0">
+            <div class="col-12 d-flex justify-content-around align-items-center flex-row">
+                <div class="col-12 col-lg-5 border" style="border-radius: 0.5rem">
+                    <div class="row">
+                        <a href="https://www.novocareatulado.co/" target="_blank" class="h-100 w-100">
+                            <img src="<?= get_template_directory_uri() . '/assets/images/image01.jpg';  ?>" alt="Herramientas" style="width: 100%;height: auto;object-fit: cover;height: 160px;object-position: top;border-radius: 0.5rem;">
+                        </a>                                        
+                    </div>                                        
+                </div>
+                <div class="col-12 col-lg-5 border" style="border-radius: 0.5rem">
+                    <div class="row">
+                        <a href="https://suacademiamedica.novonordisk.com.co/" target="_blank" class="h-100 w-100">
+                            <img src="<?= get_template_directory_uri() . '/assets/images/image02.jpg';  ?>" alt="Herramientas" style="width: 100%;height: auto;object-fit: cover;height: 160px;object-position: top;border-radius: 0.5rem;">
+                        </a>                                        
+                    </div>
+                </div>                                        
+            </div>                                        
+        </div>
+    </div>
     <div class="container my-5">
         <div class="row d-flex justify-content-center align-align-items-center mb-4">
             <div class="col-12 d-flex flex-lg-row">

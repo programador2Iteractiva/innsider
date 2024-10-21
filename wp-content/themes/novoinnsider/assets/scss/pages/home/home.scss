@@ -800,6 +800,38 @@ footer {
             background: #008dd4;
             color: #fff;
             border: 2px solid #008dd4;
+            
         }
+    }
+}
+
+
+
+
+.image-height-card{
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+    object-position: top;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-up(md) {
+        height: 240px;
+    }
+  
+    @include media-breakpoint-up(lg) {
+        height: 150px;
+    }
+  
+    @include media-breakpoint-up(xl) {
+        height: 185px;
+    }
+  
+    @include media-breakpoint-up(xxl) {
+        height: 205px;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+        height: 205px;
     }
 }

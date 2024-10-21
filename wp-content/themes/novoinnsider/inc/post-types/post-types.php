@@ -237,6 +237,56 @@ function novo_inssider_post_type() {
     /**
      * -- End Post Type Tendencias
     */
+
+
+
+
+
+    /**
+     * Post Type Tarjetas Home
+    */
+
+    $labels = array(
+        'name'               => _x( 'Tarjetas', 'post type general name' ),
+        'singular_name'      => _x( 'Tarjeta', 'post type singular name' ),
+        'menu_name'          => _x( 'Tarjetas', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Tarjeta', 'add new on admin bar' ),
+        'add_new'            => _x( 'Agregar tarjeta', 'Slide' ),
+        'add_new_item'       => __( 'Agregar nueva tarjeta' ),
+        'new_item'           => __( 'Nueva tarjeta' ),
+        'edit_item'          => __( 'Editar tarjeta' ),
+        'view_item'          => __( 'Ver tarjeta' ),
+        'all_items'          => __( 'Todas las tarjetas' ),
+        'featured_image'     => __( 'Imagen destacada' ),
+        'search_items'       => __( 'Buscar tarjeta' ),
+        'parent_item_colon'  => __( 'Tarjeta padre:' ),
+        'not_found'          => __( 'No se han encontrado tarjetas.' ),
+        'not_found_in_trash' => __( 'No se han encontrado tarjetas en la papelera.' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'menu_icon'          => 'dashicons-cover-image',
+        'description'        => __( 'Descripción de Tarjetas.' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'tarjetas' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 6,
+        'show_in_rest'       => true,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'tarjeta', $args );
+
+    /**
+     * -- End Post Type Tarjetas Home
+    */
 }
 
 add_action( 'init', 'novo_inssider_post_type' );

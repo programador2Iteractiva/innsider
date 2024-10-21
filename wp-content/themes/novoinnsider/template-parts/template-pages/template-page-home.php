@@ -261,6 +261,51 @@
 
         </div>
     </div>
+
+    <?php $listCards = new WP_Query(array('post_type' => 'tarjeta', 'posts_per_page' => -1, 'order' => 'ASC')); ?>
+
+    <?php if ($listCards->have_posts()) : ?>
+
+        <div class="container">
+
+            <div class="row d-flex justify-content-center align-align-items-center mb-4">
+                <div class="col-12 d-flex flex-lg-row">
+                    <div class="col-12 mx-1 mt-3" id="linea">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0 p-0">
+                <?php $key = 0; ?>
+
+                <div class="col-12 d-flex justify-content-around align-items-center flex-lg-row flex-column">
+
+                    <?php while ($listCards->have_posts()) : $listCards->the_post(); ?>
+
+                        <?php $urlCard = get_field('url_card'); ?>
+                        <?php $imageCard = get_field('image_card'); ?>
+
+                        <div class="col-12 col-lg-5 border mt-3 mb-3 mx-5" style="border-radius: 0.5rem">
+                            <div class="row">
+                                <a href=" <?= $urlCard ?>" target="_blank" class="h-100 w-100">
+                                    <?= wp_get_attachment_image($imageCard, 'full', '', ['class' => 'image-height-card']); ?>
+                                </a>                                        
+                            </div>                                        
+                        </div>
+
+                        <?php $key++; ?>
+                        <?php if ($key % 2 == 0 && $key < $listCards->post_count) : ?>
+                            </div><div class="row m-0 p-0 d-flex justify-content-around align-items-start flex-lg-row flex-column">
+                        <?php endif; ?>
+
+                    <?php endwhile; ?> 
+                    
+                </div>
+            </div>
+
+        </div>
+    <?php endif; ?>
+
     <div class="container my-5">
         <div class="row d-flex justify-content-center align-align-items-center mb-4">
             <div class="col-12 d-flex flex-lg-row">

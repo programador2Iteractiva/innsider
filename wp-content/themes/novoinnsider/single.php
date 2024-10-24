@@ -883,7 +883,7 @@ $titlePostId = get_the_title();
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-0 w-100 px-0">
                                                                 <div class="col-12 p-0 pb-lg-0 pt-0 pb-0">
                                                                     <div class="row">
@@ -925,7 +925,7 @@ $titlePostId = get_the_title();
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-5 pt-3 pt-lg-5 w-100 px-0">
                                                                 <div class="col-12 p-0">
                                                                     <div class="row">
@@ -967,7 +967,7 @@ $titlePostId = get_the_title();
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-0 w-100 px-0">
                                                                 <div class="col-12 p-0 pt-0 pb-0">
                                                                     <div class="row">
@@ -1022,7 +1022,7 @@ $titlePostId = get_the_title();
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-bottom: 2rem;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-5 pt-3 w-100 px-0">
                                                                 <div class="col-12 p-lg-5 p-3 pt-lg-0 pb-lg-0 pt-0 pb-0">
                                                                     <div class="row">
@@ -1119,7 +1119,7 @@ $titlePostId = get_the_title();
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-0 w-100 px-0">
                                                                 <div class="col-12 p-0 pt-0 pb-0">
                                                                     <div class="row">
@@ -1161,7 +1161,7 @@ $titlePostId = get_the_title();
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white; margin-top: 1rem; margin-botton: 2rem;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-5 pt-3 pt-lg-5 w-100 px-0">
                                                                 <div class="col-12 p-0">
                                                                     <div class="row">
@@ -1204,7 +1204,7 @@ $titlePostId = get_the_title();
 
                                                     <div class="pt-4 pb-4" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-0 w-100 px-0">
                                                                 <div class="col-12 p-0 pt-0 pb-0">
                                                                     <div class="row">
@@ -1259,13 +1259,14 @@ $titlePostId = get_the_title();
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white; margin-top: 1rem; margin-bottom: 2rem;">
 
-                                                        <div class="container mx-auto px-0">
+                                                        <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-5 pt-3 w-100 px-0">
                                                                 <div class="col-12 p-lg-5 p-3 pt-lg-0 pb-lg-0 pt-0 pb-0">
                                                                     <div class="row">
                                                                         <?php if(have_rows('Content_Post_Trend_Subcontent')) : ?>
                                                                             
                                                                             <?php while(have_rows('Content_Post_Trend_Subcontent')) : the_row() ?>
+                                                                               
 
                                                                                 <?php $titleContentPostTrendSubcontent = get_sub_field('Title_Content_Post_Trend_Subcontent'); ?>
                                                                                 <?php $subcontentPostTrend = get_sub_field('Subcontent_Post_Trend'); ?>
@@ -1273,6 +1274,7 @@ $titlePostId = get_the_title();
                                                                                 <h2 class="NotoSans-Bold title-color mb-4 pt-4">
                                                                                     <?= strip_tags($titleContentPostTrendSubcontent); ?>
                                                                                 </h2>
+                                                                                <a href="" target="_blank"></a>
                                                                                 <div class="container mx-auto px-0">
                                                                                     <div class="p-5 pt-3 w-100 px-0">
                                                                                         <div class="col-12 p-lg-5 p-3 pt-lg-0 pb-lg-0 pt-0 pb-0">

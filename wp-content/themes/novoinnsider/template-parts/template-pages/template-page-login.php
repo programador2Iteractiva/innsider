@@ -29,13 +29,13 @@
                                 <div class="form-group mt-2 mb-3">
                                     <div class="col col-12 px-2 position-relative">
                                         <label for="exampleInputEmail1" class="form-label">E-mail*</label>
-                                        <input type="email" class="form-control input-password" id="email"  name="log" required>
+                                        <input type="email" class="form-control input-password" id="email"  name="log"  autocomplete="username" required>
                                     </div>
                                 </div>
                                 <div class="form-group mt-2 mb-3">
                                     <div class="col col-12 px-2 position-relative">
                                         <label for="exampleInputEmail1" class="form-label">Cédula*</label>
-                                        <input type="password" class="form-control input-password" id="password" name="pwd" required>
+                                        <input type="password" class="form-control input-password" id="password" name="pwd"  autocomplete="username" required>
                                     </div>
                                 </div>
                             </div>

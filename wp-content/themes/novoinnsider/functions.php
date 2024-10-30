@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* 
 * Novo Innsider functions
 *
@@ -58,7 +58,7 @@ function novo_inssider_support()
     add_theme_support('category-thumbnails');
 
     add_theme_support('title_tag');
-}    
+}
 
 add_action('after_setup_theme', 'novo_inssider_support');
 
@@ -72,7 +72,7 @@ add_action('after_setup_theme', 'novo_inssider_support');
 //         $html = str_replace('custom-logo', 'custom-logo mx-2', $html);
 //         return $html;
 //     }
-    
+
 // }
 // add_filter('get_custom_logo', 'custom_logo_class');
 
@@ -85,7 +85,6 @@ function novo_inssider_styles()
 
     $version = wp_get_theme()->get('Version'); // Usa la versión del tema
     wp_enqueue_style('style-co', get_stylesheet_uri(), array(), $version);
-    
 }
 add_action('wp_enqueue_scripts', 'novo_inssider_styles');
 
@@ -94,14 +93,16 @@ add_action('wp_enqueue_scripts', 'novo_inssider_styles');
  * Register and Enqueue Scripts 
  */
 function novo_inssider_scripts()
-{       
+{
     $userData = wp_get_current_user();
     $full_name = get_user_meta($userData->ID, 'first_name', true);
 
     $version = filemtime(get_template_directory() . '/main.js');
     wp_enqueue_script('main-co', get_template_directory_uri() . '/main.js', array(), $version, false);
 
-    wp_localize_script('main-co', 'ajax_object',
+    wp_localize_script(
+        'main-co',
+        'ajax_object',
         [
             'ajax_url' => admin_url('admin-ajax.php'),
             'ajax_nonce' => wp_create_nonce('ajax_check'),
@@ -109,8 +110,7 @@ function novo_inssider_scripts()
             'full_name' => $full_name,
         ]
     );
-
-}    
+}
 
 add_action('wp_enqueue_scripts', 'novo_inssider_scripts');
 
@@ -133,7 +133,7 @@ add_action('init', 'novo_inssider_menus');
 
 /**
  * Function name user
-*/
+ */
 function novo_innsider_name_user()
 {
     $userData = wp_get_current_user();
@@ -153,19 +153,20 @@ function novo_innsider_name_user()
 
 /**
  * Function logout
-*/
+ */
 function novo_innsider_logout()
 {
-    return '<a class="" href="'. wp_logout_url(home_url()) .'">Cerrar sesión</a>';
+    return '<a class="" href="' . wp_logout_url(home_url()) . '">Cerrar sesión</a>';
 }
 
 
-function novo_innsider_display_user_name() {
+function novo_innsider_display_user_name()
+{
 
-    if ( is_user_logged_in() ) {
+    if (is_user_logged_in()) {
         $current_user = wp_get_current_user();
         $link_logout = novo_innsider_logout();
-        $full_name = get_user_meta( $current_user->ID, 'first_name', true );
+        $full_name = get_user_meta($current_user->ID, 'first_name', true);
 
         return "
 
@@ -182,11 +183,9 @@ function novo_innsider_display_user_name() {
                 </div>
             </div> 
         ";
-    }
-    else {
+    } else {
         return false;
     }
-
 }
 
 /**
@@ -317,7 +316,8 @@ add_filter('category_template', 'novo_inssider_subcategory_template');
  * Toma el post-type por default que tiene el nombre de entradas en español y se ajusta
  * tambien los nombres en el administrador de las opciones y vistas internas segun las debamos asignar
  */
-function cambiar_etiquetas_entrada() {
+function cambiar_etiquetas_entrada()
+{
     global $wp_post_types;
 
     // Cambiar las etiquetas para el tipo de entrada "post"
@@ -341,7 +341,8 @@ add_action('init', 'cambiar_etiquetas_entrada');
  * Toma el post-type por default que tiene el nombre de entradas en español y se ajusta
  * al nombre que debamos asignar
  */
-function cambiar_nombre_menu_entrada() {
+function cambiar_nombre_menu_entrada()
+{
     global $menu;
 
     // Encuentra la posición del menú "Entradas" en el array $menu
@@ -359,7 +360,8 @@ add_action('admin_menu', 'cambiar_nombre_menu_entrada');
 /**
  * Desactivar comentarios en publicaciones y páginas
  */
-function desactivar_comentarios() {
+function desactivar_comentarios()
+{
     remove_post_type_support('post', 'comments');
     remove_post_type_support('page', 'comments');
 }
@@ -368,8 +370,9 @@ add_action('init', 'desactivar_comentarios');
 
 /**
  * Desactivar menú de comentarios en el admin
-*/
-function eliminar_comentarios_admin_menu() {
+ */
+function eliminar_comentarios_admin_menu()
+{
     remove_menu_page('edit-comments.php');
 }
 add_action('admin_menu', 'eliminar_comentarios_admin_menu');
@@ -377,8 +380,9 @@ add_action('admin_menu', 'eliminar_comentarios_admin_menu');
 
 /**
  * Redirigir cualquier intento de acceso a la página de comentarios al panel de control
-*/
-function redirigir_a_panel_control() {
+ */
+function redirigir_a_panel_control()
+{
     global $pagenow;
     if ($pagenow === 'edit-comments.php') {
         wp_redirect(admin_url());
@@ -389,18 +393,20 @@ add_action('admin_init', 'redirigir_a_panel_control');
 
 
 /* Funcion que restringe el ingreso de usuarios con rol de Suscriptor al admin / Backend de Wordpress */
-function restrict_admin_area_by_rol() {
-    if ( ! current_user_can( 'manage_options' ) && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-      wp_redirect( site_url() );
-      exit;
+function restrict_admin_area_by_rol()
+{
+    if (! current_user_can('manage_options') && (! defined('DOING_AJAX') || ! DOING_AJAX)) {
+        wp_redirect(site_url());
+        exit;
     }
-  }
-  add_action( 'admin_init', 'restrict_admin_area_by_rol', 1 );
+}
+add_action('admin_init', 'restrict_admin_area_by_rol', 1);
 
 
-  
+
 // Ocultar el plugin "login-customizer" del menú izquierdo del administrador y de "Apariencia" -> "Personalizar"
-function ocultar_login_customizer_menu_personalizar() {
+function ocultar_login_customizer_menu_personalizar()
+{
     // Identificador único de la página de opciones del plugin
     $plugin_page_id = 'login-customizer-settings';
 
@@ -415,7 +421,6 @@ function ocultar_login_customizer_menu_personalizar() {
                 break;
             }
         }
-
     }
 }
 
@@ -424,8 +429,9 @@ add_action('admin_menu', 'ocultar_login_customizer_menu_personalizar');
 
 /**
  * Funcion que deshabilita categorias y tags del post Nuestras Historias
-*/
-function deshabilitar_categorias_y_etiquetas() {
+ */
+function deshabilitar_categorias_y_etiquetas()
+{
     unregister_taxonomy_for_object_type('category', 'post');
     unregister_taxonomy_for_object_type('post_tag', 'post');
 }
@@ -448,7 +454,8 @@ function novo_inssider_get_all_academies()
     return $list_academies;
 }
 
-function novo_inssider_get_all_academies_actives() {
+function novo_inssider_get_all_academies_actives()
+{
     global $wpdb;
 
     $taxonomy = 'academia';
@@ -482,7 +489,8 @@ function novo_inssider_get_all_academies_actives() {
     return $list_academies;
 }
 
-function novo_inssider_get_all_visioninnsider_category_actives() {
+function novo_inssider_get_all_visioninnsider_category_actives()
+{
     global $wpdb;
 
     $taxonomy = 'visioninnsider-category';
@@ -517,7 +525,8 @@ function novo_inssider_get_all_visioninnsider_category_actives() {
 }
 
 
-function novo_inssider_get_all_trends_actives() {
+function novo_inssider_get_all_trends_actives()
+{
     global $wpdb;
 
     $taxonomy = 'tendencias';
@@ -552,7 +561,8 @@ function novo_inssider_get_all_trends_actives() {
 }
 
 /* breadcrumb */
-function custom_breadcrumbs() {
+function custom_breadcrumbs()
+{
     // Obtén el nombre del sitio
     $home = 'Inicio'; // Cambia este texto si lo deseas
 
@@ -572,123 +582,147 @@ function custom_breadcrumbs() {
     $page_url = get_permalink($page_id);
 
     // Breadcrumbs para páginas
-    if (is_page() && !is_page($page_id)) {
+    if (is_page() && !is_page($page_id) && !is_page('vision-innsider')) {
         echo '<span>' . esc_html(get_the_title()) . '</span>';
-    }
-    
-    elseif (is_page() && is_page($page_id)) {
+    } elseif (is_page('vision-innsider')) {
+        echo '<span>' . 'Podcast iNNsider' . '</span>';
+    } elseif (is_page() && is_page($page_id)) {
         echo '<span>' . wp_redirect($page_url) . '</span>';
     }
 
-    // Breadcrumbs para posts individuales
-    elseif (is_single()) {
-        // Obtén los términos de la taxonomía 'tendencias'
-        $terms = get_terms(array(
-            'taxonomy'   => 'tendencias', // Nombre de la taxonomía
-            'hide_empty' => false,        // Mostrar términos incluso si no están asociados a ningún post
-        ));
+    // Breadcrumbs para la taxonomía 'academia'
+    if (is_tax('academia')) {
+        $term = get_queried_object();
 
-        // Variable para verificar si el post está asociado a algún término de 'tendencias'
-        $is_associated_with_tendencias = false;
+        // Muestra el nombre de la taxonomía
+        echo '<a href="' . esc_url(get_permalink(get_page_by_path('academia'))) . '">Academia</a> / ';
 
-        if (!is_wp_error($terms) && !empty($terms)) {
-            foreach ($terms as $term) {
-                // Obtén los términos del post actual en la taxonomía 'tendencias'
-                $post_terms = get_the_terms(get_the_ID(), 'tendencias');
-                
-                // Verifica si el post está asociado con el término actual
-                if ($post_terms && !is_wp_error($post_terms)) {
-                    foreach ($post_terms as $post_term) {
-                        if ($post_term->term_id === $term->term_id) {
-                            $is_associated_with_tendencias = true;
-                            break 2; // Salir de ambos bucles
-                        }
-                    }
-                }
+        // Si hay ancestros, muéstralos
+        if ($term->parent) {
+            $ancestors = get_ancestors($term->term_id, 'academia');
+            foreach (array_reverse($ancestors) as $ancestor_id) {
+                $ancestor = get_term($ancestor_id, 'academia');
+                echo '<a href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a> / ';
             }
         }
 
-        if ($is_associated_with_tendencias) {
-            // Enlace a la página 'tendencia'
-            $tendencia_page = get_page_by_path('tendencia');
-            $tendencia_page_link = esc_url(get_permalink($tendencia_page));
+        echo '<span>' . esc_html($term->name) . '</span>';
+    }
 
-            // Muestra el enlace a la página 'tendencia'
-            echo '<a href="' . $tendencia_page_link . '">Tendencias</a> / ';
-        } else {
-            // Obtiene las taxonomías personalizadas asociadas con el post
-            $taxonomies = get_object_taxonomies(get_post_type(), 'objects');
+    elseif (is_tax('visioninnsider-category')) {
+        $term = get_queried_object();
 
-            foreach ($taxonomies as $taxonomy) {
-                // Obtiene términos de la taxonomía personalizada
-                $terms = get_the_terms(get_the_ID(), $taxonomy->name);
+        // Muestra el nombre de la taxonomía
+        echo '<a href="' . esc_url(get_permalink(get_page_by_path('vision-innsider'))) . '">Podcast iNNsider</a> / ';
 
-                if ($terms && !is_wp_error($terms)) {
-                    // Asume que el primer término es el relevante para la visualización
-                    $term = $terms[0];
-                    $term_link = esc_url(get_term_link($term));
-
-                    echo '<a href="' . $term_link . '">' . esc_html($term->name) . '</a> / ';
-                }
+        // Si hay ancestros, muéstralos
+        if ($term->parent) {
+            $ancestors = get_ancestors($term->term_id, 'vision-innsider');
+            foreach (array_reverse($ancestors) as $ancestor_id) {
+                $ancestor = get_term($ancestor_id, 'visioninnsider-category');
+                echo '<a href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a> / ';
             }
         }
 
-        // Muestra el título del post
-        echo '<span>' . esc_html(get_the_title()) . '</span>';
+        echo '<span>' . esc_html($term->name) . '</span>';
     }
 
     // Breadcrumbs para categorías
     elseif (is_category()) {
-        echo '<span>' . esc_html(single_cat_title('', false)) . '</span>';
-    }
-    
-    // Breadcrumbs para taxonomías personalizadas
-    elseif (is_tax('academia')) {
-        // Obtén el término de la taxonomía actual
-        $term = get_queried_object();
-        if ($term && !is_wp_error($term)) {
-            $taxonomyLinkAcademy = esc_url(get_term_link($term->term_id, 'academia'));
-            if (!is_wp_error($taxonomyLinkAcademy)) {
-                echo '<a href="' . $page_url . '">Academia</a> / ';        
-                echo '<span>' . esc_html($term->name) . '</span>';
-            } else {
-                echo '<span>' . esc_html($term->name) . '</span>';
+        $category = get_queried_object();
+        echo '<a href="' . esc_url(get_permalink(get_page_by_path('academia'))) . '">Academia</a> / ';
+
+        // Si hay ancestros, muéstralos
+        if ($category->parent) {
+            $ancestors = get_ancestors($category->term_id, 'category');
+            foreach (array_reverse($ancestors) as $ancestor_id) {
+                $ancestor = get_category($ancestor_id);
+                echo '<a href="' . esc_url(get_category_link($ancestor_id)) . '">' . esc_html($ancestor->name) . '</a> / ';
             }
         }
+
+        echo '<span>' . esc_html($category->name) . '</span>';
     }
 
-    // Breadcrumbs para páginas de archivos
-    elseif (is_archive()) {
-        // Determina el tipo de archivo y construye la jerarquía adecuada
-        if (is_post_type_archive()) {
-            echo '<span>' . esc_html(post_type_archive_title('', false)) . '</span>';
-        } elseif (is_tax()) {
-            $term = get_queried_object();
-            if ($term && !is_wp_error($term)) {
-                $taxonomy = $term->taxonomy;
-                $taxonomy_obj = get_taxonomy($taxonomy);
+    // Breadcrumbs para subcategorías de academia
+    elseif (is_category() && !is_tax('academia')) {
+        $category = get_queried_object();
+        echo '<a href="' . esc_url(get_permalink(get_page_by_path('academia'))) . '">Academia</a> / ';
 
-                $page = get_page_by_title('Visión iNNsider');
-                $page_id = $page->ID;
-                $page_url = get_permalink($page_id);
-                $taxonomy_link = $page_url;
-                
-                // Enlace a la página de taxonomía principal
-                echo '<a href="' . $taxonomy_link . '">' . esc_html($taxonomy_obj->labels->singular_name) . '</a> / ';
-                echo '<span>' . esc_html($term->name) . '</span>';
+        // Mostrar la categoría actual
+        echo '<span>' . esc_html($category->name) . '</span>';
+    }
+
+    // Breadcrumbs para posts individuales
+    elseif (is_single()) {
+
+        if (is_singular('tendencia')) {
+            // Agregar enlace a "Tendencias"
+            $tendencia_page = get_page_by_title('Tendencias');
+            $tendencia_url = get_permalink($tendencia_page->ID);
+            echo '<a href="' . esc_url($tendencia_url) . '">Tendencias</a> / ';
+            
+            // Mostrar el título del post actual
+            echo '<span>' . esc_html(get_the_title()) . '</span>';
+        }elseif(is_singular('vision-innsiders')){
+
+            $termsacademia = get_the_terms($post->ID, 'visioninnsider-category');
+
+            if ($termsacademia && !is_wp_error($termsacademia)) {
+    
+                // Agregar el enlace de "Academia" antes de mostrar los términos
+                $academia_page = get_page_by_title('Visión iNNsider');
+                $academia_url = get_permalink($academia_page->ID);
+                echo '<a href="' . esc_url($academia_url) . '">Podcast iNNsider</a> / ';
+    
+    
+                $main_term = $termsacademia[0];
+                if ($main_term->parent) {
+                    $ancestors = get_ancestors($main_term->term_id, 'academia');
+                    foreach (array_reverse($ancestors) as $ancestor_id) {
+                        $ancestor = get_term($ancestor_id, 'academia');
+                        echo '<a href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a> / ';
+                    }
+                }
+                echo '<a href="' . esc_url(get_term_link($main_term)) . '">' . esc_html($main_term->name) . '</a> / ';
             }
-        } else {
-            echo '<span>' . esc_html(get_the_archive_title()) . '</span>';
+            
+            echo '<span>' . esc_html(get_the_title()) . '</span>';
+            
+        }else{
+
+            $termsacademia = get_the_terms($post->ID, 'academia');
+
+            if ($termsacademia && !is_wp_error($termsacademia)) {
+    
+                // Agregar el enlace de "Academia" antes de mostrar los términos
+                $academia_page = get_page_by_title('Academia');
+                $academia_url = get_permalink($academia_page->ID);
+                echo '<a href="' . esc_url($academia_url) . '">Academia</a> / ';
+    
+    
+                $main_term = $termsacademia[0];
+                if ($main_term->parent) {
+                    $ancestors = get_ancestors($main_term->term_id, 'academia');
+                    foreach (array_reverse($ancestors) as $ancestor_id) {
+                        $ancestor = get_term($ancestor_id, 'academia');
+                        echo '<a href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a> / ';
+                    }
+                }
+                echo '<a href="' . esc_url(get_term_link($main_term)) . '">' . esc_html($main_term->name) . '</a> / ';
+            }
+            
+            echo '<span>' . esc_html(get_the_title()) . '</span>';
+    
         }
+
     }
     
-    // Breadcrumbs para búsqueda
-    elseif (is_search()) {
-        echo '<span>Resultados de búsqueda para: ' . esc_html(get_search_query()) . '</span>';
-    }
 
     echo '</nav>';
 }
+
+
 
 
 function obtenerMiniaturaVimeo($videoUrl)
@@ -701,16 +735,16 @@ function obtenerMiniaturaVimeo($videoUrl)
 
     // Combina la ruta y la consulta
     $videoId = $videoPath . ($videoQuery ? '?' . $videoQuery : '');
-    
+
     // URL base de la API de Vimeo
     $base_url = "https://vimeo.com/api/oembed.json?url=https://vimeo.com/";
-    
+
     // Construye la URL completa con el ID del video
     $url = $base_url . $videoId;
-    
+
     // Realiza una solicitud GET a la API de Vimeo usando wp_remote_get
     $response = wp_remote_get($url);
-    
+
     // Verifica si la solicitud fue exitosa
     if (is_wp_error($response)) {
         // Maneja el error aquí, por ejemplo, registrando el error o mostrando un mensaje al usuario
@@ -721,25 +755,26 @@ function obtenerMiniaturaVimeo($videoUrl)
 
     // Obtiene el cuerpo de la respuesta
     $body = wp_remote_retrieve_body($response);
-    
+
     // Decodifica el JSON obtenido en un array asociativo
     $data = json_decode($body, true);
-    
+
     // Extrae la URL de la miniatura del array
     $thumbnail_url = isset($data['thumbnail_url']) ? $data['thumbnail_url'] : null;
 
     if ($thumbnail_url) {
         $thumbnail_url = str_replace('_295x166', '_1280x720', $thumbnail_url);
     }
-    
+
     return $thumbnail_url;
 }
 
 
-function importInstitutions() {
+function importInstitutions()
+{
     global $wpdb;
 
-    
+
     $institutions = [
         'VIRREY SOLIS IPS. S.A.',
         'CAJA DE COMPENSACIÓN FAMILIAR CAFAM',
@@ -1405,15 +1440,15 @@ function importInstitutions() {
                     'institution_name' => sanitize_text_field($institution),
                     'code' => NULL,
                     'quantity' => NULL,
-                    'uses' => NULL, 
-                    'created' => current_time('mysql') 
+                    'uses' => NULL,
+                    'created' => current_time('mysql')
                 ],
                 [
                     '%s',
                     '%s',
                     '%d',
                     '%d',
-                    '%s' 
+                    '%s'
                 ]
             );
         }
@@ -1425,10 +1460,11 @@ add_action('init', 'importInstitutions');
 
 
 
-function importSpecialities() {
+function importSpecialities()
+{
     global $wpdb;
 
-    
+
     $specialities = [
         'Auxiliar de enfermeria',
         'Cardiología',
@@ -1503,7 +1539,7 @@ function importSpecialities() {
                 [
                     '%s',
                     '%s',
-                    '%s' 
+                    '%s'
                 ]
             );
         }
@@ -1520,10 +1556,11 @@ add_action('init', 'importSpecialities');
 
 
 
-function importPosInstitution () {
+function importPosInstitution()
+{
     global $wpdb;
 
-    
+
     $positionInstitution = [
         'Auxiliar de enfermeria',
         'Auditor',
@@ -1586,7 +1623,7 @@ function importPosInstitution () {
                 ],
                 [
                     '%s',
-                    '%s' 
+                    '%s'
                 ]
             );
         }
@@ -1597,10 +1634,12 @@ function importPosInstitution () {
 add_action('init', 'importPosInstitution');
 
 
-function novo_innsider_check_menu_items_with_class() {
-    ob_start(); 
+function novo_innsider_check_menu_items_with_class()
+{
+    ob_start();
 
-    function check_menu_items_with_class($items) {
+    function check_menu_items_with_class($items)
+    {
         // Crear un array para almacenar los elementos con clase 'd-none'
         $hidden_items = [];
 
@@ -1614,8 +1653,8 @@ function novo_innsider_check_menu_items_with_class() {
 
         // Mostrar los elementos con clase 'd-none'
         if (!empty($hidden_items)) {
-            foreach ($hidden_items as $item) {?>
-                <?php if($item->title == 'Herramientas') : ?>
+            foreach ($hidden_items as $item) { ?>
+                <?php if ($item->title == 'Herramientas') : ?>
                 <?php else : ?>
                     <div class="row d-flex justify-content-center align-align-items-center mb-4">
                         <div class="col-12 d-flex flex-lg-row">
@@ -1643,7 +1682,7 @@ function novo_innsider_check_menu_items_with_class() {
                                         <?php else : ?>
                                             <?php $pageLogin = get_page_by_path('login'); ?>
 
-                                            <?php if($pageLogin) : ?>
+                                            <?php if ($pageLogin) : ?>
                                                 <?php $permalink = get_permalink($pageLogin->ID); ?>
                                                 <button class="btn btn-light mx-2 btn-class px-5">
                                                     <a class="btn-login mx-2" id="btn-login" style="text-decoration: none;" href="<?php echo esc_url($permalink); ?>">
@@ -1654,7 +1693,7 @@ function novo_innsider_check_menu_items_with_class() {
 
                                             <?php $pageRegister = get_page_by_path('Registro'); ?>
 
-                                            <?php if($pageRegister) : ?>
+                                            <?php if ($pageRegister) : ?>
                                                 <?php $permalink = get_permalink($pageRegister->ID); ?>
                                                 <button class="btn btn-light mx-2 btn-class px-5">
                                                     <a class="btn-login mx-2" id="btn-register" style="text-decoration: none;" href="<?php echo esc_url($permalink); ?>">
@@ -1694,10 +1733,12 @@ function novo_innsider_check_menu_items_with_class() {
 
 
 
-function novo_innsider_check_menu_items() {
-    ob_start(); 
+function novo_innsider_check_menu_items()
+{
+    ob_start();
 
-    function check_menu_items($items) {
+    function check_menu_items($items)
+    {
         // Crear un array para almacenar los elementos con clase 'd-none'
         $hidden_items = [];
 
@@ -1711,15 +1752,15 @@ function novo_innsider_check_menu_items() {
 
         // Mostrar los elementos con clase 'd-none'
         if (!empty($hidden_items)) {
-            foreach ($hidden_items as $item) {?>
-                <?php if($item->title == 'Herramientas') : ?>
+            foreach ($hidden_items as $item) { ?>
+                <?php if ($item->title == 'Herramientas') : ?>
                 <?php else : ?>
                     <h1 class="title">HERRAMIENTAS INNSIDER</h1>
                     <div class="col-9 mx-1" id="linea">
                         <hr>
                     </div>
                 <?php endif; ?>
-            <?php
+<?php
                 break;
             }
         }
@@ -1762,8 +1803,7 @@ function novo_innsider_save_logs()
             'actionurl' => $actionurl,
             'ip' => $ip
         ]);
-
-    }else{
+    } else {
 
         global $wpdb;
 
@@ -1782,7 +1822,6 @@ function novo_innsider_save_logs()
             'actionurl' => $actionurl,
             'ip' => $ip
         ]);
-
     }
 }
 
@@ -1790,7 +1829,7 @@ function novo_innsider_save_logs_click()
 {
 
     if (is_user_logged_in()) {
-    
+
         global $wpdb;
 
         $table_name = $wpdb->prefix . 'log';
@@ -1801,7 +1840,7 @@ function novo_innsider_save_logs_click()
         $url = $_POST['url'];
         $actionurl = $_POST['actionurl'];
         $ip = $_SERVER['REMOTE_ADDR'];
-    
+
         $wpdb->insert($table_name, [
             'user_id' => $user_id,
             'user_name' => $user_name,
@@ -1809,8 +1848,7 @@ function novo_innsider_save_logs_click()
             'actionurl' => $actionurl,
             'ip' => $ip
         ]);
-
-    }else{
+    } else {
 
         global $wpdb;
 
@@ -1829,9 +1867,7 @@ function novo_innsider_save_logs_click()
             'actionurl' => $actionurl,
             'ip' => $ip
         ]);
-
     }
-
 }
 
 add_action('wp_ajax_nopriv_save_logs_click', 'novo_innsider_save_logs_click');

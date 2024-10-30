@@ -122,7 +122,7 @@ $titlePostId = get_the_title();
     <?php if (isset($videoPostVisionInnsider) && !empty($videoPostVisionInnsider)) : ?>
 
         <?php $currentTermParent = get_term($taxId); ?>
-        
+
 
         <div class="container p-lg-5 p-1">
             <div class="container background-vision_single p-2">
@@ -177,11 +177,48 @@ $titlePostId = get_the_title();
                                 <?php $ListOfSpeakerModuleInnsider = get_field('List_Of_Speaker_Module_Innsider') ?>
                                 <?php $IfPostContentModuleVideovisioninnsider = get_field('If_Post_Content_Module_Video_vision_innsider') ?>
                                 <?php $URLPostContentModuleVideovisioninnsider = get_field('URL_Post_Content_Module_Video_vision_innsider') ?>
+                                <?php $IfSocialButtonModuleInnsider = get_field('If_Social_Button_Module_Innsider') ?>
+                                <?php $ListOfSocialButtonModuleInnsider = get_field('List_Of_Social_Button_Module_Innsider') ?>
 
                                 <?php if (isset($DescriptionModuleInnsider) && !empty($DescriptionModuleInnsider)) : ?>
                                     <h5 class="NotoSans-SemiBold title-color d-none d-lg-block mx-0 mt-0 m-4 text-info-video-speaker"><?= $DescriptionModuleInnsider; ?></h5>
                                     <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4 text-info-video-speaker"><?= $DescriptionModuleInnsider; ?></p>
                                 <?php endif ?>
+
+                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <H5 class="me-4 NotoSans-Regular title-color" style="text-decoration: underline;">Compartir</H5>
+                                            <div class="buttons">
+                                                <button class="main-button" style="color: white">
+                                                    <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M15.75 5.125a3.125 3.125 0 1 1 .754 2.035l-8.397 3.9a3.124 3.124 0 0 1 0 1.88l8.397 3.9a3.125 3.125 0 1 1-.61 1.095l-8.397-3.9a3.125 3.125 0 1 1 0-4.07l8.397-3.9a3.125 3.125 0 0 1-.144-.94Z"></path>
+                                                    </svg>
+                                                </button>
+
+                                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                        <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+
+                                                            <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
+                                                            <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
+                                                            <?php $UrlSpeakerModuleInnsider = $ListOfSocialButton['Url_Speaker_Module_Innsider']; ?>
+
+                                                            <button class="<?= $ClassButtonSocialModuleInnsider; ?> button" style="transition-delay: 0s, 0s, 0s; transition-property: translate, background, box-shadow;">
+                                                                <a href="<?= $UrlSpeakerModuleInnsider; ?>" target="_blank" style="text-decoration: none; color: black;">
+                                                                    <?= $SVGSocialModuleInnsider; ?>
+                                                                </a>
+                                                            </button>
+
+                                                        <?php endforeach; ?>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+
+                                    <?php endif; ?>
+                                <?php endif; ?>
 
                                 <?php if (isset($IfSpeakerModuleInnsider) && !empty($IfSpeakerModuleInnsider)) : ?>
                                     <?php if (isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
@@ -189,6 +226,7 @@ $titlePostId = get_the_title();
                                         <?php $count = 0; ?>
 
                                         <h1 class="NotoSans-Bold title-color mx-0 m-4">Expertos</h1>
+
 
                                         <?php foreach ($ListOfSpeakerModuleInnsider as $index => $listSpeakerContentModule) : ?>
 
@@ -322,9 +360,9 @@ $titlePostId = get_the_title();
 
                                                 <?php $completePermalink = $thePermalink . '?module_id=' . urlencode($postActivityId) . '&content_id=' . urlencode($postIndex) . '&tax=' . urlencode($terms[0]->term_id); ?>
 
-                                                <?php if($contentRegister === '1') : ?>
+                                                <?php if ($contentRegister === '1') : ?>
 
-                                                    <?php if(!is_user_logged_in()) : ?>
+                                                    <?php if (!is_user_logged_in()) : ?>
 
                                                         <?php $login_url = wp_login_url($completePermalink); ?>
                                                         <?php $link = $login_url; ?>
@@ -340,7 +378,7 @@ $titlePostId = get_the_title();
                                                                 <div class="mt-1 p-0">
                                                                     <div class="w-75 p-2 mb-4 btn-view-now">
                                                                         <i class="fa-regular fa-circle-play mx-2"></i>
-                                                                        Ver ahora
+                                                                        Ver ahora 1
                                                                     </div>
                                                                     <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
                                                                     <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
@@ -350,7 +388,7 @@ $titlePostId = get_the_title();
                                                                 <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
                                                                 <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
 
-                                                                <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+                                                                <?php if (isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
 
                                                                     <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
 
@@ -358,18 +396,34 @@ $titlePostId = get_the_title();
                                                                         <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
                                                                         <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
 
-                                                                        
+
                                                                         <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
                                                                         <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
-                                                                        
+
 
                                                                     <?php endforeach; ?>
 
                                                                 <?php endif; ?>
+
+                                                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                                        <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+
+                                                                            <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
+                                                                            <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
+                                                                            <?php $UrlSpeakerModuleInnsider = $ListOfSocialButton['Url_Speaker_Module_Innsider']; ?>
+
+                                                                            <input type="hidden" class="class-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($ClassButtonSocialModuleInnsider) ?>">
+                                                                            <input type="hidden" class="svg-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($SVGSocialModuleInnsider) ?>">
+                                                                            <input type="hidden" class="url-redirect-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($UrlSpeakerModuleInnsider) ?>">
+
+                                                                        <?php endforeach; ?>
+                                                                    <?php endif; ?>
+                                                                <?php endif; ?>
                                                             </a>
                                                         </div>
 
-                                                    <?php else : ?> 
+                                                    <?php else : ?>
 
                                                         <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
                                                             <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>); saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
@@ -391,7 +445,7 @@ $titlePostId = get_the_title();
                                                                 <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
                                                                 <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
 
-                                                                <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+                                                                <?php if (isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
 
                                                                     <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
 
@@ -399,20 +453,37 @@ $titlePostId = get_the_title();
                                                                         <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
                                                                         <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
 
-                                                                        
+
                                                                         <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
                                                                         <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
-                                                                        
+
 
                                                                     <?php endforeach; ?>
 
+                                                                <?php endif; ?>
+
+
+                                                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                                        <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+
+                                                                            <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
+                                                                            <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
+                                                                            <?php $UrlSpeakerModuleInnsider = $ListOfSocialButton['Url_Speaker_Module_Innsider']; ?>
+
+                                                                            <input type="hidden" class="class-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($ClassButtonSocialModuleInnsider) ?>">
+                                                                            <input type="hidden" class="svg-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($SVGSocialModuleInnsider) ?>">
+                                                                            <input type="hidden" class="url-redirect-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($UrlSpeakerModuleInnsider) ?>">
+
+                                                                        <?php endforeach; ?>
+                                                                    <?php endif; ?>
                                                                 <?php endif; ?>
                                                             </a>
                                                         </div>
 
                                                     <?php endif ?>
-                                                                
-                                                <?php else : ?>    
+
+                                                <?php else : ?>
 
                                                     <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
                                                         <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="playVideo(<?= the_ID() ?>, '<?= get_field('URL_Post_Content_Module_Video_vision_innsider') ?>', event, 'item-playlist-videos', <?= $postIndex ?>); saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
@@ -434,7 +505,7 @@ $titlePostId = get_the_title();
                                                             <input type="hidden" class="name-playlist-video" value="<?= esc_html(the_title()) ?>">
                                                             <input type="hidden" id="description_video" value="<?= $descriptionModuleInnsider ?>">
 
-                                                            <?php if(isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
+                                                            <?php if (isset($ListOfSpeakerModuleInnsider) && !empty($ListOfSpeakerModuleInnsider)) : ?>
 
                                                                 <?php foreach ($ListOfSpeakerModuleInnsider as $index => $speaker) : ?>
 
@@ -442,17 +513,34 @@ $titlePostId = get_the_title();
                                                                     <?php $nameSpeakerModuleInnsider = $speaker['Name_Speaker_Module_Innsider']; ?>
                                                                     <?php $credentialsSpeakerModuleInnsider = $speaker['Credentials_Speaker_Module_Innsider']; ?>
 
-                                                                    
+
                                                                     <input type="hidden" class="name-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($nameSpeakerModuleInnsider) ?>">
                                                                     <input type="hidden" class="credentials-speaker" data-index="<?= $index ?>" value="<?= htmlspecialchars($credentialsSpeakerModuleInnsider) ?>">
-                                                                    
+
 
                                                                 <?php endforeach; ?>
 
                                                             <?php endif; ?>
+
+
+                                                            <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                                <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                                    <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+
+                                                                        <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
+                                                                        <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
+                                                                        <?php $UrlSpeakerModuleInnsider = $ListOfSocialButton['Url_Speaker_Module_Innsider']; ?>
+
+                                                                        <input type="hidden" class="class-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($ClassButtonSocialModuleInnsider) ?>">
+                                                                        <input type="hidden" class="svg-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($SVGSocialModuleInnsider) ?>">
+                                                                        <input type="hidden" class="url-redirect-btn-social" data-index="<?= $index ?>" value="<?= htmlspecialchars($UrlSpeakerModuleInnsider) ?>">
+
+                                                                    <?php endforeach; ?>
+                                                                <?php endif; ?>
+                                                            <?php endif; ?>
                                                         </a>
                                                     </div>
-                                                    
+
                                                 <?php endif ?>
 
                                                 <?php $i++; ?>
@@ -469,7 +557,7 @@ $titlePostId = get_the_title();
                 </div>
             </div>
 
-            <?php $termSingle = get_term($taxId); ?>                                                        
+            <?php $termSingle = get_term($taxId); ?>
             <?php $codePromomats = get_field('description_complementary', $termSingle) ?>
 
             <div class="container m-lg-5 mx-lg-auto m-3 px-0">
@@ -709,8 +797,8 @@ $titlePostId = get_the_title();
                     </div>
                 </div>
 
-                <?php if(isset($ifPostTrendWithDiferentOptions ) && !empty($ifPostTrendWithDiferentOptions )) : ?>
-                    <?php if(isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
+                <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
+                    <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
 
                         <?php if (have_rows('Content_Post_Trend_With_Different_Options')) : ?>
                             <?php while (have_rows('Content_Post_Trend_With_Different_Options')) : the_row() ?>
@@ -824,7 +912,7 @@ $titlePostId = get_the_title();
 
                     <?php endif; ?>
 
-                <?php elseif(isset($ifPostTrendPdf) && !empty($ifPostTrendPdf)) : ?>
+                <?php elseif (isset($ifPostTrendPdf) && !empty($ifPostTrendPdf)) : ?>
 
                     <?php if (isset($pdfPostTrend) && !empty($pdfPostTrend)) : ?>
 
@@ -833,7 +921,7 @@ $titlePostId = get_the_title();
                                 <div class="p-5 pt-3 pt-lg-5 w-100">
 
                                     <h1 class="NotoSans-Bold title-color mb-5 pb-2 d-none d-lg-block"><?php the_title(); ?></h1>
-                                    <h5 class="NotoSans-Bold title-color mb-2 pb-2 d-block d-lg-none"><?php the_title(); ?></h5>  
+                                    <h5 class="NotoSans-Bold title-color mb-2 pb-2 d-block d-lg-none"><?php the_title(); ?></h5>
 
                                     <div class="col-lg-12">
                                         <div class="row justify-content-center">
@@ -843,7 +931,7 @@ $titlePostId = get_the_title();
 
                                                 <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
                                                     <a href="<?= $pdfPostTrend ?>" download class="text-decoration-none text-light">Descargar PDF</a>
-                                                </div> 
+                                                </div>
 
                                             </div>
                                         </div>
@@ -856,10 +944,10 @@ $titlePostId = get_the_title();
 
                     <?php endif; ?>
 
-                <?php elseif(isset($ifPostTrendWithDiferentOptions ) && !empty($ifPostTrendWithDiferentOptions )) : ?>
+                <?php elseif (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
 
-                    <?php if(isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
-                        
+                    <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
+
                         <?php if (have_rows('Content_Post_Trend_With_Different_Options')) : ?>
                             <?php while (have_rows('Content_Post_Trend_With_Different_Options')) : the_row() ?>
 
@@ -867,19 +955,19 @@ $titlePostId = get_the_title();
                                 <?php $ifPostTrendContentColor = get_sub_field('If_Post_Trend_Content_Color'); ?>
                                 <?php $contentPostTrendColor = get_sub_field('Content_Post_Trend_Color'); ?>
 
-                                <?php if(isset($ifPostTrendContentColor) && !empty($ifPostTrendContentColor)) : ?>
-                                    <?php if(isset($contentPostTrendColor) && !empty($contentPostTrendColor)) : ?>
+                                <?php if (isset($ifPostTrendContentColor) && !empty($ifPostTrendContentColor)) : ?>
+                                    <?php if (isset($contentPostTrendColor) && !empty($contentPostTrendColor)) : ?>
 
-                                        <?php if(have_rows('Content_Post_Trend_Color')) : ?>
+                                        <?php if (have_rows('Content_Post_Trend_Color')) : ?>
 
-                                            <?php while(have_rows('Content_Post_Trend_Color')) : the_row()  ?>
+                                            <?php while (have_rows('Content_Post_Trend_Color')) : the_row()  ?>
 
                                                 <?php /* Image - Title  /  Content With Background Color */  ?>
                                                 <?php $ifPostTrendContentImageTitleColor = get_sub_field('If_Post_Trend_Content_Image_Title'); ?>
                                                 <?php $contentPostTrendContentImageTitleColor = get_sub_field('Content_Post_Trend_Content_Image_Title'); ?>
-                                                
 
-                                                <?php if(isset($ifPostTrendContentImageTitleColor) && !empty($ifPostTrendContentImageTitleColor)) : ?>
+
+                                                <?php if (isset($ifPostTrendContentImageTitleColor) && !empty($ifPostTrendContentImageTitleColor)) : ?>
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
 
@@ -888,9 +976,9 @@ $titlePostId = get_the_title();
                                                                 <div class="col-12 p-0 pb-lg-0 pt-0 pb-0">
                                                                     <div class="row">
 
-                                                                        <?php if(have_rows('Content_Post_Trend_Content_Image_Title')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Content_Image_Title')) : the_row() ?>
+                                                                        <?php if (have_rows('Content_Post_Trend_Content_Image_Title')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Content_Image_Title')) : the_row() ?>
 
                                                                                 <?php $titleContentPostTrendContentImageTitleColor = get_sub_field('Title_Content_Post_Trend_Content_Image_Title'); ?>
                                                                                 <?php $imageContentPostTrendContentImageTitleColor = get_sub_field('Image__Content_Post_Trend_Content_Image_Title'); ?>
@@ -900,17 +988,17 @@ $titlePostId = get_the_title();
                                                                                 </h2>
                                                                                 <div class="d-flex justify-content-start align-items-center">
                                                                                     <div class="col-12 col-lg-12">
-                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentImageTitleColor, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>  
+                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentImageTitleColor, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>
                                                                                     </div>
                                                                                 </div>
 
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -921,7 +1009,7 @@ $titlePostId = get_the_title();
                                                 <?php $ifPostTrendContentTitleDescriptionColor = get_sub_field('If_Post_Trend_Content_Title_Description'); ?>
                                                 <?php $contentPostTrendContentTitleDescriptionColor = get_sub_field('Content_Post_Trend_Content_Title_Description'); ?>
 
-                                                <?php if(isset($ifPostTrendContentTitleDescriptionColor) && !empty($ifPostTrendContentTitleDescriptionColor)) : ?>
+                                                <?php if (isset($ifPostTrendContentTitleDescriptionColor) && !empty($ifPostTrendContentTitleDescriptionColor)) : ?>
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
 
@@ -930,9 +1018,9 @@ $titlePostId = get_the_title();
                                                                 <div class="col-12 p-0">
                                                                     <div class="row">
                                                                         <?php $counter = 0 ?>
-                                                                        <?php if(have_rows('Content_Post_Trend_Content_Title_Description')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Content_Title_Description')) : the_row() ?>
+                                                                        <?php if (have_rows('Content_Post_Trend_Content_Title_Description')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Content_Title_Description')) : the_row() ?>
 
                                                                                 <?php $titleContentPostTrendContentTitleDescriptionColor = get_sub_field('Title_Content_Post_Trend_Content_Title_Description'); ?>
                                                                                 <?php $descriptioncontentPostTrendContentTitleDescriptionColor = get_sub_field('Description_Content_Post_Trend_Content_Title_Description'); ?>
@@ -945,13 +1033,13 @@ $titlePostId = get_the_title();
                                                                                 </div>
 
                                                                                 <?php $counter++ ?>
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -962,8 +1050,8 @@ $titlePostId = get_the_title();
                                                 <?php $ifPostTrendContentTitleImageDescriptionColor = get_sub_field('If_Post_Trend_Content_Title_Image_Description'); ?>
                                                 <?php $contentPostTrendContentTitleImageDescriptionColor = get_sub_field('Content_Post_Trend_Content_Title_Image_Description'); ?>
 
-                                                
-                                                <?php if(isset($ifPostTrendContentTitleImageDescriptionColor) && !empty($ifPostTrendContentTitleImageDescriptionColor)) : ?>
+
+                                                <?php if (isset($ifPostTrendContentTitleImageDescriptionColor) && !empty($ifPostTrendContentTitleImageDescriptionColor)) : ?>
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
 
@@ -971,16 +1059,16 @@ $titlePostId = get_the_title();
                                                             <div class="p-0 w-100 px-0">
                                                                 <div class="col-12 p-0 pt-0 pb-0">
                                                                     <div class="row">
-                                                                        <?php if(have_rows('Content_Post_Trend_Content_Title_Image_Description')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Content_Title_Image_Description')) : the_row() ?>
+                                                                        <?php if (have_rows('Content_Post_Trend_Content_Title_Image_Description')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Content_Title_Image_Description')) : the_row() ?>
 
                                                                                 <?php $titleContentPostTrendContentTitleImageDescriptionColor = get_sub_field('Title_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $firstDescriptionContentPostTrendContentTitleImageDescriptionColor = get_sub_field('First_Description_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $secondDescriptionContentPostTrendContentTitleImageDescriptionColor = get_sub_field('Second_Description_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $imageContentPostTrendContentTitleImageDescriptionColor = get_sub_field('Image_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $lastDescriptionContentPostTrendContentTitleImageDescriptionColor = get_sub_field('Last_Description_Content_Post_Trend_Content_Title_Image_Description'); ?>
-                                                                                
+
 
                                                                                 <h2 class="NotoSans-Bold title-color mb-4 pt-4">
                                                                                     <?= strip_tags($titleContentPostTrendContentTitleImageDescriptionColor); ?>
@@ -993,20 +1081,20 @@ $titlePostId = get_the_title();
                                                                                 </div>
                                                                                 <div class="d-flex justify-content-center align-items-center">
                                                                                     <div class="col-12 col-lg-10">
-                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentTitleImageDescriptionColor, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>  
+                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentTitleImageDescriptionColor, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="NotoSans-Regular description-color px-2 mb-4 pt-4">
                                                                                     <?= strip_tags($lastDescriptionContentPostTrendContentTitleImageDescriptionColor, '<strong><em><ul><li><blockquote><a><br><h1><h2><h3><h4><h5>'); ?>
                                                                                 </div>
 
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -1018,7 +1106,7 @@ $titlePostId = get_the_title();
                                                 <?php $contentPostTrendSubcontentColor = get_sub_field('Content_Post_Trend_Subcontent'); ?>
 
 
-                                                <?php if(isset($ifPostTrendContentSubcontentColor) && !empty($ifPostTrendContentSubcontentColor)) : ?>
+                                                <?php if (isset($ifPostTrendContentSubcontentColor) && !empty($ifPostTrendContentSubcontentColor)) : ?>
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-bottom: 2rem;">
 
@@ -1026,9 +1114,9 @@ $titlePostId = get_the_title();
                                                             <div class="p-5 pt-3 w-100 px-0">
                                                                 <div class="col-12 p-lg-5 p-3 pt-lg-0 pb-lg-0 pt-0 pb-0">
                                                                     <div class="row">
-                                                                        <?php if(have_rows('Content_Post_Trend_Subcontent')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Subcontent')) : the_row() ?>
+                                                                        <?php if (have_rows('Content_Post_Trend_Subcontent')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Subcontent')) : the_row() ?>
 
                                                                                 <?php $titleContentPostTrendSubcontentColor = get_sub_field('Title_Content_Post_Trend_Subcontent'); ?>
                                                                                 <?php $subcontentPostTrendColor = get_sub_field('Subcontent_Post_Trend'); ?>
@@ -1040,9 +1128,9 @@ $titlePostId = get_the_title();
                                                                                     <div class="p-5 pt-3 w-100 px-0">
                                                                                         <div class="col-12 p-lg-5 p-3 pt-lg-0 pb-lg-0 pt-0 pb-0">
                                                                                             <div class="row">
-                                                                                                <?php if(have_rows('Subcontent_Post_Trend')) : ?>
-                                                                                                    
-                                                                                                    <?php while(have_rows('Subcontent_Post_Trend')) : the_row() ?>
+                                                                                                <?php if (have_rows('Subcontent_Post_Trend')) : ?>
+
+                                                                                                    <?php while (have_rows('Subcontent_Post_Trend')) : the_row() ?>
 
                                                                                                         <?php $titleSubcontentPostTrendColor = get_sub_field('Title_Subcontent_Post_Trend'); ?>
                                                                                                         <?php $imageSubcontentPostTrendColor = get_sub_field('Image_Subcontent_Post_Trend'); ?>
@@ -1055,7 +1143,7 @@ $titlePostId = get_the_title();
                                                                                                         <div class="d-flex flex-md-row flex-column position-relative justify-content-center align-items-center">
                                                                                                             <div class="col-md-4 col-lg-4" style="border-radius: 1rem;">
                                                                                                                 <div class="col-12">
-                                                                                                                    <?= wp_get_attachment_image($imageSubcontentPostTrendColor, 'full', '', ['style' => 'height: 170px;width: 100%;object-fit: contain;']); ?>  
+                                                                                                                    <?= wp_get_attachment_image($imageSubcontentPostTrendColor, 'full', '', ['style' => 'height: 170px;width: 100%;object-fit: contain;']); ?>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div class="col-md-8 col-lg-8 d-flex justify-content-center align-items-center">
@@ -1071,21 +1159,21 @@ $titlePostId = get_the_title();
                                                                                                             </div>
                                                                                                         </div>
 
-                                                                                                    <?php endwhile; ?>  
+                                                                                                    <?php endwhile; ?>
 
                                                                                                 <?php endif; ?>
-                                                                                            </div>            
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>   
+                                                                                </div>
 
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -1095,7 +1183,7 @@ $titlePostId = get_the_title();
                                             <?php endwhile; ?>
 
                                         <?php endif; ?>
-                                        
+
                                     <?php endif; ?>
                                 <?php endif; ?>
 
@@ -1104,18 +1192,18 @@ $titlePostId = get_the_title();
                                 <?php $ifPostTrendContentWithoutColor = get_sub_field('If_Post_Trend_Content_Without_Color'); ?>
                                 <?php $contentPostTrendWithoutColor = get_sub_field('Content_Post_Trend_Without_Color_c'); ?>
 
-                                <?php if(isset($ifPostTrendContentWithoutColor) && !empty($ifPostTrendContentWithoutColor)) : ?>
-                                    <?php if(isset($contentPostTrendWithoutColor) && !empty($contentPostTrendWithoutColor)) : ?>
+                                <?php if (isset($ifPostTrendContentWithoutColor) && !empty($ifPostTrendContentWithoutColor)) : ?>
+                                    <?php if (isset($contentPostTrendWithoutColor) && !empty($contentPostTrendWithoutColor)) : ?>
 
-                                        <?php if(have_rows('Content_Post_Trend_Without_Color_c')) : ?>
+                                        <?php if (have_rows('Content_Post_Trend_Without_Color_c')) : ?>
 
-                                            <?php while(have_rows('Content_Post_Trend_Without_Color_c')) : the_row()  ?>
+                                            <?php while (have_rows('Content_Post_Trend_Without_Color_c')) : the_row()  ?>
 
                                                 <?php /* Title - Image  /  Content With Background Color */  ?>
                                                 <?php $ifPostTrendContentImageTitle = get_sub_field('If_Post_Trend_Content_Image_Title'); ?>
                                                 <?php $contentPostTrendContentImageTitle = get_sub_field('Content_Post_Trend_Content_Image_Title'); ?>
 
-                                                <?php if(isset($ifPostTrendContentImageTitle) && !empty($ifPostTrendContentImageTitle)) : ?>
+                                                <?php if (isset($ifPostTrendContentImageTitle) && !empty($ifPostTrendContentImageTitle)) : ?>
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white;">
 
@@ -1124,9 +1212,9 @@ $titlePostId = get_the_title();
                                                                 <div class="col-12 p-0 pt-0 pb-0">
                                                                     <div class="row">
 
-                                                                        <?php if(have_rows('Content_Post_Trend_Content_Image_Title')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Content_Image_Title')) : the_row() ?>
+                                                                        <?php if (have_rows('Content_Post_Trend_Content_Image_Title')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Content_Image_Title')) : the_row() ?>
 
                                                                                 <?php $titleContentPostTrendContentImageTitle = get_sub_field('Title_Content_Post_Trend_Content_Image_Title'); ?>
                                                                                 <?php $imageContentPostTrendContentImageTitle = get_sub_field('Image__Content_Post_Trend_Content_Image_Title'); ?>
@@ -1136,17 +1224,17 @@ $titlePostId = get_the_title();
                                                                                 </h2>
                                                                                 <div class="d-flex justify-content-start align-items-center">
                                                                                     <div class="col-12 col-lg-12">
-                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentImageTitle, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>  
+                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentImageTitle, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>
                                                                                     </div>
                                                                                 </div>
 
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -1157,7 +1245,7 @@ $titlePostId = get_the_title();
                                                 <?php $ifPostTrendContentTitleDescription = get_sub_field('If_Post_Trend_Content_Title_Description'); ?>
                                                 <?php $contentPostTrendContentTitleDescription = get_sub_field('Content_Post_Trend_Content_Title_Description'); ?>
 
-                                                <?php if(isset($ifPostTrendContentTitleDescription) && !empty($ifPostTrendContentTitleDescription)) : ?>
+                                                <?php if (isset($ifPostTrendContentTitleDescription) && !empty($ifPostTrendContentTitleDescription)) : ?>
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white; margin-top: 1rem; margin-botton: 2rem;">
 
@@ -1167,9 +1255,9 @@ $titlePostId = get_the_title();
                                                                     <div class="row">
                                                                         <?php $counter = 0 ?>
 
-                                                                        <?php if(have_rows('Content_Post_Trend_Content_Title_Description')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Content_Title_Description')) : the_row() ?>
+                                                                        <?php if (have_rows('Content_Post_Trend_Content_Title_Description')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Content_Title_Description')) : the_row() ?>
 
                                                                                 <?php $titleContentPostTrendContentTitleDescription = get_sub_field('Title_Content_Post_Trend_Content_Title_Description'); ?>
                                                                                 <?php $descriptioncontentPostTrendContentTitleDescription = get_sub_field('Description_Content_Post_Trend_Content_Title_Description'); ?>
@@ -1182,13 +1270,13 @@ $titlePostId = get_the_title();
                                                                                 </div>
 
                                                                                 <?php $counter++ ?>
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -1199,8 +1287,8 @@ $titlePostId = get_the_title();
                                                 <?php $ifPostTrendContentTitleImageDescription = get_sub_field('If_Post_Trend_Content_Title_Image_Description'); ?>
                                                 <?php $contentPostTrendContentTitleImageDescription = get_sub_field('Content_Post_Trend_Content_Title_Image_Description'); ?>
 
-                                                
-                                                <?php if(isset($ifPostTrendContentTitleImageDescription) && !empty($ifPostTrendContentTitleImageDescription)) : ?>
+
+                                                <?php if (isset($ifPostTrendContentTitleImageDescription) && !empty($ifPostTrendContentTitleImageDescription)) : ?>
 
                                                     <div class="pt-4 pb-4" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white;">
 
@@ -1208,16 +1296,16 @@ $titlePostId = get_the_title();
                                                             <div class="p-0 w-100 px-0">
                                                                 <div class="col-12 p-0 pt-0 pb-0">
                                                                     <div class="row">
-                                                                        <?php if(have_rows('Content_Post_Trend_Content_Title_Image_Description')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Content_Title_Image_Description')) : the_row() ?>
+                                                                        <?php if (have_rows('Content_Post_Trend_Content_Title_Image_Description')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Content_Title_Image_Description')) : the_row() ?>
 
                                                                                 <?php $titleContentPostTrendContentTitleImageDescription = get_sub_field('Title_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $firstDescriptionContentPostTrendContentTitleImageDescription = get_sub_field('First_Description_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $secondDescriptionContentPostTrendContentTitleImageDescription = get_sub_field('Second_Description_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $imageContentPostTrendContentTitleImageDescription = get_sub_field('Image_Content_Post_Trend_Content_Title_Image_Description'); ?>
                                                                                 <?php $lastDescriptionContentPostTrendContentTitleImageDescription = get_sub_field('Last_Description_Content_Post_Trend_Content_Title_Image_Description'); ?>
-                                                                                
+
 
                                                                                 <h2 class="NotoSans-Bold title-color mb-4 pt-4">
                                                                                     <?= strip_tags($titleContentPostTrendContentTitleImageDescription, '<strong><em><ul><li><blockquote><a><br><h1><h2><h3><h4><h5>'); ?>
@@ -1230,20 +1318,20 @@ $titlePostId = get_the_title();
                                                                                 </div>
                                                                                 <div class="d-flex justify-content-center align-items-center">
                                                                                     <div class="col-12 col-lg-10">
-                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentTitleImageDescription, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>  
+                                                                                        <?= wp_get_attachment_image($imageContentPostTrendContentTitleImageDescription, 'full', '', ['class' => '', 'style' => 'width: 100%; height: 100%; object-fit: cover;']); ?>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="NotoSans-Regular description-color px-2 mb-4 pt-4">
                                                                                     <?= strip_tags($lastDescriptionContentPostTrendContentTitleImageDescription, '<strong><em><ul><li><blockquote><a><br><h1><h2><h3><h4><h5>'); ?>
                                                                                 </div>
 
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -1255,7 +1343,7 @@ $titlePostId = get_the_title();
                                                 <?php $contentPostTrendSubcontent = get_sub_field('Content_Post_Trend_Subcontent'); ?>
 
 
-                                                <?php if(isset($ifPostTrendContentSubcontent) && !empty($ifPostTrendContentSubcontent)) : ?>
+                                                <?php if (isset($ifPostTrendContentSubcontent) && !empty($ifPostTrendContentSubcontent)) : ?>
 
                                                     <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: white; margin-top: 1rem; margin-bottom: 2rem;">
 
@@ -1263,10 +1351,10 @@ $titlePostId = get_the_title();
                                                             <div class="p-5 pt-3 w-100 px-0">
                                                                 <div class="col-12 p-lg-5 p-3 pt-lg-0 pb-lg-0 pt-0 pb-0">
                                                                     <div class="row">
-                                                                        <?php if(have_rows('Content_Post_Trend_Subcontent')) : ?>
-                                                                            
-                                                                            <?php while(have_rows('Content_Post_Trend_Subcontent')) : the_row() ?>
-                                                                               
+                                                                        <?php if (have_rows('Content_Post_Trend_Subcontent')) : ?>
+
+                                                                            <?php while (have_rows('Content_Post_Trend_Subcontent')) : the_row() ?>
+
 
                                                                                 <?php $titleContentPostTrendSubcontent = get_sub_field('Title_Content_Post_Trend_Subcontent'); ?>
                                                                                 <?php $subcontentPostTrend = get_sub_field('Subcontent_Post_Trend'); ?>
@@ -1279,9 +1367,9 @@ $titlePostId = get_the_title();
                                                                                     <div class="p-5 pt-3 w-100 px-0">
                                                                                         <div class="col-12 p-lg-5 p-3 pt-lg-0 pb-lg-0 pt-0 pb-0">
                                                                                             <div class="row">
-                                                                                                <?php if(have_rows('Subcontent_Post_Trend')) : ?>
-                                                                                                    
-                                                                                                    <?php while(have_rows('Subcontent_Post_Trend')) : the_row() ?>
+                                                                                                <?php if (have_rows('Subcontent_Post_Trend')) : ?>
+
+                                                                                                    <?php while (have_rows('Subcontent_Post_Trend')) : the_row() ?>
 
                                                                                                         <?php $titleSubcontentPostTrend = get_sub_field('Title_Subcontent_Post_Trend'); ?>
                                                                                                         <?php $imageSubcontentPostTrend = get_sub_field('Image_Subcontent_Post_Trend'); ?>
@@ -1294,7 +1382,7 @@ $titlePostId = get_the_title();
                                                                                                         <div class="d-flex flex-md-row flex-column position-relative justify-content-center align-items-center">
                                                                                                             <div class="col-md-4 col-lg-4" style="border-radius: 1rem;">
                                                                                                                 <div class="col-12">
-                                                                                                                    <?= wp_get_attachment_image($imageSubcontentPostTrend, 'full', '', ['style' => 'height: 170px;width: 100%;object-fit: contain;']); ?>  
+                                                                                                                    <?= wp_get_attachment_image($imageSubcontentPostTrend, 'full', '', ['style' => 'height: 170px;width: 100%;object-fit: contain;']); ?>
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                             <div class="col-md-8 col-lg-8 d-flex justify-content-center align-items-center">
@@ -1310,21 +1398,21 @@ $titlePostId = get_the_title();
                                                                                                             </div>
                                                                                                         </div>
 
-                                                                                                    <?php endwhile; ?>  
+                                                                                                    <?php endwhile; ?>
 
                                                                                                 <?php endif; ?>
-                                                                                            </div>            
+                                                                                            </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>   
+                                                                                </div>
 
-                                                                            <?php endwhile; ?>  
+                                                                            <?php endwhile; ?>
 
                                                                         <?php endif; ?>
-                                                                    </div>            
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                    
+                                                        </div>
 
                                                     </div>
 
@@ -1334,7 +1422,7 @@ $titlePostId = get_the_title();
                                             <?php endwhile; ?>
 
                                         <?php endif; ?>
-                                        
+
                                     <?php endif; ?>
                                 <?php endif; ?>
 
@@ -1342,7 +1430,7 @@ $titlePostId = get_the_title();
                             <?php endwhile; ?>
                         <?php endif; ?>
 
-                    <?php endif ?> 
+                    <?php endif ?>
 
                 <?php else : ?>
 
@@ -1410,61 +1498,15 @@ $titlePostId = get_the_title();
 
                     <?php if ($filteredPostsQuery->have_posts()) : ?>
 
-                        
 
 
-                            <?php if(isset($ifPostTrendWithDiferentOptions ) && !empty($ifPostTrendWithDiferentOptions )) : ?>
-                                <?php if(isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
 
-                                    <div class="container p-0 pt-lg-0">
+                        <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
+                            <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
 
-                                        <div class="container background-single p-0 m-0 px-lg-5" style="background-color: #F9ECEA !important;">
-                                            <div class="container mt-3">
+                                <div class="container p-0 pt-lg-0">
 
-                                                <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
-
-                                                    <?php while ($filteredPostsQuery->have_posts()) : $filteredPostsQuery->the_post() ?>
-
-                                                        <?php $thePermalink = get_the_permalink(); ?>
-
-                                                        <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
-
-                                                        <div class="col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
-                                                            <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');" style="text-decoration: none;">
-                                                                <div class="mb-4 figure">
-                                                                    <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>
-                                                                        <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
-                                                                    <?php endif ?>
-                                                                </div>
-                                                                <div class="mt-1 p-0">
-                                                                    <div class="w-75 p-2 mb-4 btn-view-now">
-                                                                        <i class="fa-regular fa-circle-play mx-2"></i>
-                                                                        Ver ahora
-                                                                    </div>
-                                                                    <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
-                                                                    <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
-                                                                        <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
-                                                                    <?php endif; ?>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-
-                                                    <?php endwhile; ?>
-                                                    <?php wp_reset_postdata(); ?>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                <?php endif; ?>
-
-                            <?php else : ?>
-
-                                <div class="container p-lg-5 pt-lg-0">
-
-                                    <div class="container background-single p-0 m-0 px-lg-5">
+                                    <div class="container background-single p-0 m-0 px-lg-5" style="background-color: #F9ECEA !important;">
                                         <div class="container mt-3">
 
                                             <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
@@ -1501,9 +1543,55 @@ $titlePostId = get_the_title();
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                             <?php endif; ?>
+
+                        <?php else : ?>
+
+                            <div class="container p-lg-5 pt-lg-0">
+
+                                <div class="container background-single p-0 m-0 px-lg-5">
+                                    <div class="container mt-3">
+
+                                        <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
+
+                                            <?php while ($filteredPostsQuery->have_posts()) : $filteredPostsQuery->the_post() ?>
+
+                                                <?php $thePermalink = get_the_permalink(); ?>
+
+                                                <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+
+                                                <div class="col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
+                                                    <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');" style="text-decoration: none;">
+                                                        <div class="mb-4 figure">
+                                                            <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>
+                                                                <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                                            <?php endif ?>
+                                                        </div>
+                                                        <div class="mt-1 p-0">
+                                                            <div class="w-75 p-2 mb-4 btn-view-now">
+                                                                <i class="fa-regular fa-circle-play mx-2"></i>
+                                                                Ver ahora
+                                                            </div>
+                                                            <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                            <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
+                                                                <p class="NotoSans-Regular description-color"><?= esc_html($subtitlePostTrend); ?></p>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </a>
+                                                </div>
+
+                                            <?php endwhile; ?>
+                                            <?php wp_reset_postdata(); ?>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
 
                     <?php endif; ?>
 
@@ -1777,8 +1865,8 @@ $titlePostId = get_the_title();
                                                                     <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfModuleAcademy ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
 
                                                                     <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
-                                                                        <a href="<?= $urlPdfModuleAcademy ?>" download class="text-decoration-none text-light">Descargar pdf</a>   
-                                                                    </div> 
+                                                                        <a href="<?= $urlPdfModuleAcademy ?>" download class="text-decoration-none text-light">Descargar pdf</a>
+                                                                    </div>
 
                                                                 </div>
                                                             </div>

@@ -188,8 +188,8 @@ $titlePostId = get_the_title();
                                 <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
                                     <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
 
-                                        <div class="d-flex justify-content-start align-items-center">
-                                            <H5 class="me-4 NotoSans-Regular title-color" style="text-decoration: underline;">Compartir</H5>
+                                        <div class="d-flex justify-content-start align-items-center content-share-social-icons">
+                                            <H5 class="me-4 NotoSans-Regular title-color text-share" style="text-decoration: underline;">Compartir</H5>
                                             <div class="buttons">
                                                 <button class="main-button" style="color: white">
                                                     <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -205,10 +205,9 @@ $titlePostId = get_the_title();
                                                             <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
                                                             <?php $UrlSpeakerModuleInnsider = $ListOfSocialButton['Url_Speaker_Module_Innsider']; ?>
 
-                                                            <button class="<?= $ClassButtonSocialModuleInnsider; ?> button" style="transition-delay: 0s, 0s, 0s; transition-property: translate, background, box-shadow;">
-                                                                <a href="<?= $UrlSpeakerModuleInnsider; ?>" target="_blank" style="text-decoration: none; color: black;">
-                                                                    <?= $SVGSocialModuleInnsider; ?>
-                                                                </a>
+                                                            <button class="class-btn-social <?= htmlspecialchars($ClassButtonSocialModuleInnsider); ?> button" data-index="<?= $index; ?>">
+                                                                <span class="svg-btn-social" data-index="<?= $index; ?>"><?= $SVGSocialModuleInnsider; ?></span>
+                                                                <a class="url-redirect-btn-social" data-index="<?= $index; ?>" href="<?= htmlspecialchars($UrlSpeakerModuleInnsider); ?>" target="_blank" style="text-decoration: none; color: black;"></a>
                                                             </button>
 
                                                         <?php endforeach; ?>
@@ -350,6 +349,9 @@ $titlePostId = get_the_title();
                                                 <?php $descriptionModuleInnsider = get_field('Description_Module_Innsider', $postActivityId) ?>
 
                                                 <?php $ListOfSpeakerModuleInnsider = get_field('List_Of_Speaker_Module_Innsider', $postActivityId) ?>
+
+                                                <?php $IfSocialButtonModuleInnsider = get_field('If_Social_Button_Module_Innsider', $postActivityId) ?>
+                                                <?php $ListOfSocialButtonModuleInnsider = get_field('List_Of_Social_Button_Module_Innsider', $postActivityId) ?>
 
                                                 <?php $contentRegister = get_post_meta($postActivityId, 'Content_Register', true); ?>
 

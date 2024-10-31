@@ -118,6 +118,114 @@ $(function () {
     
             console.log("Speakers Data:", speakersData);
             console.log("Credentials Data:", credentialsData);
+
+            const containerButton = document.querySelector('.buttons');
+            const containerTextShare = document.querySelector('.text-share');
+            const contentShareSocialIcons = document.querySelector('.content-share-social-icons');
+            
+            const classBtnSocials = container.querySelectorAll('.class-btn-social');
+            const svgBtnSocials = container.querySelectorAll('.svg-btn-social');
+            const urlRedirectBtnSocials = container.querySelectorAll('.url-redirect-btn-social');
+
+
+            const classBtnSocialData = [];
+            const svgBtnSocialData = [];
+            const urlRedirectBtnSocialData = [];
+
+
+            classBtnSocials.forEach(classBtnSocial => {
+                const index = classBtnSocial.getAttribute('data-index');
+                classBtnSocialData.push({
+                    index: index,
+                    name: classBtnSocial.value
+                });
+            });
+    
+            svgBtnSocials.forEach(svgBtnSocial => {
+                const index = svgBtnSocial.getAttribute('data-index');
+                svgBtnSocialData.push({
+                    index: index,
+                    credentials: svgBtnSocial.value
+                });
+            });
+
+            urlRedirectBtnSocials.forEach(urlRedirectBtnSocial => {
+                const index = urlRedirectBtnSocial.getAttribute('data-index');
+                urlRedirectBtnSocialData.push({
+                    index: index,
+                    name: urlRedirectBtnSocial.value
+                })
+            })
+
+            console.log("Btn class:", classBtnSocialData);
+            console.log("Svg :", svgBtnSocialData);
+            console.log("url redirect", urlRedirectBtnSocialData);
+        
+            if (classBtnSocialData.length > 0 && svgBtnSocialData.length > 0 && urlRedirectBtnSocialData.length > 0) {
+
+                // Limpiar el contenedor de botones y agregar el nuevo
+                contentShareSocialIcons.innerHTML = ''; // Limpia el contenedor
+            
+                // Crear el h5 "Compartir" de nuevo
+                const heading = document.createElement('h5');
+                heading.className = 'me-4 NotoSans-Regular title-color text-share';
+                heading.style.textDecoration = 'underline';
+                heading.textContent = 'Compartir';
+            
+                // Agrega el h5 al contenedor
+                contentShareSocialIcons.appendChild(heading); // Asegúrate de que esto esté antes del contenedor de botones
+                console.log("H5 creado:", contentShareSocialIcons); // Para verificar
+            
+
+                // Crea el div con clase buttons 
+                const containerButton = document.createElement('div');
+                containerButton.className = 'buttons';
+
+                contentShareSocialIcons.appendChild(containerButton);
+            
+                // Crea el botón main-button de nuevo
+                const mainButton = document.createElement('button');
+                mainButton.className = 'main-button';
+                mainButton.style.color = 'white';
+                mainButton.innerHTML = `
+                    <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.75 5.125a3.125 3.125 0 1 1 .754 2.035l-8.397 3.9a3.124 3.124 0 0 1 0 1.88l8.397 3.9a3.125 3.125 0 1 1-.61 1.095l-8.397-3.9a3.125 3.125 0 1 1 0-4.07l8.397-3.9a3.125 3.125 0 0 1-.144-.94Z"></path>
+                    </svg>
+                `;
+            
+                containerButton.appendChild(mainButton); // Agrega el botón main-button al contenedor
+            
+                // Crea nuevos botones con la nueva información
+                classBtnSocialData.forEach((classBtnSocial, index) => {
+                    const button = document.createElement('button');
+                    button.className = `button class-button-social-module-innsider-${index} ${classBtnSocial.name}`;
+                    button.setAttribute('data-index', classBtnSocial.index);
+            
+                    const svgData = svgBtnSocialData.find(svg => svg.index === classBtnSocial.index) || { credentials: '' };
+                    const urlData = urlRedirectBtnSocialData.find(url => url.index === classBtnSocial.index) || { name: '#' };
+            
+                    button.innerHTML = `
+                        <a href="${urlData.name}" target="_blank" style="text-decoration: none; color: black;">
+                            <span class="class-button-social-module-innsider-${index}">
+                                ${svgData.credentials}
+                            </span>
+                        </a>
+                    `;
+            
+                    containerButton.appendChild(button); // Agrega el botón al contenedor
+                    console.log("Botón creado:", button); // Para verificar
+                });
+            
+            } else {
+                // Si no hay datos, limpia el contenedor
+                containerButton.innerHTML = ''; // Limpia el contenedor
+                containerTextShare.innerHTML = ''; // Limpia el contenedor
+                console.log("No hay datos, el contenedor ha sido limpiado.");
+            }
+            
+            
+            
+                        
         });
     });
     

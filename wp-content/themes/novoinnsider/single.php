@@ -206,8 +206,9 @@ $titlePostId = get_the_title();
                                                             <?php $UrlSpeakerModuleInnsider = $ListOfSocialButton['Url_Speaker_Module_Innsider']; ?>
 
                                                             <button class="class-btn-social <?= htmlspecialchars($ClassButtonSocialModuleInnsider); ?> button" data-index="<?= $index; ?>">
-                                                                <span class="svg-btn-social" data-index="<?= $index; ?>"><?= $SVGSocialModuleInnsider; ?></span>
-                                                                <a class="url-redirect-btn-social" data-index="<?= $index; ?>" href="<?= htmlspecialchars($UrlSpeakerModuleInnsider); ?>" target="_blank" style="text-decoration: none; color: black;"></a>
+                                                                <a class="url-redirect-btn-social" data-index="<?= $index; ?>" href="<?= htmlspecialchars($UrlSpeakerModuleInnsider); ?>" target="_blank" style="text-decoration: none; color: black;">
+                                                                    <span class="svg-btn-social" data-index="<?= $index; ?>"><?= $SVGSocialModuleInnsider; ?></span>
+                                                                </a>
                                                             </button>
 
                                                         <?php endforeach; ?>

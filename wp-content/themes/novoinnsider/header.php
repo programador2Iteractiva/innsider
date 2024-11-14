@@ -31,15 +31,29 @@ novo_innsider_save_logs();
 
         gtag('config', 'G-DK3B6EZZD4');
     </script>
+
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PV3QN9VR');</script>
+    <!-- End Google Tag Manager -->
+
     <?php wp_head(); ?>
 </head>
 
 <body>
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PV3QN9VR"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+     
     <header id="header">
         <div class="">
             <div class="">
-                <nav class="navbar navbar-expand-lg py-lg-5 py-4 d-lg-flex justify-content-between align-items-lg-center flex-row mx-4 mx-lg-0">
+                <nav class="navbar navbar-expand-lg py-4 d-lg-flex justify-content-between align-items-lg-center flex-row mx-4 mx-lg-0">
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="d-block mx-lg-5 custom-logo-container d-flex justify-content-center align-items-center">
                             <?php if (has_custom_logo()) : ?>

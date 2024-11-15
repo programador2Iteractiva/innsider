@@ -109,7 +109,28 @@ body, html {
     }
 }
 
-
+#mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link {
+    line-height: 60px;
+    height: 60px;
+    padding: 0px 5px 0px 5px !important;
+    vertical-align: baseline;
+    width: auto;
+    display: block;
+    color: #001965;
+    text-transform: none;
+    text-decoration: none;
+    text-align: left;
+    background: rgba(0, 0, 0, 0);
+    border-top: 0px solid rgba(0, 0, 0, 0);
+    border-left: 0px solid rgba(0, 0, 0, 0);
+    border-right: 0px solid rgba(0, 0, 0, 0);
+    border-bottom: 3px solid rgba(0, 0, 0, 0);
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    outline: none;
+}
 
 
 #mega-menu-wrap-primary #mega-menu-primary > li.mega-menu-item > a.mega-menu-link{
@@ -122,15 +143,15 @@ body, html {
     }
 
     @include media-breakpoint-up(lg) {
-        font-size: 1.1rem !important;
+        font-size: 0.9rem !important;
     }
 
     @include media-breakpoint-up(xl) {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
     }
 
     @include media-breakpoint-up(xxl) {
-        font-size: 1.5rem !important;
+        font-size: 1.3rem !important;
     }
 
 }

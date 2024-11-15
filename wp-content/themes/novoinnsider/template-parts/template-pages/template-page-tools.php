@@ -4,6 +4,7 @@
  * Template for page Trends
  */
 $content = get_the_content();
+$pageid = get_queried_object_id();
 ?>
 
 <div>
@@ -54,7 +55,7 @@ $content = get_the_content();
                         <?php $titlePostTools = get_the_title(); ?>
                         <?php $thePermalink = get_the_permalink(); ?>
 
-                        <?php if($Content_Register === '1') : ?> 
+                        <?php if($contentRegister === '1') : ?> 
 
                             <?php if(!is_user_logged_in()) : ?>
 
@@ -108,6 +109,13 @@ $content = get_the_content();
         <?php endif; ?>
 
     <?php endif; ?>
+
+    <div class="container m-lg-3 mx-lg-auto m-3 px-0">
+        <h5 class="NotoSans-Bold title-color mx-2">
+            <?php $codePromomats = get_field('code_promomats', $pageid); ?>
+            <p><?= $codePromomats ?></p>
+        </h5>
+    </div>
     
     <?php /* End New code for this section */ ?>
 

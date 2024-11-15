@@ -287,6 +287,53 @@ function novo_inssider_post_type() {
     /**
      * -- End Post Type Tarjetas Home
     */
+
+
+    /**
+     * Post Type Herramientas
+    */
+
+    $labels = array(
+        'name'               => _x( 'Herramientas', 'post type general name' ),
+        'singular_name'      => _x( 'Herramienta', 'post type singular name' ),
+        'menu_name'          => _x( 'Herramientas', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Herramienta', 'add new on admin bar' ),
+        'add_new'            => _x( 'Agregar herramienta', 'Slide' ),
+        'add_new_item'       => __( 'Agregar nueva herramienta' ),
+        'new_item'           => __( 'Nueva herramienta' ),
+        'edit_item'          => __( 'Editar herramienta' ),
+        'view_item'          => __( 'Ver herramienta' ),
+        'all_items'          => __( 'Todas las herramientas' ),
+        'featured_image'     => __( 'Imagen destacada' ),
+        'search_items'       => __( 'Buscar herramienta' ),
+        'parent_item_colon'  => __( 'Herramienta padre:' ),
+        'not_found'          => __( 'No se han encontrado herramienta.' ),
+        'not_found_in_trash' => __( 'No se han encontrado herramientas en la papelera.' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'menu_icon'          => 'dashicons-admin-tools',
+        'description'        => __( 'Post type de herramientas.' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'herramientas' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 6,
+        'show_in_rest'       => true,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'herramientas', $args );
+
+    /**
+     * -- End Post Type Herramientas
+    */
 }
 
 add_action( 'init', 'novo_inssider_post_type' );

@@ -549,3 +549,39 @@
     box-shadow: 5px 5px 12px #cacaca, -5px -5px 12px #ffffff;
   }
   
+  .background-title-round{
+    position: relative;
+  }
+
+.background-title-round::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -100px;
+    top: 2px;
+    background-color: #F05A24;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    width: 140%;
+    height: 100%;
+    right: 0;
+}
+
+
+.background-title-round-two{
+    position: relative;
+  }
+
+.background-title-round-two::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: -100px;
+    top: 2px;
+    background-color: #F05A24;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    width: 140%;
+    height: 100%;
+    right: 0;
+}

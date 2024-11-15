@@ -1337,18 +1337,15 @@ $titlePostId = get_the_title();
 
             <?php endif; ?>
 
-
-            <div class="container m-lg-3 mx-lg-auto m-3 px-0">
-                <h5 class="NotoSans-Bold title-color">
-                    <?php $codePromomats = get_field('code_promomats'); ?>
-                    <p><?= $codePromomats ?></p>
-                </h5>
-            </div>
-
         <?php endif ?>
         <!-- End Code Test -->
 
-
+        <div class="container m-lg-3 mx-lg-auto m-3 px-0">
+            <h5 class="NotoSans-Bold title-color">
+                <?php $codePromomats = get_field('code_promomats'); ?>
+                <p><?= $codePromomats ?></p>
+            </h5>
+        </div>
 
     <?php endif; ?>    
 

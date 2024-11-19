@@ -2041,16 +2041,16 @@ $titlePostId = get_the_title();
         <?php /* burned code for this single post Innsider Data */ ?>
 
         <?php if (isset($bannerPostInnsiderData) && !empty($bannerPostInnsiderData)) : ?>
-            <div class="container four-background-taxonomy mt-lg-3 mt-3 p-lg-5 p-2 pb-lg-0 pb-2">
+            <div class="five-background-taxonomy" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; margin-top: 1rem; padding-bottom: 1.5rem;">
                 <div class="container container-bg-single banner-taxonomy-academy" data-aos="zoom-in">
                     <?php if (isset($bannerPostInnsiderData) && !empty($bannerPostInnsiderData)) : ?>
-                        <img src="<?= esc_url(wp_get_attachment_url($bannerPostInnsiderData)); ?>" alt="Herramientas" class="bg-single-trend">
+                        <img src="<?= esc_url(wp_get_attachment_url($bannerPostInnsiderData)); ?>" alt="Herramientas" class="bg-single-iNNsider-Data">
                     <?php endif; ?>
                     <div class="wrapper-taxonomy-academy"></div>
                 </div>
-                <div class="container">
+                <div class="container p-0">
                     <div class="row m-0 p-0">
-                        <p class="NotoSans-Regular text-align-justify mb-lg-4 mb-4 container-content-single mx-auto mt-4">
+                        <p class="NotoSans-Regular title-color text-align-justify mb-lg-4 mb-4 m-0 p-0 mt-4 px-3 px-lg-0">
                             Las recomendaciones actuales incluyen un abordaje terapéutico centrado en la persona a través de
                             modificaciones del estilo de vida como la actividad física, pérdida de peso, alimentación saludable
                             así como medicamentos que controlan los niveles de glicemia en sangre.
@@ -2058,25 +2058,36 @@ $titlePostId = get_the_title();
                     </div>
                 </div>
             </div>
+
         <?php endif; ?>
 
-        <div class="container four-background-taxonomy mt-2 p-1 pb-lg-0 pb-2">
+        <div class="container mt-4">
+            <div class="row d-flex justify-content-center align-align-items-center">
+                <div class="col-12 d-flex flex-lg-row">
+                    <div class="col-12 mx-1" id="secondline">
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-2 p-1 pb-lg-0 pb-2">
             <div class="row m-0 p-0">
                 <div class="container d-flex justify-content-center align-items-center">
                     <div class="col-12 d-flex justify-content-center align-items-center flex-lg-row flex-column">
-                        <div class="col-12 col-lg-6 border">
-                            <div class="col-11 border">
-                                <div class="row m-0 p-0">
-                                    <div class="col-6">
-                                        <img src="" alt="">
+                        <div class="col-12 col-lg-6 container-card-single-innsiderdata me-lg-4 mt-3">
+                            <div class="card-single-innsiderdata">
+                                <div class="row m-0 p-0 d-flex justify-content-start align-items-center flex-lg-row flex-column">
+                                    <div class="col-6 figure m-4 p-0">
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Icono1.png">
                                     </div>
-                                    <div class="col-6">
-                                        <h1 class="Notosans-Bold Title-color">Objetivos</h1>
+                                    <div class="col-6 text-center text-lg-start">
+                                        <h3 class="NotoSans-Bold title-color" style="text-transform: uppercase;">Objetivos:</h3>
                                     </div>
                                 </div>
                                 <div class="row m-0 p-0">
                                     <div class="col-12">
-                                        <p class="Notosans-Bold Title-color">
+                                        <p class="NotoSans-Regular title-color mx-4 p-0 text-justify">
                                             Determinar los patrones de prescripción de antidiabéticos
                                             no insulínicos en un grupo de pacientes de Colombia.
                                         </p>
@@ -2084,28 +2095,155 @@ $titlePostId = get_the_title();
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-6 border">
-                            <div class="col-11 border">
-                                <div class="row m-0 p-0">
-                                    <div class="col-6">
-                                        <img src="" alt="">
+                        <div class="col-12 col-lg-6 container-card-single-innsiderdata mt-3">
+                            <div class="card-single-innsiderdata">
+                                <div class="row m-0 p-0 d-flex justify-content-start align-items-center flex-lg-row flex-column">
+                                    <div class="col-6 figure m-4 p-0">
+                                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Icono2.png">
                                     </div>
-                                    <div class="col-6">
-                                        <h1 class="Notosans-Bold Title-color">Objetivos</h1>
+                                    <div class="col-6 text-center text-lg-start">
+                                        <h3 class="NotoSans-Bold title-color" style="text-transform: uppercase;">Métodos:</h3>
                                     </div>
                                 </div>
                                 <div class="row m-0 p-0">
                                     <div class="col-12">
-                                        <p class="Notosans-Bold Title-color">
-                                            Determinar los patrones de prescripción de antidiabéticos
-                                            no insulínicos en un grupo de pacientes de Colombia.
+                                        <p class="NotoSans-Regular title-color mx-4 p-0 text-justify">
+                                            Estudio de corte transversal sobre el uso de antidiabéticos
+                                            no insulínicos, a partir de una base de datos poblacionales
+                                            de pacientes en tratamiento en 2022. Se establecieron frecuencias,
+                                            proporciones y se determinó la dosis diaria definida de cada
+                                            antidiabético por 1000 habitantes/día (DHD).
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>       
+                        </div> 
                     </div>            
                 </div>                
+            </div>
+        </div>
+
+        <div class="container mt-5 pt-3 pb-3 border" style="background-color: #033572; color: white; border-radius: 1rem; text-transform: uppercase;">
+            <div class="row m-0 p-0">
+                <div class="container d-flex justify-content-center align-items-center NotoSans-Bold">
+                    <h4>Resultados</h4>  
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4 mb-3 pt-5 pb-5 border" style="background: #00A1DE; color: white; border-radius: 1rem;">
+            <div class="row m-0 p-0">
+                <div class="container px-lg-5 text-justify NotoSans-Regular">
+                    <p class="m-0 p-0">
+                        1. Se identificaron <strong>155.381</strong> pacientes con <strong>DM tipo 2,</strong> con edad media de <strong>67,1±12,0</strong> años.
+                    </p>  
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4 mb-3 pt-5 pb-5 border" style="background: #00A1DE; color: white; border-radius: 1rem;">
+            <div class="row m-0 p-0">
+                <div class="container px-lg-5 text-justify NotoSans-Regular">
+                    <p class="m-0 p-0">
+                        2. Los antidiabéticos más empleados según DHD fueron metformina <strong>(9,46 DHD),</strong>
+                        empagliflozina <strong>(5,53),</strong> sitagliptina <strong>(2,86),</strong> linagliptina <strong>(2,44)</strong> y dapagliflozina <strong>(2,3).</strong>
+                        Los esquemas terapéuticos más frecuentes fueron metformina en monodosis y metformina
+                        en combinación con inhibidores de la enzima dipeptidil peptidasa 4 (iDPP-4).
+                        En total se identificaron 61 combinaciones diferentes.
+                    </p>  
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-4 mb-5 mb-3 pt-5 pb-5 border" style="background: #00A1DE; color: white; border-radius: 1rem;">
+            <div class="row m-0 p-0">
+                <div class="container px-lg-5 text-justify NotoSans-Regular">
+                    <p class="m-0 p-0">
+                        3. Las comorbilidades de tipo cardiovascular más frecuentes fueron:
+
+                        <ul class="mt-4 mx-4" style="list-style-type: none;">
+                            <li><strong>- Hipertensión arterial (67,6%)</strong></li>
+                            <li><strong>- Enfermedad renal crónica (6,3%)</strong></li>
+                            <li><strong>- Cardiopatía isquémica coronaria (3,8%)</strong></li>
+                        </ul>
+                    </p>  
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background: #FBE5EC; margin-top: 1rem;">
+            <div class="container mt-2 p-1 pb-lg-0 pb-2">
+                <div class="row m-0 p-0">
+                    <div class="container d-flex justify-content-center align-items-center">
+                        <div class="col-12 d-flex justify-content-center align-items-center flex-lg-row flex-column">
+                            <div class="col-12 col-lg-6 container-card-single-innsiderdata d-flex justify-content-center align-items-center" style="background-color: transparent !important;">
+                                <div class="card-other-single-innsiderdata w-100">
+                                    <div class="row m-0 p-0 d-flex justify-content-center align-items-center flex-column">
+                                        <div class="col-12 figure m-4 p-0">
+                                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Icono3.png">
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <h3 class="NotoSans-Bold title-color" style="text-transform: uppercase;">Objetivos:</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 container-card-single-innsiderdata d-flex justify-content-center align-items-center" style="background-color: transparent !important;">
+                                <div class="card-single-innsiderdata">
+                                    <div class="row m-0 p-0">
+                                        <div class="col-12">
+                                            <p class="NotoSans-Regular title-color mx-4 p-0 text-justify">
+                                                Este grupo de pacientes con DM tipo 2 fue tratado principalmente con
+                                                metformina sola o asociada con otros antidiabéticos orales; a pesar
+                                                de los cambios en el tratamiento en los últimos años, un número
+                                                significativo de pacientes con condiciones cardiovasculares concomitantes
+                                                no están recibiendo agentes antidiabéticos adecuados, como el cotransportador
+                                                de sodio-glucosa tipo 2 (iSLGT-2) o los agonistas del receptor del
+                                                péptido-1similar al glucagón (arGLP-1) que pueden ofrecer beneficios
+                                                adicionales con un menor riesgo cardiovascular.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>            
+                    </div>                
+                </div>
+            </div>
+        </div>
+
+        <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #ffffff; margin-top: 1rem;">
+            <div class="container mx-auto px-lg-0 px-4">
+                <div class="p-3 p-lg-5 pt-1 pt-lg-5 w-100 px-0">
+                    <div class="col-12 p-0">
+                        <div class="row">
+                            <div class="NotoSans-Regular description-color px-2">
+                                Estos hallazgos son el resultado del estudio <strong>“Noninsulin Antidiabetic Prescription Patterns in Colombia:
+                                A Cross-sectional Study”.</strong>
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                            <div class="NotoSans-Regular description-color px-2">
+                                Referencia: Machado-Alba JE, Gaviria-Mendoza A, et al. Noninsulin antidiabetic prescription
+                                patterns in Colombia: a cross-sectional study. Therapeutic Advances in Endocrinology
+                                and Metabolism. 2024;15. doi:10.1177/20420188241271806.
+                                <br>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="NotoSans-Regular description-color px-2 mb-4">
+            <div class="d-flex justify-content-center align-items-center mt-1" style="text-align: center;">
+                <a class="px-4 p-3 NotoSans-Regular" style="border-radius: 1.3rem; text-align: center; background: #2A918A; color: white; font-size: 1.5rem; text-decoration: none;" href="https://www.arcgis.com/apps/dashboards/28ed3123acf545fca9a58b4bb230a0ea" target="_blank" rel="noopener">
+                    Conozca el tablero haciendo <strong> clic aquí </strong>
+                </a>
             </div>
         </div>
 

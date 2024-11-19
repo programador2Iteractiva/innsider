@@ -672,6 +672,14 @@ function custom_breadcrumbs()
             
             // Mostrar el título del post actual
             echo '<span>' . esc_html(get_the_title()) . '</span>';
+        }elseif (is_singular('innsiderdata')) {
+            // Agregar enlace a "Tendencias"
+            $tendencia_page = get_page_by_title('Innsider Data');
+            $tendencia_url = get_permalink($tendencia_page->ID);
+            echo '<a href="' . esc_url($tendencia_url) . '">INNSIDER DATA</a> / ';
+            
+            // Mostrar el título del post actual
+            echo '<span>' . esc_html(get_the_title()) . '</span>';
         }elseif(is_singular('vision-innsiders')){
 
             $termsacademia = get_the_terms($post->ID, 'visioninnsider-category');

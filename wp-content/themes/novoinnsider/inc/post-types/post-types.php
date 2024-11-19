@@ -334,6 +334,54 @@ function novo_inssider_post_type() {
     /**
      * -- End Post Type Herramientas
     */
+
+
+
+    /**
+     * Post Type Innsider-Data
+    */
+
+    $labels = array(
+        'name'               => _x( 'Innsider-Data', 'post type general name' ),
+        'singular_name'      => _x( 'Innsiderdata', 'post type singular name' ),
+        'menu_name'          => _x( 'Innsider-Data', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Innsiderdata', 'add new on admin bar' ),
+        'add_new'            => _x( 'Agregar innsiderdata', 'Slide' ),
+        'add_new_item'       => __( 'Agregar nueva innsiderdata' ),
+        'new_item'           => __( 'Nueva innsiderdata' ),
+        'edit_item'          => __( 'Editar innsiderdata' ),
+        'view_item'          => __( 'Ver innsiderdata' ),
+        'all_items'          => __( 'Todas las innsiderdata' ),
+        'featured_image'     => __( 'Imagen destacada' ),
+        'search_items'       => __( 'Buscar innsiderdata' ),
+        'parent_item_colon'  => __( 'Herramienta padre:' ),
+        'not_found'          => __( 'No se han encontrado innsiderdata.' ),
+        'not_found_in_trash' => __( 'No se han encontrado innsiderdata en la papelera.' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'menu_icon'          => 'dashicons-format-aside',
+        'description'        => __( 'Post type de innsiderdata.' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'innsiderdata' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 6,
+        'show_in_rest'       => true,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'innsiderdata', $args );
+
+    /**
+     * -- End Post Type Innsider-Data
+    */
 }
 
 add_action( 'init', 'novo_inssider_post_type' );

@@ -2241,7 +2241,7 @@ $titlePostId = get_the_title();
 
         <div class="NotoSans-Regular description-color px-2 mb-4">
             <div class="d-flex justify-content-center align-items-center mt-1" style="text-align: center;">
-                <a class="px-4 p-3 NotoSans-Regular" style="border-radius: 1.3rem; text-align: center; background: #2A918A; color: white; font-size: 1.5rem; text-decoration: none;" href="https://www.arcgis.com/apps/dashboards/28ed3123acf545fca9a58b4bb230a0ea" target="_blank" rel="noopener">
+                <a class="px-4 p-3 NotoSans-Regular" style="border-radius: 1.3rem; text-align: center; background: #2A918A; color: white; font-size: 1.5rem; text-decoration: none;" href="#" target="_blank" rel="noopener">
                     Conozca el tablero haciendo <strong> clic aquí </strong>
                 </a>
             </div>

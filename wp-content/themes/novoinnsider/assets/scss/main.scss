@@ -139,7 +139,7 @@ body, html {
     
 
     @include media-breakpoint-up(md) {
-        font-size: 1rem !important;
+        font-size: 0.8rem !important;
     }
 
     @include media-breakpoint-up(lg) {
@@ -147,11 +147,11 @@ body, html {
     }
 
     @include media-breakpoint-up(xl) {
-        font-size: 1rem !important;
+        font-size: 0.9rem !important;
     }
 
     @include media-breakpoint-up(xxl) {
-        font-size: 1.3rem !important;
+        font-size: 1rem !important;
     }
 
 }

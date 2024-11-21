@@ -56,22 +56,22 @@ header{
         font-size: 1rem;
 
         @include media-breakpoint-up(md) {
-            font-size: 1rem;
+            font-size: 0.8rem !important;
             padding: 0.3rem 1.4rem;
         }
 
         @include media-breakpoint-up(lg) {
-            font-size: 1.1rem;
+            font-size: 0.8rem !important;
             padding: 0.3rem 1.4rem;
             border-radius: 1.5rem;
         }
 
         @include media-breakpoint-up(xl) {
-            font-size: 1.3rem;
+            font-size: 0.9rem !important;
         }
 
         @include media-breakpoint-up(xxl) {
-            font-size: 1.5rem;
+            font-size: 1rem !important;
         }
 
         a{

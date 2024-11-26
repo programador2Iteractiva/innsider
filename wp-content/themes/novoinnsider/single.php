@@ -2241,7 +2241,7 @@ $titlePostId = get_the_title();
 
         <div class="NotoSans-Regular description-color px-2 mb-4">
             <div class="d-flex justify-content-center align-items-center mt-1" style="text-align: center;">
-                <a class="px-4 p-3 NotoSans-Regular" style="border-radius: 1.3rem; text-align: center; background: #00A1DE; color: white; font-size: 1.5rem; text-decoration: none;" href="#" target="_blank" rel="noopener">
+                <a class="px-4 p-3 NotoSans-Regular" style="border-radius: 1.3rem; text-align: center; background: #00A1DE; color: white; font-size: 1.5rem; text-decoration: none;" href="https://journals.sagepub.com/doi/10.1177/20420188241271806" target="_blank" rel="noopener">
                     <strong> Conozca el estudio aquí </strong>
                 </a>
             </div>

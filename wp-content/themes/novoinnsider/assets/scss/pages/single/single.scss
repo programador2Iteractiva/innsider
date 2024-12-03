@@ -617,6 +617,38 @@
   }
 }
 
+
+.container-other-card-single-innsiderdata{
+  height: auto;
+  background: #FBE5EC;
+  border-radius: 1rem;
+
+  @include media-breakpoint-up(md) {
+    height: auto;
+    // width: 100%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 250px;
+      // width: 100%;
+  }
+
+  @include media-breakpoint-up(xl) {
+      height: 250px;
+      // width: 100%;
+  }
+
+  @include media-breakpoint-up(xxl) {
+      height: 250px;
+      // width: 100%;
+  }
+
+  @include media-breakpoint-up(xxxl) {
+      height: 250px;
+      // width: 100%;
+  }
+}
+
 .card-single-innsiderdata .figure{
   position: relative;
   height: 150px;

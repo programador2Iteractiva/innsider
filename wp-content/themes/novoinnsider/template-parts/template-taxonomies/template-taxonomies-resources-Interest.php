@@ -70,7 +70,7 @@ $taxonomy = get_queried_object();
                                 )
                             ),
                             'orderby' => 'post_date',
-                            'order' => 'ASC',
+                            'order' => 'DESC',
                             'posts_per_page' => -1,
                             'post_status' => 'publish'
                         ]

@@ -116,7 +116,7 @@ $content = get_the_content();
                                                         )
                                                     ),
                                                     'orderby' => 'post_date',
-                                                    'order' => 'ASC',
+                                                    'order' => 'DESC',
                                                     'posts_per_page' => -1,
                                                     'post_status' => 'publish'
                                                 ]

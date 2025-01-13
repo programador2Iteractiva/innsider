@@ -2650,6 +2650,8 @@ $titlePostId = get_the_title();
                     <?php $urlPdfFile = $file->guid; ?>
                 <?php endforeach; ?>
 
+                <?php var_dump($urlPdfFile); ?>
+
                 <?php if (is_singular('experiences')) :  ?>
                     <?php $experiences_page = get_page_by_title('Experiencias'); ?>
                     <?php $experiences_url = $experiences_page; ?>

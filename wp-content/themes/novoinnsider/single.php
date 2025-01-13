@@ -2675,7 +2675,7 @@ $titlePostId = get_the_title();
                                     <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
 
                                         <?php if($urlPdfFile) : ?>
-                                            
+                                            <?php var_dump($urlPdfFile); ?>
                                             <embed src="<?= $urlPdfFile ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
                                             <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfFile ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
 

@@ -2619,6 +2619,100 @@ $titlePostId = get_the_title();
 
     <?php /* End Post display for Innsider Data Post Types */ ?>
 
+
+
+    <?php /* Post display for experiences Post Types */ ?>
+
+    <?php $listPostExperiences = new WP_Query(
+            array(
+                'post_type' => 'experiences',
+                'posts_per_page' => -1,
+                'order' => 'ASC'
+            )
+        );
+    ?>
+
+    <?php $postsIds = wp_list_pluck($listPostExperiences->posts, 'ID') ?>
+
+    <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
+
+        <?php if($currentPostId == 855) : ?> 
+
+            <?php if (isset($currentPostId) && !empty($currentPostId)) : ?>
+
+                <?php $fileContent = get_posts(array(
+                    'post_type' => 'attachment',
+                    'post_per_page' => 1,
+                    'post_parent' => $currentPostId,
+                )) ?>
+
+                <?php foreach($fileContent as $file) : ?>    
+                    <?php $urlPdfFile = $file->guid; ?>
+                <?php endforeach; ?>
+
+                <?php if (is_singular('experiences')) :  ?>
+                    <?php $experiences_page = get_page_by_title('Experiencias'); ?>
+                    <?php $experiences_url = $experiences_page; ?>
+                    <?php $bannerPostType = get_the_post_thumbnail_url($experiences_url); ?>
+                <?php endif; ?>
+
+                <div class="container banner-academy mt-5" data-aos="zoom-in">
+                    <img class="bg-banner-academy" src="<?= $bannerPostType; ?>" alt="Podcast">
+                    <div class="wrapper-banner-academy">
+                        <div class="container-text-banner-academy"></div>
+                    </div>
+                </div>
+
+                <div class="container p-lg-5 pb-lg-0 p-1">
+                    <div class="container background-single-experience p-2">
+                        <div class="p-5 pt-3 pt-lg-5 w-100">
+
+                            <h1 class="NotoSans-Bold title-color mb-5 pb-2 d-none d-lg-block"><?php the_title(); ?></h1>
+                            <h5 class="NotoSans-Bold title-color mb-2 pb-2 d-block d-lg-none"><?php the_title(); ?></h5>
+
+                            <div class="col-lg-12">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
+
+                                        <?php if($urlPdfFile) : ?>
+                                            
+                                            <embed src="<?= $urlPdfFile ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                            <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfFile ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
+
+                                            <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
+                                                <a href="<?= $urlPdfFile ?>" download class="text-decoration-none text-light">Descargar PDF</a>
+                                            </div>
+
+                                        <?php endif; ?>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+        <?php endif; ?> 
+
+        <div class="container m-lg-3 mx-lg-auto m-3 px-0">
+            <h5 class="NotoSans-Bold title-color">
+                <?php $codePromomats = get_field('code_promomats'); ?>
+                <p><?= $codePromomats ?></p>
+            </h5>
+        </div>
+
+    <?php endif; ?>
+
+    <?php /* End Post display for experiences Post Types */ ?>                                                
+
+
+
+
+
     <div class="container mx-auto px-0">
         <div class="mt-4 mx-lg-0 mx-2 px-0 pb-4">
             <div class="row m-0 p-0"></div>

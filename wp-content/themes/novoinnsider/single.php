@@ -2636,7 +2636,7 @@ $titlePostId = get_the_title();
 
     <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
 
-        <?php if($currentPostId == 871) : ?> 
+        <?php if($currentPostId === 871) : ?> 
 
             <?php if (isset($currentPostId) && !empty($currentPostId)) : ?>
 
@@ -2644,7 +2644,7 @@ $titlePostId = get_the_title();
 
                 <?php $fileContent = get_posts(array(
                     'post_type' => 'attachment',
-                    'post_per_page' => 1,
+                    'posts_per_page' => 1,
                     'post_parent' => $currentPostId,
                 )) ?>
 

@@ -382,6 +382,55 @@ function novo_inssider_post_type() {
     /**
      * -- End Post Type Innsider-Data
     */
+
+
+
+
+    /**
+     * Post Type Experiencias
+    */
+
+    $labels = array(
+        'name'               => _x( 'Experiencias', 'post type general name' ),
+        'singular_name'      => _x( 'Experiencia', 'post type singular name' ),
+        'menu_name'          => _x( 'Experiencias', 'admin menu' ),
+        'name_admin_bar'     => _x( 'Experiencias', 'add new on admin bar' ),
+        'add_new'            => _x( 'Agregar experiencia', 'Slide' ),
+        'add_new_item'       => __( 'Agregar nueva experiencia' ),
+        'new_item'           => __( 'Nueva experiencia' ),
+        'edit_item'          => __( 'Editar experiencia' ),
+        'view_item'          => __( 'Ver experiencia' ),
+        'all_items'          => __( 'Todas las experiencia' ),
+        'featured_image'     => __( 'Imagen destacada' ),
+        'search_items'       => __( 'Buscar experiencia' ),
+        'parent_item_colon'  => __( 'Herramienta padre:' ),
+        'not_found'          => __( 'No se han encontrado experiencia.' ),
+        'not_found_in_trash' => __( 'No se han encontrado experiencia en la papelera.' ),
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'menu_icon'          => 'dashicons-format-aside',
+        'description'        => __( 'Post type de experiencia.' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'experiences' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => true,
+        'menu_position'      => 6,
+        'show_in_rest'       => true,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    );
+
+    register_post_type( 'experiences', $args );
+
+    /**
+     * -- End Post Type Innsider-Data
+    */
 }
 
 add_action( 'init', 'novo_inssider_post_type' );

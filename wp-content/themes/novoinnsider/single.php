@@ -2636,7 +2636,7 @@ $titlePostId = get_the_title();
 
     <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
 
-        <?php if($currentPostId == 866) : ?> 
+        <?php if($currentPostId == 871) : ?> 
 
             <?php if (isset($currentPostId) && !empty($currentPostId)) : ?>
 

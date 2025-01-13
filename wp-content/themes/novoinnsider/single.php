@@ -2646,6 +2646,8 @@ $titlePostId = get_the_title();
                     'post_parent' => $currentPostId,
                 )) ?>
 
+                <?php var_dump($fileContent); ?>
+
                 <?php foreach($fileContent as $file) : ?>    
                     <?php $urlPdfFile = $file->guid; ?>
                 <?php endforeach; ?>

@@ -2640,8 +2640,6 @@ $titlePostId = get_the_title();
 
             <?php if (isset($currentPostId) && !empty($currentPostId)) : ?>
 
-                <?php var_dump($currentPostId); ?>
-
                 <?php $fileContent = get_posts(array(
                     'post_type' => 'attachment',
                     'posts_per_page' => 1,

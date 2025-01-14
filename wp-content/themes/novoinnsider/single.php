@@ -2648,13 +2648,9 @@ $titlePostId = get_the_title();
                     'post_parent' => $currentPostId,
                 )) ?>
 
-                <?php var_dump($fileContent); ?>
-
                 <?php foreach($fileContent as $file) : ?>    
                     <?php $urlPdfFile = $file->guid; ?>
                 <?php endforeach; ?>
-
-                <?php var_dump($urlPdfFile); ?>
 
                 <?php if (is_singular('experiences')) :  ?>
                     <?php $experiences_page = get_page_by_title('Experiencias'); ?>
@@ -2681,7 +2677,6 @@ $titlePostId = get_the_title();
                                     <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
 
                                         <?php if($urlPdfFile) : ?>
-                                            <?php var_dump($urlPdfFile); ?>
                                             <embed src="<?= $urlPdfFile ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
                                             <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfFile ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
 
@@ -2690,6 +2685,16 @@ $titlePostId = get_the_title();
                                             </div>
 
                                         <?php endif; ?>
+
+                                        <?php $otherPdf = 'https://innsider.com.co/wp-content/uploads/2025/01/Material-educativo-IPS-1_compressed.pdf' ?>
+
+
+                                        <embed src="<?= $otherPdf ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
+                                        <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $otherPdf ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
+
+                                        <div class="w-75 btn-view-more mt-5 d-block d-lg-none">
+                                            <a href="<?= $otherPdf ?>" download class="text-decoration-none text-light">Descargar PDF</a>
+                                        </div>
 
                                     </div>
                                 </div>

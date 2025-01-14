@@ -20,6 +20,7 @@ $taxonomy = get_queried_object();
             'taxonomy' => $taxonomy->taxonomy,
             'hide_empty' => false,
             'parent' => $currentTermId,
+            'orderby' => 'term_id',
             'order' => 'ASC',
         )
     )

@@ -300,6 +300,36 @@
 }
 
 
+.player-video-taxonomy {
+  position: relative;
+  width: 100%;
+  height: 171px;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  display: none;
+
+  iframe {
+      width: 100%;
+      height: 100%;
+  }
+
+  @include media-breakpoint-up(md) {
+      height: 450px;
+  }
+
+  @include media-breakpoint-up(lg) {
+      height: 500px;
+  }
+
+  @include media-breakpoint-up(xl) {
+      height: 550px;
+  }
+
+  @include media-breakpoint-up(xxxl) {
+      height: 600px;
+  }
+}
+
 .accordion-item {
     margin-bottom: 1rem;
     border: 1px solid #ddd;

@@ -53,6 +53,7 @@ $currentTermId = $taxonomy->parent;
 
     $checkInnsiderReview = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$ViewWithInnsiderReview}' AND `meta_VALUE` = '{$metaValue}'");
     $validatCheckInnsiderReview = $wpdb->get_results($wpdb->prepare($checkInnsiderReview));
+
 ?>
 
 
@@ -123,19 +124,20 @@ $currentTermId = $taxonomy->parent;
 
 <?php endif; ?>
 
-
+<?php $innsiderReviewShown = false; ?>
 
 <?php  if ( ! is_wp_error( $validatCheckInnsiderReview) && ! empty( $validatCheckInnsiderReview ) ) : ?>
 
     <?php /* En este foreach se recorre el arreglo $all_categories_with_status_active
     para hacer uso de $categories_with_status->term_id */ ?>
 
-    <?php foreach($validatCheckInnsiderReview as $CheckInnsiderReview) :  ?>
+    <?php foreach($validatCheckInnsiderReview as $validatCheckInnsider) :  ?>
 
-        <?php $listIdWithInnsiderReview = $CheckInnsiderReview->term_id; ?>
+        <?php $listIdWithInnsiderReview = $validatCheckInnsider->term_id; ?>
 
-        <?php if($taxonomy->term_id == $listIdWithInnsiderReview) : ?>
+        <?php if($taxonomy->term_id == $listIdWithInnsiderReview && !$innsiderReviewShown) : ?>
             <?php get_template_part('template-parts/template-taxonomies/template-taxonomies-innsider-review'); ?>
+            <?php $innsiderReviewShown = true; ?>
         <?php endif ?>
 
     <?php endforeach ?>
@@ -146,7 +148,7 @@ $currentTermId = $taxonomy->parent;
 <?php /* Código que asigna una template a las subcategorias de la taxonomia academia */ ?>
 
 
-<?php if(isset($currentTermId) && !empty($currentTermId) && !0) : ?>
+<?php if(isset($currentTermId) && !empty($currentTermId) && !0 && !$innsiderReviewShown) : ?>
     <?php 
 
         $subcategoriesAcademy = get_terms(
@@ -162,7 +164,7 @@ $currentTermId = $taxonomy->parent;
 <?php endif; ?>
 
 
-<?php if(!empty($subcategoriesAcademy) && !is_wp_error($subcategoriesAcademy)) : ?>
+<?php if(!empty($subcategoriesAcademy) && !is_wp_error($subcategoriesAcademy) && !$innsiderReviewShown) : ?>
     <?php foreach($subcategoriesAcademy as $subcategoryAcademy) : ?>
         <?php $subcategoryAcademyId = $subcategoryAcademy->term_id; ?>
             <?php if($cuttentTaxonomyId == $subcategoryAcademyId) : ?>

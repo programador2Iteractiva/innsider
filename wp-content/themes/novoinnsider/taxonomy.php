@@ -27,6 +27,7 @@ $currentTermId = $taxonomy->parent;
     $viewContentResourcesInterest = 'View_With_Resources_Interest';
     $viewContentFirstTempVisionInnsider = 'View_With_First_Temp_Vision_Innsider';
     $viewContentSecondTempVisionInnsider = 'View_With_Second_Temp_Vision_Innsider';
+    $ViewWithInnsiderReview = 'View_With_Innsider_Review';
 
     $metaValue = '1';
 
@@ -48,6 +49,10 @@ $currentTermId = $taxonomy->parent;
 
     $otherAllDataVisionSecondTemp = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$viewContentSecondTempVisionInnsider}' AND `meta_VALUE` = '{$metaValue}'");
     $allCategoriesViewWithVisionSecondTemp = $wpdb->get_results($wpdb->prepare($otherAllDataVisionSecondTemp));
+
+
+    $checkInnsiderReview = $wpdb->prepare("SELECT *  FROM {$tableTermmeta} WHERE `meta_key` = '{$ViewWithInnsiderReview}' AND `meta_VALUE` = '{$metaValue}'");
+    $validatCheckInnsiderReview = $wpdb->get_results($wpdb->prepare($checkInnsiderReview));
 ?>
 
 
@@ -112,6 +117,25 @@ $currentTermId = $taxonomy->parent;
 
         <?php if($taxonomy->term_id == $listIdViewWithVisionFirstTemp) : ?>
             <?php get_template_part('template-parts/template-taxonomies/template-taxonomies-vision'); ?>
+        <?php endif ?>
+
+    <?php endforeach ?>
+
+<?php endif; ?>
+
+
+
+<?php  if ( ! is_wp_error( $validatCheckInnsiderReview) && ! empty( $validatCheckInnsiderReview ) ) : ?>
+
+    <?php /* En este foreach se recorre el arreglo $all_categories_with_status_active
+    para hacer uso de $categories_with_status->term_id */ ?>
+
+    <?php foreach($validatCheckInnsiderReview as $CheckInnsiderReview) :  ?>
+
+        <?php $listIdWithInnsiderReview = $CheckInnsiderReview->term_id; ?>
+
+        <?php if($taxonomy->term_id == $listIdWithInnsiderReview) : ?>
+            <?php get_template_part('template-parts/template-taxonomies/template-taxonomies-innsider-review'); ?>
         <?php endif ?>
 
     <?php endforeach ?>

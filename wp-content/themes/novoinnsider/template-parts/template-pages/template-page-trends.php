@@ -126,34 +126,37 @@ $content = get_the_content();
                                         <?php if ($listPostTrends->have_posts()) : ?>
                                             <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
-                                                <div class="col-12 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center card-subcategory-academy-events m-0 p-0 mt-3 mb-5 pb-4 mx-4">
+                                                <?php $thePermalink = get_the_permalink(); ?>
+                                                <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
+                                                <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
+                                                <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
+                                                <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
+                                                <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
+                                                <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
 
-                                                    <?php $thePermalink = get_the_permalink(); ?>
-                                                    <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
-                                                    <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
-                                                    <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
-                                                    <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
-                                                    <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
-                                                    <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
+                                                <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
+                                                    <a href="<?= $thePermalink  . '?tax=' . $listCategoryTrends->term_id; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');"  class="w-100">
+                                                        <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
+                                                            <div class="col-10 col-lg-11">
+                                                                <div class="mb-4 figure">
 
-                                                    <a href="<?= $thePermalink  . '?tax=' . $listCategoryTrends->term_id; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
-                                                        <div class="mb-4 figure">
-
-                                                            <?php if ($imgPostTrend) :  ?>
-                                                                <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
-                                                            <?php endif ?>
-                                                        </div>
-                                                        <div class="info_description col-12">
-                                                            <div class="col-12 h-100">
-                                                                <div class="col-12 h-100">
-                                                                    <div class="d-flex justify-content-start align-items-start flex-column">
-                                                                        <h4 class="NotoSans-Bold title-color"><?= the_title(); ?></h4>
-                                                                        <p class="description-color NotoSans-Bold"><?= $subtitlePostTrend; ?></p>
-                                                                    </div>
+                                                                    <?php if ($imgPostTrend) :  ?>
+                                                                        <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                                                    <?php endif ?>
                                                                 </div>
-                                                                <div class="col-12 d-flex justify-content-center align-items-center">
-                                                                    <div class="w-75">
-                                                                        <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
+                                                                <div class="col-12 d-flex w-100">
+                                                                    <div class="col-12 d-flex">
+                                                                        <div class="col h-100">
+                                                                            <div class="d-flex justify-content-start align-items-start flex-column">
+                                                                                <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                                                <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col d-flex justify-content-center align-items-start">
+                                                                            <div class="w-75">
+                                                                                <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

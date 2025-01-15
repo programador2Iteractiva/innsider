@@ -2943,17 +2943,6 @@ $titlePostId = get_the_title();
 
             <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
 
-                <div class="container my-2 mb-0">
-                    <div class="row d-flex justify-content-center align-align-items-center mb-4">
-                        <div class="col-12 d-flex flex-lg-row">
-                            <h2 class="NotoSans-Bold text-transform-uppercase"><?= esc_html($term->name); ?></h2>
-                            <div class="col-9 mx-1" id="linea">
-                                <hr class="mx-4">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
                     <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
 
@@ -3123,10 +3112,14 @@ $titlePostId = get_the_title();
                                                 <?php $ifPostTrendContentImageTitleColor = get_sub_field('If_Post_Trend_Content_Image_Title'); ?>
                                                 <?php $contentPostTrendContentImageTitleColor = get_sub_field('Content_Post_Trend_Content_Image_Title'); ?>
 
+                                                <?php $color_content = get_sub_field('color_content'); ?>
+                                                <?php $color_title = get_sub_field('color_title'); ?>
+                                                <?php $color_description = get_sub_field('color_description'); ?>
+
 
                                                 <?php if (isset($ifPostTrendContentImageTitleColor) && !empty($ifPostTrendContentImageTitleColor)) : ?>
 
-                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
+                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: <?php echo ($color_content) ?  $color_content : '#F9ECEA'; ?>   margin-top: 1rem; margin-botton: 2rem;">
 
                                                         <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-0 w-100 px-0">
@@ -3140,7 +3133,7 @@ $titlePostId = get_the_title();
                                                                                 <?php $titleContentPostTrendContentImageTitleColor = get_sub_field('Title_Content_Post_Trend_Content_Image_Title'); ?>
                                                                                 <?php $imageContentPostTrendContentImageTitleColor = get_sub_field('Image__Content_Post_Trend_Content_Image_Title'); ?>
 
-                                                                                <h2 class="NotoSans-Bold title-color mb-4 pt-4">
+                                                                                <h2 class="NotoSans-Bold title-color mb-4 pt-4" style="color: <?php echo ($color_title) ?  $color_title . '!important' : '#001965 !important'; ?>">
                                                                                     <?= strip_tags($titleContentPostTrendContentImageTitleColor); ?>
                                                                                 </h2>
                                                                                 <div class="d-flex justify-content-start align-items-center">
@@ -3168,7 +3161,7 @@ $titlePostId = get_the_title();
 
                                                 <?php if (isset($ifPostTrendContentTitleDescriptionColor) && !empty($ifPostTrendContentTitleDescriptionColor)) : ?>
 
-                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
+                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: <?php echo ($color_content) ?  $color_content . ';' : '#F9ECEA'; ?> margin-top: 1rem; margin-botton: 2rem;">
 
                                                         <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-5 pt-3 pt-lg-5 w-100 px-0">
@@ -3182,10 +3175,10 @@ $titlePostId = get_the_title();
                                                                                 <?php $titleContentPostTrendContentTitleDescriptionColor = get_sub_field('Title_Content_Post_Trend_Content_Title_Description'); ?>
                                                                                 <?php $descriptioncontentPostTrendContentTitleDescriptionColor = get_sub_field('Description_Content_Post_Trend_Content_Title_Description'); ?>
 
-                                                                                <h2 class="NotoSans-Bold title-color mb-4 <?= $counter > 0 ? 'pt-4' : ''; ?>">
+                                                                                <h2 class="NotoSans-Bold title-color mb-4 <?= $counter > 0 ? 'pt-4' : ''; ?>" style="color: <?php echo ($color_title) ?  $color_title . '!important' : '#001965 !important'; ?>">
                                                                                     <?= strip_tags($titleContentPostTrendContentTitleDescriptionColor); ?>
                                                                                 </h2>
-                                                                                <div class="NotoSans-Regular description-color px-2">
+                                                                                <div class="NotoSans-Regular description-color px-2" style="color: <?php echo ($color_description) ?  $color_description . '!important' : '#001965 !important'; ?>">
                                                                                     <?= strip_tags($descriptioncontentPostTrendContentTitleDescriptionColor, '<strong><em><ul><li><blockquote><a><br>'); ?>
                                                                                 </div>
 
@@ -3210,7 +3203,7 @@ $titlePostId = get_the_title();
 
                                                 <?php if (isset($ifPostTrendContentTitleImageDescriptionColor) && !empty($ifPostTrendContentTitleImageDescriptionColor)) : ?>
 
-                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-botton: 2rem;">
+                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: <?php echo ($color_content) ?  $color_content . '!important' : '#F9ECEA !important'; ?>; margin-top: 1rem; margin-botton: 2rem;">
 
                                                         <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-0 w-100 px-0">
@@ -3227,13 +3220,13 @@ $titlePostId = get_the_title();
                                                                                 <?php $lastDescriptionContentPostTrendContentTitleImageDescriptionColor = get_sub_field('Last_Description_Content_Post_Trend_Content_Title_Image_Description'); ?>
 
 
-                                                                                <h2 class="NotoSans-Bold title-color mb-4 pt-4">
+                                                                                <h2 class="NotoSans-Bold title-color mb-4 pt-4" style="color: <?php echo ($color_title) ?  $color_title . '!important' : '#001965 !important'; ?>">
                                                                                     <?= strip_tags($titleContentPostTrendContentTitleImageDescriptionColor); ?>
                                                                                 </h2>
-                                                                                <div class="NotoSans-Regular description-color px-2 mt-2 pb-2">
+                                                                                <div class="NotoSans-Regular description-color px-2 mt-2 pb-2" style="color: <?php echo ($color_description) ?  $color_description . '!important' : '#001965 !important'; ?>">
                                                                                     <?= strip_tags($firstDescriptionContentPostTrendContentTitleImageDescriptionColor, '<strong><em><ul><li><blockquote><a><br><h1><h2><h3><h4><h5>'); ?>
                                                                                 </div>
-                                                                                <div class="NotoSans-Regular description-color px-2 mt-2 pb-3">
+                                                                                <div class="NotoSans-Regular description-color px-2 mt-2 pb-3" style="color: <?php echo ($color_description) ?  $color_description . '!important' : '#001965 !important'; ?>">
                                                                                     <?= strip_tags($secondDescriptionContentPostTrendContentTitleImageDescriptionColor, '<strong><em><ul><li><blockquote><a><br><h1><h2><h3><h4><h5>'); ?>
                                                                                 </div>
                                                                                 <div class="d-flex justify-content-center align-items-center">
@@ -3265,7 +3258,7 @@ $titlePostId = get_the_title();
 
                                                 <?php if (isset($ifPostTrendContentSubcontentColor) && !empty($ifPostTrendContentSubcontentColor)) : ?>
 
-                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: #F9ECEA; margin-top: 1rem; margin-bottom: 2rem;">
+                                                    <div class="" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; background-color: <?php echo ($color_content) ?  $color_content . '!important' : '#F9ECEA !important'; ?> margin-top: 1rem; margin-bottom: 2rem;">
 
                                                         <div class="container mx-auto px-lg-0 px-4">
                                                             <div class="p-5 pt-3 w-100 px-0">
@@ -3278,7 +3271,7 @@ $titlePostId = get_the_title();
                                                                                 <?php $titleContentPostTrendSubcontentColor = get_sub_field('Title_Content_Post_Trend_Subcontent'); ?>
                                                                                 <?php $subcontentPostTrendColor = get_sub_field('Subcontent_Post_Trend'); ?>
 
-                                                                                <h2 class="NotoSans-Bold title-color mb-4 pt-4">
+                                                                                <h2 class="NotoSans-Bold title-color mb-4 pt-4" style="color: <?php echo ($color_title) ?  $color_title . '!important' : '#001965 !important'; ?>">
                                                                                     <?= strip_tags($titleContentPostTrendSubcontentColor); ?>
                                                                                 </h2>
                                                                                 <div class="container mx-auto px-0">

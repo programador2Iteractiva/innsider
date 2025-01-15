@@ -468,7 +468,6 @@
     width: 100%;
     overflow: hidden;
     border-radius: 2rem;
-    filter: brightness(0.9);
     transition: all 400ms ease-out;
 
     @include media-breakpoint-up(md) {

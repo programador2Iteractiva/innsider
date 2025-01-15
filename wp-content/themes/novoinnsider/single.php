@@ -3516,40 +3516,44 @@ $titlePostId = get_the_title();
                             
                         </div>
 
-                        
-                        <?php $currentPostTrends = array($currentPostId); ?>
+                        <div class="col-12 mx-1" id="linea">
+                            <hr>
+                        </div>
 
-                        <?php $filteredPosts = array_diff($postsIds, $currentPostTrends); ?>
+                        <div>
+                            <?php $currentPostTrends = array($currentPostId); ?>
 
-                        <?php if (!empty($filteredPosts)) : ?>
+                            <?php $filteredPosts = array_diff($postsIds, $currentPostTrends); ?>
 
-                            <?php
-                            $newArgs = array(
-                                'post__in' => $filteredPosts,
-                                'tax_query' => array(
-                                    array(
-                                        'taxonomy' => 'tendencias',
-                                        'field' => 'id',
-                                        'terms' => $taxId, // Asegúrate de que $taxId está definido
-                                    )
-                                ),
-                                'orderby' => 'post_date',
-                                'order' => 'ASC',
-                                'posts_per_page' => -1,
-                                'post_status' => 'publish'
-                            );
-                            ?>
+                            <?php if (!empty($filteredPosts)) : ?>
 
-                            <?php $filteredPostsQuery = new WP_Query($newArgs); ?>
+                                <?php
+                                $newArgs = array(
+                                    'post__in' => $filteredPosts,
+                                    'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'tendencias',
+                                            'field' => 'id',
+                                            'terms' => $taxId, // Asegúrate de que $taxId está definido
+                                        )
+                                    ),
+                                    'orderby' => 'post_date',
+                                    'order' => 'ASC',
+                                    'posts_per_page' => -1,
+                                    'post_status' => 'publish'
+                                );
+                                ?>
 
-                            <?php if ($filteredPostsQuery->have_posts()) : ?>
+                                <?php $filteredPostsQuery = new WP_Query($newArgs); ?>
+
+                                <?php if ($filteredPostsQuery->have_posts()) : ?>
 
                                     <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
                                         <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
 
                                             <div class="container p-0 pt-lg-0">
 
-                                                <div class="container background-single p-0 m-0 px-lg-5" style="background-color: #F9ECEA !important;">
+                                                <div class="container background-single p-0 m-0 px-lg-5" style="background-color: #FFFFFF !important;">
                                                     <div class="row d-flex flex-lg-row flex-column mt-3">
 
                                                         <div class="row d-flex flex-lg-row flex-column d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
@@ -3562,15 +3566,15 @@ $titlePostId = get_the_title();
 
                                                                 <div class="col-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-taxonomies-subcategory-academy-events m-0 p-0 mt-3 mb-3">
                                                                     <a class="custom-width" href="<?= $thePermalink . '?tax=' . $taxId; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');" style="text-decoration: none;">
-                                                                        <div class="mb-4 figure">
+                                                                        <div class="mb-4 figure" style="border-radius: 0px">
                                                                             <?php if (isset($imgPostTrend) && !empty($imgPostTrend)) : ?>
-                                                                                <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                                                                <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill; border-radius: 0px']); ?>
                                                                             <?php endif ?>
                                                                         </div>
                                                                         <div class="mt-1 p-0">
-                                                                            <div class="w-75 p-2 mb-4 btn-view-now">
-                                                                                <i class="fa-regular fa-circle-play mx-2"></i>
-                                                                                Ver ahora
+                                                                            <div class="w-75 p-2 mb-4 second-btn-view-now" style="display: flex; justify-content: start; align-items: start;">
+                                                                                <i class="fa-regular fa-circle-play mx-2" style="font-size: 1.8rem;"></i>
+                                                                                Videos
                                                                             </div>
                                                                             <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
                                                                             <?php if (isset($subtitlePostTrend) && !empty($subtitlePostTrend)) : ?>
@@ -3638,16 +3642,10 @@ $titlePostId = get_the_title();
 
                                 <?php endif; ?>
 
-
-                                <div class="container m-lg-3 mx-lg-auto m-3 px-0">
-                                    <h5 class="NotoSans-Bold title-color">
-                                        <?php $codePromomats = get_field('code_promomats'); ?>
-                                        <p><?= $codePromomats ?></p>
-                                    </h5>
-                                </div>
-
                             <?php endif ?>
-                        <?php endif; ?>
+                        </div>
+
+                    <?php endif ?>
 
                 <?php elseif (isset($ifPostTrendPdf) && !empty($ifPostTrendPdf)) : ?>
 
@@ -4214,6 +4212,8 @@ $titlePostId = get_the_title();
 
                 <?php $currentPostTrends = array($currentPostId); ?>
 
+                <?php $excludeTaxId = 10 ?>
+
                 <?php $filteredPosts = array_diff($postsIds, $currentPostTrends); ?>
 
                 <?php if (!empty($filteredPosts)) : ?>
@@ -4222,10 +4222,18 @@ $titlePostId = get_the_title();
                     $newArgs = array(
                         'post__in' => $filteredPosts,
                         'tax_query' => array(
+                            'relation' => 'AND',
                             array(
                                 'taxonomy' => 'tendencias',
                                 'field' => 'id',
                                 'terms' => $taxId, // Asegúrate de que $taxId está definido
+                                'operator' => 'IN',
+                            ),
+                            array(
+                                'taxonomy' => 'tendencias',
+                                'field' => 'id',
+                                'terms' => $excludeTaxId, // Asegúrate de que $taxId está definido
+                                'operator' => 'NOT IN',
                             )
                         ),
                         'orderby' => 'post_date',
@@ -4238,9 +4246,6 @@ $titlePostId = get_the_title();
                     <?php $filteredPostsQuery = new WP_Query($newArgs); ?>
 
                     <?php if ($filteredPostsQuery->have_posts()) : ?>
-
-
-
 
                         <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
                             <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>

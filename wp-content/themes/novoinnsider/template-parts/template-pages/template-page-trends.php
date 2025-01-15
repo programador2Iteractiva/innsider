@@ -78,17 +78,6 @@ $content = get_the_content();
 
                     <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
 
-                        <div class="container my-2 mb-0">
-                            <div class="row d-flex justify-content-center align-align-items-center mb-4">
-                                <div class="col-12 d-flex flex-lg-row">
-                                    <h2 class="NotoSans-Bold text-transform-uppercase">Noticias</h2>
-                                    <div class="col-9 mx-1" id="linea">
-                                        <hr class="mx-4">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
 
                             <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
@@ -172,6 +161,13 @@ $content = get_the_content();
                             <?php endif ?>
 
                         <?php endforeach; ?>
+
+                        <div class="container m-lg-3 mx-lg-auto m-3 px-0">
+                            <h5 class="NotoSans-Bold title-color">
+                                <?php $codePromomats = $content; ?>
+                                <p><?= $codePromomats ?></p>
+                            </h5>
+                        </div>
 
                     <?php endif ?>
 

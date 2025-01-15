@@ -3657,9 +3657,9 @@ $titlePostId = get_the_title();
                                 <div class="container p-0 pt-lg-0">
 
                                     <div class="container background-single p-0 m-0 px-lg-5" style="background-color: #F9ECEA !important;">
-                                        <div class="container mt-3">
+                                        <div class="row d-flex flex-lg-row flex-column  mt-3">
 
-                                            <div class="col-12 d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
+                                            <div class="row d-flex flex-lg-row flex-column  d-flex flex-lg-row flex-column justify-content-start align-items-start container-card-category m-0 p-0 pt-3 mb-3">
 
                                                 <?php while ($filteredPostsQuery->have_posts()) : $filteredPostsQuery->the_post() ?>
 

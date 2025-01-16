@@ -41,6 +41,27 @@ novo_innsider_save_logs();
     })(window,document,'script','dataLayer','GTM-PV3QN9VR');</script>
     <!-- End Google Tag Manager -->
 
+
+    <script tipo="texto/javascript">
+    _linkedin_partner_id = "6579570";
+    ventana._linkedin_data_partner_ids = ventana._linkedin_data_partner_ids || [];
+    ventana._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script><script tipo="texto/javascript">
+    (función(l) {
+    si (!l){ventana.lintrk = función(a,b){ventana.lintrk.q.push([a,b])};
+    ventana.lintrk.q=[]}
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.tipo = "texto/javascript";b.async = verdadero;
+    b.src = " https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})(ventana.lintrk);
+    </script>
+    <sin guión>
+    <img height="1" width="1" style="display:none;" alt="" src=" https://px.ads.linkedin.com/collect/?pid=6579570&fmt=gif" />
+    </noscript>
+
+    
+
     <?php wp_head(); ?>
 </head>
 

@@ -105,8 +105,8 @@ $content = get_the_content();
                                                             'terms' => $listCategoryTrends->term_id,
                                                         )
                                                     ),
-                                                    'orderby' => 'post_date',
-                                                    'order' => 'DESC',
+                                                    'orderby' => 'id',
+                                                    'order' => 'ASC',
                                                     'posts_per_page' => -1,
                                                     'post_status' => 'publish'
                                                 ]

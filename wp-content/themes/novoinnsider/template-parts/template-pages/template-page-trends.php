@@ -78,98 +78,102 @@ $content = get_the_content();
 
                     <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
 
-                        <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
+<?php 
+// Obtener todos los términos de la taxonomía 'tendencias'
+$listCategoriesTrends = get_terms(
+    array(
+        'taxonomy' => 'tendencias',
+        'hide_empty' => true,
+        'order' => 'DESC'
+    )
+);
+?>
 
-                            <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
+<?php if (isset($listCategoriesTrends) && !empty($listCategoriesTrends)) : ?>
+    
+    <?php
+    // Crear una lista de los términos activos para el tax_query
+    $activeTerms = [];
+    foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) {
+        $activeTerms[] = $CategoriesWithStatusActive->term_id;
+    }
 
-                            <?php $listCategoriesTrends = get_terms(
-                                array(
-                                    'taxonomy' => 'tendencias',
-                                    'hide_empty' => true,
-                                    'order' => 'DESC'
-                                )
-                            )
-                            ?>
+    // Consulta global de los posts, ordenados por fecha de publicación
+    $listPostTrends = new WP_Query(
+        [
+            'tax_query' => [
+                [
+                    'taxonomy' => 'tendencias',
+                    'field' => 'id',
+                    'terms' => $activeTerms,
+                    'operator' => 'IN', // Filtra los posts por los términos activos
+                ]
+            ],
+            'orderby' => 'post_date',
+            'order' => 'DESC',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+        ]
+    );
+    ?>
 
-                            <?php if (isset($listCategoriesTrends) && !empty($listCategoriesTrends)) : ?>
-                                <?php foreach ($listCategoriesTrends as $listCategoryTrends) : ?>
-                                    <?php if ($listCategoryTrends->term_id == $idCategoriesWithStatusActive) : ?>
+    <?php if ($listPostTrends->have_posts()) : ?>
+        <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
-                                        <?php $listPostTrends = new WP_Query(
-                                                [
-                                                    'tax_query' => array(
-                                                        array(
-                                                            'taxonomy' => 'tendencias',
-                                                            'field' => 'id',
-                                                            'terms' => $listCategoryTrends->term_id,
-                                                        )
-                                                    ),
-                                                    'orderby' => 'post_date',
-                                                    'order' => 'DESC',
-                                                    'posts_per_page' => -1,
-                                                    'post_status' => 'publish'
-                                                ]
-                                            );
-                                        ?>
+            <?php 
+            // Variables personalizadas de los posts
+            $thePermalink = get_the_permalink();
+            $imgPostTrend = get_field('Img_Post_Trend');
+            $bannerPostTrend = get_field('Banner_Post_Trend');
+            $subtitlePostTrend = get_field('Subtitle_Post_Trend');
+            $ifPostTrendVideo = get_field('If_Post_Trend_Video');
+            $uRLPostTrend = get_field('URL_Post_Trend');
+            $contentPostTrend = get_field('Content_Post_Trend');
+            ?>
 
-                                        <?php if ($listPostTrends->have_posts()) : ?>
-                                            <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
-
-                                                <?php $thePermalink = get_the_permalink(); ?>
-                                                <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
-                                                <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
-                                                <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
-                                                <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
-                                                <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
-                                                <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
-
-                                                <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
-                                                    <a href="<?= $thePermalink  . '?tax=' . $listCategoryTrends->term_id; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');"  class="w-100">
-                                                        <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
-                                                            <div class="col-10 col-lg-11">
-                                                                <div class="mb-4 figure">
-
-                                                                    <?php if ($imgPostTrend) :  ?>
-                                                                        <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
-                                                                    <?php endif ?>
-                                                                </div>
-                                                                <div class="col-12 d-flex w-100">
-                                                                    <div class="col-12 d-flex">
-                                                                        <div class="col h-100">
-                                                                            <div class="d-flex justify-content-start align-items-start flex-column">
-                                                                                <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
-                                                                                <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col d-flex justify-content-center align-items-start">
-                                                                            <div class="w-75">
-                                                                                <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-
-                                            <?php endwhile; ?>
-                                        <?php endif ?>
-
-                                    <?php endif; ?>
-                                <?php endforeach ?>
-                            <?php endif ?>
-
-                        <?php endforeach; ?>
-
-                        <div class="container m-lg-3 mx-lg-auto m-3 px-0">
-                            <h5 class="NotoSans-Bold title-color">
-                                <?php $codePromomats = $content; ?>
-                                <p><?= $codePromomats ?></p>
-                            </h5>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
+                <a href="<?= $thePermalink ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');" class="w-100">
+                    <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
+                        <div class="col-10 col-lg-11">
+                            <div class="mb-4 figure">
+                                <?php if ($imgPostTrend) :  ?>
+                                    <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                <?php endif ?>
+                            </div>
+                            <div class="col-12 d-flex w-100">
+                                <div class="col-12 d-flex">
+                                    <div class="col h-100">
+                                        <div class="d-flex justify-content-start align-items-start flex-column">
+                                            <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                            <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex justify-content-center align-items-start">
+                                        <div class="w-75">
+                                            <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </a>
+            </div>
 
-                    <?php endif ?>
+        <?php endwhile; ?>
+    <?php endif ?>
+
+<?php endif; ?>
+
+<div class="container m-lg-3 mx-lg-auto m-3 px-0">
+    <h5 class="NotoSans-Bold title-color">
+        <?php $codePromomats = $content; ?>
+        <p><?= $codePromomats ?></p>
+    </h5>
+</div>
+
+<?php endif; ?>
+
 
                     </div>
                 </div>

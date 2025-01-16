@@ -42,25 +42,33 @@ novo_innsider_save_logs();
     <!-- End Google Tag Manager -->
 
 
-    <script tipo="texto/javascript">
+    <script type="text/javascript">
     _linkedin_partner_id = "6579570";
-    ventana._linkedin_data_partner_ids = ventana._linkedin_data_partner_ids || [];
-    ventana._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script><script tipo="texto/javascript">
-    (función(l) {
-    si (!l){ventana.lintrk = función(a,b){ventana.lintrk.q.push([a,b])};
-    ventana.lintrk.q=[]}
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script><script type="text/javascript">
+    (function(l) {
+    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+    window.lintrk.q=[]}
     var s = document.getElementsByTagName("script")[0];
     var b = document.createElement("script");
-    b.tipo = "texto/javascript";b.async = verdadero;
-    b.src = " https://snap.licdn.com/li.lms-analytics/insight.min.js";
-    s.parentNode.insertBefore(b, s);})(ventana.lintrk);
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})(window.lintrk);
     </script>
-    <sin guión>
-    <img height="1" width="1" style="display:none;" alt="" src=" https://px.ads.linkedin.com/collect/?pid=6579570&fmt=gif" />
+    <noscript>
+    <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=6579570&fmt=gif" />
     </noscript>
 
-    
+    <!-- Google tag (gtag.js) -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16469034041"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-16469034041');
+    </script>
 
     <?php wp_head(); ?>
 </head>

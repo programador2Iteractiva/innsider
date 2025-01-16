@@ -78,10 +78,6 @@ $content = get_the_content();
 
                     <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
 
-                        <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
-
-                            <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
-
                             <?php $listPostTrends = new WP_Query(
                                 [
                                     'post_type' => 'tendencia', // Asegúrate de que 'post' sea el tipo correcto
@@ -138,8 +134,6 @@ $content = get_the_content();
 
                                 <?php endwhile; ?>
                             <?php endif ?>
-
-                        <?php endforeach; ?>
 
                         <div class="container m-lg-3 mx-lg-auto m-3 px-0">
                             <h5 class="NotoSans-Bold title-color">

@@ -84,7 +84,7 @@ $content = get_the_content();
 
                             <?php $listPostTrends = new WP_Query(
                                 [
-                                    'post_type' => 'post', // Asegúrate de que 'post' sea el tipo correcto
+                                    'post_type' => 'tendencia', // Asegúrate de que 'post' sea el tipo correcto
                                     'orderby' => 'post_date', 
                                     'order' => 'DESC', 
                                     'posts_per_page' => -1, // Muestra todos los posts

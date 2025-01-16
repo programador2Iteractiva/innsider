@@ -116,7 +116,7 @@ $listCategoriesTrends = get_terms(
         ]
     );
     ?>
-
+    <?php $counter = 0; ?>
     <?php if ($listPostTrends->have_posts()) : ?>
         <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
@@ -163,7 +163,7 @@ $listCategoriesTrends = get_terms(
                     </div>
                 </a>
             </div>
-
+            <?php $counter++; ?>
         <?php endwhile; ?>
     <?php endif ?>
 

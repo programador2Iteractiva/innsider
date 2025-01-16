@@ -86,7 +86,8 @@ $content = get_the_content();
                                 array(
                                     'taxonomy' => 'tendencias',
                                     'hide_empty' => true,
-                                    'order' => 'DESC'
+                                    'orderby' => 'id',
+                                    'order' => 'ASC',
                                 )
                             )
                             ?>

@@ -82,81 +82,61 @@ $content = get_the_content();
 
                             <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
 
-                            <?php $listCategoriesTrends = get_terms(
-                                array(
-                                    'taxonomy' => 'tendencias',
-                                    'hide_empty' => true,
-                                )
-                            )
+                            <?php $listPostTrends = new WP_Query(
+                                [
+                                    'post_type' => 'post', // Asegúrate de que 'post' sea el tipo correcto
+                                    'orderby' => 'post_date', 
+                                    'order' => 'DESC', 
+                                    'posts_per_page' => -1, // Muestra todos los posts
+                                    'post_status' => 'publish' // Solo los posts publicados
+                                ]
+                            );
+                            
                             ?>
 
-                            <?php if (isset($listCategoriesTrends) && !empty($listCategoriesTrends)) : ?>
-                                <?php foreach ($listCategoriesTrends as $listCategoryTrends) : ?>
-                                    <?php if ($listCategoryTrends->term_id == $idCategoriesWithStatusActive) : ?>
+                            <?php if ($listPostTrends->have_posts()) : ?>
+                                <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
 
-                                        <?php $listPostTrends = new WP_Query(
-                                                [
-                                                    'tax_query' => array(
-                                                        array(
-                                                            'taxonomy' => 'tendencias',
-                                                            'field' => 'id',
-                                                            'terms' => $listCategoryTrends->term_id,
-                                                        )
-                                                    ),
-                                                    'orderby' => 'post_date',
-                                                    'order' => 'DESC',
-                                                    'posts_per_page' => -1,
-                                                    'post_status' => 'publish'
-                                                ]
-                                            );
-                                        ?>
+                                    <?php 
+                                    $thePermalink = get_the_permalink();
+                                    $imgPostTrend = get_field('Img_Post_Trend');
+                                    $bannerPostTrend = get_field('Banner_Post_Trend');
+                                    $subtitlePostTrend = get_field('Subtitle_Post_Trend');
+                                    $ifPostTrendVideo = get_field('If_Post_Trend_Video');
+                                    $uRLPostTrend = get_field('URL_Post_Trend');
+                                    $contentPostTrend = get_field('Content_Post_Trend');
+                                    ?>
 
-                                        <?php if ($listPostTrends->have_posts()) : ?>
-                                            <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>
-
-                                                <?php $thePermalink = get_the_permalink(); ?>
-                                                <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
-                                                <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
-                                                <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
-                                                <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
-                                                <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
-                                                <?php $contentPostTrend = get_field('Content_Post_Trend'); ?>
-
-                                                <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
-                                                    <a href="<?= $thePermalink  . '?tax=' . $listCategoryTrends->term_id; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');"  class="w-100">
-                                                        <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
-                                                            <div class="col-10 col-lg-11">
-                                                                <div class="mb-4 figure">
-
-                                                                    <?php if ($imgPostTrend) :  ?>
-                                                                        <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
-                                                                    <?php endif ?>
+                                    <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
+                                        <a href="<?= $thePermalink  . '?tax=' . $idCategoriesWithStatusActive; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');" class="w-100">
+                                            <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
+                                                <div class="col-10 col-lg-11">
+                                                    <div class="mb-4 figure">
+                                                        <?php if ($imgPostTrend) :  ?>
+                                                            <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                                        <?php endif ?>
+                                                    </div>
+                                                    <div class="col-12 d-flex w-100">
+                                                        <div class="col-12 d-flex">
+                                                            <div class="col h-100">
+                                                                <div class="d-flex justify-content-start align-items-start flex-column">
+                                                                    <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                                                                    <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
                                                                 </div>
-                                                                <div class="col-12 d-flex w-100">
-                                                                    <div class="col-12 d-flex">
-                                                                        <div class="col h-100">
-                                                                            <div class="d-flex justify-content-start align-items-start flex-column">
-                                                                                <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
-                                                                                <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col d-flex justify-content-center align-items-start">
-                                                                            <div class="w-75">
-                                                                                <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="col d-flex justify-content-center align-items-start">
+                                                                <div class="w-75">
+                                                                    <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </div>
+                                            </div>
+                                        </a>
+                                    </div>
 
-                                            <?php endwhile; ?>
-                                        <?php endif ?>
-
-                                    <?php endif; ?>
-                                <?php endforeach ?>
+                                <?php endwhile; ?>
                             <?php endif ?>
 
                         <?php endforeach; ?>

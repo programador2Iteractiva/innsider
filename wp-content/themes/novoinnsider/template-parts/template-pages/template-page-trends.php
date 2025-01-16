@@ -97,15 +97,20 @@ $content = get_the_content();
 
                                         <?php $listPostTrends = new WP_Query(
                                                 [
-                                                    'post_type' => 'tendencia', // Asegúrate de que 'post' sea el tipo correcto
-                                                    'orderby' => 'post_date', 
-                                                    'order' => 'DESC', 
-                                                    'posts_per_page' => -1, // Muestra todos los posts
-                                                    'post_status' => 'publish' // Solo los posts publicados
+                                                    'tax_query' => array(
+                                                        array(
+                                                            'taxonomy' => 'tendencias',
+                                                            'field' => 'id',
+                                                            'terms' => $listCategoryTrends->term_id,
+                                                        )
+                                                    ),
+                                                    'orderby' => 'post_date',
+                                                    'order' => 'DESC',
+                                                    'posts_per_page' => -1,
+                                                    'post_status' => 'publish'
                                                 ]
                                             );
                                         ?>
-
 
                                         <?php if ($listPostTrends->have_posts()) : ?>
                                             <?php while ($listPostTrends->have_posts()) : $listPostTrends->the_post() ?>

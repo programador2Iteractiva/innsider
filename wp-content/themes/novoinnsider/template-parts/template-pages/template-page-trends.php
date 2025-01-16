@@ -102,7 +102,6 @@ $content = get_the_content();
                                                         array(
                                                             'taxonomy' => 'tendencias',
                                                             'field' => 'id',
-                                                            'terms' => $listCategoryTrends->term_id,
                                                         )
                                                     ),
                                                     'orderby' => 'post_date',

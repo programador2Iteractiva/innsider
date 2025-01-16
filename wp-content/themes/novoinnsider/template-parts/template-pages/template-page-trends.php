@@ -86,8 +86,8 @@ $content = get_the_content();
                                 array(
                                     'taxonomy' => 'tendencias',
                                     'hide_empty' => true,
-                                    'orderby' => 'id',
-                                    'order' => 'ASC',
+                                    'orderby' => 'post_date',
+                                    'order' => 'DESC',
                                 )
                             )
                             ?>
@@ -105,8 +105,8 @@ $content = get_the_content();
                                                             'terms' => $listCategoryTrends->term_id,
                                                         )
                                                     ),
-                                                    'orderby' => 'id',
-                                                    'order' => 'ASC',
+                                                    'orderby' => 'post_date',
+                                                    'order' => 'DESC',
                                                     'posts_per_page' => -1,
                                                     'post_status' => 'publish'
                                                 ]

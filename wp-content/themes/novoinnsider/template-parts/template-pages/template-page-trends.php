@@ -129,10 +129,14 @@ $listCategoriesTrends = get_terms(
             $ifPostTrendVideo = get_field('If_Post_Trend_Video');
             $uRLPostTrend = get_field('URL_Post_Trend');
             $contentPostTrend = get_field('Content_Post_Trend');
+
+            // Obtener el término al que pertenece el post actual
+            $terms = get_the_terms(get_the_ID(), 'tendencias');
+            $currentTermID = ($terms && !is_wp_error($terms)) ? $terms[0]->term_id : null;
             ?>
 
             <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
-                <a href="<?= $thePermalink ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');" class="w-100">
+                <a href="<?= $thePermalink . '?tax=' . $currentTermID; ?>" onclick="saveLogsClick('Clic en tarjeta <?= the_title(); ?>');" class="w-100">
                     <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
                         <div class="col-10 col-lg-11">
                             <div class="mb-4 figure">
@@ -173,6 +177,7 @@ $listCategoriesTrends = get_terms(
 </div>
 
 <?php endif; ?>
+
 
 
                     </div>

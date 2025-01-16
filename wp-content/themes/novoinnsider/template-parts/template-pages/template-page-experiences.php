@@ -28,7 +28,7 @@ $content = get_the_content();
 
 <?php /* New code for this new page Experience */ ?>
 
-    <?php $listPostTools = new WP_Query( array('post_type' => 'experiences', 'posts_per_page' => -1, 'order' => 'ASC')); ?>
+    <?php $listPostTools = new WP_Query( array('post_type' => 'experiences', 'posts_per_page' => -1, 'order' => 'ASC', 'orderby' => 'id')); ?>
 
     <?php if( isset($listPostTools) && !empty($listPostTools)) : ?>
 

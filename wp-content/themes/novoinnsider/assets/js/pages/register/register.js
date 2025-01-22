@@ -70,90 +70,6 @@ export function saveClickCities(citiesName) {
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    // const isMobile = window.innerWidth < 768; // Ajusta el tamaño según tu diseño
-    // const imageHeight = isMobile ? 'auto' : 'auto'; // Establecer la altura
-
-    // const limitDate = new Date('2024-10-03T18:00:00'); // Fecha límite
-    // const now = new Date();
-    // console.log(now);
-    // let popupMostrado = false; // Variable para rastrear si el popup ya fue mostrado
-
-    // // Verifica si la recarga ya se realizó
-    // if (getCookie('recargaRealizada')) {
-    //     return; // Si ya se recargó, no hacer nada más
-    // }
-
-    // // Función para mostrar el popup
-    // function mostrarPopup() {
-    //     Swal.fire({
-    //         imageAlt: 'Descripción de la imagen',
-    //         html: `
-    //         <img src="https://innsider.com.co/wp-content/uploads/2024/09/POPUpampliado-scaled.jpg" alt="Una imagen descriptiva" 
-    //              style="cursor: pointer; height: ${imageHeight}; width: 100%" 
-    //              onclick="window.location='https://event.on24.com/wcc/r/4710815/6E89E7A9AD62689716C79F54A812B97A';">
-    //       `,
-    //         showCloseButton: false,
-    //         showConfirmButton: false,
-    //         showCancelButton: false,
-    //         customClass: {
-    //             popup: "swal-style-popup-event",
-    //         },
-    //         backdrop: `
-    //             rgba(0,0,0,0.7) left top no-repeat
-    //         `,
-    //         allowOutsideClick: false,
-    //         confirmButtonText: "Ir al evento",
-    //         color: "#000000",
-    //     }).then(() => {
-    //         popupMostrado = true; // Marca que el popup ha sido mostrado
-    //     });
-    // }
-
-    // // Verificamos la fecha y recargamos si se alcanza la fecha límite
-    // const intervalo = setInterval(function() {
-    //     const ahora = new Date(); // Obtener la fecha actual
-
-    //     if (ahora >= limitDate) {
-    //         clearInterval(intervalo); // Detenemos el intervalo
-    //         setCookie('recargaRealizada', 'true', 1); // Marca que se ha realizado la recarga por 1 día
-    //         location.reload(); // Recarga la página
-    //     } else if (!popupMostrado) {
-    //         mostrarPopup(); // Muestra el popup si no se ha mostrado
-    //     }
-    // }, 1000); // Comprobamos cada segundo
-
-    // // Funciones para manejar cookies
-    // function setCookie(name, value, days) {
-    //     const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    //     document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-    // }
-
-    // function getCookie(name) {
-    //     return document.cookie.split('; ').reduce((r, v) => {
-    //         const parts = v.split('=');
-    //         return parts[0] === name ? decodeURIComponent(parts[1]) : r;
-    //     }, '');
-    // }
-
-
-    /* Call name user to object ajax */
-    var nameUser = ajax_object.full_name;
-
-    /* Call all Cookies */
-    // function getAllCookies() {
-    //     let cookies = document.cookie.split('; ');
-    //     let cookieObj = {};
-    //     cookies.forEach(cookie => {
-    //         let [key, value] = cookie.split('=');
-    //         cookieObj[key] = value;
-    //     });
-    //     return cookieObj;
-    // }
-
-    // let allCookies = getAllCookies();
-    // console.log('Todas las cookies:', allCookies);
-
-    /* validate the existence of the cookie */
     function getCookie(name) {
         let value = `; ${document.cookie}`;
         let parts = value.split(`; ${name}=`);
@@ -179,35 +95,94 @@ document.addEventListener("DOMContentLoaded", function(){
         document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
     }
 
+    // section code to redirect if exist param redirect_to in url login
+
+    console.log("El DOM se ha cargado");
+    
+
+    /* Call name user to object ajax */
+    var nameUser = ajax_object.full_name;
+
+    // Obtén los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let redirectUrl = getCookie('redirectUrl');
     let alertShown = getCookie('alertShown');
 
-    if(nameUser) {
+    if(urlParams.has('redirect_to')){
 
-        if (alertShown === null || alertShown === "false") {
-            Swal.fire({
-                html: '<h1><span class="Apis-Bold" style="color: #001965;">Bienvenido ' + nameUser + ',</span></h1>'+
-                '<p>esto es lo último en Innsider para usted.</p>',
-                imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Novo_Nordisk_-_Logo.svg/1200px-Novo_Nordisk_-_Logo.svg.png', // URL de la imagen
-                imageWidth: 100,
-                imageHeight: 83,
-                imageAlt: 'Descripción de la imagen',
-                showCloseButton: true,
-                showConfirmButton: true,
-                showCancelButton: false,
-                customClass: {
-                    popup: "swal-style-login",
-                    confirmButton: 'swal-custom-button'
-                },
-                width: '595px',
-                confirmButtonText: "Continuar",
-                color: "#000000",
-            });
-    
-            setCookie("alertShown", "true");
+        const redirect_to = urlParams.get('redirect_to');
+        console.log('Existe redirect_to y es igual a', redirect_to);
+
+        if (redirectUrl === null || redirectUrl === "false") {
+            console.log('Entra a la condición');
+            setCookie("redirectUrl", redirect_to);
         }
+
     }else{
-        deleteCookie('alertShown');
+
+        console.log('Entra el else');
+
+        let redirectUrl = getCookie('redirectUrl');
+
+        if(nameUser) {
+            console.log('Existe el nameUser que es ', nameUser);
+    
+            if (redirectUrl) {
+                console.log('Entra al redirectUrl que es ', redirectUrl);
+
+                window.location.href = redirectUrl;
+        
+                deleteCookie('redirectUrl');
+                return;
+            }
+
+        }else{
+            console.log('No existe la cookie redirectUrl');
+        }
+
+        if(nameUser) {
+
+            if (alertShown === null || alertShown === "false") {
+                Swal.fire({
+                    html: '<h1><span class="Apis-Bold" style="color: #001965;">Bienvenido ' + nameUser + ',</span></h1>'+
+                    '<p>esto es lo último en Innsider para usted.</p>',
+                    imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b1/Novo_Nordisk_-_Logo.svg/1200px-Novo_Nordisk_-_Logo.svg.png', // URL de la imagen
+                    imageWidth: 100,
+                    imageHeight: 83,
+                    imageAlt: 'Descripción de la imagen',
+                    showCloseButton: true,
+                    showConfirmButton: true,
+                    showCancelButton: false,
+                    customClass: {
+                        popup: "swal-style-login",
+                        confirmButton: 'swal-custom-button'
+                    },
+                    width: '595px',
+                    confirmButtonText: "Continuar",
+                    color: "#000000",
+                });
+        
+                setCookie("alertShown", "true");
+            }
+        }else{
+            deleteCookie('alertShown');
+        }
+
     }
+
+
+
+    
+
+
+
+
+    // end section code to redirect if exist param redirect_to in url login
+
+})
+
+document.addEventListener("DOMContentLoaded", function(){
 
     var numberDocument = document.getElementById('document');
     var confirmDocument = document.getElementById('confirm-document');
@@ -514,8 +489,5 @@ document.addEventListener("DOMContentLoaded", function(){
         
     })
     
-    
-
-
 
 })

@@ -2637,7 +2637,7 @@ $titlePostId = get_the_title();
 
     <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
 
-        <?php if($currentPostId === 958) : ?> 
+        <?php if($currentPostId === 871) : ?> 
 
             <?php $contentRegister = get_post_meta($currentPostId, 'Content_Register', true); ?>
 

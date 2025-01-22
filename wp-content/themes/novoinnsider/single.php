@@ -372,7 +372,8 @@ $titlePostId = get_the_title();
 
 
                                                         <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
-                                                            <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" onclick="redirectVideo('<?= $link; ?>'); saveLogsClick('redirect a `<?= the_title(); ?>`');">
+                                                            <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" 
+                                                                onclick="redirectVideo('<?= $link; ?>'); saveLogsClick('redirect a `<?= the_title(); ?>`');">
                                                                 <div class="mb-4 figure">
                                                                     <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
                                                                         <img src="<?= esc_url($thumbnailUrlVisionInnsider); ?>" alt="Herramientas" class="bg-single" style="object-fit:cover">
@@ -2636,7 +2637,9 @@ $titlePostId = get_the_title();
 
     <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
 
-        <?php if($currentPostId === 871) : ?> 
+        <?php if($currentPostId === 958) : ?> 
+
+            <?php $contentRegister = get_post_meta($currentPostId, 'Content_Register', true); ?>
 
             <?php if (isset($currentPostId) && !empty($currentPostId)) : ?>
 
@@ -2646,14 +2649,31 @@ $titlePostId = get_the_title();
                     'post_parent' => $currentPostId,
                 )) ?>
 
+                <?php $thePermalink = get_the_permalink(); ?>
+
                 <?php foreach($fileContent as $file) : ?>    
                     <?php $urlPdfFile = $file->guid; ?>
                 <?php endforeach; ?>
+
+                <?php if($contentRegister === '1') : ?> 
+
+                    <?php if(!is_user_logged_in()) : ?>
+
+                        <?php $login_url = wp_login_url($thePermalink); ?>
+                        <?php $link = $login_url; ?>
+                        <script>
+                            window.location.href = '<?php echo $link; ?>';
+                        </script>
+
+                    <?php endif ?>
+
+                <?php endif; ?>  
 
                 <?php if (is_singular('experiences')) :  ?>
                     <?php $experiences_page = get_page_by_title('Experiencias'); ?>
                     <?php $experiences_url = $experiences_page; ?>
                     <?php $bannerPostType = get_the_post_thumbnail_url($experiences_url); ?>
+
                 <?php endif; ?>
 
                 <div class="container banner-academy mt-5" data-aos="zoom-in">

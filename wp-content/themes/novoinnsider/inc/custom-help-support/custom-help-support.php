@@ -19,7 +19,7 @@ function novo_inssider_get_html($slug, $name = null)
 
 function novo_inssider_data_support()
 {
-    $to = 'egonzalez@interactiva.net.co';
+    $to = 'mqru@novonordisk.com';
     $subject = 'Solicitud de Soporte Técnico - Página web iNNsider';
     $body = novo_inssider_get_html('inc/mail/mail-support');
     $headers = 'From: iNNsider <info@innsider.com.co>' . "\r\n";

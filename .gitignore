@@ -9,3 +9,4 @@ cgi-bin
 doc.default.php
 wp-content/uploads/
 wp-content/plugins/
+wp-content/themes/novoinnsider/assets/node_modules/

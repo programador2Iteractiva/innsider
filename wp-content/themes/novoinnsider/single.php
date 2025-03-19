@@ -1390,6 +1390,7 @@ $titlePostId = get_the_title();
         <?php $thePermalink = get_the_permalink(); ?>
         <?php $titlePostInnsiderData = get_the_title(); ?>
         <?php $bannerPostInnsiderData = get_field('Banner_Post_Tools'); ?>
+        <?php $bannerPostInnsiderDataMovil = get_field('Banner_Post_Tools_Movil'); ?>
         <?php $ifPostTrendWithDiferentOptions = get_field('If_Post_Trend_With_Diferent_Options'); ?>
         <?php $contentPostTrendWithDifferentOptions = get_field('Content_Post_Trend_With_Different_Options');  ?>
         <?php $codePromomats = get_field('code_promomats');  ?>
@@ -2064,10 +2065,31 @@ $titlePostId = get_the_title();
             <?php /* burned code for this single post Innsider Data */ ?>
 
             <?php if (isset($bannerPostInnsiderData) && !empty($bannerPostInnsiderData)) : ?>
-                <div class="five-background-taxonomy" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; margin-top: 1rem; padding-bottom: 1.5rem;">
+                <div class="five-background-taxonomy d-none d-lg-block" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; margin-top: 1rem; padding-bottom: 1.5rem;">
                     <div class="container container-bg-single banner-taxonomy-academy" data-aos="zoom-in">
                         <?php if (isset($bannerPostInnsiderData) && !empty($bannerPostInnsiderData)) : ?>
                             <img src="<?= esc_url(wp_get_attachment_url($bannerPostInnsiderData)); ?>" alt="Herramientas" class="bg-single-iNNsider-Data">
+                        <?php endif; ?>
+                        <div class="wrapper-taxonomy-academy"></div>
+                    </div>
+                    <div class="container p-0">
+                        <div class="row m-0 p-0">
+                            <p class="NotoSans-Regular title-color text-align-justify mb-lg-4 mb-4 m-0 p-0 mt-4 px-3 px-lg-0">
+                                Las recomendaciones actuales incluyen un abordaje terapéutico centrado en la persona a través de
+                                modificaciones del estilo de vida como la actividad física, pérdida de peso, alimentación saludable
+                                así como medicamentos que controlan los niveles de glicemia en sangre.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+            <?php if (isset($bannerPostInnsiderDataMovil) && !empty($bannerPostInnsiderDataMovil)) : ?>
+                <div class="five-background-taxonomy d-block d-lg-none" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; margin-top: 1rem; padding-bottom: 1.5rem;">
+                    <div class="container banner-taxonomy-academy" data-aos="zoom-in">
+                        <?php if (isset($bannerPostInnsiderDataMovil) && !empty($bannerPostInnsiderDataMovil)) : ?>
+                            <img src="<?= esc_url(wp_get_attachment_url($bannerPostInnsiderDataMovil)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
                         <?php endif; ?>
                         <div class="wrapper-taxonomy-academy"></div>
                     </div>

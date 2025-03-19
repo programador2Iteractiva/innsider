@@ -3024,7 +3024,7 @@ $titlePostId = get_the_title();
                     <?php endif; ?>
 
                     <?php if (isset($bannerPostTrendMovil) && !empty($bannerPostTrendMovil)) : ?>
-                        <div class="container banner-academy d-block d-lg-none" data-aos="zoom-in">
+                        <div class="container banner-academy d-block d-lg-none mb-4" data-aos="zoom-in">
                             <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrendMovil, 'full', ''); ?>" alt="Podcast">
                             <div class="wrapper-banner-academy">
                                 <div class="container-text-banner-academy"></div>

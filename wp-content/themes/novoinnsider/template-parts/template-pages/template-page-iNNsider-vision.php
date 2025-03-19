@@ -3,6 +3,7 @@
 /**
  * Template for page iNNsider Vision
  */
+$page_id = get_queried_object_id();
 $category = get_queried_object();
 $content = get_the_content();
 ?>
@@ -14,18 +15,23 @@ $content = get_the_content();
 </div>
 
 <div>
-    <div class="container banner-academy" data-aos="zoom-in">
-        <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
+
+    <?php $bannerPage = get_field('Page_Image_Banner', $page_id); ?>
+    <?php $bannerPageMovil = get_field('Page_Image_Banner_Movil', $page_id); ?>
+
+    <div class="container banner-academy d-none d-lg-block" data-aos="zoom-in">
+        <?php if (isset($bannerPage) && !empty($bannerPage)) : ?>
+            <img src="<?= esc_url(wp_get_attachment_url($bannerPage)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+        <?php endif ?>
         <div class="wrapper-banner-academy">
-            <div class="container-text-banner-academy">
-                <!-- <p>
-                    <?php the_title(); ?>
-                </p> -->
-            </div>
-            <h4 class="text-white mt-3"><?php the_content(); ?></h4>
-            <!-- <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
-            </div> -->
+        </div>
+    </div>
+
+    <div class="container banner-academy d-block d-lg-none" data-aos="zoom-in">
+        <?php if (isset($bannerPageMovil) && !empty($bannerPageMovil)) : ?>
+            <img src="<?= esc_url(wp_get_attachment_url($bannerPageMovil)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+        <?php endif ?>
+        <div class="wrapper-banner-academy">
         </div>
     </div>
 
@@ -47,81 +53,81 @@ $content = get_the_content();
     $taxonomyVisionInnsiderCategory = novo_inssider_get_all_visioninnsider_category_actives();
     ?>
 
-    <?php if(count($taxonomyVisionInnsiderCategory) == 1) : ?>
+    <?php if (count($taxonomyVisionInnsiderCategory) == 1) : ?>
 
         <div class="container align-items-center mt-5 pt-1">
             <div class="row d-flex justify-content-center align-items-center m-0 mt-4 p-0">
 
-    <?php else : ?> 
+            <?php else : ?>
 
-        <div class="container d-flex justify-content-center align-items-center mt-5 pt-1">
-            <div class="row d-flex justify-content-center align-items-start m-0 mt-4 p-0">
+                <div class="container d-flex justify-content-center align-items-center mt-5 pt-1">
+                    <div class="row d-flex justify-content-center align-items-start m-0 mt-4 p-0">
 
-    <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
+                    <?php if (isset($allCategoriesWithStatusActive) && !empty($allCategoriesWithStatusActive)) : ?>
 
-                    <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
+                        <?php foreach ($allCategoriesWithStatusActive as $CategoriesWithStatusActive) : ?>
 
-                        <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
+                            <?php $idCategoriesWithStatusActive = $CategoriesWithStatusActive->term_id; ?>
 
-                        <?php $listCategoriesVisionInnsider = get_terms(
-                            array(
-                                'taxonomy' => 'visioninnsider-category',
-                                'hide_empty' => false,
-                                'order' => 'ASC'
+                            <?php $listCategoriesVisionInnsider = get_terms(
+                                array(
+                                    'taxonomy' => 'visioninnsider-category',
+                                    'hide_empty' => false,
+                                    'order' => 'ASC'
+                                )
                             )
-                        )
-                        ?>
+                            ?>
 
-                        <?php if (isset($listCategoriesVisionInnsider) && !empty($listCategoriesVisionInnsider)) : ?>
-                            <?php $counter = 0; ?>
-                            <?php foreach ($listCategoriesVisionInnsider as $listCategoryVision) : ?>
+                            <?php if (isset($listCategoriesVisionInnsider) && !empty($listCategoriesVisionInnsider)) : ?>
+                                <?php $counter = 0; ?>
+                                <?php foreach ($listCategoriesVisionInnsider as $listCategoryVision) : ?>
 
-                                <?php if ($listCategoryVision->term_id == $idCategoriesWithStatusActive) : ?>
+                                    <?php if ($listCategoryVision->term_id == $idCategoriesWithStatusActive) : ?>
 
-                                    <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
-                                        <a href="<?= get_term_link($listCategoryVision->term_id); ?>" class="w-100" onclick="saveLogsClick('Clic en tarjeta `<?= $listCategoryVision->name; ?>`');">
-                                            <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
-                                                <div class="col-10 col-lg-11">
-                                                    <div class="mb-4 figure">
-                                                        <?php $imageCategoryVision = get_field('Category_Image', $listCategoryVision); ?>
+                                        <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
+                                            <a href="<?= get_term_link($listCategoryVision->term_id); ?>" class="w-100" onclick="saveLogsClick('Clic en tarjeta `<?= $listCategoryVision->name; ?>`');">
+                                                <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
+                                                    <div class="col-10 col-lg-11">
+                                                        <div class="mb-4 figure">
+                                                            <?php $imageCategoryVision = get_field('Category_Image', $listCategoryVision); ?>
 
-                                                        <?php if ($imageCategoryVision) :  ?>
-                                                            <?php echo wp_get_attachment_image($imageCategoryVision, 'full', '', ['style' => 'object-fit: fill']); ?>
-                                                        <?php endif ?>
-                                                    </div>
-                                                    <div class="col-12 d-flex w-100">
-                                                        <div class="col-12 d-flex">
-                                                            <div class="col h-100">
-                                                                <div class="d-flex justify-content-start align-items-start flex-column">
-                                                                    <h4 class="NotoSans-Bold title-color"><?= $listCategoryVision->name; ?></h4>
-                                                                    <p class="description-color NotoSans-Regular"><?= $listCategoryVision->description; ?></p>
+                                                            <?php if ($imageCategoryVision) :  ?>
+                                                                <?php echo wp_get_attachment_image($imageCategoryVision, 'full', '', ['style' => 'object-fit: fill']); ?>
+                                                            <?php endif ?>
+                                                        </div>
+                                                        <div class="col-12 d-flex w-100">
+                                                            <div class="col-12 d-flex">
+                                                                <div class="col h-100">
+                                                                    <div class="d-flex justify-content-start align-items-start flex-column">
+                                                                        <h4 class="NotoSans-Bold title-color"><?= $listCategoryVision->name; ?></h4>
+                                                                        <p class="description-color NotoSans-Regular"><?= $listCategoryVision->description; ?></p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col d-flex justify-content-center align-items-start">
-                                                                <div class="w-75">
-                                                                    <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
+                                                                <div class="col d-flex justify-content-center align-items-start">
+                                                                    <div class="w-75">
+                                                                        <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                            </a>
+                                        </div>
 
-                                <?php endif; ?>
+                                    <?php endif; ?>
 
-                                <?php $counter++; ?>
-                            <?php endforeach ?>
-                        <?php endif ?>
+                                    <?php $counter++; ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
 
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                <?php endif ?>
+                    <?php endif ?>
+
+                    </div>
+                </div>
 
             </div>
-        </div>
-
-</div>

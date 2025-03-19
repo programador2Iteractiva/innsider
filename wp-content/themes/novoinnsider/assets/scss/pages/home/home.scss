@@ -16,7 +16,7 @@
 
             .swiper-slide {
                 position: relative;
-                height: 150px;
+                height: 250px;
                 align-items: flex-end !important;
 
                 @include center-horizontally;
@@ -27,16 +27,16 @@
                 }
 
                 @include media-breakpoint-up(md) {
-                    height: 300px;
+                    height: 390px;
                 }
 
                 @include media-breakpoint-up(lg) {
-                    height: 357px;
+                    height: 400px;
                     align-items: flex-end;
                 }
 
                 @include media-breakpoint-up(xl) {
-                    height: 430px;
+                    height: 480px;
                 }
 
                 @include media-breakpoint-up(xxl) {
@@ -720,7 +720,7 @@ footer {
     width: 100%;
     height: auto;
     object-fit: cover;
-    height: 260px;
+    height: 210px;
     object-position: top;
     border-radius: 0.5rem;
 
@@ -749,12 +749,12 @@ footer {
     width: 100%;
     height: auto;
     object-fit: cover;
-    height: 200px;
-    object-position: left;
-    border-radius: 0.5rem;
-    object-position: center;
+    height: 160px;
+    object-position: top;
+    border-radius: 0.5rem !important;
 
     @include media-breakpoint-up(md) {
+        object-position: center !important;
         height: 310px;
     }
   

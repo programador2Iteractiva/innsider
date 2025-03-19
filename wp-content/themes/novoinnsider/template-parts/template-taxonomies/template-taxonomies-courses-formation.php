@@ -63,9 +63,10 @@ $currentTermId = $taxonomy->term_id;
         <?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
         <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
         <?php $bannerMovilCategory = get_field('Category_Image_Banner_Movil', $taxonomy); ?>
+        <?php $bannerMovilCategory = get_field('Category_Image_Banner_Movil', $taxonomy); ?>
 
 
-        <div class="container third-background-taxonomy mt-lg-3 mt-3 p-5">
+        <div class="container third-background-taxonomy mt-lg-3 mt-3 p-3 pt-4 pt-lg-5 p-lg-5">
             <div class="container banner-taxonomy-academy d-lg-block d-none" data-aos="zoom-in">
                 <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
                     <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">

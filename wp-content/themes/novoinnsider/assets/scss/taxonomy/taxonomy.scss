@@ -51,8 +51,8 @@
         content: "";
         position: absolute;
         top: 0;
-        left: 12px;
-        width: 90%;
+        left: 0px;
+        width: 100%;
         height: 100%;
         background-color: #F9ECEA;
         z-index: -2;
@@ -81,8 +81,8 @@
         content: "";
         position: absolute;
         top: 0;
-        left: 12px;
-        width: 90%;
+        left: 0px;
+        width: 100%;
         height: 100%;
         background-color: #E9F3F3;
         z-index: -2;
@@ -126,8 +126,8 @@
         content: "";
         position: absolute;
         top: 0;
-        left: 12px;
-        width: 90%;
+        left: 0;
+        width: 100%;
         height: 100%;
         background-color: #F5F5F5;
         z-index: -2;
@@ -205,9 +205,10 @@
 }
 
 .container-content-single{
-    width: 85%;
+    width: 100%;
 
     @include media-breakpoint-up(md) {
+        width: 85%;
         height: auto !important;
     }
 }
@@ -280,7 +281,7 @@
         height: 100%;
         position: absolute;
         object-fit: cover;
-        object-position: bottom;
+        object-position: top;
         z-index: -1;
         left: 0;
         top: 0;
@@ -311,7 +312,7 @@
         position: relative;
         padding: 2rem 1.5rem;
         flex-direction: column;
-        height: 85px;
+        height: 250px;
 
         .container-text-banner-taxonomy-academy {
             p {
@@ -361,7 +362,7 @@
 
         @include media-breakpoint-up(md) {
             padding: 3rem;
-            height: 190px;
+            height: 280px;
         }
 
         @include media-breakpoint-up(lg) {

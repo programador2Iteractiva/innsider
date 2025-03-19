@@ -3,6 +3,7 @@
 /**
  * Template for page Trends
  */
+$page_id = get_queried_object_id();
 $content = get_the_content();
 ?>
 
@@ -31,18 +32,22 @@ $content = get_the_content();
             </nav>
         </div>
     </div>
-    <div class="container banner-academy" data-aos="zoom-in">
-        <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
+    <?php $bannerPage = get_field('Page_Image_Banner', $page_id); ?>
+    <?php $bannerPageMovil = get_field('Page_Image_Banner_Movil', $page_id); ?>
+
+    <div class="container banner-academy d-none d-lg-block" data-aos="zoom-in">
+        <?php if(isset($bannerPage) && !empty($bannerPage)) : ?>
+            <img src="<?= esc_url(wp_get_attachment_url($bannerPage)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+        <?php endif ?>
         <div class="wrapper-banner-academy">
-            <!-- <div class="container-text-banner-academy">
-                <p class="text-transform-uppercase">
-                    <?php the_title(); ?>
-                </p>
-            </div> -->
-            <!-- <h4 class="text-white mt-3"><?php the_content(); ?></h4> -->
-            <!-- <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
-                <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
-            </div> -->
+        </div>
+    </div>
+    
+    <div class="container banner-academy d-block d-lg-none" data-aos="zoom-in">
+        <?php if(isset($bannerPageMovil) && !empty($bannerPageMovil)) : ?>
+            <img src="<?= esc_url(wp_get_attachment_url($bannerPageMovil)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+        <?php endif ?>
+        <div class="wrapper-banner-academy">
         </div>
     </div>
 

@@ -39,8 +39,21 @@ $pageHome = get_permalink($home_id);
         </div>
     </div>
 
-    <div class="container banner-academy" data-aos="zoom-in">
-        <?php the_post_thumbnail('', ['class' => 'bg-banner-academy']) ?>
+    <?php $bannerPage = get_field('Page_Image_Banner', $page_id); ?>
+    <?php $bannerPageMovil = get_field('Page_Image_Banner_Movil', $page_id); ?>
+
+    <div class="container banner-academy d-none d-lg-block" data-aos="zoom-in">
+        <?php if(isset($bannerPage) && !empty($bannerPage)) : ?>
+            <img src="<?= esc_url(wp_get_attachment_url($bannerPage)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+        <?php endif ?>
+        <div class="wrapper-banner-academy">
+        </div>
+    </div>
+    
+    <div class="container banner-academy d-block d-lg-none" data-aos="zoom-in">
+        <?php if(isset($bannerPageMovil) && !empty($bannerPageMovil)) : ?>
+            <img src="<?= esc_url(wp_get_attachment_url($bannerPageMovil)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+        <?php endif ?>
         <div class="wrapper-banner-academy">
         </div>
     </div>

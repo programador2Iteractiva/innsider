@@ -592,6 +592,7 @@ $titlePostId = get_the_title();
         <?php $thePermalink = get_the_permalink(); ?>
         <?php $titlePostTools = get_the_title(); ?>
         <?php $bannerPostTools = get_field('Banner_Post_Tools'); ?>
+        <?php $bannerPostToolsMovil = get_field('Banner_Post_Tools_movil'); ?>
         <?php $ifPostTrendWithDiferentOptions = get_field('If_Post_Trend_With_Diferent_Options'); ?>
         <?php $contentPostTrendWithDifferentOptions = get_field('Content_Post_Trend_With_Different_Options');  ?>
         <?php $codePromomats = get_field('code_promomats');  ?>
@@ -628,13 +629,26 @@ $titlePostId = get_the_title();
 
                         <?php if (isset($descriptionBannerPostTrendContent) && !empty($descriptionBannerPostTrendContent)) : ?>
 
-                            <div class="container four-background-taxonomy mt-lg-3 mt-3 p-lg-5 p-2 pb-lg-0 pb-2">
-                                <div class="container container-bg-single banner-taxonomy-academy" data-aos="zoom-in">
-                                    <?php if (isset($bannerPostTools) && !empty($bannerPostTools)) : ?>
-                                        <img src="<?= esc_url(wp_get_attachment_url($bannerPostTools)); ?>" alt="Herramientas" class="bg-single-trend">
-                                    <?php endif; ?>
-                                    <div class="wrapper-taxonomy-academy"></div>
-                                </div>
+                            <div class="container four-background-taxonomy mt-lg-3 mt-3 p-3 pt-4 pt-lg-5 p-lg-5 pb-lg-0 pb-2">
+
+                                <?php if (isset($bannerPostTools) && !empty($bannerPostTools)) : ?>
+                                    <div class="container banner-academy d-lg-block d-none" data-aos="zoom-in">
+                                        <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTools, 'full', ''); ?>" alt="Podcast">
+                                        <div class="wrapper-banner-academy">
+                                            <div class="container-text-banner-academy"></div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if (isset($bannerPostToolsMovil) && !empty($bannerPostToolsMovil)) : ?>
+                                    <div class="container banner-academy d-block d-lg-none" data-aos="zoom-in">
+                                        <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostToolsMovil, 'full', ''); ?>" alt="Podcast">
+                                        <div class="wrapper-banner-academy">
+                                            <div class="container-text-banner-academy"></div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
                                 <div class="container">
                                     <div class="row m-0 p-0">
                                         <?php if (isset($descriptionBannerPostTrendContent) && !empty($descriptionBannerPostTrendContent)) : ?>
@@ -658,17 +672,23 @@ $titlePostId = get_the_title();
         <?php if (isset($bannerPostTools) && !empty($bannerPostTools)) : ?>
             <?php if (isset($ifPostToolsPdf) && !empty($ifPostToolsPdf)) : ?>
 
-                <div class="container banner-academy" data-aos="zoom-in">
-                    <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTools, 'full', ''); ?>" alt="Podcast">
-                    <div class="wrapper-banner-academy">
-                        <div class="container-text-banner-academy"></div>
-                        <!-- <h4 class="text-white mt-3"><?php the_content(); ?></h4>
-                    <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
-                        <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
-                    </div> -->
-
+                <?php if (isset($bannerPostTools) && !empty($bannerPostTools)) : ?>
+                    <div class="container banner-academy d-lg-block d-none" data-aos="zoom-in">
+                        <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTools, 'full', ''); ?>" alt="Podcast">
+                        <div class="wrapper-banner-academy">
+                            <div class="container-text-banner-academy"></div>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
+
+                <?php if (isset($bannerPostToolsMovil) && !empty($bannerPostToolsMovil)) : ?>
+                    <div class="container banner-academy d-block d-lg-none mb-4" data-aos="zoom-in">
+                        <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostToolsMovil, 'full', ''); ?>" alt="Podcast">
+                        <div class="wrapper-banner-academy">
+                            <div class="container-text-banner-academy"></div>
+                        </div>
+                    </div>
+                <?php endif; ?>
 
             <?php endif ?>
 

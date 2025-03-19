@@ -20,13 +20,20 @@ $taxonomy = get_queried_object();
 <?php $descriptioonCategory = $taxonomy->description; ?>
 <?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
 <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
+<?php $bannerCategoryMovil = get_field('Category_Image_Banner_movil', $taxonomy); ?>
 
-<div class="container px-5 mx-auto">
+<div class="container px-1 px-lg-5 mx-auto">
 
-    <div class="container second-background-taxonomy mt-lg-3 mt-3 p-5">
-        <div class="container banner-taxonomy-academy" data-aos="zoom-in">
+    <div class="container second-background-taxonomy mt-lg-3 mt-3 p-3 pt-4 pt-lg-5 p-lg-5">
+        <div class="container banner-taxonomy-academy d-lg-block d-none" data-aos="zoom-in">
             <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
-                <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
+                <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="banner-sub-eventos" class="bg-taxonomy-academy">
+            <?php endif; ?>
+            <div class="wrapper-taxonomy-academy"></div>
+        </div>
+        <div class="container banner-taxonomy-academy d-block d-lg-none" data-aos="zoom-in">
+            <?php if (isset($bannerCategoryMovil) && !empty($bannerCategoryMovil)) : ?>
+                <img src="<?= esc_url(wp_get_attachment_url($bannerCategoryMovil)); ?>" alt="banner-sub-eventos" class="bg-taxonomy-academy">
             <?php endif; ?>
             <div class="wrapper-taxonomy-academy"></div>
         </div>
@@ -46,8 +53,8 @@ $taxonomy = get_queried_object();
 </div>
 
 <div class="container mx-auto px-0">
-    <div class="container mt-4 mx-lg-0 mx-2 px-0 second-background-taxonomy">
-        <div class="row m-0 px-5 d-flex justify-content-center align-items-start">
+    <div class="container mt-4 mx-lg-0 mx-0 mx-lg-2 px-0 second-background-taxonomy">
+        <div class="row m-0 px-3 px-lg-5 d-flex justify-content-center align-items-start">
 
             <!-- Contenido de prueba -->
             <?php $idCategoriesWithStatusActive = $taxonomy->term_id; ?>
@@ -83,22 +90,22 @@ $taxonomy = get_queried_object();
 
                                 <?php $contentRegister = get_post_meta($postActivityId, 'Content_Register', true); ?>
 
-                                <?php if($contentRegister === '1') : ?> 
+                                <?php if ($contentRegister === '1') : ?>
 
-                                    <?php if(!is_user_logged_in()) : ?>
-                                        
+                                    <?php if (!is_user_logged_in()) : ?>
+
                                         <?php $completePermalink = $thePermalink . '?module_id=' . urlencode($postActivityId) . '&content_id=' . urlencode($counter) . '&tax=' . urlencode($taxonomy->term_id); ?>
 
                                         <?php $login_url = wp_login_url($completePermalink); ?>
                                         <?php $link = $login_url; ?>
 
-                                    <?php else : ?> 
+                                    <?php else : ?>
 
                                         <?php $link = $completePermalink; ?>
 
                                     <?php endif ?>
 
-                                <?php else : ?>    
+                                <?php else : ?>
 
                                     <?php $link = $completePermalink; ?>
 
@@ -117,14 +124,14 @@ $taxonomy = get_queried_object();
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-7 d-flex justify-content-center align-items-center">
-                                            <div class="col-11 col-md-12 col-lg-12 p-0 m-0 pt-lg-4 pb-4">
-                                                <div class="container-title-speaker-content-out mx-lg-5 ms-auto ms-md-4 ms-lg-5">
+                                            <div class="col-12 col-md-12 col-lg-12 p-0 m-0 pt-lg-4 pb-4">
+                                                <div class="container-title-speaker-content-out mx-lg-5 ms-auto ms-md-4 ms-lg-5 w-100">
                                                     <div class="container-content-outstanding mb-3">
                                                         <p class="container-title-speaker-content-outstanding m-0 p-0">
                                                             Episodio <?= $counter; ?>
                                                         </p>
                                                     </div>
-                                                    <div class="container-content-outstanding w-75 mb-3">
+                                                    <div class="container-content-outstanding w-100 w-lg-75 mb-3">
                                                         <h4 class="container-title-speaker-content-outstanding">
                                                             <?= the_title(); ?>
                                                         </h4>

@@ -2301,10 +2301,31 @@ $titlePostId = get_the_title();
             <?php /* burned code for this single post Innsider Data */ ?>
 
             <?php if (isset($bannerPostInnsiderData) && !empty($bannerPostInnsiderData)) : ?>
-                <div class="container six-background-taxonomy mt-lg-3 mt-3 p-lg-5 p-2 pb-lg-0 pb-2">
+                <div class="container six-background-taxonomy mt-lg-3 mt-3 p-lg-5 p-2 pb-lg-0 pb-2 d-none d-lg-block">
                     <div class="container container-bg-single banner-taxonomy-academy aos-init aos-animate" data-aos="zoom-in">
                         <?php if (isset($bannerPostInnsiderData) && !empty($bannerPostInnsiderData)) : ?>
                             <img src="<?= esc_url(wp_get_attachment_url($bannerPostInnsiderData)); ?>" alt="Herramientas" class="bg-single-trend">
+                        <?php endif; ?>
+                        <div class="wrapper-taxonomy-academy"></div>
+                    </div>
+                    <div class="container">
+                        <div class="row m-0 p-0">
+                            <p class="NotoSans-Regular title-color text-align-justify mb-lg-4 mb-4 m-0 p-0 mt-4 px-3 px-lg-0">
+                                Las recomendaciones actuales incluyen un abordaje terapéutico centrado en la persona a través de
+                                modificaciones del estilo de vida como la actividad física, pérdida de peso, alimentación saludable
+                                así como medicamentos que controlan los niveles de glicemia en sangre.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endif; ?>
+
+            <?php if (isset($bannerPostInnsiderDataMovil) && !empty($bannerPostInnsiderDataMovil)) : ?>
+                <div class="container six-background-taxonomy mt-lg-3 mt-3 p-lg-5 p-2 pb-lg-0 pb-2 d-block d-lg-none">
+                    <div class="container banner-taxonomy-academy" data-aos="zoom-in">
+                        <?php if (isset($bannerPostInnsiderDataMovil) && !empty($bannerPostInnsiderDataMovil)) : ?>
+                            <img src="<?= esc_url(wp_get_attachment_url($bannerPostInnsiderDataMovil)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
                         <?php endif; ?>
                         <div class="wrapper-taxonomy-academy"></div>
                     </div>

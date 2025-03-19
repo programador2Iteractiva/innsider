@@ -2693,15 +2693,28 @@ $titlePostId = get_the_title();
                     <?php $experiences_page = get_page_by_title('Experiencias'); ?>
                     <?php $experiences_url = $experiences_page; ?>
                     <?php $bannerPostType = get_the_post_thumbnail_url($experiences_url); ?>
-
+                    <?php $idPageExperiences = $experiences_url->ID; ?>
+                    <?php $bannerPostType = get_field('Page_Image_Banner', $idPageExperiences); ?>
+                    <?php $bannerPostTypeMovil = get_field('Page_Image_Banner_Movil', $idPageExperiences); ?>
                 <?php endif; ?>
 
-                <div class="container banner-academy mt-5" data-aos="zoom-in">
-                    <img class="bg-banner-academy" src="<?= $bannerPostType; ?>" alt="Podcast">
-                    <div class="wrapper-banner-academy">
-                        <div class="container-text-banner-academy"></div>
+                <?php if (isset($bannerPostType) && !empty($bannerPostType)) : ?>
+                    <div class="container banner-academy d-none d-lg-block" data-aos="zoom-in">
+                        <img src="<?= esc_url(wp_get_attachment_url($bannerPostType)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+                        <div class="wrapper-banner-academy">
+                            <div class="container-text-banner-academy"></div>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
+
+                <?php if (isset($bannerPostTypeMovil) && !empty($bannerPostTypeMovil)) : ?>
+                    <div class="container banner-academy d-block d-lg-none mb-4" data-aos="zoom-in">
+                        <img src="<?= esc_url(wp_get_attachment_url($bannerPostTypeMovil)); ?>" alt="Banner-Academy" class="bg-banner-academy">
+                        <div class="wrapper-banner-academy">
+                            <div class="container-text-banner-academy"></div>
+                        </div>
+                    </div>
+                <?php endif; ?>
 
                 <div class="container p-lg-5 pb-lg-0 p-1">
                     <div class="container background-single-experience p-2">

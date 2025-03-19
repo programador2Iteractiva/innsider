@@ -28,7 +28,7 @@ $taxonomy = get_queried_object();
     <?php $subDescriptioonCategory = get_field('subdescription_complementary', $taxonomy); ?>
 
 
-    <div class="container third-background-taxonomy banner-sub-eventos">
+    <div class="container third-background-taxonomy mt-lg-3 mt-3 p-3 pt-4 pt-lg-5 p-lg-5">
         <div class="container banner-taxonomy-academy d-lg-block d-none" data-aos="zoom-in">
             <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
                 <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="banner-sub-eventos" class="bg-taxonomy-academy">

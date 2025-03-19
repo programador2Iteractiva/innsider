@@ -58,16 +58,23 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 <?php $descriptioonCategory = $taxonomy->description; ?>
 <?php $subtitleCategory = get_field('title_for_description_complementary', $taxonomy); ?>
 <?php $bannerCategory = get_field('Category_Image_Banner', $taxonomy); ?>
+<?php $bannerCategoryMovil = get_field('Category_Image_Banner_Movil', $taxonomy); ?>
 <?php $subDescriptioonCategory = get_field('subdescription_complementary', $taxonomy); ?>
 
 
 
 <?php /* template con el contenido de las subcategoria de la categoria princiapl "Eventos Nacionales" term_id 6 */  ?>
 <?php if (!empty($cuttentTaxonomyParentId) && $cuttentTaxonomyParentId == 6) : ?>
-    <div class="container third-background-taxonomy mt-lg-3 mt-3 p-5">
-        <div class="container banner-taxonomy-academy" data-aos="zoom-in">
+    <div class="container third-background-taxonomy mt-lg-3 mt-3 p-3 pt-4 pt-lg-5 p-lg-5">
+        <div class="container banner-taxonomy-academy d-lg-block d-none" data-aos="zoom-in">
             <?php if (isset($bannerCategory) && !empty($bannerCategory)) : ?>
-                <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="Herramientas" class="bg-taxonomy-academy">
+                <img src="<?= esc_url(wp_get_attachment_url($bannerCategory)); ?>" alt="banner-sub-eventos" class="bg-taxonomy-academy">
+            <?php endif; ?>
+            <div class="wrapper-taxonomy-academy"></div>
+        </div>
+        <div class="container banner-taxonomy-academy d-block d-lg-none" data-aos="zoom-in">
+            <?php if (isset($bannerCategoryMovil) && !empty($bannerCategoryMovil)) : ?>
+                <img src="<?= esc_url(wp_get_attachment_url($bannerCategoryMovil)); ?>" alt="banner-sub-eventos" class="bg-taxonomy-academy">
             <?php endif; ?>
             <div class="wrapper-taxonomy-academy"></div>
         </div>

@@ -185,8 +185,8 @@ $titlePostId = get_the_title();
                                     <p class="NotoSans-SemiBold title-color d-block d-lg-none mx-0 mt-0 m-4 text-info-video-speaker"><?= $DescriptionModuleInnsider; ?></p>
                                 <?php endif ?>
 
-                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
-                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                <?php if (isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                    <?php if (isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
 
                                         <div class="d-flex justify-content-start align-items-center content-share-social-icons">
                                             <H5 class="me-4 NotoSans-Regular title-color text-share" style="text-decoration: underline;">Compartir</H5>
@@ -197,9 +197,9 @@ $titlePostId = get_the_title();
                                                     </svg>
                                                 </button>
 
-                                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
-                                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
-                                                        <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+                                                <?php if (isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                    <?php if (isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                        <?php foreach ($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
 
                                                             <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
                                                             <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
@@ -372,7 +372,7 @@ $titlePostId = get_the_title();
 
 
                                                         <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-start align-items-center card-single-post-podcast m-0 p-0 mt-3 mb-3">
-                                                            <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>" 
+                                                            <a class="custom-width-single item-playlist-videos" id="video-<?= $postIndex ?>"
                                                                 onclick="redirectVideo('<?= $link; ?>'); saveLogsClick('redirect a `<?= the_title(); ?>`');">
                                                                 <div class="mb-4 figure">
                                                                     <?php if (isset($thumbnailUrlVisionInnsider) && !empty($thumbnailUrlVisionInnsider)) : ?>
@@ -409,9 +409,9 @@ $titlePostId = get_the_title();
 
                                                                 <?php endif; ?>
 
-                                                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
-                                                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
-                                                                        <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+                                                                <?php if (isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                                    <?php if (isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                                        <?php foreach ($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
 
                                                                             <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
                                                                             <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
@@ -467,9 +467,9 @@ $titlePostId = get_the_title();
                                                                 <?php endif; ?>
 
 
-                                                                <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
-                                                                    <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
-                                                                        <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+                                                                <?php if (isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                                    <?php if (isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                                        <?php foreach ($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
 
                                                                             <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
                                                                             <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
@@ -527,9 +527,9 @@ $titlePostId = get_the_title();
                                                             <?php endif; ?>
 
 
-                                                            <?php if(isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
-                                                                <?php if(isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
-                                                                    <?php foreach($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
+                                                            <?php if (isset($IfSocialButtonModuleInnsider) && !empty($IfSocialButtonModuleInnsider)) : ?>
+                                                                <?php if (isset($ListOfSocialButtonModuleInnsider) && !empty($ListOfSocialButtonModuleInnsider)) : ?>
+                                                                    <?php foreach ($ListOfSocialButtonModuleInnsider as $index => $ListOfSocialButton) : ?>
 
                                                                         <?php $ClassButtonSocialModuleInnsider = $ListOfSocialButton['Class_Button_Social_Module_Innsider']; ?>
                                                                         <?php $SVGSocialModuleInnsider = $ListOfSocialButton['SVG_Social_Module_Innsider']; ?>
@@ -576,12 +576,12 @@ $titlePostId = get_the_title();
     <?php /* Post display for Tools Post Types */ ?>
 
     <?php $listPostTools = new WP_Query(
-            array(
-                'post_type' => 'herramientas',
-                'posts_per_page' => -1,
-                'order' => 'ASC'
-            )
-        );
+        array(
+            'post_type' => 'herramientas',
+            'posts_per_page' => -1,
+            'order' => 'ASC'
+        )
+    );
     ?>
 
     <?php $postsIds = wp_list_pluck($listPostTools->posts, 'ID') ?>
@@ -603,9 +603,9 @@ $titlePostId = get_the_title();
         <?php $colorSectionPdfPostTools = get_field('Seccion_Color_Pdf_Post_Tools'); ?>
         <?php $thumbnailUrlPostTools = obtenerMiniaturaVimeo($uRLPostTools);  ?>
 
-        <?php if($contentRegister === '1') : ?> 
+        <?php if ($contentRegister === '1') : ?>
 
-            <?php if(!is_user_logged_in()) : ?>
+            <?php if (!is_user_logged_in()) : ?>
 
                 <?php $login_url = wp_login_url($thePermalink); ?>
                 <?php $link = $login_url; ?>
@@ -615,7 +615,7 @@ $titlePostId = get_the_title();
 
             <?php endif ?>
 
-        <?php endif; ?>    
+        <?php endif; ?>
 
         <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
             <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
@@ -677,7 +677,7 @@ $titlePostId = get_the_title();
         <?php if (isset($ifPostToolsVideo) && !empty($ifPostToolsVideo)) : ?>
             <?php if (isset($uRLPostTools) && !empty($uRLPostTools)) : ?>
 
-                <div class="container background-taxonomy px-5 pt-5" <?php echo $colorSectionURLPostTools ? 'data-bg-color="' . esc_attr($colorSectionURLPostTools) . '"' : ''; ?> >
+                <div class="container background-taxonomy px-5 pt-5" <?php echo $colorSectionURLPostTools ? 'data-bg-color="' . esc_attr($colorSectionURLPostTools) . '"' : ''; ?>>
                     <div class="container banner-single preview-video mt-lg-5 mt-4"
                         onclick="playVideo(<?= $currentPostId ?>, '<?= $uRLPostTools; ?>', event, 'preview-video')">
                         <?php if (isset($thumbnailUrlPostTools) && !empty($thumbnailUrlPostTools)) : ?>
@@ -730,7 +730,7 @@ $titlePostId = get_the_title();
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
 
             <?php endif; ?>
 
@@ -1263,16 +1263,16 @@ $titlePostId = get_the_title();
 
 
 
-        <!-- Code Test -->                                                                                   
+        <!-- Code Test -->
         <?php $currentPostTools = array($currentPostId); ?>
 
         <?php $listPostTools = new WP_Query(
-                array(
-                    'post_type' => 'herramientas',
-                    'posts_per_page' => -1,
-                    'order' => 'ASC'
-                )
-            );
+            array(
+                'post_type' => 'herramientas',
+                'posts_per_page' => -1,
+                'order' => 'ASC'
+            )
+        );
         ?>
 
         <?php $postsIds = wp_list_pluck($listPostTools->posts, 'ID') ?>
@@ -1348,18 +1348,18 @@ $titlePostId = get_the_title();
             </h5>
         </div>
 
-    <?php endif; ?>    
+    <?php endif; ?>
 
     <?php /* End Post display for Tools Post Types */ ?>
 
     <?php /* Post display for Innsider Data Post Types */ ?>
     <?php $listPostInnsiderData = new WP_Query(
-            array(
-                'post_type' => 'innsiderdata',
-                'posts_per_page' => -1,
-                'order' => 'ASC'
-            )
-        );
+        array(
+            'post_type' => 'innsiderdata',
+            'posts_per_page' => -1,
+            'order' => 'ASC'
+        )
+    );
     ?>
 
     <?php $postsIds = wp_list_pluck($listPostInnsiderData->posts, 'ID') ?>
@@ -1381,9 +1381,9 @@ $titlePostId = get_the_title();
         <?php $colorSectionPdfPostInnsiderData = get_field('Seccion_Color_Pdf_Post_Tools'); ?>
         <?php $thumbnailUrlPostInnsiderData = obtenerMiniaturaVimeo($uRLPostInnsiderData);  ?>
 
-        <?php if($contentRegister === '1') : ?> 
+        <?php if ($contentRegister === '1') : ?>
 
-            <?php if(!is_user_logged_in()) : ?>
+            <?php if (!is_user_logged_in()) : ?>
 
                 <?php $login_url = wp_login_url($thePermalink); ?>
                 <?php $link = $login_url; ?>
@@ -1393,7 +1393,7 @@ $titlePostId = get_the_title();
 
             <?php endif ?>
 
-        <?php endif; ?>    
+        <?php endif; ?>
 
         <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
             <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
@@ -1455,7 +1455,7 @@ $titlePostId = get_the_title();
         <?php if (isset($ifPostToolsVideo) && !empty($ifPostToolsVideo)) : ?>
             <?php if (isset($uRLPostTools) && !empty($uRLPostTools)) : ?>
 
-                <div class="container background-taxonomy px-5 pt-5" <?php echo $colorSectionURLPostTools ? 'data-bg-color="' . esc_attr($colorSectionURLPostTools) . '"' : ''; ?> >
+                <div class="container background-taxonomy px-5 pt-5" <?php echo $colorSectionURLPostTools ? 'data-bg-color="' . esc_attr($colorSectionURLPostTools) . '"' : ''; ?>>
                     <div class="container banner-single preview-video mt-lg-5 mt-4"
                         onclick="playVideo(<?= $currentPostId ?>, '<?= $uRLPostTools; ?>', event, 'preview-video')">
                         <?php if (isset($thumbnailUrlPostTools) && !empty($thumbnailUrlPostTools)) : ?>
@@ -1508,7 +1508,7 @@ $titlePostId = get_the_title();
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
 
             <?php endif; ?>
 
@@ -2039,7 +2039,7 @@ $titlePostId = get_the_title();
 
         <?php endif; ?>
 
-        <?php if($currentPostId == 840) : ?> 
+        <?php if ($currentPostId == 840) : ?>
 
             <?php /* burned code for this single post Innsider Data */ ?>
 
@@ -2082,7 +2082,7 @@ $titlePostId = get_the_title();
                                 <div class="card-single-innsiderdata">
                                     <div class="row m-0 p-0 d-flex justify-content-start align-items-center flex-lg-row flex-column">
                                         <div class="col-6 figure m-4 p-0">
-                                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Icono1.png">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Icono1.png">
                                         </div>
                                         <div class="col-6 text-center text-lg-start">
                                             <h3 class="NotoSans-Bold title-color" style="text-transform: uppercase;">Objetivos:</h3>
@@ -2102,7 +2102,7 @@ $titlePostId = get_the_title();
                                 <div class="card-single-innsiderdata">
                                     <div class="row m-0 p-0 d-flex justify-content-start align-items-center flex-lg-row flex-column">
                                         <div class="col-6 figure m-4 p-0">
-                                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Icono2.png">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Icono2.png">
                                         </div>
                                         <div class="col-6 text-center text-lg-start">
                                             <h3 class="NotoSans-Bold title-color" style="text-transform: uppercase;">Métodos:</h3>
@@ -2120,16 +2120,16 @@ $titlePostId = get_the_title();
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
-                        </div>            
-                    </div>                
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="container mt-5 pt-3 pb-3 border" style="background-color: #033572; color: white; border-radius: 1rem; text-transform: uppercase;">
                 <div class="row m-0 p-0">
                     <div class="container d-flex justify-content-center align-items-center NotoSans-Bold">
-                        <h4>Resultados</h4>  
+                        <h4>Resultados</h4>
                     </div>
                 </div>
             </div>
@@ -2139,7 +2139,7 @@ $titlePostId = get_the_title();
                     <div class="container px-lg-5 text-justify NotoSans-Regular">
                         <p class="m-0 p-0">
                             1. Se identificaron <strong>155.381</strong> pacientes con <strong>DM tipo 2,</strong> con edad media de <strong>67,1±12,0</strong> años.
-                        </p>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2153,7 +2153,7 @@ $titlePostId = get_the_title();
                             Los esquemas terapéuticos más frecuentes fueron metformina en monodosis y metformina
                             en combinación con inhibidores de la enzima dipeptidil peptidasa 4 (iDPP-4).
                             En total se identificaron 61 combinaciones diferentes.
-                        </p>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2164,12 +2164,12 @@ $titlePostId = get_the_title();
                         <p class="m-0 p-0">
                             3. Las comorbilidades de tipo cardiovascular más frecuentes fueron:
 
-                            <ul class="mt-4 mx-4" style="list-style-type: none;">
-                                <li><strong>- Hipertensión arterial (67,6%)</strong></li>
-                                <li><strong>- Enfermedad renal crónica (6,3%)</strong></li>
-                                <li><strong>- Cardiopatía isquémica coronaria (3,8%)</strong></li>
-                            </ul>
-                        </p>  
+                        <ul class="mt-4 mx-4" style="list-style-type: none;">
+                            <li><strong>- Hipertensión arterial (67,6%)</strong></li>
+                            <li><strong>- Enfermedad renal crónica (6,3%)</strong></li>
+                            <li><strong>- Cardiopatía isquémica coronaria (3,8%)</strong></li>
+                        </ul>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2183,7 +2183,7 @@ $titlePostId = get_the_title();
                                     <div class="card-other-single-innsiderdata w-100">
                                         <div class="row m-0 p-0 d-flex justify-content-center align-items-center flex-column">
                                             <div class="col-12 figure m-4 p-0">
-                                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/Icono3.png">
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Icono3.png">
                                             </div>
                                             <div class="col-12 text-center">
                                                 <h3 class="NotoSans-Bold title-color" style="text-transform: uppercase;">Objetivos:</h3>
@@ -2208,9 +2208,9 @@ $titlePostId = get_the_title();
                                             </div>
                                         </div>
                                     </div>
-                                </div> 
-                            </div>            
-                        </div>                
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2222,7 +2222,7 @@ $titlePostId = get_the_title();
                             <div class="row">
                                 <div class="NotoSans-Regular description-color px-2">
                                     Estos hallazgos son el resultado del estudio <strong>“Noninsulin Antidiabetic Prescription Patterns in Colombia:
-                                    A Cross-sectional Study”.</strong>
+                                        A Cross-sectional Study”.</strong>
                                     <br>
                                     <br>
                                     <br>
@@ -2252,9 +2252,9 @@ $titlePostId = get_the_title();
 
             <?php /* End burned code for this single post Innsider Data*/ ?>
 
-        <?php endif; ?> 
+        <?php endif; ?>
 
-        <?php if($currentPostId == 854) : ?> 
+        <?php if ($currentPostId == 854) : ?>
 
             <?php /* burned code for this single post Innsider Data */ ?>
 
@@ -2264,7 +2264,7 @@ $titlePostId = get_the_title();
                         <?php if (isset($bannerPostInnsiderData) && !empty($bannerPostInnsiderData)) : ?>
                             <img src="<?= esc_url(wp_get_attachment_url($bannerPostInnsiderData)); ?>" alt="Herramientas" class="bg-single-trend">
                         <?php endif; ?>
-                    <div class="wrapper-taxonomy-academy"></div>
+                        <div class="wrapper-taxonomy-academy"></div>
                     </div>
                     <div class="container">
                         <div class="row m-0 p-0">
@@ -2297,25 +2297,25 @@ $titlePostId = get_the_title();
                                 <div class="card-other-single-innsiderdata w-100">
                                     <div class="row m-0 p-0 d-flex justify-content-center align-items-center flex-lg-row flex-column">
                                         <div class="col-12 figure p-0 w-100">
-                                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/NOTICIA--01.png">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NOTICIA--01.png">
                                         </div>
                                     </div>
                                     <div class="row m-0 p-0">
                                         <div class="col-12">
                                             <p class="NotoSans-Bold title-color mt-2 mx-4 p-0 text-center">
-                                                2.860 hogares de <br> 
+                                                2.860 hogares de <br>
                                                 Bogotá encuestados <br>
                                                 Entre 2022 – 2023
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-12 col-lg-3 container-other-card-single-innsiderdata mt-3" style="background: white !important;">
                                 <div class="card-other-single-innsiderdata w-100">
                                     <div class="row m-0 p-0 d-flex justify-content-center align-items-center flex-lg-row flex-column">
                                         <div class="col-12 figure p-0 w-100">
-                                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/NOTICIA--02.png">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NOTICIA--02.png">
                                         </div>
                                     </div>
                                     <div class="row m-0 p-0">
@@ -2332,24 +2332,24 @@ $titlePostId = get_the_title();
                                 <div class="card-other-single-innsiderdata w-100">
                                     <div class="row m-0 p-0 d-flex justify-content-center align-items-center flex-lg-row flex-column">
                                         <div class="col-12 figure p-0 w-100">
-                                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/NOTICIA--03.png">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NOTICIA--03.png">
                                         </div>
                                     </div>
                                     <div class="row m-0 p-0">
                                         <div class="col-12">
                                             <p class="NotoSans-Bold title-color mt-2 mx-4 p-0 text-center">
-                                                1.071 muestras de  <br>
+                                                1.071 muestras de <br>
                                                 laboratorio
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-12 col-lg-3 container-other-card-single-innsiderdata mt-3" style="background: white !important;">
                                 <div class="card-other-single-innsiderdata w-100">
                                     <div class="row m-0 p-0 d-flex justify-content-center align-items-center flex-lg-row flex-column">
                                         <div class="col-12 figure p-0 w-100">
-                                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/NOTICIA--04.png">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NOTICIA--04.png">
                                         </div>
                                     </div>
                                     <div class="row m-0 p-0">
@@ -2362,19 +2362,19 @@ $titlePostId = get_the_title();
                                         </div>
                                     </div>
                                 </div>
-                            </div> 
-                        </div>            
-                    </div>                
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="container mt-5 pt-3 pb-3 border" style="background-color: #033572; color: white; border-radius: 1rem; text-transform: uppercase;">
                 <div class="row m-0 p-0">
                     <div class="container d-flex justify-content-center align-items-center NotoSans-Bold">
-                        <h4>Resultados</h4>  
+                        <h4>Resultados</h4>
                     </div>
                     <div class="container d-flex justify-content-center align-items-center NotoSans-Bold">
-                        <h4>PREVALENCIA ESTIMADA</h4>  
+                        <h4>PREVALENCIA ESTIMADA</h4>
                     </div>
                 </div>
             </div>
@@ -2384,7 +2384,7 @@ $titlePostId = get_the_title();
                     <div class="container px-lg-5 text-justify NotoSans-Regular">
                         <p class="m-0 p-0">
                             <strong>DM2* ≥18 años en Bogotá: </strong>11,0 % (IC 95 %, 9,0–13,5 %; error estándar relativo, 10,5%)
-                        </p>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2394,7 +2394,7 @@ $titlePostId = get_the_title();
                     <div class="container px-lg-5 text-justify NotoSans-Regular">
                         <p class="m-0 p-0">
                             <strong>Síndrome Metabólico, ATP III: </strong>33.9 % (IC 95 %, 29.5–38.6 %; error estándar relativo, 6,8%)
-                        </p>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2404,7 +2404,7 @@ $titlePostId = get_the_title();
                     <div class="container px-lg-5 text-justify NotoSans-Regular">
                         <p class="m-0 p-0">
                             <strong>Obesidad abdominal: </strong>47.8 % (IC 95 %, 45.2-50.3 %; error estándar relativo, 2.7%)
-                        </p>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2414,7 +2414,7 @@ $titlePostId = get_the_title();
                     <div class="container px-lg-5 text-justify NotoSans-Regular">
                         <p class="m-0 p-0">
                             <strong>Niveles de triglicéridos altos: </strong>44.1 % (IC 95 %, 39.6 – 48.7 %; error estándar relativo, 5.3%)
-                        </p>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2424,7 +2424,7 @@ $titlePostId = get_the_title();
                     <div class="container px-lg-5 text-justify NotoSans-Regular">
                         <p class="m-0 p-0">
                             <strong>Hipertensión: </strong>28.3% (IC 95 %, 26.3 – 30.4%; error estándar relativo, 3.7%)
-                        </p>  
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2441,7 +2441,7 @@ $titlePostId = get_the_title();
                                                 <h3 class="NotoSans-Bold title-color" style="text-transform: uppercase;">Conclusiones</h3>
                                             </div>
                                             <div class="col-12 figure m-4 p-0">
-                                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/NOTICIA--05.png">
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NOTICIA--05.png">
                                             </div>
                                         </div>
                                     </div>
@@ -2459,9 +2459,9 @@ $titlePostId = get_the_title();
                                             </div>
                                         </div>
                                     </div>
-                                </div> 
-                            </div>            
-                        </div>                
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2482,9 +2482,9 @@ $titlePostId = get_the_title();
                                             </div>
                                         </div>
                                     </div>
-                                </div> 
-                            </div>            
-                        </div>                
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2529,18 +2529,18 @@ $titlePostId = get_the_title();
 
             <?php /* End burned code for this single post Innsider Data*/ ?>
 
-        <?php endif; ?> 
+        <?php endif; ?>
 
         <?php /* Code Other Post */  ?>
         <?php $currentPostInnsiderData = array($currentPostId); ?>
 
         <?php $listPostInnsiderData = new WP_Query(
-                array(
-                    'post_type' => 'innsiderdata',
-                    'posts_per_page' => -1,
-                    'order' => 'ASC'
-                )
-            );
+            array(
+                'post_type' => 'innsiderdata',
+                'posts_per_page' => -1,
+                'order' => 'ASC'
+            )
+        );
         ?>
 
         <?php $postsIds = wp_list_pluck($listPostInnsiderData->posts, 'ID') ?>
@@ -2607,7 +2607,7 @@ $titlePostId = get_the_title();
             <?php endif; ?>
 
         <?php endif ?>
-        <?php /* End Code Other Post */ ?>    
+        <?php /* End Code Other Post */ ?>
 
         <div class="container m-lg-3 mx-lg-auto m-3 px-0">
             <h5 class="NotoSans-Bold title-color">
@@ -2625,19 +2625,19 @@ $titlePostId = get_the_title();
     <?php /* Post display for experiences Post Types */ ?>
 
     <?php $listPostExperiences = new WP_Query(
-            array(
-                'post_type' => 'experiences',
-                'posts_per_page' => -1,
-                'order' => 'ASC'
-            )
-        );
+        array(
+            'post_type' => 'experiences',
+            'posts_per_page' => -1,
+            'order' => 'ASC'
+        )
+    );
     ?>
 
     <?php $postsIds = wp_list_pluck($listPostExperiences->posts, 'ID') ?>
 
     <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
 
-        <?php if($currentPostId === 871) : ?> 
+        <?php if ($currentPostId === 871) : ?>
 
             <?php $contentRegister = get_post_meta($currentPostId, 'Content_Register', true); ?>
 
@@ -2651,13 +2651,13 @@ $titlePostId = get_the_title();
 
                 <?php $thePermalink = get_the_permalink(); ?>
 
-                <?php foreach($fileContent as $file) : ?>    
+                <?php foreach ($fileContent as $file) : ?>
                     <?php $urlPdfFile = $file->guid; ?>
                 <?php endforeach; ?>
 
-                <?php if($contentRegister === '1') : ?> 
+                <?php if ($contentRegister === '1') : ?>
 
-                    <?php if(!is_user_logged_in()) : ?>
+                    <?php if (!is_user_logged_in()) : ?>
 
                         <?php $login_url = wp_login_url($thePermalink); ?>
                         <?php $link = $login_url; ?>
@@ -2667,7 +2667,7 @@ $titlePostId = get_the_title();
 
                     <?php endif ?>
 
-                <?php endif; ?>  
+                <?php endif; ?>
 
                 <?php if (is_singular('experiences')) :  ?>
                     <?php $experiences_page = get_page_by_title('Experiencias'); ?>
@@ -2694,7 +2694,7 @@ $titlePostId = get_the_title();
                                 <div class="row justify-content-center">
                                     <div class="col-12 d-flex justify-content-center align-items-center flex-column mt-lg-5 mt-2 mb-5">
 
-                                        <?php if($urlPdfFile) : ?>
+                                        <?php if ($urlPdfFile) : ?>
                                             <embed src="<?= $urlPdfFile ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
                                             <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $urlPdfFile ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
 
@@ -2707,7 +2707,7 @@ $titlePostId = get_the_title();
                                         <?php $otherPdf = '' ?>
 
 
-                                        <?php if(isset($otherPdf) && !empty($otherPdf)) : ?>
+                                        <?php if (isset($otherPdf) && !empty($otherPdf)) : ?>
 
                                             <embed src="<?= $otherPdf ?>" type="application/pdf" class="d-none d-lg-block" width="100%" height="100%" style="width: 90%; height: 100vh; border: none">
                                             <iframe src="https://drive.google.com/viewerng/viewer?embedded=true&url=<?= $otherPdf ?>" class="d-block d-lg-none" style="width: 90%; height: 500px;" frameborder="0"></iframe>
@@ -2729,7 +2729,7 @@ $titlePostId = get_the_title();
 
             <?php endif; ?>
 
-        <?php endif; ?> 
+        <?php endif; ?>
 
         <div class="container m-lg-3 mx-lg-auto m-3 px-0">
             <h5 class="NotoSans-Bold title-color">
@@ -2740,7 +2740,7 @@ $titlePostId = get_the_title();
 
     <?php endif; ?>
 
-    <?php /* End Post display for experiences Post Types */ ?>                                                
+    <?php /* End Post display for experiences Post Types */ ?>
 
 
 
@@ -2947,6 +2947,7 @@ $titlePostId = get_the_title();
 
             <?php $imgPostTrend = get_field('Img_Post_Trend'); ?>
             <?php $bannerPostTrend = get_field('Banner_Post_Trend'); ?>
+            <?php $bannerPostTrendMovil = get_field('Banner_Post_Trend_movil'); ?>
             <?php $subtitlePostTrend = get_field('Subtitle_Post_Trend'); ?>
             <?php $ifPostTrendVideo = get_field('If_Post_Trend_Video'); ?>
             <?php $uRLPostTrend = get_field('URL_Post_Trend'); ?>
@@ -2974,13 +2975,25 @@ $titlePostId = get_the_title();
 
                                 <?php if (isset($descriptionBannerPostTrendContent) && !empty($descriptionBannerPostTrendContent)) : ?>
 
-                                    <div class="container four-background-taxonomy mt-lg-3 mt-3 p-lg-5 p-2 pb-lg-0 pb-2">
-                                        <div class="container container-bg-single banner-taxonomy-academy" data-aos="zoom-in">
-                                            <?php if (isset($bannerPostTrend) && !empty($bannerPostTrend)) : ?>
-                                                <img src="<?= esc_url(wp_get_attachment_url($bannerPostTrend)); ?>" alt="Herramientas" class="bg-single-trend">
-                                            <?php endif; ?>
-                                            <div class="wrapper-taxonomy-academy"></div>
-                                        </div>
+                                    <div class="container four-background-taxonomy mt-lg-3 mt-3 p-3 pt-4 pt-lg-5 p-lg-5 pb-lg-0 pb-2">
+                                        <?php if (isset($bannerPostTrend) && !empty($bannerPostTrend)) : ?>
+                                            <div class="container banner-academy d-lg-block d-none" data-aos="zoom-in">
+                                                <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
+                                                <div class="wrapper-banner-academy">
+                                                    <div class="container-text-banner-academy"></div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (isset($bannerPostTrendMovil) && !empty($bannerPostTrendMovil)) : ?>
+                                            <div class="container banner-academy d-block d-lg-none" data-aos="zoom-in">
+                                                <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrendMovil, 'full', ''); ?>" alt="Podcast">
+                                                <div class="wrapper-banner-academy">
+                                                    <div class="container-text-banner-academy"></div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+
                                         <div class="container">
                                             <div class="row m-0 p-0">
                                                 <?php if (isset($descriptionBannerPostTrendContent) && !empty($descriptionBannerPostTrendContent)) : ?>
@@ -3001,17 +3014,23 @@ $titlePostId = get_the_title();
 
                 <?php else : ?>
 
-                    <div class="container banner-academy" data-aos="zoom-in">
-                        <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
-                        <div class="wrapper-banner-academy">
-                            <div class="container-text-banner-academy"></div>
-                            <!-- <h4 class="text-white mt-3"><?php the_content(); ?></h4>
-                        <div class="container-text-banner-academy w-100 h-100 m-auto d-flex justify-content-lg-start align-items-center">
-                            <img src="<?= get_template_directory_uri() . '/assets/images/Icono-innsider-white.png'; ?>" alt="Herramientas" class="bg-banner-single-category">
-                        </div> -->
-
+                    <?php if (isset($bannerPostTrend) && !empty($bannerPostTrend)) : ?>
+                        <div class="container banner-academy d-lg-block d-none" data-aos="zoom-in">
+                            <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrend, 'full', ''); ?>" alt="Podcast">
+                            <div class="wrapper-banner-academy">
+                                <div class="container-text-banner-academy"></div>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($bannerPostTrendMovil) && !empty($bannerPostTrendMovil)) : ?>
+                        <div class="container banner-academy d-block d-lg-none" data-aos="zoom-in">
+                            <img class="bg-banner-academy" src="<?php echo wp_get_attachment_image_url($bannerPostTrendMovil, 'full', ''); ?>" alt="Podcast">
+                            <div class="wrapper-banner-academy">
+                                <div class="container-text-banner-academy"></div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
 
                 <?php endif; ?>
 
@@ -3533,7 +3552,7 @@ $titlePostId = get_the_title();
 
                             <?php endif ?>
 
-                            
+
                         </div>
 
                         <div class="col-12 mx-1" id="linea">
@@ -4754,6 +4773,6 @@ $titlePostId = get_the_title();
     </div>
 
 
-</div>
+        </div>
 
-<?php get_footer(); ?>
+        <?php get_footer(); ?>

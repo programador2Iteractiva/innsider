@@ -1014,3 +1014,67 @@
     }
   
   }
+
+
+// New styles to post tendencias - dia de la hemofilia
+
+.bg-custom {
+    background-color: #ffefed !important;
+}
+
+.w-80 {
+    width: 80% !important;
+}
+
+.w-60 {
+    width: 60% !important;
+}
+
+.text-blue {
+    color: #001964 !important;
+}
+
+.text-red {
+    color: #cd4632 !important;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.bg-red {
+    background-color: #cd4632 !important;
+}
+
+.bg-red-secondary {
+    background-color: #fdd6e1 !important;
+}
+
+.position-md-absolute {
+    position: static;
+    width: 50%;
+}
+
+.position-md-absolute img {
+    border-radius: 1rem !important;
+}
+
+.header .text {
+    width: 50%;
+}
+
+
+@media (max-width: 480px) {
+    .position-md-absolute {
+        position: absolute;
+        width: 100%;
+    }
+
+    .position-md-absolute img {
+        border-radius: 0rem !important;
+    }
+
+    .header .text {
+        width: 80%;
+    }
+}

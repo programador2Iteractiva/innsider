@@ -3040,7 +3040,7 @@ $titlePostId = get_the_title();
 
             <?php if (is_single() && in_array($currentPostId, $postsIds)) : ?>
 
-                <?php if ($currentPostId == 1045) : ?>
+                <?php if ($currentPostId == 1137) : ?>
 
                     <?php /* burned code for this single post Innsider Data */ ?>
 

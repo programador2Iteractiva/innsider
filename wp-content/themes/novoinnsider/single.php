@@ -3123,7 +3123,7 @@ $titlePostId = get_the_title();
 
                         <section class="container-content-capsule p-md-5 py-5 d-flex justify-content-center text-blue" style="position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; margin-top: 1rem;">
                             <div class="text-center w-80 px-md-5">
-                                <h1 class="text-uppercase text-start text-blue fw-bold">mortalidad</ >
+                                <h1 class="text-uppercase text-start text-blue fw-bold">mortalidad</h1>
 
                                 <div class="d-flex flex-column flex-md-row w-100">
                                     <div class="col-12 col-md-3">
@@ -3173,8 +3173,8 @@ $titlePostId = get_the_title();
                                         calidad de vida de los pacientes. Sin embargo, aún persisten retos en la equidad del acceso a
                                         tratamientos de última generación. Por ejemplo, en 2024, el 91,19% de los adultos con hemofilia
                                         severa y el 97,17% de los menores de 18 años recibieron tratamiento profiláctico, pero solo el
-                                        61,91% de los pacientes accedió a atención multidisciplinaria, lo que refleja una brecha en el
-                                        acceso a la atención integral de los servicios de salud. </p>
+                                        61,91% de los pacientes accedió a atención multidisciplinaria,<strong> lo que refleja una brecha en el
+                                        acceso a la atención integral de los servicios de salud.</strong></p>
                                 </div>
 
                                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA_Mesa de trabajo 1 copia 3_2.webp"
@@ -3369,7 +3369,6 @@ $titlePostId = get_the_title();
                     </div>
 
                 <?php else : ?>
-
                     <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)) : ?>
                         <?php if (isset($contentPostTrendWithDifferentOptions) && !empty($contentPostTrendWithDifferentOptions)) : ?>
 
@@ -4682,7 +4681,7 @@ $titlePostId = get_the_title();
                             )
                         ),
                         'orderby' => 'post_date',
-                        'order' => 'ASC',
+                        'order' => 'DESC',
                         'posts_per_page' => -1,
                         'post_status' => 'publish'
                     );

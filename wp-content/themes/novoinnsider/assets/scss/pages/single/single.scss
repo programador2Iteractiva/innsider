@@ -1078,3 +1078,120 @@
         width: 80%;
     }
 }
+
+
+// Post playing academic resources
+.position-md-absolute-2 {
+    width: 80%;
+}
+
+.position-md-absolute-2 img {
+    border-radius: 1rem !important;
+    position: relative;
+    z-index: 50;
+}
+
+.header .text {
+    width: 85%;
+    background-color: #e8f2f2;
+    color: #001864 !important;
+    padding: 6rem 3rem 3rem 3rem;
+    transform: translatey(-4rem);
+    border-radius: 0.5rem;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.header .text-2 {
+    width: 85%;
+    background-color: #fdf5f2;
+    color: #001864 !important;
+    padding: 6rem 3rem 3rem 3rem;
+    transform: translatey(-4rem);
+    border-radius: 0.5rem;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+@media (max-width: 480px) {
+    .position-md-absolute-2 {
+        width: 100%;
+    }
+
+    .position-md-absolute-2 img {
+        border-radius: 0rem !important;
+    }
+
+    .header .text {
+        width: 100%;
+        padding: 0rem 1rem 1rem 1rem;
+        transform: translatey(-3rem);
+
+    }
+
+    .header .text-2 {
+        width: 100%;
+        padding: 0rem 1rem 1rem 1rem;
+        transform: translatey(-3rem);
+
+    }
+
+    .audio-player {
+        width: 100%;
+    }
+
+    .controlers {
+        width: 100% !important;
+        border-radius: 1rem !important;
+    }
+
+    .info {
+        width: 100% !important;
+        border-radius: 1rem !important;
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .controlers-2 {
+        width: 100% !important;
+        border-radius: 1rem !important;
+    }
+
+    .info-2 {
+        width: 100% !important;
+        border-radius: 1rem !important;
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+}
+
+.audio-player {
+    width: 85%;
+}
+
+.controlers {
+    width: 25%;
+    background-color: #93c6c4;
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.info {
+    background-color: #e8f2f2;
+    border-radius: 0rem 1rem 1rem 0rem;
+}
+
+.controlers-2 {
+    width: 25%;
+    background-color: #e69b7d;
+    border-radius: 1rem 0rem 0rem 1rem;
+}
+
+.info-2 {
+    background-color: #fdf5f2;
+    border-radius: 0rem 1rem 1rem 0rem;
+}
+
+.object-cover {
+    object-fit: cover !important;
+}

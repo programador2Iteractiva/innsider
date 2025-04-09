@@ -2854,6 +2854,7 @@ $titlePostId = get_the_title();
 
                         <?php $SubtitleModule = get_field('Subtitle_Module'); ?>
                         <?php $postActivityId = get_the_ID(); ?>
+                        <!-- <?php var_dump($postActivityId) ?> -->
 
                         <?php $listContentModules = get_field('list_of_content_module'); ?>
 
@@ -2885,6 +2886,7 @@ $titlePostId = get_the_title();
                                 <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy);  ?>
 
                                 <div class="container background-single-init pt-2 px-5">
+                                    <?php var_dump($postActivityId) ?>
                                     <div class="mt-4">
                                         <?php if (isset($titleModuleAcademy) && !empty($titleModuleAcademy)) : ?>
                                             <h3 class="NotoSans-Bold title-color"><?= esc_html($titleModuleAcademy); ?></h3>
@@ -2988,6 +2990,176 @@ $titlePostId = get_the_title();
                                 </div>
                             <?php endif ?>
 
+                        <?php endif; ?>
+
+                        <?php if ($postActivityId && $postActivityId == 1158) : ?>
+                            <section class="d-flex justify-content-center header">
+                                <div class="text-center">
+                                    <div class="position-md-absolute-2 mx-auto top-0 start-0">
+                                        <picture>
+                                            <source srcset="<?= esc_url(get_template_directory_uri()) . '/assets/images/HEADER-OVERVIEW-ENF-RARAS-DESKTOP.webp';?>" media="(min-width: 768px)">
+                                            <img src="<?= esc_url(get_template_directory_uri()) . '/assets/images/HEADER-OVERVIEW-ENF-RARAS-MOBILE.webp';?>" alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                        </picture>
+                                    </div>
+                                    <div class="text-secondary text-center mx-auto text position-relative">
+                                        <p class="fs-6 pt-5 mt-5 pt-md-0 mt-md-0 text-lg-start mx-auto px-0">
+                                            El Plan Nacional de Gestión de Enfermedades Huérfanas /Raras es un hito en el país, ya que busca responder a las necesidades en materia de política pública que se reflejan en este tipo de patologías.</br>
+                                            <strong>Escuche el overview sobre este tema</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="d-flex justify-content-center header ">
+                                <div class="audio-container d-flex justify-content-center w-100">
+                                    <div class="audio-player d-flex flex-column flex-md-row align-items-center">
+                                        <div class="controlers h-100 px-4 py-2">
+                                            <div class="d-flex flex-shrink-0 flex-grow-0 align-items-center gap-3 h-100 ">
+                                                <button id="prev" class="btn p-0 border-0 bg-transparent w-50">
+                                                    <img class="img-fluid " src="<?= esc_url(get_template_directory_uri()) . '/assets/images/prev.png';?> " alt="Anterior">
+                                                </button>
+                                                <button id="play" class="btn p-0 border-0 bg-transparent w-100">
+                                                    <img class="img-fluid" src="<?= esc_url(get_template_directory_uri()) . '/assets/images/play.png';?>" alt="Reproducir">
+                                                </button>
+                                                <button id="next" class="btn p-0 border-0 bg-transparent w-50">
+                                                    <img class="img-fluid " src="<?= esc_url(get_template_directory_uri()) . '/assets/images/next.png';?>" alt="Siguiente">
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="info w-75 py-md-2 px-md-4 h-100 justify-content-around d-flex flex-column ">
+                                            <h5 class="m-0 text-blue">Reproducir</h5>
+                                            <p id="duration" class="d-flex text-secondary fw-normal align-items-center m-0">Cargando...</p>
+                                        </div>
+
+                                        <audio id="audio" src="<?= esc_url(get_template_directory_uri()) . '/assets/audio/Capsula-1.mpeg';?>"></audio>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    const playButton = document.getElementById("play");
+                                    const prevButton = document.getElementById("prev");
+                                    const nextButton = document.getElementById("next");
+                                    const audio = document.getElementById("audio");
+                                    const durationText = document.getElementById("duration");
+                                
+                                    // Reproducir o pausar audio
+                                    playButton.addEventListener("click", () => {
+                                        if (audio.paused) {
+                                            audio.play();
+                                            playButton.innerHTML = `<button id='play' class='btn p-0 border-0 bg-transparent'>
+                                                <img class='img-fluid' src='<?= esc_url(get_template_directory_uri()) . '/assets/images/pause.png';?>' alt='Reproducir'></button>`;
+                                        } else {
+                                            audio.pause();
+                                            playButton.innerHTML = `<button id='play' class='btn p-0 border-0 bg-transparent'>
+                                                <img class='img-fluid' src='<?= esc_url(get_template_directory_uri()) . '/assets/images/play.png';?>' alt='Reproducir'></button>`;
+                                        }
+                                    });
+                                
+                                    // Cargar duración del audio
+                                    audio.addEventListener("loadedmetadata", () => {
+                                        const minutes = Math.floor(audio.duration / 60);
+                                        const seconds = Math.floor(audio.duration % 60);
+                                        durationText.innerHTML = `Audio | ${minutes}:${seconds < 10 ? "0" : ""}${seconds} min`;
+                                    });
+                                
+                                    // Retroceder 10 segundos
+                                    prevButton.addEventListener("click", () => {
+                                        audio.currentTime = Math.max(0, audio.currentTime - 10);
+                                    });
+                                
+                                    // Adelantar 10 segundos
+                                    nextButton.addEventListener("click", () => {
+                                        audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+                                    });
+                                </script>
+                                
+                            </section>
+                        <?php endif; ?>
+
+                        <?php if ($postActivityId && $postActivityId == 1153) : ?>
+                            <section class="d-flex justify-content-center header">
+                                <div class="text-center">
+                                    <div class="position-md-absolute-2 mx-auto top-0 start-0">
+                                        <picture>
+                                            <source srcset="<?= esc_url(get_template_directory_uri()) . '/assets/images/HEADER-OVERVIEW-MARCO-DIABETES-DESKTOP.webp';?>" media="(min-width: 768px)">
+                                            <img src="<?= esc_url(get_template_directory_uri()) . '/assets/images/HEADER-OVERVIEW-MARCO-DIABETES-MOBILE.webp';?>" alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                        </picture>
+                                    </div>
+                                    <div class="text-secondary text-center mx-auto text-2 position-relative">
+                                        <p class="fs-6 pt-5 mt-5 pt-md-0 mt-md-0 text-lg-start mx-auto px-0">
+                                        En esta conversación se aborda el panorama de la Diabetes en Colombia, sus desafíos, algunos datos epidemiológicos y los factores que influyen en el aumento de su prevalencia. También, las oportunidades y retos que se evidencian en materia de política pública.</br>
+                                            <strong>Escúchela  y conozca más</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="d-flex justify-content-center header ">
+                                <div class="audio-container d-flex justify-content-center w-100">
+                                    <div class="audio-player d-flex flex-column flex-md-row align-items-center">
+                                        <div class="controlers-2 h-100 px-4 py-2">
+                                            <div class="d-flex flex-shrink-0 flex-grow-0 align-items-center gap-3 h-100 ">
+                                                <button id="prev" class="btn p-0 border-0 bg-transparent w-50">
+                                                    <img class="img-fluid " src="<?= esc_url(get_template_directory_uri()) . '/assets/images/prev.png';?> " alt="Anterior">
+                                                </button>
+                                                <button id="play" class="btn p-0 border-0 bg-transparent w-100">
+                                                    <img class="img-fluid" src="<?= esc_url(get_template_directory_uri()) . '/assets/images/play.png';?>" alt="Reproducir">
+                                                </button>
+                                                <button id="next" class="btn p-0 border-0 bg-transparent w-50">
+                                                    <img class="img-fluid " src="<?= esc_url(get_template_directory_uri()) . '/assets/images/next.png';?>" alt="Siguiente">
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="info-2 w-75 py-md-2 px-md-4 h-100 justify-content-around d-flex flex-column ">
+                                            <h5 class="m-0 text-blue">Reproducir</h5>
+                                            <p id="duration" class="d-flex text-secondary fw-normal align-items-center m-0">Cargando...</p>
+                                        </div>
+
+                                        <audio id="audio" src="<?= esc_url(get_template_directory_uri()) . '/assets/audio/Capsula-2.mpeg';?>"></audio>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    const playButton = document.getElementById("play");
+                                    const prevButton = document.getElementById("prev");
+                                    const nextButton = document.getElementById("next");
+                                    const audio = document.getElementById("audio");
+                                    const durationText = document.getElementById("duration");
+                                
+                                    // Reproducir o pausar audio
+                                    playButton.addEventListener("click", () => {
+                                        if (audio.paused) {
+                                            audio.play();
+                                            playButton.innerHTML = `<button id='play' class='btn p-0 border-0 bg-transparent'>
+                                                <img class='img-fluid' src='<?= esc_url(get_template_directory_uri()) . '/assets/images/pause.png';?>' alt='Reproducir'></button>`;
+                                        } else {
+                                            audio.pause();
+                                            playButton.innerHTML = `<button id='play' class='btn p-0 border-0 bg-transparent'>
+                                                <img class='img-fluid' src='<?= esc_url(get_template_directory_uri()) . '/assets/images/play.png';?>' alt='Reproducir'></button>`;
+                                        }
+                                    });
+                                
+                                    // Cargar duración del audio
+                                    audio.addEventListener("loadedmetadata", () => {
+                                        const minutes = Math.floor(audio.duration / 60);
+                                        const seconds = Math.floor(audio.duration % 60);
+                                        durationText.innerHTML = `Audio | ${minutes}:${seconds < 10 ? "0" : ""}${seconds} min`;
+                                    });
+                                
+                                    // Retroceder 10 segundos
+                                    prevButton.addEventListener("click", () => {
+                                        audio.currentTime = Math.max(0, audio.currentTime - 10);
+                                    });
+                                
+                                    // Adelantar 10 segundos
+                                    nextButton.addEventListener("click", () => {
+                                        audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+                                    });
+                                </script>
+                                
+                            </section>
                         <?php endif; ?>
 
                     <?php endwhile; ?>

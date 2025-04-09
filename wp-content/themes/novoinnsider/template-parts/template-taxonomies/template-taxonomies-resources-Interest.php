@@ -96,16 +96,16 @@ $taxonomy = get_queried_object();
 
                                     <a href="<?php echo get_permalink($postActivityId) . '?module_id=' . $postActivityId . '&content_id=' . $counter . '&tax=' . $taxonomy->term_id; ?>" onclick="saveLogsClick('Clic en tarjeta `<?= the_title(); ?>`');">
                                         <div class="d-flex flex-md-row flex-column position-relative justify-content-center align-items-center">
-                                            <div class="col-md-4 col-lg-4" style="border-radius: 1rem;">
+                                            <div class="col-md-4 col-lg-3" style="border-radius: 1rem;">
                                                 <div class="figure">
                                                     <?php $imageSubcategoryAcademy = get_field('Img_Post_Content'); ?>
 
                                                     <?php if ($imageSubcategoryAcademy) :  ?>
-                                                        <?php echo wp_get_attachment_image($imageSubcategoryAcademy, 'full', '', ['class' => 'img-featured-content']); ?>
+                                                        <?php echo wp_get_attachment_image($imageSubcategoryAcademy, 'full', '', ['class' => 'object-cover']); ?>
                                                     <?php endif ?>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8 col-lg-8 d-flex justify-content-center align-items-center">
+                                            <div class="col-md-9 col-lg-9 d-flex justify-content-center align-items-center">
                                                 <div class="col-11 col-md-12 col-lg-12 p-0 m-0 pt-4 pb-4 background-text-subcategory-academy-course">
                                                     <div class="container-title-speaker-content-out mx-lg-5 ms-3">
                                                         <div class="container-content-outstanding">

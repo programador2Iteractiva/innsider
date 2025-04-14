@@ -3337,7 +3337,7 @@ $titlePostId = get_the_title();
 
                                 <div class="d-flex flex-column flex-md-row w-100">
                                     <div class="col-12 col-md-3">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-10_9.webp" class="img-fluid p-3 w-100" alt="">
+                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-10_9.png" class="img-fluid p-3 w-100" alt="">
                                     </div>
                                     <p class="fs-5 w-100 text-justify align-content-center p-md-3 text-blue">
                                         El abordaje terapéutico de la hemofilia en Colombia ha evolucionado significativamente en los
@@ -3399,7 +3399,7 @@ $titlePostId = get_the_title();
                                         <div
                                             class="bg-red-secondary p-4 rounded-4 d-flex flex-column flex-md-row gap-3 text-blue w-100 w-md-50">
                                             <div class="w-50 w-m-25 container align-content-center">
-                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-12_11.webp" alt="Icono Diagnóstico"
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-12_11.png" alt="Icono Diagnóstico"
                                                     class="img-fluid">
                                             </div>
                                             <div class="d-flex flex-column justify-content-around w-100">
@@ -3417,7 +3417,7 @@ $titlePostId = get_the_title();
                                         <div
                                             class="bg-red-secondary p-4 rounded-4 d-flex flex-column flex-md-row gap-3 text-blue w-100 w-md-50">
                                             <div class="w-50 w-m-25 container align-content-center">
-                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-13_12.webp" alt="Icono Diagnóstico"
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-13_12.png" alt="Icono Diagnóstico"
                                                     class="img-fluid">
                                             </div>
                                             <div class="d-flex flex-column justify-content-around w-100">
@@ -3438,7 +3438,7 @@ $titlePostId = get_the_title();
                                         <div
                                             class="bg-red-secondary p-4 rounded-4 d-flex flex-column flex-md-row gap-3 text-blue w-100 w-md-50">
                                             <div class="w-50 w-m-25 container align-content-center">
-                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-14_13.webp" alt="Icono Diagnóstico"
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-14_13.png" alt="Icono Diagnóstico"
                                                     class="img-fluid">
                                             </div>
                                             <div class="d-flex flex-column justify-content-around w-100">
@@ -3457,7 +3457,7 @@ $titlePostId = get_the_title();
                                         <div
                                             class="bg-red-secondary p-4 rounded-4 d-flex flex-column flex-md-row gap-3 text-blue w-100 w-md-50">
                                             <div class="w-50 w-m-25 container align-content-center">
-                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-15_14.webp" alt="Icono Diagnóstico"
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-15_14.png" alt="Icono Diagnóstico"
                                                     class="img-fluid">
                                             </div>
                                             <div class="d-flex flex-column justify-content-around w-100">
@@ -3477,7 +3477,7 @@ $titlePostId = get_the_title();
                                         <div
                                             class="bg-red-secondary p-4 rounded-4 d-flex flex-column flex-md-row gap-3 text-blue w-100 w-md-50">
                                             <div class="w-50 w-m-25 container align-content-center">
-                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-16_15.webp" alt="Icono Diagnóstico"
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-16_15.png" alt="Icono Diagnóstico"
                                                     class="img-fluid">
                                             </div>
                                             <div class="d-flex flex-column justify-content-around w-100">
@@ -3495,7 +3495,7 @@ $titlePostId = get_the_title();
                                         <div
                                             class="bg-red-secondary p-4 rounded-4 d-flex flex-column flex-md-row gap-3 text-blue w-100 w-md-50">
                                             <div class="w-50 w-m-25 container align-content-center">
-                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-17_16.webp" alt="Icono Diagnóstico"
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA-17_16.png" alt="Icono Diagnóstico"
                                                     class="img-fluid">
                                             </div>
                                             <div class="d-flex flex-column justify-content-around w-100">
@@ -3518,6 +3518,7 @@ $titlePostId = get_the_title();
                             <div class="text-center w-80  px-md-5">
                                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/SITUACIÓN DE LA HEMOFILIA_Mesa de trabajo 1 copia 6_4.webp"
                                     alt="Informe de Situación de la Hemofilia" class="img-fluid rounded-4 w-100">
+
                                 <div class="">
                                     <p class="fs-5 text-blue py-5 text-justify">
                                         El informe Situación de la Hemofilia y otras Coagulopatías en Colombia 2024 evidencia tanto avances

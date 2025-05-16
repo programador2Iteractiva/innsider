@@ -31738,6 +31738,12 @@ Typography
   src: url("../../../../../../../wp-content/themes/novoinnsider/assets/node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2") format("woff2"), url("../../../../../../../wp-content/themes/novoinnsider/assets/node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff") format("woff");
 }
 @font-face {
+  font-family: "Apis Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Apis-Bold"), url("assets/fonts/Apis-Bold.ttf") format("opentype");
+}
+@font-face {
   font-family: "NotoSans Black";
   font-style: normal;
   font-weight: normal;

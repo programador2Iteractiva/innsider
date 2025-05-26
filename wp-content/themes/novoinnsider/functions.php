@@ -1,3 +1,6 @@
+
+
+
 <?php
 /* 
 * Novo Innsider functions
@@ -607,9 +610,7 @@ function custom_breadcrumbs()
         }
 
         echo '<span>' . esc_html($term->name) . '</span>';
-    }
-
-    elseif (is_tax('visioninnsider-category')) {
+    } elseif (is_tax('visioninnsider-category')) {
         $term = get_queried_object();
 
         // Muestra el nombre de la taxonomía
@@ -661,45 +662,45 @@ function custom_breadcrumbs()
             $tendencia_page = get_page_by_title('Tendencias');
             $tendencia_url = get_permalink($tendencia_page->ID);
             echo '<a href="' . esc_url($tendencia_url) . '">Tendencias</a> / ';
-            
+
             // Mostrar el título del post actual
             echo '<span>' . esc_html(get_the_title()) . '</span>';
-        }elseif (is_singular('herramientas')) {
+        } elseif (is_singular('herramientas')) {
             // Agregar enlace a "Tendencias"
             $tendencia_page = get_page_by_title('Herramientas');
             $tendencia_url = get_permalink($tendencia_page->ID);
             echo '<a href="' . esc_url($tendencia_url) . '">Herramientas</a> / ';
-            
+
             // Mostrar el título del post actual
             echo '<span>' . esc_html(get_the_title()) . '</span>';
-        }elseif (is_singular('innsiderdata')) {
+        } elseif (is_singular('innsiderdata')) {
             // Agregar enlace a "Tendencias"
             $tendencia_page = get_page_by_title('Innsider Data');
             $tendencia_url = get_permalink($tendencia_page->ID);
             echo '<a href="' . esc_url($tendencia_url) . '">INNSIDER DATA</a> / ';
-            
+
             // Mostrar el título del post actual
             echo '<span>' . esc_html(get_the_title()) . '</span>';
-        }elseif (is_singular('experiences')) {
+        } elseif (is_singular('experiences')) {
             // Agregar enlace a "Tendencias"
             $tendencia_page = get_page_by_title('Experiencias');
             $tendencia_url = get_permalink($tendencia_page->ID);
             echo '<a href="' . esc_url($tendencia_url) . '">EXPERIENCIAS</a> / ';
-            
+
             // Mostrar el título del post actual
             echo '<span>' . esc_html(get_the_title()) . '</span>';
-        }elseif(is_singular('vision-innsiders')){
+        } elseif (is_singular('vision-innsiders')) {
 
             $termsacademia = get_the_terms($post->ID, 'visioninnsider-category');
 
             if ($termsacademia && !is_wp_error($termsacademia)) {
-    
+
                 // Agregar el enlace de "Academia" antes de mostrar los términos
                 $academia_page = get_page_by_title('Visión iNNsider');
                 $academia_url = get_permalink($academia_page->ID);
                 echo '<a href="' . esc_url($academia_url) . '">Podcast iNNsider</a> / ';
-    
-    
+
+
                 $main_term = $termsacademia[0];
                 if ($main_term->parent) {
                     $ancestors = get_ancestors($main_term->term_id, 'academia');
@@ -710,21 +711,20 @@ function custom_breadcrumbs()
                 }
                 echo '<a href="' . esc_url(get_term_link($main_term)) . '">' . esc_html($main_term->name) . '</a> / ';
             }
-            
+
             echo '<span>' . esc_html(get_the_title()) . '</span>';
-            
-        }else{
+        } else {
 
             $termsacademia = get_the_terms($post->ID, 'academia');
 
             if ($termsacademia && !is_wp_error($termsacademia)) {
-    
+
                 // Agregar el enlace de "Academia" antes de mostrar los términos
                 $academia_page = get_page_by_title('Academia');
                 $academia_url = get_permalink($academia_page->ID);
                 echo '<a href="' . esc_url($academia_url) . '">Academia</a> / ';
-    
-    
+
+
                 $main_term = $termsacademia[0];
                 if ($main_term->parent) {
                     $ancestors = get_ancestors($main_term->term_id, 'academia');
@@ -735,13 +735,11 @@ function custom_breadcrumbs()
                 }
                 echo '<a href="' . esc_url(get_term_link($main_term)) . '">' . esc_html($main_term->name) . '</a> / ';
             }
-            
-            echo '<span>' . esc_html(get_the_title()) . '</span>';
-    
-        }
 
+            echo '<span>' . esc_html(get_the_title()) . '</span>';
+        }
     }
-    
+
 
     echo '</nav>';
 }
@@ -1897,6 +1895,158 @@ function novo_innsider_save_logs_click()
 add_action('wp_ajax_nopriv_save_logs_click', 'novo_innsider_save_logs_click');
 add_action('wp_ajax_save_logs_click', 'novo_innsider_save_logs_click');
 
+function innsider_register_login_endpoint()
+{
+
+    add_rewrite_rule('^curso-login/?$', 'index.php?innsider_login=1', 'top');
+
+    add_rewrite_tag('%innsider_login%', '1');
+}
+add_action('init', 'innsider_register_login_endpoint');
+
+
+
+function innsider_handle_login_redirect()
+{
+    if (get_query_var('innsider_login') == '1') {
+        novo_innsider_login_course(); // Aquí llamas a tu función personalizada
+        exit;
+    }
+}
+add_action('template_redirect', 'innsider_handle_login_redirect');
+
+function novo_innsider_login_course()
+{
+    if (is_user_logged_in()) {
+        $id = get_current_user_id();
+        $user = get_userdata($id);
+        $userEmail = $user->user_email;
+
+        $data = [
+            'email' => $userEmail
+        ];
+
+        $jsondata = json_encode($data);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://admin.innsider.com.co/api/login/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $jsondata,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $curl_error = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($curl_error) {
+            wp_die('Error de cURL: ' . $curl_error);
+        }
+
+        $result = json_decode($response);
+        var_dump($result);
+
+        if (isset($result->non_field_errors) && $result->non_field_errors[0] == 'El email no se encuentra registrado.') {
+            novo_innsider_register_course();
+        } elseif ($result->access) {
+            novo_innsider_redirect_to_course($userEmail);
+        }
+
+    } else {
+        wp_redirect(home_url());
+        exit;
+    }
+}
+
+function novo_innsider_redirect_to_course($email)
+{
+    wp_redirect('https://curso.innsider.com.co/?email=' . urlencode($email));
+    exit;
+}
+
+function novo_innsider_register_course()
+{
+    if (is_user_logged_in()) {
+        $id = get_current_user_id();
+        $user = get_userdata($id);
+        $userEmail = $user->user_email;
+
+        $first_name = get_user_meta($id, 'first_name', true);
+        $last_name = get_user_meta($id, 'last_name', true);
+
+        $speciality = get_user_meta($id, 'speciality', true);
+        $documentNumber = get_user_meta($id, 'document_number', true);
+        $countryCode = get_user_meta($id, 'country', true);
+
+        if($countryCode = 'CO'){
+            $country = 'Colombia';
+        }else{
+            $country = 'Colombia';
+        }
+
+        $data = [
+            'name' => $first_name,
+            'last_name' => $last_name,
+            'email' => $userEmail,
+            'document' => $documentNumber,
+            'speciality' => $speciality,
+            'country' => $country,
+            'ciam_id' => $id
+        ];
+
+        $jsondata = json_encode($data);
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://admin.innsider.com.co/api/user-register/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => $jsondata,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $curl_error = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($curl_error) {
+            wp_die('Error de cURL: ' . $curl_error);
+        }
+
+        $result = json_decode($response);
+
+        if(isset($result->email) && !empty($result->email)){
+            novo_innsider_redirect_to_course($userEmail);
+        }elseif (isset($result->non_field_errors) && $result->non_field_errors[0] == 'Usuario with this Correo electrónico already exists.') {
+            novo_innsider_redirect_to_course($userEmail);
+        }
+
+
+    } else {
+        wp_redirect(home_url());
+        exit;
+    }
+}
 
 
 ?>

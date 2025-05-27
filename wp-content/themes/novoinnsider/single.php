@@ -3885,7 +3885,7 @@ $titlePostId = get_the_title();
             </div>
             <h3 class="fs-5 mt-5 fw-bolder">CONTEXTO</h3>
             <p class="fs-5 m-b">
-                Colombia enfrenta una crisis en la dispensación de medicamentos, lo que está afectando el acceso de
+                Colombia enfrenta una crisis en la dispensación de medicamentos<sup>2</sup>, lo que está afectando el acceso de
                 los pacientes a tratamientos esenciales. La falta de financiamiento en el sistema de salud es uno de
                 los principales factores que agravan la situación. En este contexto, el Gobierno Nacional ha
                 adelantado acciones como: intervenciones de la Superintendencia de Salud a las bodegas de gestores
@@ -4191,7 +4191,7 @@ $titlePostId = get_the_title();
                 imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_5.png",
                 alt: "El director del Invima:",
                 titulo: "El director del Invima:",
-                texto: "Explicó en una entrevista con W Radio5 que el desabastecimiento afecta solo a la insulina NPH, no a la almacenada en Audifarma, y que los problemas no se deben a los registros sanitarios. Destacó que el Invima tiene mecanismos para garantizar la importación de medicamentos esenciales y criticó la politización de la situación."
+                texto: "Explicó en una entrevista con W Radio<sup>5</sup> que el desabastecimiento afecta solo a la insulina NPH, no a la almacenada en Audifarma, y que los problemas no se deben a los registros sanitarios. Destacó que el Invima tiene mecanismos para garantizar la importación de medicamentos esenciales y criticó la politización de la situación."
             }
         ];
 

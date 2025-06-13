@@ -3866,362 +3866,661 @@ $titlePostId = get_the_title();
 
                     </div>
 
-<?php elseif($currentPostId == 1178) : ?>
+                <?php elseif($currentPostId == 1189) : ?>
+                    
+                <div style="color: rgb(0, 24, 100);" class="fs-5">
 
-    
-<div style="color:rgb(0, 24, 100);" class="fs-5">
-
-
-    <section class="d-flex justify-content-center mt-5">
-        <div class="container d-flex flex-column text-start  gap-4">
-            <div>
-                <picture>
-                    <source
-                        srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_banner_desktop.png"
-                        media="(min-width: 768px)">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_banner_mobile.png"
-                        alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
-                </picture>
-            </div>
-            <h3 class="fs-5 mt-5 fw-bolder">CONTEXTO</h3>
-            <p class="fs-5 m-b">
-                Colombia enfrenta una crisis en la dispensación de medicamentos<sup>2</sup>, lo que está afectando el acceso de
-                los pacientes a tratamientos esenciales. La falta de financiamiento en el sistema de salud es uno de
-                los principales factores que agravan la situación. En este contexto, el Gobierno Nacional ha
-                adelantado acciones como: intervenciones de la Superintendencia de Salud a las bodegas de gestores
-                farmacéuticos como Audifarma y anuncios de medidas como la compra directa de medicamentos entre las
-                EPS y la industria farmacéutica para alivianar la crisis.
-            </p>
-        </div>
-    </section>
-
-    <section class="w-100 py-5 d-flex justify-content-center">
-        <div class=" container rounded-5 p-4" style="background-color: rgb(255, 242, 240);">
-            <h2 class="text-uppercase fw-bolder pb-5" style="font-family: 'Apis Bold';">Intervención del Gobierno <sup>1</sup></h2>
-
-            <div class="d-flex flex-column flex-md-row g-4 align-items-start ">
-                <div class="text-center ">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_phone.png"
-                        alt="Informe de Situación de la Hemofilia" class="rounded" width="400px">
-                </div>
-                <div class="d-flex flex-column justify-content-between p-5 w-100">
-                    <div>
-                        <p class="mb-4">
-                            En días pasados, el presidente Gustavo Petro, a través de X, señaló a los gestores
-                            farmacéuticos
-                            de duplicar los precios de los medicamentos y solicitó la realización de allanamientos en
-                            las
-                            bodegas donde presuntamente se estarían acaparando medicamentos. Ante esto, la fiscal
-                            general,
-                            Luz Adriana Camargo, aclaró que los allanamientos deben contar con la autorización de
-                            fiscales y
-                            jueces.
-                        </p>
-                        <p class="mb-4">
-                            Sin embargo, el 21 de marzo, la Superintendencia de Salud llevó a cabo una auditoría en
-                            Audifarma, donde encontró ocho medicamentos con suficiente stock que no habían sido
-                            distribuidos
-                            a los pacientes. Estos medicamentos, que incluían insulina y otros de alta demanda, estaban
-                            clasificados como "pendientes", a pesar de que había unidades suficientes. Ante esto,
-                            Audifarma
-                            explicó que, al operar con una bodega centralizada que distribuye medicamentos a todo el
-                            país,
-                            es normal que algunos productos estén en proceso de recepción o despacho, lo que puede
-                            ocasionar
-                            la falta de existencias en algunas farmacias en ciertos momentos.
-                        </p>
-                        <p class="mb-4">
-                            El superintendente, Giovanny Rubiano, calificó esta discrepancia como "incongruente",
-                            cuestionando la gestión de los insumos. Esto generó dudas sobre la eficacia en la
-                            distribución y
-                            el abastecimiento de medicamentos esenciales.
-                        </p>
-                    </div>
-                    <p class="text-break mt-3">
-                        Tomado de: <a href="https://x.com/Supersalud/status/1903258780260872242" target="_blank"
-                            style="color: inherit;text-decoration: none;">https://x.com/Supersalud/status/1903258780260872242</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="d-flex justify-content-center py-5">
-        <div class="container d-flex flex-column text-start gap-4">
-            <h2 class="text-uppercase fw-bolder" style="font-family: 'Apis Bold';">Consejo de Ministros (25 marzo) <sup>2</sup></h2>
-            <p class="fs-5">
-                Durante el Consejo de Ministros del 25 de marzo, que tuvo como tema central la situación de
-                abastecimiento de medicamentos, el superintendente nacional de salud, Giovanny Rubiano, expuso las
-                medidas que se implementarán para mejorar la entrega de medicamentos. Entre ellas se resaltan:
-            </p>
-
-            <!-- VERSIÓN ESCRITORIO: visible solo en md en adelante -->
-            <div class="d-none d-md-flex justify-content-center">
-                <div class="container text-white rounded-5 p-4 w-100" style="background-color: rgb(3, 52, 114);">
-                    <div class="row">
-                        <!-- Columna de íconos -->
-                        <div class="col-md-3 d-flex flex-column align-items-center justify-content-around gap-1">
-                            <img width="200px"
-                                src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_Iconos_actores_del_sistema.png"
-                                alt="icono 1">
-                        </div>
-                        <!-- Texto -->
-                        <div class="col-md-9">
-                            <div class="d-flex flex-column justify-content-around h-100 gap-1">
-                                <p>Fortalecimiento de redes de prestación y puntos de dispensación, priorizando
-                                    enfermedades raras y de alto costo</p>
-                                <p>Negociación directa entre las EPS y la industria farmacéutica, reduciendo
-                                    intermediarios en la cadena de abastecimiento.</p>
-                                <p>Diversificación de gestores farmacéuticos. Se propone la entrada de 4-72 y Drogas La
-                                    Rebaja para la distribución de medicamentos.</p>
-                                <p>Ampliación de horarios de atención y cobertura geográfica de los dispensarios.</p>
-                                <p>Implementación de mesas de crisis y seguimiento contractual periódico con gestores
-                                    farmacéuticos.</p>
-                                <p>Automatización de respuestas al PQR y uso de tecnología para mejorar tiempos de
-                                    atención.</p>
-                                <p>Eliminación de barreras administrativas y simplificación de procesos para pacientes
-                                    vulnerables.</p>
-                                <p>Intervenciones específicas por parte de las EPS en puntos críticos y seguimiento a
-                                    casos sensibles como enfermedades huérfanas, tutelas y trasplantes.</p>
-                                <p>Creación de comités de farmacovigilancia y equipos técnicos para seguimiento continuo
-                                    de la red de servicios.</p>
-                                <p>Estrategias de humanización, presencia en campo y mejora de canales de comunicación
-                                    con los usuarios.</p>
+                    <section >
+                        <div class="container">
+                            <div class="row">
+                                <div class="col fs-4 fw-bolder" style="color: rgba(114, 114, 114, 1);">
+                                    Junio 2025
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </section>
 
-            <!-- VERSIÓN MÓVIL: visible solo en pantallas pequeñas -->
-            <div class="d-flex flex-column d-md-none container text-white rounded-5 p-4 w-100"
-                style="background-color: rgb(3, 52, 114);">
-                <!-- Repite cada ítem con su imagen correspondiente -->
-                <div
-                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_1.png"
-                        alt="icono 1" class="img-fluid" style="width: 300px;">
-                    <p>Fortalecimiento de redes de prestación y puntos de dispensación, priorizando
-                        enfermedades raras y de alto costo</p>
-                    <p>Negociación directa entre las EPS y la industria farmacéutica, reduciendo
-                        intermediarios en la cadena de abastecimiento.</p>
-                </div>
-                <div
-                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_2.png"
-                        alt="icono 2" class="img-fluid" style="width: 300px;">
-                    <p>Diversificación de gestores farmacéuticos. Se propone la entrada de 4-72 y Drogas La
-                        Rebaja para la distribución de medicamentos.</p>
-                </div>
-                <div
-                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_3.png"
-                        alt="icono 3" class="img-fluid" style="width: 300px;">
-                    <p>Ampliación de horarios de atención y cobertura geográfica de los dispensarios.</p>
-                    <p>Implementación de mesas de crisis y seguimiento contractual periódico con gestores
-                        farmacéuticos.</p>
-                </div>
-                <div
-                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_4.png"
-                        alt="icono 3" class="img-fluid" style="width: 300px;">
-                    <p>Automatización de respuestas al PQR y uso de tecnología para mejorar tiempos de
-                        atención.</p>
-                    <p>Eliminación de barreras administrativas y simplificación de procesos para pacientes
-                        vulnerables.</p>
-                </div>
-                <div
-                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_5.png"
-                        alt="icono 3" class="img-fluid" style="width: 300px;">
-                    <p>Intervenciones específicas por parte de las EPS en puntos críticos y seguimiento a
-                        casos sensibles como enfermedades huérfanas, tutelas y trasplantes.</p>
-                    <p>Creación de comités de farmacovigilancia y equipos técnicos para seguimiento continuo
-                        de la red de servicios.</p>
-                </div>
-                <div
-                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_6.png"
-                        alt="icono 3" class="img-fluid" style="width: 300px;">
-                    <p>Estrategias de humanización, presencia en campo y mejora de canales de comunicación
-                        con los usuarios.</p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <div class="d-flex flex-column  align-items-center">
-
-        <section class="d-flex justify-content-center py-5">
-            <div class="container d-flex flex-column text-start gap-4">
-                <h2 class="text-uppercase fw-bolder text-center fs-2" style="font-family: 'Apis Bold';">Propuesta: Esquema de dispensación del Gobierno
-                    Actual
-                </h2>
-                <div>
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Infografia.png"
-                        alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
-                </div>
-            </div>
-        </section>
-
-        <section class="px-4 rounded-5" style="background-color: rgb(249, 249, 249);">
-
-            <section class="d-flex justify-content-center py-5">
-                <div class="container d-flex flex-column text-start gap-4">
-                    <h2 class="text-uppercase fw-bolder text-start" style="font-family: 'Apis Bold';">Reacciones de diferentes actores del sistema</h2>
-
-                    <div id="cards"></div>
-                </div>
-            </section>
-
-        </section>
-    </div>
-
-    <section class="d-flex justify-content-center my-5 p-4" style="background-color: rgb(255, 242, 240);">
-        <div class="container d-flex flex-column text-start gap-4">
-            <h2 class="text-uppercase fw-bolder text-start" style="font-family: 'Apis Bold';">Conclusión</h2>
-
-            <p>En conclusión, la crisis en la distribución de medicamentos en Colombia es un reflejo de varios problemas
-                estructurales que
-                están afectando el sistema de salud. Las organizaciones de pacientes, a través de pronunciamientos
-                oficiales, plantones y
-                reclamos, han solicitado medidas de protección integral a los organismos de control y a la Corte
-                Constitucional, por lo que su rol
-                ha sido clave en este contexto.
-
-            </p>
-            <p>
-                Es probable que en los próximos días las discusiones sobre la suficiencia de recursos y financiamiento
-                del sistema se agudicen, al
-                tiempo que el Gobierno podría intensificar las labores de inspección y vigilancia en otros gestores
-                farmacéuticos.</p>
-        </div>
-    </section>
-
-    <section class="d-flex justify-content-center my-5 p-4">
-        <div class="container d-flex flex-column text-start fs-6">
-            <p class="fw-bolder text-start">Fuentes:</p>
-            <ol>
-                <li class="my-3 text-break">
-                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
-                    Superintendencia Nacional de Salud.
-                    <br>
-                    <a style="color: inherit;"
-                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
-                        target="_blank">
-                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
-                    </a>
-                </li>
-                <li class="my-3 text-break">
-                    Presidencia de la República - Colombia. (2025, 25 de marzo). [En vivo] Alocución presidencial -
-                    Consejo de Ministros [Video]. YouTube.
-                    <br>
-                    <a style="color: inherit;" href="https://www.youtube.com/watch?v=90uRw4bgDA3" target="_blank">
-                        https://www.youtube.com/watch?v=90uRw4bgDA3
-                    </a>
-                </li>
-                <li class="my-3 text-break">
-                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
-                    Superintendencia Nacional de Salud.
-                    <br>
-                    <a style="color: inherit;"
-                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
-                        target="_blank">
-                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
-                    </a>
-                </li>
-                <li class="my-3 text-break">
-                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
-                    Superintendencia Nacional de Salud.
-                    <br>
-                    <a style="color: inherit;"
-                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
-                        target="_blank">
-                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
-                    </a>
-                </li>
-                <li class="my-3 text-break">
-                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
-                    Superintendencia Nacional de Salud.
-                    <br>
-                    <a style="color: inherit;"
-                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
-                        target="_blank">
-                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
-                    </a>
-                </li>
-            </ol>
-        </div>
-    </section>
-    
-        <section class="fw-bold mt-5">
-        <p>CO25UMA00037</p>
-    </section>
-
-    <script>
-        // Variable JSON de ejemplo
-        const datos = [
-            {
-                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_1.png",
-                alt: "Informe de Situación de la Hemofilia",
-                titulo: "Defensoría del Pueblo:",
-                texto: "Emitió un llamado³ urgente ante el aumento de quejas por el acceso a servicios de salud y medicamentos, pidiendo medidas inmediatas para resolver la crisis, como la creación de Puestos de Mando Unificados y la agilización de la entrega de medicamentos en las regiones más afectadas."
-            },
-            {
-                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_2.png",
-                alt: "Otro informe",
-                titulo: "La procuradoría:",
-                texto: "Implementó medidas preventivas frente a irregularidades en el suministro de medicamentos, como solicitar información, realizar inspecciones, emitir instrucciones obligatorias y vigilar a los operadores logísticos, además de evaluar posibles sanciones disciplinarias."
-            },
-            {
-                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_3.png",
-                alt: "La Superintendencia de Salud:",
-                titulo: "La Superintendencia de Salud:",
-                texto: " Anunció en su cuenta de X que lideró una mesa técnica para abordar la crisis de medicamentos en Nueva EPS, causada por la ruptura del contrato con Audifarma. Se priorizarán los pagos a las IPS, se reactivarán los servicios y se mejorará la atención, especialmente para pacientes con enfermedades raras y en alto riesgo."
-            },
-            {
-                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_4.png",
-                alt: "Audifarma: ",
-                titulo: "Audifarma:",
-                texto: "Explicó que las intermitencias en el abastecimiento de medicamentos se deben a una cartera pendiente de $4 billones con los gestores farmacéuticos. Aseguraron que su operación busca una distribución eficiente, pero señalaron que los faltantes temporales pueden ocurrir mientras algunos medicamentos están en proceso de recepción o despacho."
-            },
-            {
-                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_5.png",
-                alt: "El director del Invima:",
-                titulo: "El director del Invima:",
-                texto: "Explicó en una entrevista con W Radio<sup>5</sup> que el desabastecimiento afecta solo a la insulina NPH, no a la almacenada en Audifarma, y que los problemas no se deben a los registros sanitarios. Destacó que el Invima tiene mecanismos para garantizar la importación de medicamentos esenciales y criticó la politización de la situación."
-            }
-        ];
-
-        let card = "";
-
-        // Generar HTML dinámicamente
-        datos.forEach(item => {
-            card += `
-                <div class="my-5">
-                    <div class="row p-3 rounded-5 border border-5 border-white">
-                        <div class="col-md-3 d-flex flex-column align-items-center justify-content-around gap-2 py-5">
-                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/${item.imagen}" alt="${item.alt}" class="img-fluid" width="150px">
+                    <!-- Sección: Banner y descripción -->
+                    <section class="py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-start">
+                                    <div class="">
+                                        <picture>
+                                            <source srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00073_Banner_Desktop.jpg" media="(min-width: 768px)">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00073_Banner_Mobile.jpg"
+                                                alt="Informe de Situación de la Hemofilia" class="img-fluid w-100 rounded-5">
+                                        </picture>
+                                    </div>
+                                    <p class="fs-4 my-4" style="color: rgb(113, 113, 113);">
+                                        A continuación, se presentan los hitos más relevantes para el sector salud que podrán
+                                        tener lugar en junio. Este documento busca ofrecer una visión anticipada de los temas
+                                        relevantes que marcarán la dinámica del sector y que resultan de interés.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-9 d-flex flex-column justify-content-center">
-                            <p class="fs-5">
-                                <strong>${item.titulo}</strong> ${item.texto}
+                    </section>
+
+                    <!-- Sección: Agenda regulatoria -->
+                    <section class="py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-start">
+                                    <h2 class="text-uppercase fw-bolder fs-2 mb-4">Agenda regulatoria</h2>
+                                    <div class="fs-4 p-4 rounded-5" style="background-color: rgb(223, 239, 237);">
+                                        <div class="px-3 px-md-5 my-5">
+                                            <p class="pb-3">
+                                                Teniendo en cuenta que el mes pasado se hizo la publicación de los
+                                                proyectos de acto administrativo para comentarios y su posterior
+                                                ampliación, se espera que en el transcurso de este mes el Ministerio de
+                                                Salud publique de manera oficial los siguientes actos administrativos:
+                                            </p>
+                                            <p class="py-4">
+                                                <strong class="fs-3">Proyecto de Decreto para la adopción del modelo de salud
+                                                    preventivo, predictivo y resolutivo<sup>1</sup>:</strong> El Ministerio de Salud
+                                                busca implementar el modelo de salud preventivo, predictivo y resolutivo como
+                                                política nacional. Su importancia radica en que por medio de este se espera
+                                                implementar parte del contenido de la reforma a la salud. Sin embargo, la
+                                                mayoría de los aspectos que traería el Decreto deberán ser regulados e
+                                                implementados en tiempos que oscilan entre los 6 meses y 1 año, una vez
+                                                entre en vigencia la medida.
+                                            </p>
+                                            <p>
+                                                <strong class="fs-3">Proyecto de resolución de modificación de giro
+                                                    directo<sup>2</sup>:</strong> El proyecto busca modificar el Decreto 780 de 2016,
+                                                elevando del 80% al 90% el porcentaje mínimo de giro directo de los recursos de la UPC
+                                                y de los presupuestos máximos para servicios no cubiertos por la UPC, aplicable a EPS
+                                                que estén en alguna medida de vigilancia especial, intervención o liquidación,
+                                                así como a aquellas que incumplan con el patrimonio adecuado o las que voluntariamente
+                                                decidan acogerse al giro directo. Se espera que esta medida contribuya a garantizar
+                                                un flujo transparente y oportuno de recursos a las IPS y proveedores de tecnologías
+                                                de salud.
+                                            </p>
+                                            <p class="pt-4">
+                                                Se espera que a partir de junio se inicie con la implementación de:
+                                            </p>
+                                            <p>
+                                                <strong class="fs-3">Decreto 0527 de 2025<sup>3</sup>:</strong> Actualiza normativas
+                                                para las EPS de los regímenes contributivo y subsidiado, redefiniendo requisitos
+                                                técnicos, financieros y administrativos para su operación. Además, establece
+                                                condiciones para la autorización especial y el retiro del régimen subsidiado,
+                                                buscando mayor eficiencia y control en el aseguramiento en salud.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección: Agenda legislativa -->
+                    <section class="my-5 py-5">
+                        <div class="container">
+                            <h2 class="text-uppercase fw-bolder fs-2 mb-5">Agenda legislativa</h2>
+                           <div class="row g-4 align-items-stretch" style="min-height: 100%;">
+                            <!-- Columna de la imagen -->
+                                <div class="col-12 col-md-5 d-flex p-0" style="height: 100%;">
+                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00073_Agenda_Legislativa.jpg"
+                                    alt="Informe de Situación de la Hemofilia"
+                                    class="h-100 object-fit-cover rounded-0"
+                                    style="object-fit: cover; width: 100%;">
+                            </div>
+
+                            <!-- Columna del texto -->
+                            <div class="col-12 col-md-7 fs-2 d-flex flex-column align-items-center justify-content-between" style="padding-left: 50px;">
+                                    <p>
+                                        En <strong>junio</strong> se espera que <strong>continúe el trámite legislativo de la
+                                        reforma a la salud en la Comisión Séptima del Senado</strong>, tras la finalización de
+                                        las mesas técnicas y las audiencias públicas convocadas por la coordinadora ponente, la
+                                        senadora Norma Hurtado. Se prevé que antes del 20 de junio se radique la ponencia para
+                                        el tercer debate del proyecto, con el fin de avanzar en su discusión.
+                                    </p>
+                                    <p>
+                                        Adicionalmente, se espera que antes de que finalice la actual legislatura, <strong>se dé
+                                        trámite a la nueva consulta popular en la plenaria del Senado<sup>4</sup></strong>. En la nueva
+                                        versión, se suman 4 preguntas sobre salud, centradas en: producción local de medicamentos,
+                                        eliminación de la intermediación de las EPS, fortalecimiento de la atención primaria y
+                                        creación de un régimen laboral especial para trabajadores del sector salud.
+                                    </p>
+                            </div>
+                        </div>
+
+                        </div>
+                    </section>
+
+                    <!-- Sección: Acciones en el sector salud -->
+                    <section class="py-5">
+                        <div class="container">
+                            <h2 class="text-uppercase fw-bolder fs-2 mb-4">Acciones en el sector salud</h2>
+                            <div class="fs-4 p-md-5 rounded-5" style="background-color: rgb(249, 249, 249);">
+                                <div id="cards"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección: Imágenes en dos columnas -->
+                    <section class="my-5 py-5">
+                        <div class="container">
+                            <div class="row justify-content-center g-4">
+                                <div class="col-12 col-md-5">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets\images\CO25UMA00073_Calendario_Junio.jpg" alt=""
+                                        class="img-fluid w-100 h-100 object-fit-contain">
+                                </div>
+                                <div class="col-12 col-md-5">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets\images\CO25UMA00073_Fechas_Junio.png" alt=""
+                                        class="img-fluid w-100 h-100 object-fit-contain">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección: Imagen única con fondo coloreado -->
+                    <section class="my-5 py-5" style="background-color: rgba(235, 235, 235, 1);">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-5 justify-content-center d-flex">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Logo_INNSIDER.png" alt="" class="img-fluid h-100 object-fit-cover"
+                                        style="width: 40%;">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección: Referencias -->
+                    <section class="my-5 py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-start fs-5">
+                                    <p class="fw-bolder">Referencias:</p>
+                                    <ol class="break-link">
+                                        <li class="my-3">
+                                            Ministerio de Salud. (2025). Proyecto de Decreto para la adopción del modelo de salud
+                                            preventivo, predictivo y resolutivo.
+                                            <a style="color: inherit;"
+                                            href="https://innsider.com.co/wp-content/uploads/2025/05/PROYECTO-DE-DECRETO-MODELO-DESALUD-25-04-25-1.pd/"
+                                                target="_blank">
+                                                https://innsider.com.co/wp-content/uploads/2025/05/PROYECTO-DE-DECRETO-MODELO-DESALUD-25-04-25-1.pd/
+                                            </a>
+                                        </li>
+                                        <li class="my-3">
+                                            Ministerio de Salud. (2025). Proyecto de resolución fija nuevos porcentajes mínimos de giro
+                                            directo UPC.
+                                            <a style="color: inherit;"
+                                            href="https://innsider.com.co/wp-content/uploads/2025/05/PD-Modifica%20Giro-Directo.pd/"
+                                                target="_blank">
+                                                https://innsider.com.co/wp-content/uploads/2025/05/PD-Modifica Giro-Directo.pd/
+                                            </a>
+                                        </li>
+                                        <li class="my-3">
+                                            Ministerio de Salud. (2025). Decreto 0527 de 2025.
+                                            <a style="color: inherit;"
+                                            href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=259876"
+                                                target="_blank">
+                                                https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=259876
+                                            </a>
+                                        </li>
+                                        <li class="my-3">
+                                            Ministerio del Interior (2025). Conozca las nuevas preguntas de la Consulta Popular
+                                            radicadas por el Gobierno nacional ante el Senado de la República.
+                                            <a style="color: inherit;"
+                                            href="https://www.mininterior.gov.co/noticias/conozca-las-nuevas-preguntas-dela-consulta-popular-radicadas-por-el-gobierno-nacional-ante-el-senado-de-la-republica/"
+                                                target="_blank">
+                                                https://www.mininterior.gov.co/noticias/conozca-las-nuevas-preguntas-dela-consulta-popular-radicadas-por-el-gobierno-nacional-ante-el-senado-de-la-republica/
+                                            </a>
+                                        </li>
+                                        <li class="my-3">
+                                            Corte Constitucional de Colombia. (2025). La Corte rechazó la solicitud de nulidad en contra
+                                            del Auto 007 de 2025 propuesta por el Ministerio de Salud y Protección Social.
+                                            <a style="color: inherit;"
+                                            href="https://www.corteconstitucional.gov.co/noticias/24197" target="_blank">
+                                                https://www.corteconstitucional.gov.co/noticias/24197
+                                            </a>
+                                        </li>
+                                        <li class="my-3">
+                                            Superintendencia de Salud. (2025). Supersalud insistió a las EPS intervenidas mejorar la
+                                            entrega oportuna y completa de los medicamentos a los usuarios del sistema de salud.
+                                            <a style="color: inherit;"
+                                            href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-insistio-a-las-EPS-intervenidas-mejorar-la-entrega-oportuna-y-completa-de-losmedicamentos-a-los-usuarios-del-sistema-de-salud"
+                                                target="_blank">
+                                                https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-insistio-a-las-EPS-intervenidas-mejorar-la-entrega-oportuna-y-completa-de-losmedicamentos-a-los-usuarios-del-sistema-de-salud
+                                            </a>
+                                        </li>
+                                        <li class="my-3">
+                                            Inicia InvimÁgil, herramienta digital que simplifica y agiliza los registros, permisos y
+                                            notificaciones sanitarias en el Invima | INVIMA. (2025).
+                                            <a style="color: inherit;"
+                                            href="https://www.invima.gov.co/sala-de-prensa/inicia-invimagil-herramienta-digital-quesimplifica-y-agiliza-los-registros-permisos"
+                                                target="_blank">
+                                                https://www.invima.gov.co/sala-de-prensa/inicia-invimagil-herramienta-digital-quesimplifica-y-agiliza-los-registros-permisos
+                                            </a>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sección: Código al pie -->
+                    <section class="py-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col fs-4 fw-bolder">
+                                    CO25UMA00073
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Script para generar las tarjetas dinámicamente -->
+                    <script>
+                        // Variable JSON de ejemplo
+                        const datos = [
+                            {
+                                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00073_Acciones_1.png",
+                                alt: "Informe de Situación de la Hemofilia",
+                                texto: "El Gobierno nacional deberá <strong>convocar nuevamente la mesa de trabajo de la UPC</strong> por solicitud de la Corte Constitucional<sup>5</sup>, ya que el alto tribunal determinó que a las mesas realizadas no se convocaron todos actores interesados y no se cumplió con la evaluación integral de suficiencia de la UPC ordenada en el Auto 007 de 2025."
+                            },
+                            {
+                                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00073_Acciones_2.png",
+                                alt: "Otro informe",
+                                texto: "Este mes, <strong>la Superintendencia de Salud anunció la implementación de una estrategia<sup>6</sup></strong> para enfrentar la crisis en el suministro de medicamentos basada en un modelo de compra directa con la industria farmacéutica. De acuerdo con la entidad, este modelo se estaría implementado únicamente en EPS intervenidas y busca extenderse a 56 patologías, entre ellas enfermedades raras, diabetes y hemofilia. Se espera que en los próximos meses el Gobierno revele más detalles sobre el alcance, el marco legal y los mecanismos de implementación de este modelo."
+                            },
+                            {
+                                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00073_Acciones_3.png",
+                                alt: "Tercer informe",
+                                texto: "El INVIMA puso en marcha INVIMAgil<sup>7</sup>, una plataforma para agilizar los trámites y control de autorizaciones de comercialización, como registros, permisos y notificaciones sanitarias. Actualmente, solo está disponible el módulo para alimentos y bebidas, sin embargo se espera que en los próximos meses se habilite el de medicamentos y productos biológicos."
+                            },
+                        ];
+
+                        let card = "";
+
+                        // Generar HTML dinámicamente
+                        datos.forEach((item, index) => {
+                            card += `
+                                <div class="my-5">
+                                    <div class="container">
+                                        <div class="row align-items-stretch g-4">
+                                            <!-- Imagen -->
+                                            <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
+                                                <img src="${item.imagen}" alt="${item.alt}" class="img-fluid object-fit-contain"
+                                                    style="width: 100%; height: 100%; object-fit: contain; max-width: 60% !important; max-height: auto !important;"
+                                                    media="(max-width: 767.98px)">
+                                            </div>
+
+                                            <!-- Texto con borde y padding -->
+                                            <div class="col-12 col-md-9">
+                                                <div class="h-100 p-4 rounded-5 container-border-text">
+                                                    <p class="fs-4 mb-0">
+                                                        ${item.texto}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        // Insertar el contenido en el DOM
+                        document.getElementById("cards").innerHTML = card;
+                    </script>
+                </div>
+
+                <?php elseif($currentPostId == 1178) : ?>
+                    
+                <div style="color:rgb(0, 24, 100);" class="fs-5">
+
+
+                    <section class="d-flex justify-content-center mt-5">
+                        <div class="container d-flex flex-column text-start  gap-4">
+                            <div>
+                                <picture>
+                                    <source
+                                        srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_banner_desktop.png"
+                                        media="(min-width: 768px)">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_banner_mobile.png"
+                                        alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                </picture>
+                            </div>
+                            <h3 class="fs-5 mt-5 fw-bolder">CONTEXTO</h3>
+                            <p class="fs-5 m-b">
+                                Colombia enfrenta una crisis en la dispensación de medicamentos<sup>2</sup>, lo que está afectando el acceso de
+                                los pacientes a tratamientos esenciales. La falta de financiamiento en el sistema de salud es uno de
+                                los principales factores que agravan la situación. En este contexto, el Gobierno Nacional ha
+                                adelantado acciones como: intervenciones de la Superintendencia de Salud a las bodegas de gestores
+                                farmacéuticos como Audifarma y anuncios de medidas como la compra directa de medicamentos entre las
+                                EPS y la industria farmacéutica para alivianar la crisis.
                             </p>
                         </div>
+                    </section>
+
+                    <section class="w-100 py-5 d-flex justify-content-center">
+                        <div class=" container rounded-5 p-4" style="background-color: rgb(255, 242, 240);">
+                            <h2 class="text-uppercase fw-bolder pb-5" style="font-family: 'Apis Bold';">Intervención del Gobierno <sup>1</sup></h2>
+
+                            <div class="d-flex flex-column flex-md-row g-4 align-items-start ">
+                                <div class="text-center ">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_phone.png"
+                                        alt="Informe de Situación de la Hemofilia" class="rounded" width="400px">
+                                </div>
+                                <div class="d-flex flex-column justify-content-between p-5 w-100">
+                                    <div>
+                                        <p class="mb-4">
+                                            En días pasados, el presidente Gustavo Petro, a través de X, señaló a los gestores
+                                            farmacéuticos
+                                            de duplicar los precios de los medicamentos y solicitó la realización de allanamientos en
+                                            las
+                                            bodegas donde presuntamente se estarían acaparando medicamentos. Ante esto, la fiscal
+                                            general,
+                                            Luz Adriana Camargo, aclaró que los allanamientos deben contar con la autorización de
+                                            fiscales y
+                                            jueces.
+                                        </p>
+                                        <p class="mb-4">
+                                            Sin embargo, el 21 de marzo, la Superintendencia de Salud llevó a cabo una auditoría en
+                                            Audifarma, donde encontró ocho medicamentos con suficiente stock que no habían sido
+                                            distribuidos
+                                            a los pacientes. Estos medicamentos, que incluían insulina y otros de alta demanda, estaban
+                                            clasificados como "pendientes", a pesar de que había unidades suficientes. Ante esto,
+                                            Audifarma
+                                            explicó que, al operar con una bodega centralizada que distribuye medicamentos a todo el
+                                            país,
+                                            es normal que algunos productos estén en proceso de recepción o despacho, lo que puede
+                                            ocasionar
+                                            la falta de existencias en algunas farmacias en ciertos momentos.
+                                        </p>
+                                        <p class="mb-4">
+                                            El superintendente, Giovanny Rubiano, calificó esta discrepancia como "incongruente",
+                                            cuestionando la gestión de los insumos. Esto generó dudas sobre la eficacia en la
+                                            distribución y
+                                            el abastecimiento de medicamentos esenciales.
+                                        </p>
+                                    </div>
+                                    <p class="text-break mt-3">
+                                        Tomado de: <a href="https://x.com/Supersalud/status/1903258780260872242" target="_blank"
+                                            style="color: inherit;text-decoration: none;">https://x.com/Supersalud/status/1903258780260872242</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="d-flex justify-content-center py-5">
+                        <div class="container d-flex flex-column text-start gap-4">
+                            <h2 class="text-uppercase fw-bolder" style="font-family: 'Apis Bold';">Consejo de Ministros (25 marzo) <sup>2</sup></h2>
+                            <p class="fs-5">
+                                Durante el Consejo de Ministros del 25 de marzo, que tuvo como tema central la situación de
+                                abastecimiento de medicamentos, el superintendente nacional de salud, Giovanny Rubiano, expuso las
+                                medidas que se implementarán para mejorar la entrega de medicamentos. Entre ellas se resaltan:
+                            </p>
+
+                            <!-- VERSIÓN ESCRITORIO: visible solo en md en adelante -->
+                            <div class="d-none d-md-flex justify-content-center">
+                                <div class="container text-white rounded-5 p-4 w-100" style="background-color: rgb(3, 52, 114);">
+                                    <div class="row">
+                                        <!-- Columna de íconos -->
+                                        <div class="col-md-3 d-flex flex-column align-items-center justify-content-around gap-1">
+                                            <img width="200px"
+                                                src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/NN_innsider_CO25UMA00037_Iconos_actores_del_sistema.png"
+                                                alt="icono 1">
+                                        </div>
+                                        <!-- Texto -->
+                                        <div class="col-md-9">
+                                            <div class="d-flex flex-column justify-content-around h-100 gap-1">
+                                                <p>Fortalecimiento de redes de prestación y puntos de dispensación, priorizando
+                                                    enfermedades raras y de alto costo</p>
+                                                <p>Negociación directa entre las EPS y la industria farmacéutica, reduciendo
+                                                    intermediarios en la cadena de abastecimiento.</p>
+                                                <p>Diversificación de gestores farmacéuticos. Se propone la entrada de 4-72 y Drogas La
+                                                    Rebaja para la distribución de medicamentos.</p>
+                                                <p>Ampliación de horarios de atención y cobertura geográfica de los dispensarios.</p>
+                                                <p>Implementación de mesas de crisis y seguimiento contractual periódico con gestores
+                                                    farmacéuticos.</p>
+                                                <p>Automatización de respuestas al PQR y uso de tecnología para mejorar tiempos de
+                                                    atención.</p>
+                                                <p>Eliminación de barreras administrativas y simplificación de procesos para pacientes
+                                                    vulnerables.</p>
+                                                <p>Intervenciones específicas por parte de las EPS en puntos críticos y seguimiento a
+                                                    casos sensibles como enfermedades huérfanas, tutelas y trasplantes.</p>
+                                                <p>Creación de comités de farmacovigilancia y equipos técnicos para seguimiento continuo
+                                                    de la red de servicios.</p>
+                                                <p>Estrategias de humanización, presencia en campo y mejora de canales de comunicación
+                                                    con los usuarios.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- VERSIÓN MÓVIL: visible solo en pantallas pequeñas -->
+                            <div class="d-flex flex-column d-md-none container text-white rounded-5 p-4 w-100"
+                                style="background-color: rgb(3, 52, 114);">
+                                <!-- Repite cada ítem con su imagen correspondiente -->
+                                <div
+                                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_1.png"
+                                        alt="icono 1" class="img-fluid" style="width: 300px;">
+                                    <p>Fortalecimiento de redes de prestación y puntos de dispensación, priorizando
+                                        enfermedades raras y de alto costo</p>
+                                    <p>Negociación directa entre las EPS y la industria farmacéutica, reduciendo
+                                        intermediarios en la cadena de abastecimiento.</p>
+                                </div>
+                                <div
+                                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_2.png"
+                                        alt="icono 2" class="img-fluid" style="width: 300px;">
+                                    <p>Diversificación de gestores farmacéuticos. Se propone la entrada de 4-72 y Drogas La
+                                        Rebaja para la distribución de medicamentos.</p>
+                                </div>
+                                <div
+                                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_3.png"
+                                        alt="icono 3" class="img-fluid" style="width: 300px;">
+                                    <p>Ampliación de horarios de atención y cobertura geográfica de los dispensarios.</p>
+                                    <p>Implementación de mesas de crisis y seguimiento contractual periódico con gestores
+                                        farmacéuticos.</p>
+                                </div>
+                                <div
+                                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_4.png"
+                                        alt="icono 3" class="img-fluid" style="width: 300px;">
+                                    <p>Automatización de respuestas al PQR y uso de tecnología para mejorar tiempos de
+                                        atención.</p>
+                                    <p>Eliminación de barreras administrativas y simplificación de procesos para pacientes
+                                        vulnerables.</p>
+                                </div>
+                                <div
+                                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_5.png"
+                                        alt="icono 3" class="img-fluid" style="width: 300px;">
+                                    <p>Intervenciones específicas por parte de las EPS en puntos críticos y seguimiento a
+                                        casos sensibles como enfermedades huérfanas, tutelas y trasplantes.</p>
+                                    <p>Creación de comités de farmacovigilancia y equipos técnicos para seguimiento continuo
+                                        de la red de servicios.</p>
+                                </div>
+                                <div
+                                    class="d-flex flex-column align-items-center justify-content-center col-12 mb-4 align-items-start gap-3">
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Iconos_actores_6.png"
+                                        alt="icono 3" class="img-fluid" style="width: 300px;">
+                                    <p>Estrategias de humanización, presencia en campo y mejora de canales de comunicación
+                                        con los usuarios.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <div class="d-flex flex-column  align-items-center">
+
+                        <section class="d-flex justify-content-center py-5">
+                            <div class="container d-flex flex-column text-start gap-4">
+                                <h2 class="text-uppercase fw-bolder text-center fs-2" style="font-family: 'Apis Bold';">Propuesta: Esquema de dispensación del Gobierno
+                                    Actual
+                                </h2>
+                                <div>
+                                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>\assets\images\NN_innsider_CO25UMA00037_Infografia.png"
+                                        alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="px-4 rounded-5" style="background-color: rgb(249, 249, 249);">
+
+                            <section class="d-flex justify-content-center py-5">
+                                <div class="container d-flex flex-column text-start gap-4">
+                                    <h2 class="text-uppercase fw-bolder text-start" style="font-family: 'Apis Bold';">Reacciones de diferentes actores del sistema</h2>
+
+                                    <div id="cards"></div>
+                                </div>
+                            </section>
+
+                        </section>
                     </div>
+
+                    <section class="d-flex justify-content-center my-5 p-4" style="background-color: rgb(255, 242, 240);">
+                        <div class="container d-flex flex-column text-start gap-4">
+                            <h2 class="text-uppercase fw-bolder text-start" style="font-family: 'Apis Bold';">Conclusión</h2>
+
+                            <p>En conclusión, la crisis en la distribución de medicamentos en Colombia es un reflejo de varios problemas
+                                estructurales que
+                                están afectando el sistema de salud. Las organizaciones de pacientes, a través de pronunciamientos
+                                oficiales, plantones y
+                                reclamos, han solicitado medidas de protección integral a los organismos de control y a la Corte
+                                Constitucional, por lo que su rol
+                                ha sido clave en este contexto.
+
+                            </p>
+                            <p>
+                                Es probable que en los próximos días las discusiones sobre la suficiencia de recursos y financiamiento
+                                del sistema se agudicen, al
+                                tiempo que el Gobierno podría intensificar las labores de inspección y vigilancia en otros gestores
+                                farmacéuticos.</p>
+                        </div>
+                    </section>
+
+                    <section class="d-flex justify-content-center my-5 p-4">
+                        <div class="container d-flex flex-column text-start fs-6">
+                            <p class="fw-bolder text-start">Fuentes:</p>
+                            <ol>
+                                <li class="my-3 text-break">
+                                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
+                                    Superintendencia Nacional de Salud.
+                                    <br>
+                                    <a style="color: inherit;"
+                                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
+                                        target="_blank">
+                                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
+                                    </a>
+                                </li>
+                                <li class="my-3 text-break">
+                                    Presidencia de la República - Colombia. (2025, 25 de marzo). [En vivo] Alocución presidencial -
+                                    Consejo de Ministros [Video]. YouTube.
+                                    <br>
+                                    <a style="color: inherit;" href="https://www.youtube.com/watch?v=90uRw4bgDA3" target="_blank">
+                                        https://www.youtube.com/watch?v=90uRw4bgDA3
+                                    </a>
+                                </li>
+                                <li class="my-3 text-break">
+                                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
+                                    Superintendencia Nacional de Salud.
+                                    <br>
+                                    <a style="color: inherit;"
+                                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
+                                        target="_blank">
+                                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
+                                    </a>
+                                </li>
+                                <li class="my-3 text-break">
+                                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
+                                    Superintendencia Nacional de Salud.
+                                    <br>
+                                    <a style="color: inherit;"
+                                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
+                                        target="_blank">
+                                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
+                                    </a>
+                                </li>
+                                <li class="my-3 text-break">
+                                    Supersalud revela detalles de auditoría espejo a Audifarma. (2025, 24 de marzo). Supersalud |
+                                    Superintendencia Nacional de Salud.
+                                    <br>
+                                    <a style="color: inherit;"
+                                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma"
+                                        target="_blank">
+                                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-revela-detalles-de-auditoria-espejo-a-audifarma
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                    </section>
+                    
+                        <section class="fw-bold mt-5">
+                        <p>CO25UMA00037</p>
+                    </section>
+
+                    <script>
+                        // Variable JSON de ejemplo
+                        const datos = [
+                            {
+                                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_1.png",
+                                alt: "Informe de Situación de la Hemofilia",
+                                titulo: "Defensoría del Pueblo:",
+                                texto: "Emitió un llamado³ urgente ante el aumento de quejas por el acceso a servicios de salud y medicamentos, pidiendo medidas inmediatas para resolver la crisis, como la creación de Puestos de Mando Unificados y la agilización de la entrega de medicamentos en las regiones más afectadas."
+                            },
+                            {
+                                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_2.png",
+                                alt: "Otro informe",
+                                titulo: "La procuradoría:",
+                                texto: "Implementó medidas preventivas frente a irregularidades en el suministro de medicamentos, como solicitar información, realizar inspecciones, emitir instrucciones obligatorias y vigilar a los operadores logísticos, además de evaluar posibles sanciones disciplinarias."
+                            },
+                            {
+                                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_3.png",
+                                alt: "La Superintendencia de Salud:",
+                                titulo: "La Superintendencia de Salud:",
+                                texto: " Anunció en su cuenta de X que lideró una mesa técnica para abordar la crisis de medicamentos en Nueva EPS, causada por la ruptura del contrato con Audifarma. Se priorizarán los pagos a las IPS, se reactivarán los servicios y se mejorará la atención, especialmente para pacientes con enfermedades raras y en alto riesgo."
+                            },
+                            {
+                                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_4.png",
+                                alt: "Audifarma: ",
+                                titulo: "Audifarma:",
+                                texto: "Explicó que las intermitencias en el abastecimiento de medicamentos se deben a una cartera pendiente de $4 billones con los gestores farmacéuticos. Aseguraron que su operación busca una distribución eficiente, pero señalaron que los faltantes temporales pueden ocurrir mientras algunos medicamentos están en proceso de recepción o despacho."
+                            },
+                            {
+                                imagen: "assets/images/NN_innsider_CO25UMA00037_Icono_ministros_5.png",
+                                alt: "El director del Invima:",
+                                titulo: "El director del Invima:",
+                                texto: "Explicó en una entrevista con W Radio<sup>5</sup> que el desabastecimiento afecta solo a la insulina NPH, no a la almacenada en Audifarma, y que los problemas no se deben a los registros sanitarios. Destacó que el Invima tiene mecanismos para garantizar la importación de medicamentos esenciales y criticó la politización de la situación."
+                            }
+                        ];
+
+                        let card = "";
+
+                        // Generar HTML dinámicamente
+                        datos.forEach(item => {
+                            card += `
+                                <div class="my-5">
+                                    <div class="row p-3 rounded-5 border border-5 border-white">
+                                        <div class="col-md-3 d-flex flex-column align-items-center justify-content-around gap-2 py-5">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/${item.imagen}" alt="${item.alt}" class="img-fluid" width="150px">
+                                        </div>
+                                        <div class="col-md-9 d-flex flex-column justify-content-center">
+                                            <p class="fs-5">
+                                                <strong>${item.titulo}</strong> ${item.texto}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        // Insertar el contenido en el DOM
+                        document.getElementById("cards").innerHTML = card;
+                    </script>
+
+
                 </div>
-            `;
-        });
-
-        // Insertar el contenido en el DOM
-        document.getElementById("cards").innerHTML = card;
-    </script>
-
-
-</div>
-
 
 
                 <?php else: ?>

@@ -3960,10 +3960,10 @@ $titlePostId = get_the_title();
                             <h2 class="text-uppercase fw-bolder fs-2 mb-5">Agenda legislativa</h2>
                            <div class="row g-4 align-items-stretch" style="min-height: 100%;">
                             <!-- Columna de la imagen -->
-                                <div class="col-12 col-md-5 d-flex p-0" style="height: 100%;">
+                            <div class="col-12 col-md-5 d-flex p-0" style="height: 100%;">
                                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00073_Agenda_Legislativa.jpg"
                                     alt="Informe de Situación de la Hemofilia"
-                                    class="h-100 object-fit-cover rounded-0"
+                                    class="h-100 object-fit-cover rounded-0 imagen-recortada-movil"
                                     style="object-fit: cover; width: 100%;">
                             </div>
 
@@ -4142,11 +4142,10 @@ $titlePostId = get_the_title();
                                     <div class="container">
                                         <div class="row align-items-stretch g-4">
                                             <!-- Imagen -->
-                                            <div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
-                                                <img src="${item.imagen}" alt="${item.alt}" class="img-fluid object-fit-contain"
-                                                    style="width: 100%; height: 100%; object-fit: contain; max-width: 60% !important; max-height: auto !important;"
-                                                    media="(max-width: 767.98px)">
-                                            </div>
+<div class="col-12 col-md-3 d-flex align-items-center justify-content-center">
+    <img src="${item.imagen}" alt="${item.alt}" 
+         class="img-fluid object-fit-contain w-25 w-md-75">
+</div>
 
                                             <!-- Texto con borde y padding -->
                                             <div class="col-12 col-md-9">

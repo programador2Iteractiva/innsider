@@ -140,9 +140,9 @@ $listCategoriesTrends = get_terms(
             $currentTermID = ($terms && !is_wp_error($terms)) ? $terms[0]->term_id : null;
             ?>
 
-            <div class="col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 col-xxxl-6 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
+            <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
                 <a href="<?= $thePermalink . '?tax=' . $currentTermID; ?>" onclick="saveLogsClick('Clic en tarjeta <?= the_title(); ?>');" class="w-100">
-                    <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-start align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-end align-items-center flex-column'; ?>">
+                    <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-center align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-center align-items-center flex-column'; ?>">
                         <div class="col-10 col-lg-11">
                             <div class="mb-4 figure">
                                 <?php if ($imgPostTrend) :  ?>
@@ -168,6 +168,7 @@ $listCategoriesTrends = get_terms(
                     </div>
                 </a>
             </div>
+            
             <?php $counter++; ?>
         <?php endwhile; ?>
     <?php endif ?>

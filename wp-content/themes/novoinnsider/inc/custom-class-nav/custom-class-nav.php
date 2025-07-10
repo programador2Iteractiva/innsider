@@ -73,9 +73,9 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
 	  $active_class   = ($item->current || $item->current_item_ancestor || in_array("current_page_parent", $item->classes, true) || in_array("current-post-ancestor", $item->classes, true)) ? 'active' : '';
 	  $nav_link_class = ($depth > 0) ? 'dropdown-item ' : 'nav-link ';
   
-	  if ($args->walker->has_children) {
+	  if ($args->walker->has_children && $depth === 0) {
 		  // CSDEV added data-bs-auto-close
-		  $attributes .=  ' class="' . $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false"';
+		  $attributes .=  ' class="' . $nav_link_class . $active_class . '"';
 	  }
 	  else {
 		  $attributes .=  ' class="' . $nav_link_class . $active_class . '"';

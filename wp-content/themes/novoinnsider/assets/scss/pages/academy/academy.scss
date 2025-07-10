@@ -481,17 +481,17 @@
     }
 
     @include media-breakpoint-up(xl) {
-        height: 390px;
+        height: 220px;
         width: 100%;
     }
 
     @include media-breakpoint-up(xxl) {
-        height: 410px;
+        height: 230px;
         width: 100%;
     }
 
     @include media-breakpoint-up(xxxl) {
-        height: 410px;
+        height: 235px;
         width: 100%;
     }
 }

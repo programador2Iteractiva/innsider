@@ -3253,6 +3253,336 @@ $titlePostId = get_the_title();
 
                         <?php endif; ?>
 
+                        <?php if ($postActivityId && $postActivityId == 1209): ?>
+<div style="color:rgb(0, 24, 100);" class="fs-5">
+    <section class="d-flex justify-content-center mt-5 mb-5 pb-5">
+        <div class="">
+            <div class="position-relative">
+
+                <picture class="d-block mx-auto position-relative z-1"  style="width: 85%;" >
+                    <source srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Banner_Desktop_2078x735.png"
+                        media="(min-width: 900px)">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Banner_Mobile_800x500.png"
+                        alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                </picture>
+
+                <div class="position-absolute w-100 h-75 top-50 start-50 translate-middle-x"
+                    style="background-color: rgba(233, 243, 243, 1);"></div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="w-100 py-5 d-flex justify-content-center">
+        <div class=" container rounded-5 p-4">
+            <h2 class="fw-bolder pb-5 text-center text-md-start" style="color: rgba(0, 141, 212, 1);">Autoriza Acuerdo
+            </h2>
+            <p>
+                La Superintendencia de Industria y Comercio (SIC) autorizó mediante la <strong> Resolución 35379 de
+                    2025<sup>1</sup></strong> que las
+                nueve EPS intervenidas realicen negociaciones conjuntas de medicamentos con la industria farmacéutica.
+                Aunque la negociación será colectiva, cada EPS firmará sus propios contratos y asumirá individualmente
+                el pago y la distribución según lo pactado.
+            </p>
+        </div>
+    </section>
+
+    <section class="w-100 my-5 d-flex justify-content-center" style="background-color: rgba(246, 246, 246, 1);">
+        <div class="container p-m-4 py-5">
+            <div class="d-flex flex-column flex-md-row g-4 align-items-stretch">
+                <div class="d-flex align-items-center w-100 justify-content-center">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Tarjeta_interna_Desktop_684x522.png"
+                        alt="Informe de Situación de la Hemofilia" class="img-fluid w-75">
+                </div>
+                <div class="d-flex flex-column justify-content-between p-5 w-100">
+                    <h2 class="fw-bolder pb-5" style="color: rgba(0, 141, 212, 1);">Contexto y
+                        antecedentes:</h2>
+                    <p class="mb-4 p-m-6">
+                        Previamente, el superintendente de salud, Giovanny Rubiano, solicitó a las 3 de las 9 EPS
+                        intervenidas (Nueva EPS, Famisanar y Sanitas) a buscar soluciones para garantizar la entrega
+                        oportuna de medicamentos. Como respuesta, se comenzó a implementar la contratación directa con
+                        laboratorios para tratar enfermedades de alto costo. Aunque estas iniciativas ya se adelantaban
+                        en las 3 EPS mencionadas anteriormente, no se conoce detalle de estos acuerdos, ni se habían
+                        expedido lineamientos para su ejecución.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-100 py-3 d-flex justify-content-center">
+        <div class=" container rounded-5 p-1 text-center">
+            <h2 class="fw-bolder pb-5" style="color: rgba(0, 141, 212, 1);"><span
+                    style="color: rgba(0, 25, 101, 1);">Despliegue las</span> información
+                completa.</h2>
+            <a href="https://tturl.co/zznNOJ">
+                <button class="rounded-5 px-5 py-3 text-white fw-bold"
+                    style="background-color: rgba(0, 25, 101, 1) ;">Leer
+                    el Decreto
+                    completo</button>
+            </a>
+        </div>
+    </section>
+
+    <section class="w-100 d-flex justify-content-center">
+        <div class=" container rounded-5 p-2 text-center">
+            <h2 class="text-uppercase fw-bolder pb-5 display-6" style="color: rgba(0, 25, 101, 1);">
+                Etapas de <br> implementación del modelo
+            </h2>
+
+            <p style="color: rgba(0, 141, 212, 1);" class="fw-bold fs-3">La Resolución establece que las negociaciones
+                se harán en tres etapas:</p>
+        </div>
+    </section>
+
+    <section class="w-100 my-5 d-flex justify-content-center  " style="background-color: rgba(235, 159, 129, 0.29);">
+        <div class="container d-flex flex-column text-start gap-4 py-5">
+            <div id="cards"></div>
+        </div>
+    </section>
+
+    <section class="w-100 py-5 d-flex justify-content-center">
+        <div class=" container rounded-5 p-4">
+            <h2 class="fw-bolder pb-5 text-md-start text-center" style="color: rgba(0, 141, 212, 1);">Principales
+                cambios:</h2>
+
+            <div class="d-flex align-items-center w-100 justify-content-center">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Tabla_1.png" alt="Informe de Situación de la Hemofilia"
+                    class="img-fluid w-100">
+            </div>
+        </div>
+    </section>
+
+    <section class="w-100 py-5 d-flex justify-content-center">
+        <div class=" container rounded-5 p-4 text-center">
+            <h2 class="fw-bolder pb-5 fs-1" style="color: rgba(0, 141, 212, 1);">¿Qué funciones desempeñan los actores?
+            </h2>
+
+            <div class="d-flex align-items-center w-100 justify-content-center">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Tabla_2.png" alt="Informe de Situación de la Hemofilia"
+                    class="img-fluid w-100">
+            </div>
+        </div>
+    </section>
+
+    <section class="w-100 py-3 d-flex justify-content-center ">
+        <div class="container d-flex flex-column text-start  text-center fw-bold display-4">
+            <p class="p">
+                MONITOREO Y
+            </p>
+
+        </div>
+    </section>
+    <section class="w-100 py-3 d-flex justify-content-center" style="background-color: rgba(235, 159, 129, 0.29);">
+        <div class="container d-flex flex-column text-start  text-center fw-bold display-4">
+            <div class="container d-flex flex-column text-start text-center">
+                SUPERVISIÓN DE LOS ACUERDOS
+                <div class="d-flex align-items-center w-100 justify-content-center">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Flecha.png" alt="Informe de Situación de la Hemofilia"
+                        class="img-fluid" width="150px">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-100 py-5 d-flex justify-content-center ">
+        <div class="container d-flex flex-column text-start gap-4 py-5">
+            <p>La Dirección de Cumplimiento de la Superintendencia de Industria y Comercio ejercerá funciones de
+                vigilancia y control específicas durante la ejecución del acuerdo:</p>
+            <div id="2cards"></div>
+        </div>
+    </section>
+
+    <section class="w-100 d-flex justify-content-center">
+        <div class=" container rounded-5 p-4">
+            <h2 class="fw-bolder pb-5 ">Regulación y vigilancia del
+                mercado:</h2>
+
+            <ul>
+                <li>Las EPS deben garantizar que los precios sean transparentes, razonables y no discriminatorios.</li>
+                <li>La SIC reitera que el incumplimiento de los términos del acuerdo será sancionado y no se autoriza
+                    ningún comportamiento que haya sido previamente sancionado o investigado por prácticas
+                    anticompetitivas.</li>
+            </ul>
+
+            <h2 class="fw-bolder pb-5 ">Duración del acuerdo:</h2>
+
+            <ul>
+                <li>El acuerdo de compra directa tendrá una duración inicial de 1 año, contado a partir de la firma del
+                    primer contrato de adquisición de tecnologías en salud y podrá ser prorrogado por otro año
+                    adicional, previa evaluación de la SIC.</li>
+                <li>La Resolución surte efectos desde su expedición, lo que significa que aplica inmediatamente a la
+                    fase de negociación conjunta.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="w-100 py-5 d-flex justify-content-center">
+        <div class=" container rounded-5 p-4 text-center">
+            <h2 class="fw-bolder pb-5" style="color: rgba(0, 141, 212, 1);">Lea el Decreto completo</h2>
+
+            <a href="https://tturl.co/zznNOJ">
+                <button class="rounded-5 px-5 py-3 text-white fw-bold"
+                    style="background-color: rgba(0, 25, 101, 1) ;">Leer
+                    el Decreto
+                    completo</button>
+            </a>
+        </div>
+    </section>
+
+    <section class="my-5 py-5" style="background-color: rgba(235, 235, 235, 1);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-5 justify-content-center d-flex">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Logo_INNSIDER.png" alt="" class="img-fluid h-100 object-fit-cover"
+                        style="width: 60%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container fw-bold mt-5 fs-6 px-4">
+        <p>CO25UMA00037</p>
+    </div>
+
+    <section class="d-flex justify-content-center my-5 p-4">
+        <div class="container d-flex flex-column text-start fs-5">
+            <p class="fw-bolder text-start fs-md-3 fs-6">Referencias:</p>
+            <ol>
+                <li class="my-3 text-break">
+                    [Resolución 35379 de 2025] Por la cual se autoriza un acuerdo en aplicación del parágrafo único del
+                    artículo 1 de la ley 155 de 1959. (2025, 11 junio) Superintendencia de Industria y
+                    Comercio.
+                    <a style="color: inherit;"
+                        href=" https://innsider.com.co/wp-content/uploads/2025/06/Resolucion-SIC-compra-medicamentos.pdf"
+                        target="_blank">
+                         https://innsider.com.co/wp-content/uploads/2025/06/Resolucion-SIC-compra-medicamentos.pdf
+                    </a>
+                </li>
+                <li class="my-3 text-break">
+                    Supersalud insistió a las EPS intervenidas mejorar la entrega oportuna y completa de los
+                    me-dicamentos a los usuarios del Sistema de Salud. (2025, 7 de mayo). Supersalud | Superin-tendencia
+                    Nacional de Salud. 
+                    <br>
+                    <a style="color: inherit;"
+                        href="https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-insistio-a-las-EPS-intervenidas-mejorar-la-entrega-oportuna-y-completa-de-los-medicamentos-a-los-usuarios-del-sistema-de-salud"
+                        target="_blank">
+                        https://www.supersalud.gov.co/es-co/Noticias/listanoticias/supersalud-insistio-a-las-EPS-intervenidas-mejorar-la-entrega-oportuna-y-completa-de-los-medicamentos-a-los-usuarios-del-sistema-de-salud
+                    </a>
+                </li>
+                <p>*APME: Alimentos para Propósitos Médicos Especiales.</p>
+            </ol>
+        </div>
+    </section>
+
+    <script>
+        const datos = [
+            {
+                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Numero_1.png",
+                alt: "Primera etapa:",
+                titulo: "Primera etapa:",
+                texto: "Para medicamentos de alto costo (para enfermedades raras o crónicas graves)."
+            },
+            {
+                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Numero_2.png",
+                alt: "Segunda etapa:",
+                titulo: "Segunda etapa:",
+                texto: "Para dispositivos médicos (como pañales desechables) y APME*."
+            },
+            {
+                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Numero_3.png",
+                alt: "Tercera etapa:",
+                titulo: "Tercera etapa:",
+                texto: "Para medicamentos genéricos o de bajo costo."
+            }
+        ];
+
+        let card = "";
+
+        // Generar HTML dinámicamente
+        datos.forEach(item => {
+            card += `
+                                            <div>
+                                                <div class="row p-3 rounded-5 align-items-center">
+                                                    <div class="col-3 d-flex flex-column align-items-center justify-content-around">
+                                                        <img src="${item.imagen}" alt="${item.alt}" class="img-fluid">
+                                                    </div>
+                                                    <div class="col-9 d-flex flex-column justify-content-center">
+                                                        <h3 class="fs-4">
+                                                            <strong>${item.titulo}</strong> 
+                                                        </h3>
+                                                        <p class="fs-5">
+                                                            ${item.texto}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `;
+        });
+
+        // Insertar el contenido en el DOM
+        document.getElementById("cards").innerHTML = card;
+    </script>
+
+    <script>
+        // Variable JSON de ejemplo
+        const datos2 = [
+            {
+                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Icono_1.png",
+                alt: "Negociación en bloque y compras individuales:",
+                titulo: "Negociación en bloque y compras individuales:",
+                texto: "La SIC se encargará de vigilar que las compras se realicen de acuerdo con el esquema aprobados (negociación conjunta y adquisición individual)."
+            },
+            {
+                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Icono_2.png",
+                alt: "Indicadores de cumplimiento en la entrega de tecnologías en salud:",
+                titulo: "Indicadores de cumplimiento en la entrega de tecnologías en salud:",
+                texto: "Evaluará si los pacientes están recibiendo efectivamente los medicamentos y dispositivos."
+            },
+            {
+                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Icono_3.png",
+                alt: "Medición de reducción de precios:",
+                titulo: "Medición de reducción de precios:",
+                texto: "Se evaluarán las eficiencias obtenidas en el costo de los insumos adquiridos."
+            },
+            {
+                imagen: "<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00085_Icono_4.png",
+                alt: "Reportes obligatorios:",
+                titulo: "Reportes obligatorios:",
+                texto: "Las EPS deberán remitir información periódica sobre indicadores financieros, de oportunidad y de eficiencia. Dentro de estos reportes, se encargará de monitorear la gestión y respuesta a Peticiones, Quejas, Reclamos y Sugerencias de los usuarios relacionadas con el acceso a tecnologías en salud, como parte de la medición de calidad y oportunidad."
+            }
+        ];
+
+        let card2 = "";
+
+        // Generar HTML dinámicamente
+        datos2.forEach(item => {
+            card2 += `
+                                            <div>
+                                                <div class="row rounded-5 text-start">
+                                                    <div class="col-md-3 d-flex flex-column align-items-center justify-content-around gap-2 py-4">
+                                                        <img src="${item.imagen}" alt="${item.alt}" class="img-fluid" width="150px">
+                                                    </div>
+                                                    <div class="col-md-9 d-flex flex-column justify-content-center">
+                                                        <h3 class="fs-3" style="color: rgba(0, 141, 212, 1);">
+                                                            <strong>${item.titulo}</strong> 
+                                                        </h3>
+                                                        <p class="fs-4">
+                                                            ${item.texto}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `;
+        });
+
+        // Insertar el contenido en el DOM
+        document.getElementById("2cards").innerHTML = card2;
+    </script>
+
+</div>
+                        <?php endif; ?>
+
                         <?php if ($postActivityId && $postActivityId == 1158): ?>
                             <section class="d-flex justify-content-center header">
                                 <div class="text-center">
@@ -4629,7 +4959,7 @@ $titlePostId = get_the_title();
                                         <source
                                             srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00068_Banner.png"
                                             media="(min-width: 768px)">
-                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00068_Banner.png"
+                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00068_Banner_mobile.png"
                                             alt="Reajuste al Giro Directo" class="img-fluid w-100">
                                     </picture>
                                 </div>
@@ -4854,6 +5184,163 @@ $titlePostId = get_the_title();
                         </script>
 
                     </div>
+
+                <?php elseif ($currentPostId == 1205): ?>
+                    <body style="color:rgb(0, 24, 100);" class="fs-5">
+
+                        <section class="d-flex justify-content-center mt-5">
+                            <div class="container d-flex flex-column text-start  gap-4">
+                                <div>
+                                    <picture>
+                                        <source srcset="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Recurso_18_Banner@2x.png" media="(min-width: 768px)">
+                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_banner_movile.jpg" alt="Reajuste al Giro Directo"
+                                            class="img-fluid w-100">
+                                    </picture>
+                                </div>
+                                <p class="pb-5 text-md-start text-center fs-3" style="color: rgba(114, 114, 114, 1);">El Ministerio de Salud publicó un proyecto
+                                    de decreto que busca adoptar el
+                                    Modelo preventivo, predictivo y resolutivo de salud como política nacional. Esta medida había sido
+                                    anunciada en abril de 2025, tras el hundimiento de la primera reforma a la salud en la Comisión Séptima
+                                    de Senado con el objetivo de implementar algunas disposiciones vía ejecutiva. En este sentido, el
+                                    presente Decreto recoge gran parte de la propuesta de Reforma a la Salud. </p>
+                            </div>
+                        </section>
+
+                        <section class="d-flex justify-content-center mt-5">
+                            <div class="container d-flex flex-column text-start  gap-4">
+                                <h2 class="text-uppercase fw-bolder pb-5 fs-1">Puntos principales</h2>
+                                <div class="row gap-5">
+                                    <div class="col-12 col-md">
+                                        <div class="row m-1">
+                                            <div class="text-center">
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Bullet_1.png"
+                                                    alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                            </div>
+                                        </div>
+                                        <div class="row m-1">
+                                            <div class="text-center">
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Bullet_2.png"
+                                                    alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md">
+                                        <div class="row m-1">
+                                            <div class="text-center">
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Bullet_3.png"
+                                                    alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                            </div>
+                                        </div>
+                                        <div class="row m-1">
+                                            <div class="text-center">
+                                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Bullet_4.png"
+                                                    alt="Informe de Situación de la Hemofilia" class="img-fluid w-100">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="d-flex justify-content-center mt-5">
+                            <div class="container d-flex flex-column text-start  gap-4">
+                                <h2 class="text-uppercase fw-bolder pb-5 fs-1">Contenido del proyecto de decreto</h2>
+                                <div class="row gap-2 align-items-stretch">
+                                    <div class="d-flex flex-column col-12 col-md gap-5">
+                                        <div class="d-flex justify-content-center align-items-center flex-grow-1 p-2">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Cuadro_Texto_1.png"
+                                                alt="Informe de Situación de la Hemofilia" class="img-fluid w-100 object-fit-contain">
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center flex-grow-1 p-2">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Cuadro_Texto_3.png"
+                                                alt="Informe de Situación de la Hemofilia" class="img-fluid w-100 object-fit-contain">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column col-12 col-md gap-5">
+                                        <div class="d-flex justify-content-center align-items-center flex-grow-1 p-2">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Cuadro_Texto_2.png"
+                                                alt="Informe de Situación de la Hemofilia" class="img-fluid w-100 object-fit-contain">
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center flex-grow-1 p-2">
+                                            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Cuadro_Texto_4.png"
+                                                alt="Informe de Situación de la Hemofilia" class="img-fluid w-100 object-fit-contain">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="w-100 py-5 d-flex justify-content-center">
+                            <div class="container d-flex flex-column text-start gap-5 p-5 rounded-5 "
+                                style="background-color: rgba(0, 25, 101, 1);">
+                                <p class="fs-3 text-white px-md-5">Se establece un <span class="fw-bold">período de transición máximo de un
+                                        año</span> para que
+                                    todos los actores del sistema adapten su operación a este modelo, con apoyo técnico del Ministerio de
+                                    Salud.</p>
+                            </div>
+                        </section>
+
+                        <section class="w-100 py-5 d-flex justify-content-center">
+                            <div class="container d-flex flex-column text-start gap-4">
+                                <h2 class="text-uppercase fw-bolder text-start fs-1">Tiempos para la reglamentación de las disposiciones del
+                                    Proyecto de Decreto</h2>
+                                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/CO25UMA00076_Tabla_1.png" alt="Informe de Situación de la Hemofilia"
+                                    class="img-fluid w-100 object-fit-contain">
+                            </div>
+                        </section>
+
+                        <section class="w-100 py-5 d-flex justify-content-center">
+                            <div class="container d-flex flex-column text-start gap-5 p-5">
+                                <h2 class="text-uppercase fw-bolder text-star fs-1">Conclusión</h2>
+
+                                <p class="fs-3 text-md-start text-center" style="color: rgba(114, 114, 114, 1);">El Modelo Preventivo, Predictivo y Resolutivo de
+                                    Salud se basa en la Atención Primaria en Salud, en el cual las entidades territoriales asumirían un rol
+                                    más predominante en la coordinación y gestión de la salud. De igual manera, se busca crear varias
+                                    instancias de gobernanza a nivel territorial para la formulación y ejecución de las políticas públicas y
+                                    los programas de atención. El modelo plantea la estructuración de unas subregiones en salud en las que
+                                    operarían redes integrales e integradas de servicios de salud. La transición hacia el nuevo modelo se
+                                    hará en un periodo de un año y contará con diversas fuentes de financiamiento públicas y
+                                    complementarias. Así mismo, para la regulación de las disposiciones de este proyecto de acto
+                                    administrativo se proyecta un periodo de 6 meses a 1 año.</p>
+                            </div>
+                        </section>
+
+                        <section class="my-5 py-5" style="background-color: rgba(235, 235, 235, 1);">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-md-5 justify-content-center d-flex">
+                                        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/Logo_INNSIDER.png" alt="" class="img-fluid h-100 object-fit-cover"
+                                            style="width: 60%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="d-flex justify-content-center my-5 p-4">
+                            <div class="container d-flex flex-column text-start fs-3">
+                                <p class="fw-bolder text-start">Referencias:</p>
+                                <ol>
+                                    <li class="my-3 text-break">
+                                        Prospectiva PublicAffairs LAT.AM. (2025). Análisis del Proyecto de Decreto del Modelo preventivo,
+                                        predictivo y resolutivo de salud
+                                    </li>
+                                    <li class="my-3 text-break">
+                                        Ministerio de Salud. (2025). Proyecto de Decreto para la adopción del modelo de salud preventivo,
+                                        predictivo y resolutivo.<a style="color: inherit;""
+                                            href="
+                                            https://innsider.com.co/wp-content/uploads/2025/06/PROYECTO-DE-DECRETO-MODELO-DE-SALUD-25-04-25-1.pdf "
+                                            target=" _blank">
+                                            https://innsider.com.co/wp-content/uploads/2025/06/PROYECTO-DE-DECRETO-MODELO-DE-SALUD-25-04-25-1.pdf
+                                        </a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </section>
+
+                        <section class="container fw-bold p-4">
+                            <p>CO25UMA00076</p>
+                        </section>
+                    </body>
 
                 <?php else: ?>
                     <?php if (isset($ifPostTrendWithDiferentOptions) && !empty($ifPostTrendWithDiferentOptions)): ?>

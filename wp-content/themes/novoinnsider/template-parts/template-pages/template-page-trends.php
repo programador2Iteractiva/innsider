@@ -140,34 +140,33 @@ $listCategoriesTrends = get_terms(
             $currentTermID = ($terms && !is_wp_error($terms)) ? $terms[0]->term_id : null;
             ?>
 
-            <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex flex-column justify-content-center align-items-center card-category-academy m-0 p-0 mt-3 mb-3 pb-3 ">
-                <a href="<?= $thePermalink . '?tax=' . $currentTermID; ?>" onclick="saveLogsClick('Clic en tarjeta <?= the_title(); ?>');" class="w-100">
-                    <div class="<?= ($counter % 2 === 0) ? 'd-flex justify-content-center align-items-lg-center align-items-center flex-column' : 'd-flex justify-content-center align-items-lg-center align-items-center flex-column'; ?>">
-                        <div class="col-10 col-lg-11">
-                            <div class="mb-4 figure">
-                                <?php if ($imgPostTrend) :  ?>
-                                    <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill']); ?>
-                                <?php endif ?>
-                            </div>
-                            <div class="col-12 d-flex w-100">
-                                <div class="col-12 d-flex">
-                                    <div class="col h-100">
-                                        <div class="d-flex justify-content-start align-items-start flex-column">
-                                            <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
-                                            <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="col d-flex justify-content-center align-items-start">
-                                        <div class="w-75">
-                                            <div class="w-100 p-2 mb-2 btn-view-more">Ver más</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+         <div class="col-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3 col-xxxl-3 d-flex mt-3 mb-3">
+    <div class="card-category-academy d-flex flex-column w-100 p-0">
+        
+        <a href="<?= $thePermalink . '?tax=' . $currentTermID; ?>" onclick="saveLogsClick('Clic en tarjeta <?= the_title(); ?>');" class="text-decoration-none d-flex flex-column flex-grow-1">
+
+            <div class="mb-4 figure">
+                <?php if ($imgPostTrend) : ?>
+                    <?php echo wp_get_attachment_image($imgPostTrend, 'full', '', ['style' => 'object-fit: fill; width: 100%;']); ?>
+                <?php endif; ?>
             </div>
+
+            <div class="px-3 pb-3 d-flex flex-column flex-grow-1">
+                
+
+                <div class="mb-3">
+                    <h5 class="NotoSans-Bold title-color"><?= the_title(); ?></h5>
+                    <p class="description-color NotoSans-Regular"><?= $subtitlePostTrend; ?></p>
+                </div>
+                
+                  <div class="mt-auto ">
+                    <div class="w-100 p-2 btn-view-more text-center">Ver más</div>
+                </div>
+
+            </div>
+        </a>
+    </div>
+</div>
             
             <?php $counter++; ?>
         <?php endwhile; ?>

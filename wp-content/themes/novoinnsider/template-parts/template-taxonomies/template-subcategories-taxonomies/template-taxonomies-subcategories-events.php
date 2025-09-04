@@ -285,6 +285,11 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                     font-weight: bold;
                 }
 
+                .titulo-conferencistas {
+                    font-size: 4rem;
+                    color: #001964;
+                }
+
                 /* ===== Media Queries para manejo responsive ===== */
 
                 /* Pantallas pequeñas (teléfonos) */
@@ -312,6 +317,10 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 
                     .q-subtitle {
                         font-size: 1rem;
+                    }
+
+                    .titulo-conferencistas {
+                        font-size: 2rem;
                     }
                 }
 
@@ -342,6 +351,11 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 
             <div class="accs-wrap">
                 <div id="<?php echo $ACC_ID; ?>" class="accs-accordion" role="tablist">
+
+                    <div class="text-center m-3 titulo-conferencistas">
+                        <p class="m-0">Los conferencistas</p>
+                        <p class="fw-bold m-0">responden sus preguntas</p>
+                    </div>
 
                     <!-- ITEM 1 -->
                     <article class="accs-item" data-id="carlos">
@@ -485,7 +499,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                         </button>
                         <div class="accs-panel" id="<?php echo $ACC_ID; ?>_panel_carlos" role="region"
                             aria-labelledby="<?php echo $ACC_ID; ?>_header_carlos">
-                            <div class="mb-4 justify-content-center d-flex-column" style="padding: 7rem;">
+                            <div class="mb-4 justify-content-center d-flex-column">
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">1.</span>
                                     <div class=" fw-bold q-subtitle">¿Cómo ha influido la globalización en la adaptación <br />
@@ -549,7 +563,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                         </button>
                         <div class="accs-panel" id="<?php echo $ACC_ID; ?>_panel_carlos" role="region"
                             aria-labelledby="<?php echo $ACC_ID; ?>_header_carlos">
-                            <div class="mb-4 justify-content-center d-flex-column" style="padding: 7rem;">
+                            <div class="mb-4 justify-content-center d-flex-column">
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">1.</span>
                                     <div class=" fw-bold q-subtitle">¿Cómo han manejado la adherencia de los <br />

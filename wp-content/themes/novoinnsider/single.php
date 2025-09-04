@@ -3131,10 +3131,9 @@ $titlePostId = get_the_title();
                                 <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy); ?>
 
                                 <div class="container background-single-init pt-2 px-5">
-                                    <?php var_dump($postActivityId) ?>
                                     <div class="mt-4">
                                         <?php if (isset($titleModuleAcademy) && !empty($titleModuleAcademy)): ?>
-                                            <h3 class="NotoSans-Bold title-color"><?= esc_html($titleModuleAcademy); ?></h3>
+                                            <h3 class="NotoSans-Bold title-color fs-1"><?= esc_html($titleModuleAcademy); ?></h3>
                                         <?php endif; ?>
 
                                         <?php if (isset($descriptionModuleAcademy) && !empty($descriptionModuleAcademy)): ?>
@@ -3143,7 +3142,7 @@ $titlePostId = get_the_title();
                                     </div>
                                 </div>
 
-                                <div class="container third-background-taxonomy mt-lg-5 mt-4 p-5 pb-lg-5 pb-1">
+                                <div class="container third-background-taxonomy mt-lg-5 mt-4 p-5 pb-lg-5 pb-1 ">
                                     <div class="container banner-single preview-video"
                                         onclick="playVideo(<?= $moduleId ?>, '<?= $urlModuleAcademy ?>', event, 'preview-video')">
                                         <?php if (isset($thumbnailUrl) && !empty($thumbnailUrl)): ?>
@@ -3158,7 +3157,7 @@ $titlePostId = get_the_title();
                                         <div class="wrapper-single"></div>
                                     </div>
 
-                                    <div class="player-video banner-single " id="player"></div>
+                                    <div class="player-video banner-single" id="player"></div>
                                     <div class="container mt-lg-4">
                                         <div class="row m-0 p-0">
                                             <?php if (isset($titleVideoContentMod) && !empty($titleVideoContentMod)): ?>

@@ -93,7 +93,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                     <h5 class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-none d-lg-block mx-0 p-0">
                         <?= $subDescriptioonCategory; ?>
                     </h5>
-                    <p class="NotoSans-SemiBold description-color line-height-2 text-align-justify d-block d-lg-none mx-0 p-0">
+                    <p class="NotoSans-SemiBold description-color  text-align-justify d-block d-lg-none mx-0 p-0 ">
                         <?= $subDescriptioonCategory; ?>
                     </p>
                 <?php endif ?>
@@ -166,17 +166,19 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                                     <?php echo wp_get_attachment_image($imageModuleAcademy, 'full', '', ['style' => 'object-fit: fill']); ?>
                                                 <?php endif ?>
                                             </div>
-                                            <div class="mt-1 p-0">
-                                                <div class="w-75 p-2 mb-4 btn-view-now">
+                                           <div class="mt-1 p-0 d-flex flex-column justify-content-center align-items-center" style="min-height: 250px;">
+                                                <div class="w-75 p-2 mb-4 btn-view-now text-center">
                                                     <i class="fa-regular fa-circle-play mx-2"></i>
                                                     Ver ahora
                                                 </div>
                                                 <?php if ($titleModuleAcademy): ?>
-                                                    <h5 class="NotoSans-Bold title-color"><?= $titleModuleAcademy; ?></h5>
+                                                    <h5 class="NotoSans-Bold title-color text-center"><?= $titleModuleAcademy; ?></h5>
                                                 <?php endif; ?>
-                                                <?php if ($speakerModuleAcademy): ?>
-                                                    <p class="NotoSans-Regular description-color"><?= $speakerModuleAcademy; ?></p>
-                                                <?php endif; ?>
+                                                <div class="mt-auto">
+                                                    <?php if ($speakerModuleAcademy): ?>
+                                                        <p class="NotoSans-Regular description-color text-center mb-0"><?= $speakerModuleAcademy; ?></p>
+                                                    <?php endif; ?>
+                                                </div>
                                             </div>
                                         </a>
                                     </div>
@@ -204,18 +206,18 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                 .accs-wrap {
                     max-width: 960px;
                     margin: 24px auto;
-                    padding: 0 12px
+                    padding: 0 12px;
                 }
 
                 .accs-accordion {
                     display: flex;
                     flex-direction: column;
-                    gap: 16px
+                    gap: 16px;
                 }
 
                 .accs-item {
                     border: none;
-                    margin: 2rem
+                    margin: 2rem;
                 }
 
                 .accs-header {
@@ -260,11 +262,11 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .06);
                     color: #00186c;
                     margin-top: -3rem;
-                    padding: 4rem 18px 18px;
+                    padding: 7rem;
                 }
 
                 .accs-item.abierto .accs-panel {
-                    display: block
+                    display: block;
                 }
 
                 .leadish {
@@ -278,6 +280,64 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                 .q-subtitle {
                     font-size: 1.2rem;
                 }
+
+                .q-number {
+                    font-weight: bold;
+                }
+
+                /* ===== Media Queries para manejo responsive ===== */
+
+                /* Pantallas pequeñas (teléfonos) */
+                @media (max-width: 576px) {
+                    .accs-item {
+                        margin: 1rem;
+                    }
+
+                    .accs-banner {
+                        width: 100%;
+                    }
+
+                    .accs-deploy-btn {
+                        width: 3rem;
+                    }
+
+                    .accs-panel {
+                        margin-top: -2.5rem;
+                        padding: 7rem 3rem ;
+                    }
+
+                    .q-title {
+                        font-size: 3rem;
+                    }
+
+                    .q-subtitle {
+                        font-size: 1rem;
+                    }
+                }
+
+                /* Pantallas medianas (tabletas) */
+                @media (min-width: 577px) and (max-width: 992px) {
+                    .accs-item {
+                        margin: 1.5rem;
+                    }
+
+                    .accs-banner {
+                        width: 90%;
+                    }
+
+                    .accs-deploy-btn {
+                        width: 3.5rem;
+                    }
+
+                    .q-title {
+                        font-size: 4rem;
+                    }
+
+                    .q-subtitle {
+                        font-size: 1.1rem;
+                    }
+                }
+
             </style>
 
             <div class="accs-wrap">
@@ -296,8 +356,8 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 
                         </button>
                         <div class="accs-panel" id="<?php echo $ACC_ID; ?>_panel_carlos" role="region"
-                            aria-labelledby="<?php echo $ACC_ID; ?>_header_carlos">
-                            <div class="mb-4 justify-content-center d-flex-column" style="padding: 7rem;">
+                            aria-labelledby="<?php echo $ACC_ID; ?>_header_carlos" >
+                            <div class="mb-4 justify-content-center d-flex-column" >
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">1.</span>
                                     <div class=" fw-bold q-subtitle">¿Quisiera conocer específicamente en qué se <br />

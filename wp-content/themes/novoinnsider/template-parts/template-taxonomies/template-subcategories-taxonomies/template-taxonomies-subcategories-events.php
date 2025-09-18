@@ -166,7 +166,8 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                                     <?php echo wp_get_attachment_image($imageModuleAcademy, 'full', '', ['style' => 'object-fit: fill']); ?>
                                                 <?php endif ?>
                                             </div>
-                                           <div class="mt-1 p-0 d-flex flex-column justify-content-center align-items-center" style="min-height: 250px;">
+                                            <div class="mt-1 p-0 d-flex flex-column justify-content-center align-items-center"
+                                                style="min-height: 250px;">
                                                 <div class="w-75 p-2 mb-4 btn-view-now text-center">
                                                     <i class="fa-regular fa-circle-play mx-2"></i>
                                                     Ver ahora
@@ -176,7 +177,8 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                                 <?php endif; ?>
                                                 <div class="mt-auto">
                                                     <?php if ($speakerModuleAcademy): ?>
-                                                        <p class="NotoSans-Regular description-color text-center mb-0"><?= $speakerModuleAcademy; ?></p>
+                                                        <p class="NotoSans-Regular description-color text-center mb-0"><?= $speakerModuleAcademy; ?>
+                                                        </p>
                                                     <?php endif; ?>
                                                 </div>
                                             </div>
@@ -295,7 +297,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                 /* Pantallas pequeñas (teléfonos) */
                 @media (max-width: 576px) {
                     .accs-item {
-                        margin: 1rem;
+                        margin: 0;
                     }
 
                     .accs-banner {
@@ -308,7 +310,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 
                     .accs-panel {
                         margin-top: -2.5rem;
-                        padding: 7rem 3rem ;
+                        padding: 7rem 1rem;
                     }
 
                     .q-title {
@@ -322,12 +324,16 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                     .titulo-conferencistas {
                         font-size: 2rem;
                     }
+
+                    .leadish {
+                        font-size: 1rem;
+                    }
                 }
 
                 /* Pantallas medianas (tabletas) */
                 @media (min-width: 577px) and (max-width: 992px) {
                     .accs-item {
-                        margin: 1.5rem;
+                        margin: 1rem;
                     }
 
                     .accs-banner {
@@ -346,7 +352,6 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                         font-size: 1.1rem;
                     }
                 }
-
             </style>
 
             <div class="accs-wrap">
@@ -370,11 +375,11 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
 
                         </button>
                         <div class="accs-panel" id="<?php echo $ACC_ID; ?>_panel_carlos" role="region"
-                            aria-labelledby="<?php echo $ACC_ID; ?>_header_carlos" >
-                            <div class="mb-4 justify-content-center d-flex-column" >
+                            aria-labelledby="<?php echo $ACC_ID; ?>_header_carlos">
+                            <div class="mb-4 justify-content-center d-flex-column">
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">1.</span>
-                                    <div class=" fw-bold q-subtitle">¿Quisiera conocer específicamente en qué se <br />
+                                    <div class=" fw-bold q-subtitle">¿Quisiera conocer específicamente en qué se
                                         innova? ¿Qué les transformó el servicio?</div>
                                 </div>
                                 <p class="leadish mt-2">
@@ -397,7 +402,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </p>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">2.</span>
-                                    <div class="q-subtitle fw-bold">¿Quisiera conocer específicamente en qué se <br />
+                                    <div class="q-subtitle fw-bold">¿Quisiera conocer específicamente en qué se
                                         innova? ¿Qué les transformó el servicio?</div>
                                 </div>
                                 <p class="leadish mt-2">
@@ -412,9 +417,9 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </p>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">3.</span>
-                                    <div class="q-subtitle fw-bold">Pregunta Bucaramanga a partir de la charla del jefe<br />
-                                        Montealegre: Satisfacción va de la mano con la<br />
-                                        adherencia a tratamientos. ¿Han llegado a medir<br />
+                                    <div class="q-subtitle fw-bold">Pregunta Bucaramanga a partir de la charla del jefe
+                                        Montealegre: Satisfacción va de la mano con la
+                                        adherencia a tratamientos. ¿Han llegado a medir
                                         adherencia y/o resultados en los pacientes?</div>
                                 </div>
                                 <p class="leadish mt-2">
@@ -470,7 +475,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </p>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">5.</span>
-                                    <div class="q-subtitle fw-bold">¿Ese impacto también se mide en adherencia a<br />
+                                    <div class="q-subtitle fw-bold">¿Ese impacto también se mide en adherencia a
                                         tratamiento y logro de metas en tratamiento?</div>
                                 </div>
                                 <p class="leadish mt-2">
@@ -502,7 +507,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                             <div class="mb-4 justify-content-center d-flex-column">
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">1.</span>
-                                    <div class=" fw-bold q-subtitle">¿Cómo ha influido la globalización en la adaptación <br />
+                                    <div class=" fw-bold q-subtitle">¿Cómo ha influido la globalización en la adaptación
                                         y aplicación de intervenciones en la salud pública?</div>
                                 </div>
                                 <p class="leadish mt-2">
@@ -566,7 +571,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                             <div class="mb-4 justify-content-center d-flex-column">
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">1.</span>
-                                    <div class=" fw-bold q-subtitle">¿Cómo han manejado la adherencia de los <br />
+                                    <div class=" fw-bold q-subtitle">¿Cómo han manejado la adherencia de los
                                         pacientes al programa de obesidad?</div>
                                 </div>
                                 <p class="leadish mt-2">
@@ -592,8 +597,8 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </p>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">2.</span>
-                                    <div class=" fw-bold q-subtitle">¿Hay diferencia en la adherencia al programa<br />
-                                        en pacientes con régimen subsidiado y<br />
+                                    <div class=" fw-bold q-subtitle">¿Hay diferencia en la adherencia al program
+                                        en pacientes con régimen subsidiado 
                                         contributivo?</div>
                                 </div>
                                 <p class="leadish mt-2">
@@ -612,9 +617,9 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </ul>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">3.</span>
-                                    <div class=" fw-bold q-subtitle">Todos sabemos la importancia de la obesidad<br />
-                                        actualmente y el alto costo de la misma, pero ¿qué<br />
-                                        estrategias usar para que las EPS, o mejor, el Estado<br />
+                                    <div class=" fw-bold q-subtitle">Todos sabemos la importancia de la obesida
+                                        actualmente y el alto costo de la misma, pero ¿qué
+                                        estrategias usar para que las EPS, o mejor, el Estado
                                         priorice esta patología?</div>
                                 </div>
                                 <p class="leadish mt-2 fw-bold">
@@ -674,10 +679,10 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </p>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">4.</span>
-                                    <div class=" fw-bold q-subtitle">¿Qué indicadores son útiles al mostrar la <br />
-                                        importancia de tu programa de obesidad? Más<br />
-                                        que calidad de vida, ya que para los entes<br />
-                                        territoriales y EPS se requieren indicadores que<br />
+                                    <div class=" fw-bold q-subtitle">¿Qué indicadores son útiles al mostrar la 
+                                        importancia de tu programa de obesidad? Más
+                                        que calidad de vida, ya que para los entes
+                                        territoriales y EPS se requieren indicadores que
                                         impacten costos.</div>
                                 </div>
                                 <p class="leadish mt-2 fw-bold">
@@ -733,10 +738,10 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </ul>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">5.</span>
-                                    <div class=" fw-bold q-subtitle">Es cierto que hablamos de obesidad, pero ¿por <br />
-                                        qué aún sentimos que hay tantas barreras,<br />
-                                        especialmente en eI régimen subsidiado, si se<br />
-                                        cuenta con programas bien estructurados?<br />
+                                    <div class=" fw-bold q-subtitle">Es cierto que hablamos de obesidad, pero ¿por 
+                                        qué aún sentimos que hay tantas barreras,
+                                        especialmente en eI régimen subsidiado, si se
+                                        cuenta con programas bien estructurados?
                                         ¿Qué estrategias tenemos frente a esto?</div>
                                 </div>
                                 <ul class="leadish">
@@ -760,8 +765,8 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </ul>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">6.</span>
-                                    <div class=" fw-bold q-subtitle">Dra. Daniela, ¿ya tienen experiencia o han<br />
-                                        pensado en estructurar una ruta para el<br />
+                                    <div class=" fw-bold q-subtitle">Dra. Daniela, ¿ya tienen experiencia o han
+                                        pensado en estructurar una ruta para el
                                         abordaje de la población infantil?</div>
                                 </div>
                                 <ul class="leadish">
@@ -784,8 +789,8 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                 </ul>
                                 <div class="q-title d-flex justify-content-center align-items-center gap-5">
                                     <span class="q-number">7.</span>
-                                    <div class=" fw-bold q-subtitle">¿Qué estrategias considera más efectivas para<br />
-                                        educar a la población sobre la obesidad desde<br />
+                                    <div class=" fw-bold q-subtitle">¿Qué estrategias considera más efectivas para
+                                        educar a la población sobre la obesidad desde
                                         la atención primaria?</div>
                                 </div>
                                 <p class="leadish mt-2">

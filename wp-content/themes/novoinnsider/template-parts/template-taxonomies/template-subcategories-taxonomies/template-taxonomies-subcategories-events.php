@@ -175,7 +175,7 @@ $cuttentTaxonomyParentId = $taxonomy->parent;
                                                 <?php if ($titleModuleAcademy): ?>
                                                     <h5 class="NotoSans-Bold title-color text-center"><?= $titleModuleAcademy; ?></h5>
                                                 <?php endif; ?>
-                                                <div class="mt-auto">
+                                                <div class="mt-5">
                                                     <?php if ($speakerModuleAcademy): ?>
                                                         <p class="NotoSans-Regular description-color text-center mb-0"><?= $speakerModuleAcademy; ?>
                                                         </p>

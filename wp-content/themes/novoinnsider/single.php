@@ -3128,6 +3128,7 @@ $titlePostId = get_the_title();
                                 <?php $bannerContentModule = $specificModule['Banner_Content_Module']; ?>
                                 <?php $titleVideoContentMod = $specificModule['Title_Video_Content_Mod']; ?>
                                 <?php $DescriptionContentModule = $specificModule['Description_Content_Module']; ?>
+                                <?php $pdfPresentation = $specificModule['pdf_presentation']; ?>
                                 <?php $thumbnailUrl = obtenerMiniaturaVimeo($urlModuleAcademy); ?>
 
                                 <div class="container background-single-init pt-2 px-5">
@@ -3178,12 +3179,24 @@ $titlePostId = get_the_title();
                                                     <?= esc_html($DescriptionContentModule); ?>
                                                 </p>
                                             <?php endif; ?>
+                                            <?php if (isset($pdfPresentation) && !empty($pdfPresentation)): ?>
+                                                <div class="">
+                                                    <a href="<?= esc_url($pdfPresentation); ?>" 
+                                                    class="btn btn-lg rounded-pill px-4" 
+                                                    style="background-color: #0A2351; border-color: #0A2351; color: #ffffff; text-decoration: none;"
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer">
+                                                        Consulte la presentación aquí
+                                                    </a>
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
 
                                     <div class="col-12 mx-1" id="linea">
                                         <hr>
                                     </div>
+
                                 </div>
 
                             <?php endif; ?>
